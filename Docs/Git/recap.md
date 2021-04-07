@@ -10,6 +10,7 @@
 Lors de la création de branche pour la 1ere fois, afin que tout le monde puisse y avoir accès:
 - `git branch NomDeLaBranche`
 - `git push -u origin NomDeLaBranche`
+- Se déplacer dessus `git checkout NomDeLaBranche`
 
 Si cette commande **n'a pas été éxécutée**:
 
