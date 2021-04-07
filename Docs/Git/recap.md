@@ -43,3 +43,6 @@ Supprimer Une Branche en local
 
 Supprimer une branche en distant
 - `git push origin --delete [nom_de_la_branche]`
+
+Mettre à jour les branches supprimées en distant sur son vsCode en local
+- `git remote prune origin`
