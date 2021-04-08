@@ -2,7 +2,16 @@
 
 ## Présentation du projet
  
-La crise du covid a donné un regain de popularité aux petits jeux multijoueurs (ex: gartic phone) et donc pour divertir les gens nous créeons ce site afin de permettre aux personnes de passer un bon moment entre amis en ces temps de crise. 
+La crise du covid a donné un regain de popularité aux petits jeux multijoueurs (ex: gartic phone) et donc pour divertir les gens nous créeons ce site afin de permettre aux personnes de passer un bon moment entre amis en ces temps de crise.
+
+Ce jeu a pour but de proposer des quizzes interactifs portés sur des questions d'ordre de grandeur. Les joueurs pourront s'inscrire sur le site, puis créer ou rejoindre une partie. Avant le lancement de la partie, les joueurs seront ensembles dans un salon où ils pourront parler entre eux via un tchat, et paramétrer les options de la partie (nombre de questions dans un round, nombre de rounds dans une partie, temps par question, nombre de joueurs max).
+
+Lors de la partie, chaque joueur sera représenté par une barre de progression située au dessus de son pseudonyme. Une question sera proposée, un décompte sera lancé pour cette question, les joueurs auront ainsi un temps limité pour essayer de découvrir la bonne réponse. A l'issue du décompte, une autre question est proposée et ainsi de suite. A la fin de chaque question,  un système de points est attribué en fonctions des réponses validées par les joueurs.
+
+Lors de la phase de réponse, les joueurs pourront modifier leurs réponses autant de fois que nécessaire dans le temps imparti. En fonction de ces réponses, leur barre de progression à l'écran évoluera (dans un premier temps, cette barre de progression sera indexée en fonction de la bonne réponse pour présenter un projet fonctionnel, par la suite en fonction de la moyenne des réponses des autres utilisateurs ou de la plus grande réponse des joueurs pour laisser plus de suspens). Une fois content de leur réponse, il leur suffira de la valider.
+Si aucune réponse n'est proposée, le joueur ne marque pas de points.
+
+A l'issue de la partie, un classement départagera tous les joueurs.
 
 ## Définitions des besoins/objectifs
 
@@ -43,7 +52,8 @@ Profil:
 - Historique des parties
 
 Jeu:
-- Créer une partie
+- Créer une partie :
+    - Génère un lien copiable (avec un bouton pour possiblement le copier)
 - Rejoindre une partie
 - Accèder au salon de la partie
 
@@ -59,18 +69,38 @@ Fonctionnalités de base du jeu:
 - Score de la partie
 - Affiche le pseudo des joueurs sous la barre
 - Bouton 'Quitter la partie'
+- Système de score:
+    - Si un joueur trouve la bonne réponse, bonus de points (10points)
+    - Sinon:
+        - Le plus proche gagne 5points
+        - le second gagne 4points
+        - le troisième gagne 3 points
+        - les autres n'ont pas de points
+- Si la réponse n'est pas validée, mais que le joueur a eu le temps de proposer une réponse, la dernière réponse est validée
+- Si aucune réponse n'a été proposée, le joueur ne marque pas de points
 
 ### Evolutions potentielles
+
+#### Jeu
 
 Animations :
 - Timmer qui grossit quand il reste plus beaucoup de temps afin de rajouter du stress,
 - Animations générales sur les boutons du site (hover, etc),
 - Animation de chargement de partie,
 - Messages de pression quand le timmer se rapproche de la fin,
-- Animations des barres de progression (),
+- Animations des barres de progression,
 
-Paramètre de partie:
-- Barre de progression, qui sera indexée en fonction de la moyenne des réponses ou de la plus grande réponse des joueurs 
+Partie:
+- Barre de progression, qui sera indexée en fonction de la moyenne des réponses ou de la plus grande réponse des joueurs
+
+Salon de partie:
+- Personnalisation de la partie (nombre de questions dans un round, nombre de rounds dans une partie, temps par question, nombre de joueurs max)
+- Thèmes: 
+    - choix par thème classiques 
+    - aléatoire complet qui regroupe toutes les questions de tout les thèmes
+    - aléatoire par thèmes (système de roulante en présentation visuel par exemple) 
+    - sytème de vote pour un thème ou  une fonction (aléatoire, etc) en particulier
+- Possibilité de personnalisation de l'avatar
 
 Mode de jeux : 
 - mode speed (10s au timmer, barre de progression des joueurs indéxée sur la bonne réponse, le but est de la trouver le plus vite possible) 
@@ -79,25 +109,28 @@ Mode de jeux :
 Option de sons : 
 - activer ou désactiver le son (background sonore / son des notif, ex:timer, efect...10s) 
 
+IA pour partie local: 
+- développer une IA permettant de jouer en local contre une ou plusieurs IA avec un choix de difficultés (facile, difficile, expert)
+
+#### Structure/Divers
+
 Authentification : 
 - Connexion par compte Facebook / Google
 -  mot de passe oublié 
 
-IA pour partie local: 
-- développer une IA permettant de jouer en local contre une ou plusieurs IA avec un choix de difficultés (facile, difficile, expert)
+Tchat:
+- Message privés
+- tchat disponible sur tout le site (pas uniquement que Salon de partie/En jeu)
+
+Profil:
+- Liste d'amis
+- Image de profil
 
 Contact: 
 - permet à un visiteur ou bien un user d'envoyer sous forme de mail une requête concernant un avis, un bug, etc 
 
 Avis: 
 - chaque user peut donner un avis avec une note 
-
-Thèmes: 
-- choix par thème classiques 
-- aléatoire complet qui regroupe toutes les questions de tout les thèmes
-- aléatoire par thèmes (système de roulante en présentation visuel par exemple) 
-- sytème de vote pour un thème ou  une fonction (aléatoire, etc) en particulier
-
 
 Mode d'affichage :
 - mode nuit pour avoir l'interface web en sombre
@@ -143,7 +176,6 @@ Google Chrome / Mozilla Firefox / Safari / Edge
 - inscription: permet qu'un visiteur se créer un compte `/signin`
 - profil: permet de modifier ses informations `/profil` 
 - partie: lors d'un join ou suite à une création de partie `/room`
-- 
 
 ### Front
 
@@ -160,7 +192,7 @@ Google Chrome / Mozilla Firefox / Safari / Edge
 
 ## Liste des User Stories
 
-En tant que |   Je veux pouvoir que             | Afin de
+En tant que |   Je veux pouvoir                 | Afin de
 ------------|---------------------------------- |---------
 admin       | Se connecter                      | 
 admin       | Ajouter de nouvelles questions    |   Améliorer les Quizz et le plaisir de jeu
@@ -171,11 +203,11 @@ admin       | Supprimer des thèmes              |   Améliorer les Quizz et le 
 admin       | Changer le rôle d'un utilisateur  |   
 admin       | Se déconnecter                    |   
 admin       | Consulter mon profil              |   Modifier mes informations personnelles
-admin       | Consulter la liste des messages reçues via contact | Lire les desideratas des utilisateurs
+admin       | Consulter la liste des messages reçus via contact | Lire les desideratas des utilisateurs
 
 
 
-En tant que |   Je veux pouvoir que              | Afin de
+En tant que |   Je veux pouvoir                  | Afin de
 ------------|------------------------------------|---------
 user        | Me connecter                       |  
 user        | Se déconnecter                     |  
@@ -189,16 +221,17 @@ user        | Supprimer un ami                   |  Améliorer mon plaisir de je
 user        | Consulter sa liste d'amis          |  
 user        | Utiliser le tchat                  |  Communiquer avec les personnes de la partie 
 user        | Rechercher un utilisateur (pseudo) |  Communiquer avec lui/ Ajouter à sa liste d'amis
+user        | Accèder au formulaire de contact   |  Pouvoir reporter un bug ou faire remonter des informations liées à l'utilisation
+user        | Déposer un avis                    |  Pouvoir donner son avis sur son utilisation du site
 
 
 
-En tant que |   Je veux pouvoir que                 | Afin de
+En tant que |   Je veux pouvoir                     | Afin de
 ------------|---------------------------------------|---------
 visitor     |  Créer un compte                      | Pouvoir jouer  
 visitor     |  Accèder à la page accueil            | Pouvoir regarder le tuto de fonctionnement de partie  
 visitor     |  Accèder à la page création de compte | Pouvoir créer un compte  
-visitor     |  Accèder à la page "Qui sommes-nous?" |   
-visitor     |                                       |   
+visitor     |  Accèder à la page "Qui sommes-nous?" | Se documenter sur le site    
 
 
 ## Liste des rôles
