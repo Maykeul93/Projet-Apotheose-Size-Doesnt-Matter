@@ -174,13 +174,16 @@ Google Chrome / Mozilla Firefox / Safari / Edge
 - login: permet de se connecter `/login`
 - contact: permet de contacter les admins du site  `/contact`
 - inscription: permet qu'un visiteur se créer un compte `/signin`
-- profil: permet de modifier ses informations `/profil` 
+- profil: permet de modifier ses informations `/profil`
+- historique: permet de récupérer les informations de l'historique des partie de l'utilisateur `/history`
+- admin: permet d'effectuer les actions inhérente au rôle d'administrateur du site (lire les contacts, rajouter des questions, etc) `/admin`
 - partie: lors d'un join ou suite à une création de partie `/room`
 
 ### Front
 
 - Page d'accueil
 - Page de connexion
+- Page Admin
 - Page "Qui-Sommes-Nous?"
 - Page Contact
 - Page Création de compte
@@ -193,14 +196,14 @@ Google Chrome / Mozilla Firefox / Safari / Edge
 ## Liste des User Stories
 
 En tant que |   Je veux pouvoir                 | Afin de
-------------|---------------------------------- |---------
-admin       | Se connecter                      | 
+------------|---------------------------------- |--------- 
 admin       | Ajouter de nouvelles questions    |   Améliorer les Quizz et le plaisir de jeu
+admin       | Modifier des questions/réponses existantes | Améliorer les Quizz et le plaisir de jeu
 admin       | Supprimer de nouvelles questions  |   Améliorer les Quizz et le plaisir de jeu
 admin       | Bannir des utilisateurs           |   Améliorer le plaisir de jeu 
 admin       | Ajouter de nouveaux thèmes        |   Améliorer les Quizz et le plaisir de jeu
 admin       | Supprimer des thèmes              |   Améliorer les Quizz et le plaisir de jeu
-admin       | Changer le rôle d'un utilisateur  |   
+admin       | Changer le rôle d'un utilisateur  |   Créer ou supprimer de nouveaux admins
 admin       | Se déconnecter                    |   
 admin       | Consulter mon profil              |   Modifier mes informations personnelles
 admin       | Consulter la liste des messages reçus via contact | Lire les desideratas des utilisateurs
