@@ -303,9 +303,3 @@ Footer:
 - Qui-sommes-nous?
 - titre du site en petit avec copyright
 - Réseaux sociaux
-
-## Page Contact
-
-### Version PC
-
-### Version Mobile
