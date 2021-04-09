@@ -285,3 +285,27 @@ Footer:
 - Qui-sommes-nous?
 - titre du site en petit avec copyright
 - Réseaux sociaux
+
+## Qui Sommes Nous?
+
+Header:
+- Logo à gauche (pas de logo sur version mobile)
+- Titre au milieu
+- Avatar à droite avec image/pseudo/icône Online/offline
+- Menu déroulant sous l'avatar avec icône (accueil, mon profil, jouer, (admin), logout)
+
+Main:
+- h2 'Qui sommes-nous?'
+- Paragraphes d'informations
+
+Footer:
+- Contact
+- Qui-sommes-nous?
+- titre du site en petit avec copyright
+- Réseaux sociaux
+
+## Page Contact
+
+### Version PC
+
+### Version Mobile
