@@ -1,5 +1,7 @@
 # Wireframes
 
+Résumé des différentes wireframes.
+
 ## Page d'accueil
 
 **Agencement Mobile/PC**
@@ -190,3 +192,96 @@ Deux onglets (Round et Classement)
 bloc2
 - Icône sous forme de bulle pour afficher le tchat
 - Un bouton 'Quitter la partie'
+
+## Page Création de compte
+
+### Version PC
+
+Header:
+- Logo à gauche 
+- Titre au milieu
+- Avatar à droite avec image/pseudo/icône Online/offline
+- Menu déroulant sous l'avatar avec icône (accueil, mon profil, jouer, (admin), logout)
+
+Main:
+- Formulaire d'inscription
+- 3 inputs pour email, password, pseudo
+- Bouton validation
+- Bouton 'Retour' pour revenir sur la page d'accueil
+
+Footer:
+- Contact
+- Qui-sommes-nous?
+- titre du site en petit avec copyright
+- Réseaux sociaux
+
+### Version Mobile
+
+Header:
+- Titre au milieu
+- Avatar à droite avec image/pseudo/icône Online/offline
+- Menu déroulant sous l'avatar avec icône (accueil, mon profil, jouer, (admin), logout)
+
+Main:
+- Formulaire d'inscription
+- 3 inputs pour email, password, pseudo
+- Bouton validation
+- Bouton 'Retour' pour revenir sur la page d'accueil
+
+Footer:
+- Contact
+- Qui-sommes-nous?
+- titre du site en petit avec copyright
+- Réseaux sociaux
+
+## Page Profil
+
+### Version PC
+
+Header:
+- Logo à gauche 
+- Titre au milieu
+- Avatar à droite avec image/pseudo/icône Online/offline
+- Menu déroulant sous l'avatar avec icône (accueil, mon profil, jouer, (admin), logout)
+
+Main:
+2 onglets pour la page (informations, historique)
+informations:
+- Supprimer son compte (à implémenter plus tard)
+- Avatar du profil
+- Pseudo
+- Email
+A côté de chacun de ces champs, un bouton sous forme de crayon pour les éditer
+- Mot de passe (3 inputs, un ancien mdp, nouveau mdp, confirmation du mdp + un bouton pour valider + bouton de validation)
+
+historiques:
+- Image de l'avatar au centre
+- Tout autour, disposé en cercle, les statistiques de parties (nombre de parties, date de la dernière partie, nombre de réponses exactes, Nombre de 1ere place/2eme/3eme place)
+
+
+Footer:
+- Contact
+- Qui-sommes-nous?
+- titre du site en petit avec copyright
+- Réseaux sociaux
+
+### Version Mobile
+
+Header:
+- Titre au milieu
+- Avatar à droite avec image/pseudo/icône Online/offline
+- Menu déroulant sous l'avatar avec icône (accueil, mon profil, jouer, (admin), logout)
+
+Main:
+Informations:
+Idem que pour le PC, execpté que les boutons de suppression de compte et de validation du formulaire sont centrés.
+Historiques:
+- Nombre de parties
+- Avatar
+- liste des statistiques
+
+Footer:
+- Contact
+- Qui-sommes-nous?
+- titre du site en petit avec copyright
+- Réseaux sociaux
