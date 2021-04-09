@@ -5,12 +5,12 @@
 ```
 FRIENDLIST: username
 play, 0N GAME, 1N USER
-GAME: room, score, position, number_player, date,
+GAME: room, score, position, number_player, date, exact_answer
 contains, 1N GAME, 0N QUESTION
 QUESTION: answer, content
 
 own, 01 USER, 0N FRIENDLIST
-USER: firstname, lastname, email, password, pseudo
+USER: email, password, pseudo
 has, 11 USER, 0N ROLE
 ROLE: admin, user
 categorize, 1N QUESTION, 1N TAG
