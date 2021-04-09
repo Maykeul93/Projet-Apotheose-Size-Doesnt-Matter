@@ -12,4 +12,4 @@
 
 - **09/04/2021**:
     - Matin. Présentation des wireframes que chacun a élaboré de son côté. Partage d'idées et élaboration des wireframes pour les pages Admin, Accueil, Salon de partie, Création de partie, Interface du jeu.
-    - Aprem. Elaboration des wireframes pour les pages Profil, Qui-sommes-nous, Contact, Création de compte. Reprise des divers points modifiés suite à la conception des wireframes dans le MCD, MLD, Dico de données, Cahier des Charges, Arborescence.
+    - Aprem. Elaboration des wireframes pour les pages Profil, Qui-sommes-nous, Contact, Création de compte. Reprise des divers points modifiés suite à la conception des wireframes dans le MCD, MLD, Dico de données, Cahier des Charges, Arborescence. Choix des polices possibles. Choix des couleurs pour le `background-color` du site.
