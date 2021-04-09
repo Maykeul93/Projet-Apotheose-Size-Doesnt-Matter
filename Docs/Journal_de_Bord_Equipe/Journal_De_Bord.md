@@ -9,3 +9,7 @@
 - **08/04/2021**:
     - Matin. Finition du cahier des charges. Rédaction du MCD pour le MVP.
     - Aprem. Finition MCD pour les évolutions potentielles, rédaction des MLD. Rédaction du dictionnaire de données. Modification de l'arborescence du site. Discussion pour l'élaboration les wireframes (pas de conception visuelle concrète en équipe).
+
+- **09/04/2021**:
+    - Matin. Présentation des wireframes que chacun a élaboré de son côté. Partage d'idées et élaboration des wireframes pour les pages Admin, Accueil, Salon de partie, Création de partie, Interface du jeu.
+    - Aprem. Elaboration des wireframes pour les pages Profil, Qui-sommes-nous, Contact, Création de compte. Reprise des divers points modifiés suite à la conception des wireframes dans le MCD, MLD, Dico de données, Cahier des Charges, Arborescence.
