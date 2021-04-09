@@ -64,10 +64,6 @@ Footer:
 - titre du site en petit avec copyright
 - Réseaux sociaux
 
-## Page Création de compte
-
-## Page de jeu
-
 ## Page Création de room
 
 ### Version PC

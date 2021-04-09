@@ -53,7 +53,7 @@ Profil:
 
 Jeu:
 - Créer une partie :
-    - Génère un lien copiable (avec un bouton pour possiblement le copier)
+    - Génère un code copiable (avec un bouton pour possiblement le copier)
 - Rejoindre une partie
 - Accèder au salon de la partie
 
@@ -118,6 +118,9 @@ Authentification :
 - Connexion par compte Facebook / Google
 -  mot de passe oublié 
 
+Admin:
+- Banissement d'utilisateurs
+
 Tchat:
 - Message privés
 - tchat disponible sur tout le site (pas uniquement que Salon de partie/En jeu)
@@ -125,6 +128,7 @@ Tchat:
 Profil:
 - Liste d'amis
 - Image de profil
+- Suppression de compte
 
 Contact: 
 - permet à un visiteur ou bien un user d'envoyer sous forme de mail une requête concernant un avis, un bug, etc 
@@ -165,7 +169,7 @@ Google Chrome / Mozilla Firefox / Safari / Edge
 
 ## Arborescence de l'application
 
-<img src="./arbo.png" width="500px">
+<img src="./arbo.png" width="650px">
 
 ## Liste des routes
 
@@ -182,15 +186,15 @@ Google Chrome / Mozilla Firefox / Safari / Edge
 ### Front
 
 - Page d'accueil
-- Page de connexion
-- Page Admin
-- Page "Qui-Sommes-Nous?"
-- Page Contact
+- Modale de connexion
 - Page Création de compte
-- Page Création de Partie
+- Page Admin
 - Page Profil
+- Page Création de Partie
 - Page Salon de la partie
 - Page de jeu
+- Page "Qui-Sommes-Nous?"
+- Page Contact
 - Page gestion Erreurs
 
 ## Liste des User Stories
