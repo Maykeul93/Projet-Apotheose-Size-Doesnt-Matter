@@ -4,8 +4,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: $footer-bg;
     padding: $gutter;
+    color: $header-color;
     &__logo {
         min-width: 100px;
         min-height: 100px;
