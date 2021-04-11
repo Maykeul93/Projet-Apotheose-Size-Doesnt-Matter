@@ -1,0 +1,54 @@
+@import 'src/styles/vars.scss';
+
+.menu {
+    position: relative;
+    &__icon {
+        cursor: pointer;
+    }
+    &__options {
+        position: absolute;
+        display: none; // Avoid to display menu since user load the page
+        top: 30px;
+        right: -200px;
+        z-index: 10;
+        width: 100px;
+        background-color: $menu-bg;
+        padding: $gutter;
+        border: 1px solid $border-color;
+        animation: slideout .7s ease-out;
+    }
+    &__option {
+        margin-top: $gutter/2;
+    }
+    &__option:hover {
+        text-decoration: underline;
+    }
+}
+
+.is-active {
+    animation: slidein .7s ease-out;
+    right: -25px;
+}
+
+.is-displayed {
+    display: block;
+}
+
+@keyframes slidein {
+    from {
+        right: -200px;
+    }
+
+    to {
+        right: -25px;
+    }
+}
+
+@keyframes slideout {
+    from {
+        right: -25px;
+    }
+    to {
+        right: -200px;
+    }
+}
