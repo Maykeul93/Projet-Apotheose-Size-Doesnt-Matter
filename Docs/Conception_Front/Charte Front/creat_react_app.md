@@ -25,3 +25,7 @@ Pour réaliser les imports absolus des `components`, `container`, ..., depuis de
         color: $nomDeVariable
     }
 ```
+
+## Plus besoin d'importer react dans tous les composants
+
+La ligne `import React from 'react';` n'a plus besoin d'être précisée lors de la création des composants.
