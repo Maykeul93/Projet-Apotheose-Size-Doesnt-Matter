@@ -1,8 +1,24 @@
-// Sizing
+/***** Coloring *****/
+
+// Footer
+$footer-bg: rgb(226, 224, 224);
+$footer-color: #000;
+
+// Random blocks
+$border-color: rgb(189, 186, 186);
+
+/***** Sizing for margin, padding, etc ****/
 $gutter: 1rem;
 
-// Coloring
+/***** Police *****/
 
-$footer-bg: rgb(226, 224, 224);
-$footer-police: #000;
-$border-color: rgb(189, 186, 186);
+// Sizing
+$h1-size: 2.5em;
+
+// Styles
+@font-face {
+    font-family: "CarbonBlock";
+    src: url("./fonts/CarbonBlock.ttf") format("truetype");
+}
+
+$h1-police: 'CarbonBlock', serif;
