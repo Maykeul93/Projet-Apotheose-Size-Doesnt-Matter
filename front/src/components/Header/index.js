@@ -1,9 +1,15 @@
 import PropTypes from 'prop-types';
+
+import Menu from 'components/Menu';
+
 import './style.scss';
 
 function Header() {
     return (
-        <div className="header">Header</div>
+        <div className="header">
+            Header
+            <Menu />
+        </div>
     );
 }
 
