@@ -1,0 +1,19 @@
+@import 'src/styles/vars.scss';
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    padding: $gutter;
+    background-color: $footer-bg;
+    border: 1px solid $border-color;
+    &__link {
+        color: $footer-police;
+        text-decoration: none;
+    }
+    &__link:hover {
+        text-decoration: underline;
+    }
+    &__copyright {
+        font-size: 0.8em;
+    }
+}

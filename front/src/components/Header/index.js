@@ -7,7 +7,8 @@ import './style.scss';
 function Header() {
     return (
         <div className="header">
-            Header
+            <div className="logo">Logo</div>
+            <h1 className="header__title">Size Doesn't Matter</h1>
             <Menu />
         </div>
     );

@@ -9,7 +9,7 @@ function Page() {
     return (
         <div className="page">
             <Header />
-                Page
+            <div className="page__main">Page</div>
             <Footer />
         </div>
     );
