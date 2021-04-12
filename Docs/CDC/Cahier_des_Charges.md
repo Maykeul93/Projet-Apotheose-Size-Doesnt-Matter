@@ -39,7 +39,8 @@ Header:
 
 Footer:
 - copyright
-- Bouton contact
+- Lien page contact
+- Lien page 'Qui sommes-nous?'
 
 Authentification:
 - Création de compte
@@ -50,6 +51,12 @@ Profil:
 - Accès aux informations personnelles
 - Modification des informations personnelles
 - Historique des parties
+
+Admin:
+- Modifier/Supprimer/Ajouter une question
+- Modifier/Supprimer/Ajouter un thème
+- Changer le rôle d'un utilisateur
+
 
 Jeu:
 - Créer une partie :
