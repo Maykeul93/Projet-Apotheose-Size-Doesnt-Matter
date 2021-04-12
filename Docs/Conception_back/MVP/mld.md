@@ -1,10 +1,8 @@
-ROLE(id SERIAL, admin VARCHAR(60), user VARCHAR(60))
+USER(id SERIAL, email VARCHAR (60) NOT NULL UNIQUE, password VARCHAR (60) NOT NULL, pseudo VARCHAR (60) NOT NULL, role TEXT)
 
-USER(id SERIAL, email VARCHAR (60) NOT NULL, password VARCHAR (60) NOT NULL, pseudo VARCHAR (60) NOT NULL, #ROLE(id))
+GAME(id SERIAL,room TEXT)
 
-GAME(id SERIAL,room TEXT, score INT DEFAULT 0, position INT, number_player INT, date TIMESTAMPZ, exact_answer INT DEFAULT 0)
-
-USER_PLAY_GAME(#USER(id), #GAME(id))
+USER_PLAY_GAME(#USER(id), #GAME(id), score INT DEFAULT 0, position INT, number_player INT, date TIMESTAMPZ, exact_answer INT DEFAULT 0))
 
 QUESTION(id SERIAL, answer TEXT NOT NULL, content TEXT NOT NULL)
 
