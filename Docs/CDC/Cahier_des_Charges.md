@@ -39,7 +39,6 @@ Header:
 
 Footer:
 - copyright
-- Lien page contact
 - Lien page 'Qui sommes-nous?'
 
 Authentification:
@@ -119,6 +118,8 @@ Option de sons :
 IA pour partie local: 
 - développer une IA permettant de jouer en local contre une ou plusieurs IA avec un choix de difficultés (facile, difficile, expert)
 
+- Lien page contact
+
 #### Structure/Divers
 
 Authentification : 
@@ -165,6 +166,7 @@ Réseaux sociaux :
 -Express
 -Sqitch 
 -Postgres
+-Sequelize
 
 ## Définition de la cible
 
@@ -182,13 +184,25 @@ Google Chrome / Mozilla Firefox / Safari / Edge
 
 ### Back
 
-- login: permet de se connecter `/login`
-- contact: permet de contacter les admins du site  `/contact`
-- inscription: permet qu'un visiteur se créer un compte `/signin`
-- profil: permet de modifier ses informations `/profil`
-- historique: permet de récupérer les informations de l'historique des partie de l'utilisateur `/history`
-- admin: permet d'effectuer les actions inhérente au rôle d'administrateur du site (lire les contacts, rajouter des questions, etc) `/admin`
-- partie: lors d'un join ou suite à une création de partie `/room`
+
+Numero |   Endpoint                     | HTTP   | Données à transmettre                              | Description                     |
+-------|--------------------------------|--------|----------------------------------------------------|---------------------------------|
+1      |  /login                   | POST   | email, password                                    | Récupération des données de connexion de l'utilisateur
+2      |  /signin                       | POST   | email, password, pseudo                            | Création de compte d'un utilisateur 
+3      |  /profil/[id]                  | GET    | id, email, pseudo                                  | Afficher les données de l'utilisateur connecté
+4      |  /profil                       | POST   | email, password, pseudo                            | Modifier les données de son profil
+5      |  /history/[id]                 | GET    | user_id, room, score, position, date               | Récupère l'id de l'utilisateur plus une fonction qui donnera des moyennes sur toutes les données de toute les games              |
+6      |  /admin/question               | GET    | id, question, answer                                   | Récupère toutes les questions
+7      |  /admin/question/[id]          | GET    | id, question, answer                                   | Récupère une seule question
+8      |  /admin/question               | POST   | id_admin, password, question, answer, id_tag       | Ajout d'une nouvelle question/réponse, attachée à un thème existant
+9      |  /admin/question/[id]          | PUT    | id, question, answer                                   | Modifier une question/réponse
+10     |  /admin/question/[id]          | DELETE | id, question                                               | Supprimer une question
+11     |  /admin/tag                    | GET    | id, name                                               | Récupère tous les tags
+12     |  /admin/tag/[id]               | GET    | id, name                                               | Récupère un tag en particulier
+13     |  /admin/tag/[id]               | DELETE | id, name                                               | Supprimer un tag
+14     |  /admin/tag                    | POST   | id_admin, name, password                           | Ajout d'un tag
+15     |  /admin/user/[id]              | DELETE | user_id, pseudo                                    | Supprimer un utilisateur
+16     |  /admin/question/[id]/tag/[id] | PUT    | id_question, id_tag                                | Modifier une appartenance d'une question / réponse à un thème
 
 ### Front
 
@@ -211,13 +225,12 @@ En tant que |   Je veux pouvoir                 | Afin de
 admin       | Ajouter de nouvelles questions    |   Améliorer les Quizz et le plaisir de jeu
 admin       | Modifier des questions/réponses existantes | Améliorer les Quizz et le plaisir de jeu
 admin       | Supprimer de nouvelles questions  |   Améliorer les Quizz et le plaisir de jeu
-admin       | Bannir des utilisateurs           |   Améliorer le plaisir de jeu 
 admin       | Ajouter de nouveaux thèmes        |   Améliorer les Quizz et le plaisir de jeu
 admin       | Supprimer des thèmes              |   Améliorer les Quizz et le plaisir de jeu
 admin       | Changer le rôle d'un utilisateur  |   Créer ou supprimer de nouveaux admins
 admin       | Se déconnecter                    |   
 admin       | Consulter mon profil              |   Modifier mes informations personnelles
-admin       | Consulter la liste des messages reçus via contact | Lire les desideratas des utilisateurs
+
 
 
 
@@ -230,13 +243,8 @@ user        | Consulter mon historique de parties|  Me donner plus d'information
 user        | Rejoindre une partie               |  Pouvoir jouer avec mes amis
 user        | Quitter une partie                 |  
 user        | Créer une partie                   |  Pouvoir jouer avec mes amis
-user        | Ajouter un ami                     |  Pouvoir jouer avec mes amis
-user        | Supprimer un ami                   |  Améliorer mon plaisir de jeu
-user        | Consulter sa liste d'amis          |  
 user        | Utiliser le tchat                  |  Communiquer avec les personnes de la partie 
-user        | Rechercher un utilisateur (pseudo) |  Communiquer avec lui/ Ajouter à sa liste d'amis
-user        | Accèder au formulaire de contact   |  Pouvoir reporter un bug ou faire remonter des informations liées à l'utilisation
-user        | Déposer un avis                    |  Pouvoir donner son avis sur son utilisation du site
+
 
 
 
@@ -246,6 +254,21 @@ visitor     |  Créer un compte                      | Pouvoir jouer
 visitor     |  Accèder à la page accueil            | Pouvoir regarder le tuto de fonctionnement de partie  
 visitor     |  Accèder à la page création de compte | Pouvoir créer un compte  
 visitor     |  Accèder à la page "Qui sommes-nous?" | Se documenter sur le site    
+
+
+### Evolution potentielles user stories 
+
+
+En tant que |   Je veux pouvoir                     | Afin de
+------------|---------------------------------------|---------
+admin       | Bannir des utilisateurs           |   Améliorer le plaisir de jeu 
+admin       | Consulter la liste des messages reçus via contact | Lire les desideratas des utilisateurs
+user        | Ajouter un ami                     |  Pouvoir jouer avec mes amis
+user        | Supprimer un ami                   |  Améliorer mon plaisir de jeu
+user        | Consulter sa liste d'amis          |  
+user        | Rechercher un utilisateur (pseudo) |  Communiquer avec lui/ Ajouter à sa liste d'amis
+user        | Accèder au formulaire de contact   |  Pouvoir reporter un bug ou faire remonter des informations liées à l'utilisation
+user        | Déposer un avis                    |  Pouvoir donner son avis sur son utilisation du site
 
 
 ## Liste des rôles
