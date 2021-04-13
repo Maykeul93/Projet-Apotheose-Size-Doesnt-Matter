@@ -12,10 +12,10 @@
 
 Nom |   Description                     | Type   | Commentaire                              | Entité                     |
 -------|--------------------------------|--------|----------------------------------------------------|---------------------------------|
-|   email     |   informaitons obligatoire pour se connecter      |    VARCHAR (60) NOT NULL UNIQUE     |   adresse unique    |     user    |
-|   password     |   informaitons obligatoire pour se connecter      |    VARCHAR (60) NOT NULL     |   propre à chaque utilisateur    |     user    |
-|   pseudo     |   informaitons obligatoire pour se connecter      |    VARCHAR (15) NOT NULL      |   propre à chaque utilisateur    |     user    |
-|   role     |   informaitons pour avoir des fonctions supplémentaires possibles      |    TEXT     |   user / admin    |     user    |
+|   email     |   informations obligatoire pour se connecter      |    VARCHAR (60) NOT NULL UNIQUE     |   adresse unique    |     user    |
+|   password     |   informations obligatoire pour se connecter      |    VARCHAR (60) NOT NULL     |   propre à chaque utilisateur    |     user    |
+|   pseudo     |   informations obligatoire pour se connecter      |    VARCHAR (15) NOT NULL      |   propre à chaque utilisateur    |     user    |
+|   role     |   informations pour avoir des fonctions supplémentaires possibles      |    TEXT     |   user / admin    |     user    |
 |   room     |   salle regroupant les joueurs avant que le début de la partie      |    TEXT     |   sous forme de code    |     game    |
 |   score     |   score du joueur      |    INT DEFAULT 0     |   spécifique à une partie  |     play    |
 |   position     |   position du joueur      |    INT     |   spécifique à une partie    |     play    |
