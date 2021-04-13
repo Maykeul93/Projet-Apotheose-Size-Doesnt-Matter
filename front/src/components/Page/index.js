@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 
+//To remove
+import Home from 'components/Home';
+
 import './style.scss';
 
 function Page() {
@@ -41,7 +44,8 @@ function Page() {
                 params ? (
                     <div>{component[params]}</div>
                 ) : (
-                    <div className="page__main">Home</div>
+                    // <div className="page__main">Home</div>
+                    <Home />
                 )
             }
             
