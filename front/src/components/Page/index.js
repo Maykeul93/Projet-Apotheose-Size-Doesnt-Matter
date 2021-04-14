@@ -8,9 +8,9 @@ import './style.scss';
 
 function Page() {
     // get the params of the road to choose which content is displayed
-    const { params } = useParams();
+    const { page } = useParams();
 
-    console.log(params);
+    console.log(page);
 
     const component = {
         signin: 'Signin Component',
@@ -22,8 +22,8 @@ function Page() {
     };
 
     // Error gestion in case of road asked isn't exist
-    if (params) {
-        const isRoadExist = Object.keys(component).find((road) => road === params);
+    if (page) {
+        const isRoadExist = Object.keys(component).find((road) => road === page);
 
         // If isRoadExist is undefined, redirect to Error Page
         if (!isRoadExist) {
@@ -38,8 +38,8 @@ function Page() {
             {/* By default, Home component will be displayed here.
             Otherwise, looking for same key in component object and render the component  */}
             {
-                params ? (
-                    <div>{component[params]}</div>
+                page ? (
+                    <div>{component[page]}</div>
                 ) : (
                     <div className="page__main">Home</div>
                 )

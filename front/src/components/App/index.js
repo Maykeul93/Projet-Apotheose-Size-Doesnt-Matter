@@ -10,7 +10,7 @@ function App() {
         <Route path="/room/:room">
           {/* Room Component */}
         </Route>
-        <Route path="/:params">
+        <Route path="/page/:page">
           {/* Dynamically display of pages like Admin, Home, Signin, etc */}
           <Page />
         </Route>
