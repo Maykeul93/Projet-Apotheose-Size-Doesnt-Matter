@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import CreateRoom from 'components/CreateRoom';
 import {
     setCodeRoomInput,
+    createNewGame,
 } from 'actions/game';
 
 const mapStateToProps = (state) => ({
@@ -12,6 +13,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchStateToProps = (dispatch) => ({
     setInputValue: (value) => {
         dispatch(setCodeRoomInput(value));
+    },
+    createGame: () => {
+        dispatch(createNewGame());
     },
 });
 

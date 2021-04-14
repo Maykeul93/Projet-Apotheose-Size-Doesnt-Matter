@@ -3,10 +3,7 @@ import PropTypes from 'prop-types';
 import Rules from './Rules';
 import './style.scss';
 
-function CreateRoom({ inputValue, setInputValue }) {
-    const generateRoom = () => {
-        console.log('Je génère une room');
-    };
+function CreateRoom({ inputValue, setInputValue, createGame }) {
     const joinRoom = (e) => {
         e.preventDefault();
         console.log('Je rejoins une partie existante');
@@ -32,7 +29,7 @@ function CreateRoom({ inputValue, setInputValue }) {
                 <button
                     className="create"
                     type="button"
-                    onClick={generateRoom}
+                    onClick={createGame}
                 >
                     Créer une partie
                 </button>
@@ -59,6 +56,7 @@ function CreateRoom({ inputValue, setInputValue }) {
 CreateRoom.propTypes = {
     inputValue: PropTypes.string.isRequired,
     setInputValue: PropTypes.func.isRequired,
+    createGame: PropTypes.func.isRequired,
 };
 
 export default CreateRoom;
