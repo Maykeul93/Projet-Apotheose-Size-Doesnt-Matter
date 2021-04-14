@@ -26,3 +26,23 @@
         font-family: $h1-police;
     }
 }
+
+.connection {
+    position: relative;
+    &__menu {
+        position: absolute;
+        display: none;
+        right: 30px;
+        z-index: 1;
+        width: 150px;
+        padding: $gutter;
+        border: 1px solid $border-color;
+    }
+    &__input {
+        width: 100%;
+    }
+
+}
+.is-displayed {
+    display: block;
+}
