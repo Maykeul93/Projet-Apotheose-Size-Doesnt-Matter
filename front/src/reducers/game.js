@@ -1,10 +1,12 @@
 import {
     SET_CODE_ROOM_INPUT,
+    STOCK_ROOM
 } from 'actions/game';
 
 const initialState = {
     users: [],
     codeRoomInput: '',
+    room: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -13,7 +15,12 @@ const reducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 codeRoomInput: action.value,
-            }
+            };
+        case STOCK_ROOM:
+            return {
+                ...state,
+                room: action.roomCode,
+            };
         default:
             return state;
     }

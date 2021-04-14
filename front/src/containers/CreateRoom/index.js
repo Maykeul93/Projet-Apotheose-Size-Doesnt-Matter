@@ -9,6 +9,7 @@ import {
 
 const mapStateToProps = (state) => ({
     inputValue: state.game.codeRoomInput,
+    room: state.game.room,
 });
 
 const mapDispatchStateToProps = (dispatch) => ({
