@@ -29,7 +29,7 @@ OU
 
 Basculer sur une branche locale:
 - `git checkout NomDeLABranche`
-- `git pull` pour récupérer le contenu ajouté par d'autres
+- `git pull origin master` pour récupérer le contenu ajouté par d'autres
 
 Merger une branche
 - `git checkout master`
