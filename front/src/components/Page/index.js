@@ -45,12 +45,7 @@ function Page() {
                 page ? (
                     <>{component[page]}</>
                 ) : (
-<<<<<<< HEAD
-                    // <div className="page__main">Home</div>
-                    <Home />
-=======
                     <>Home</>
->>>>>>> 24436927fd2b8bce3f1b3aff03edc999865c74aa
                 )
             }
             
