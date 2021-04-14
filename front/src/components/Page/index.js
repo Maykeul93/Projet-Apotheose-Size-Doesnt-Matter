@@ -5,6 +5,9 @@ import Header from 'components/Header';
 import Footer from 'components/Footer';
 import CreateRoom from 'components/CreateRoom';
 
+//Import Home component
+import Home from 'components/Home';
+
 import './style.scss';
 
 function Page() {
@@ -42,7 +45,8 @@ function Page() {
                 page ? (
                     <>{component[page]}</>
                 ) : (
-                    <>Home</>
+                    // <div className="page__main">Home</div>
+                    <Home />
                 )
             }
             
