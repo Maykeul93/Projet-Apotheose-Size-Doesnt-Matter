@@ -1,0 +1,4 @@
+%syntax-version=1.0.0
+%project=aposize
+
+00-init-schema.sql 2021-04-14T11:28:53Z "Etudiant O'clock",,, <etudiant@teleporteur> # initialisation BDD
