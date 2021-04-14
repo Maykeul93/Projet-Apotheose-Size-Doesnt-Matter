@@ -18,6 +18,7 @@ Pour pouvoir se déplacer sur les branches distantes (hors branches locales) afi
 - Afficher les branches en remote, `git branch -r`,
 - Basculer sur la branche distante pour pouvoir travailler dessus, `git checkout --track origin/NomDeLaBranche` (si elle part d'origin)
 - `git pull` pour récupérer les éventuelles modifications apportées à la branche si d'autres ont travaillé dessus
+- `git pull origin master` pour récupérer les modifications de la branche `master`
 - `git add lesFichier`
 - `git commit -m ""`
 - `git push origin NomDeLaBranche`.
@@ -29,7 +30,7 @@ OU
 
 Basculer sur une branche locale:
 - `git checkout NomDeLABranche`
-- `git pull origin master` pour récupérer le contenu ajouté par d'autres
+- `git pull origin master` pour récupérer le contenu ajouté par d'autres sur la branche master **IMPORTANT**
 
 Merger une branche
 - `git checkout master`
@@ -46,3 +47,5 @@ Supprimer une branche en distant
 
 Mettre à jour les branches supprimées en distant sur son vsCode en local
 - `git remote prune origin`
+
+**Surtout ne pas hésiter à abuser de la commande** `git status`!!
