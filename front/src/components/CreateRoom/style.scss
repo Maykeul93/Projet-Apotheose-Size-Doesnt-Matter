@@ -10,23 +10,6 @@
     &__player {
         flex-grow: 1;
     }
-    &__rules {
-        flex-grow: 2;
-        color : $color-white;
-        & h2 {
-            font-size: $h2-size;
-        }
-        & ul {
-            margin-top: $gutter;
-            list-style: square;
-            & li {
-                margin-top: $gutter / 2;
-            }
-        }
-        & p {
-            margin-top: $gutter;
-        }
-    }
     &__interactions {
         & .create {
             background: $button-create-bg;
@@ -53,5 +36,23 @@
                 width: 250px;
             }
         }
+    }
+}
+
+.rules {
+    flex-grow: 2;
+    color : $color-white;
+    &__h2 {
+        font-size: $h2-size;
+    }
+    &__list {
+        margin-top: $gutter;
+        list-style: square;
+    }
+    &__item {
+        margin-top: $gutter / 2;
+    }
+    &__footer {
+        margin-top: $gutter;
     }
 }
