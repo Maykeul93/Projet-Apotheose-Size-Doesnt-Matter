@@ -1,7 +1,7 @@
 import { useParams, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import Header from 'components/Header';
+import Header from 'containers/Header';
 import Footer from 'components/Footer';
 import CreateRoom from 'components/CreateRoom';
 
