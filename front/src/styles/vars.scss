@@ -1,17 +1,19 @@
-/***** Coloring *****/
+/***** General colors ***/
 
 // Footer
 $footer-bg: rgb(226, 224, 224);
 $footer-color: #000;
 
 // Header
-$header-color: #fff;
 
 // Random blocks
 $border-color: rgb(189, 186, 186);
 
 // Menu
-$menu-bg: #fff;
+
+// buttons
+
+
 
 
 /***** Sizing for margin, padding, etc ****/
@@ -19,6 +21,7 @@ $gutter: 1rem;
 
 /***** Police *****/
 
+$color-white: #fff;
 // Sizing
 $h1-size: 2.5em;
 
@@ -29,3 +32,11 @@ $h1-size: 2.5em;
 }
 
 $h1-police: 'CarbonBlock', serif;
+
+/*********** ELEMENTS **************/
+
+/***** buttons *****/
+
+$button-create-bg: #6558F5;
+$button-join-bg: #BF3765;
+$button-radius: 5px;

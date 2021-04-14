@@ -40,9 +40,9 @@ function Page() {
             Otherwise, looking for same key in component object and render the component  */}
             {
                 page ? (
-                    <div>{component[page]}</div>
+                    <>{component[page]}</>
                 ) : (
-                    <div className="page__main">Home</div>
+                    <>Home</>
                 )
             }
             
