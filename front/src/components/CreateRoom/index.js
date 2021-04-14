@@ -1,15 +1,37 @@
+import { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import classname from 'classnames';
 
 import Rules from './Rules';
 import './style.scss';
 
-function CreateRoom({ inputValue, setInputValue }) {
-    const generateRoom = () => {
-        console.log('Je génère une room');
-    };
+function CreateRoom({
+    inputValue,
+    setInputValue,
+    createGame,
+    joinGame,
+    room,
+}) {
+    const [ error, setError ] = useState(false);
+    
+    if (room) {
+        const path = `/room/${room}`
+        return (<Redirect to={path} />)
+    }
+
+    const classnameError = classname('error', {'is-hidden': !error});
+
     const joinRoom = (e) => {
         e.preventDefault();
-        console.log('Je rejoins une partie existante');
+        if (inputValue) {
+            joinGame(inputValue);
+        }
+        else {
+            // if there is no code room, displayed the error & remove it 3seconds later
+            setError(true);
+            setTimeout(() => setError(false), 3000);
+        }
     };
     return (
         <main className="createRoom page__main">
@@ -32,7 +54,7 @@ function CreateRoom({ inputValue, setInputValue }) {
                 <button
                     className="create"
                     type="button"
-                    onClick={generateRoom}
+                    onClick={createGame}
                 >
                     Créer une partie
                 </button>
@@ -51,6 +73,12 @@ function CreateRoom({ inputValue, setInputValue }) {
                         onChange={(e) => setInputValue(e.target.value)}
                     />
                 </form>
+                {
+                    error ? (
+                    <div className={classnameError}>
+                        Il faut entrer un code de partie pour rejoindre une partie!
+                    </div>) : (<></>)
+                }
             </div>
         </main>
     );
@@ -59,6 +87,9 @@ function CreateRoom({ inputValue, setInputValue }) {
 CreateRoom.propTypes = {
     inputValue: PropTypes.string.isRequired,
     setInputValue: PropTypes.func.isRequired,
+    createGame: PropTypes.func.isRequired,
+    joinGame: PropTypes.func.isRequired,
+    room: PropTypes.string.isRequired,
 };
 
 export default CreateRoom;

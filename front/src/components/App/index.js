@@ -1,8 +1,8 @@
 import { Switch, Route } from 'react-router-dom';
 
 import Page from 'components/Page';
-import Room from 'components/Room';
-import Game from 'components/Game';
+import Room from 'containers/Room';
+import Game from 'containers/Game';
 import './style.scss';
 
 function App() {

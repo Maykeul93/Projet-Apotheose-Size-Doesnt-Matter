@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Header from 'containers/Header';
 import Footer from 'components/Footer';
-import CreateRoom from 'components/CreateRoom';
+import CreateRoom from 'containers/CreateRoom';
 
 //Import Home component
 import Home from 'components/Home';
