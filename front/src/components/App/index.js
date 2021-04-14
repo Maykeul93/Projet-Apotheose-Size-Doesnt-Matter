@@ -1,14 +1,19 @@
 import { Switch, Route } from 'react-router-dom';
 
 import Page from 'components/Page';
+import Room from 'components/Room';
+import Game from 'components/Game';
 import './style.scss';
 
 function App() {
   return (
     <div className="app">
       <Switch>
+        <Route path="/game/:id">
+          <Game />
+        </Route>
         <Route path="/room/:room">
-          {/* Room Component */}
+          <Room />
         </Route>
         <Route path="/page/:page">
           {/* Dynamically display of pages like Admin, Home, Signin, etc */}
