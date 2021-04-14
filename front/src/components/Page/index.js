@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Header from 'components/Header';
 import Footer from 'components/Footer';
+import CreateRoom from 'components/CreateRoom';
 
 import './style.scss';
 
@@ -16,7 +17,7 @@ function Page() {
         signin: 'Signin Component',
         profil: 'Profil Component',
         admin: 'Admin Component',
-        createRoom: 'CreateRoom Component',
+        createRoom: <CreateRoom />,
         aboutUs: 'AboutUs Component',
         error: 'Error Component',
     };
