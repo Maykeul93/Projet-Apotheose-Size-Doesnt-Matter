@@ -4,11 +4,16 @@ const app = express();
 const http = require('http');
 const server = http.createServer(app);
 const io = require('socket.io')(server); 
+const cors = require('cors');
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html'); 
 });
 
+// here u can filter users who can access to the API 
+app.use(cors({
+  origin: '*', // give autorisation to all extern users to use this API 
+}));
 
 io.on('connection', (socket) => {
     console.log('a user connected'); 

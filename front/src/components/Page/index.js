@@ -45,7 +45,6 @@ function Page() {
                 page ? (
                     <>{component[page]}</>
                 ) : (
-                    // <div className="page__main">Home</div>
                     <Home />
                 )
             }
