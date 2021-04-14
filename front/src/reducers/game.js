@@ -1,5 +1,6 @@
 const initialState = {
     users: [],
+    roomInput: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
