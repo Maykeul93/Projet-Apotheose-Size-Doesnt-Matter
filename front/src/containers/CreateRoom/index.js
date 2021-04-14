@@ -4,6 +4,7 @@ import CreateRoom from 'components/CreateRoom';
 import {
     setCodeRoomInput,
     createNewGame,
+    joinNewGame,
 } from 'actions/game';
 
 const mapStateToProps = (state) => ({
@@ -17,6 +18,9 @@ const mapDispatchStateToProps = (dispatch) => ({
     createGame: () => {
         dispatch(createNewGame());
     },
+    joinGame: (roomCode) => {
+        dispatch(joinNewGame(roomCode));
+    }
 });
 
 export default connect(mapStateToProps, mapDispatchStateToProps)(CreateRoom);

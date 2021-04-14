@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 import Rules from './Rules';
 import './style.scss';
 
-function CreateRoom({ inputValue, setInputValue, createGame }) {
+function CreateRoom({
+    inputValue,
+    setInputValue,
+    createGame,
+    joinGame,
+}) {
     const joinRoom = (e) => {
         e.preventDefault();
         console.log('Je rejoins une partie existante');
@@ -57,6 +62,7 @@ CreateRoom.propTypes = {
     inputValue: PropTypes.string.isRequired,
     setInputValue: PropTypes.func.isRequired,
     createGame: PropTypes.func.isRequired,
+    joinGame: PropTypes.func.isRequired,
 };
 
 export default CreateRoom;
