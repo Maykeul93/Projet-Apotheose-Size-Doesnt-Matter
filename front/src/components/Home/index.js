@@ -1,7 +1,10 @@
+//Import images from carousel
 import slide from './slide.jpg';
 
+// Import styles 
 import './styles.scss';
 
+//Create Home component
 const Home = () => (
     <div className="home">
         <p className="home__description">
@@ -11,10 +14,13 @@ const Home = () => (
             Vous etes prêt? <br /> 
             Inscrivez vous, invitez vos amis et jouez !
         </p>
-        <img className="home__slide" src={slide} alt="slide1" />
-        <p className="home__carousel">ici choix des photos</p>
+        <div className="home__carousel">
+            <img className="home__carousel-image" src={slide} alt="slide1" />
+            <p className="home__carousel-select">ici choix des photos</p>
+        </div>
         <button className="home__play-button" type="button"> Jouer</button>
     </div>
 );
 
+//Export Home component
 export default Home;

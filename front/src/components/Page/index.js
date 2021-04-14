@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 
-//To remove
+//Import Home component
 import Home from 'components/Home';
 
 import './style.scss';
