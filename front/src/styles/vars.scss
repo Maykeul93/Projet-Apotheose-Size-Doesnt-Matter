@@ -27,7 +27,17 @@ $h1-size: 2.5em;
 $h2-size: 1.5em;
 // Styles
 
-$h1-police: 'CarbonBlock', serif;
+@font-face {
+    font-family: 'CarbonBlock';
+    src: url('fonts/CarbonBlock.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'AirmoleShaded';
+    src: url('fonts/AirmoleShaded.ttf') format('truetype');
+}
+
+$h1-police: 'Airmoleshaded', serif;
 
 /*********** ELEMENTS **************/
 
