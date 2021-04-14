@@ -4,19 +4,30 @@ import PropTypes from 'prop-types';
 import Header from 'components/Header';
 import './style.scss';
 
-function Game() {
+function Game({ player, otherPlayers }) {
     return (
-        <div className="game">
+        <>
             <Header />
-            <div className="game__container">
-                Game
+            <div className="game page__main">
+                <div>
+                    <div className="game__interface">
+                        Game interface
+                    </div>
+                    <div className="game__tchat">
+                        Tchat
+                    </div>
+                </div>
+                <div className="game__ranking">
+                    Game ranking
+                </div>
             </div>
-        </div>
+        </>
     );
 }
 
 Game.propTypes = {
-
+    player: PropTypes.string.isRequired,
+    otherPlayers: PropTypes.array.isRequired,
 };
 
 export default Game;

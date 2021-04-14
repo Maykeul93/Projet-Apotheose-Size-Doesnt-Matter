@@ -2,7 +2,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import Page from 'components/Page';
 import Room from 'containers/Room';
-import Game from 'components/Game';
+import Game from 'containers/Game';
 import './style.scss';
 
 function App() {
