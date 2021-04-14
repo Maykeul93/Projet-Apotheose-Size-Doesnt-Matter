@@ -1,6 +1,4 @@
-import React from 'react';
-
-import slide1 from './slide.jpg';
+import slide from './slide.jpg';
 
 import './styles.scss';
 
@@ -13,7 +11,7 @@ const Home = () => (
             Vous etes prêt? <br /> 
             Inscrivez vous, invitez vos amis et jouez !
         </p>
-        <img className="home__slide" src={slide1} alt="slide1" />
+        <img className="home__slide" src={slide} alt="slide1" />
         <p className="home__carousel">ici choix des photos</p>
         <button className="home__play-button" type="button"> Jouer</button>
     </div>

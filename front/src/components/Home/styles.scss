@@ -18,10 +18,10 @@
     }
 
     &__play-button{
-        font-size: 1.5em;
+        font-size: $p-size * 1.5;
         margin: $gutter;
         padding: $gutter;
-        border-radius: 1em;
+        border-radius: 15px;
         border: none;
         background-color: rgb(54, 211, 11);
     }
