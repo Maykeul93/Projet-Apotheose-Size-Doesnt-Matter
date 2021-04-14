@@ -6,7 +6,7 @@ import './styles.scss';
 
 //Create Home component
 const Home = () => (
-    <div className="home">
+    <main className="home page__main">
         <p className="home__description">
             Bienvenue, Size Doesn't Matter est un jeu multijoueur en ligne.<br />
             Il s'agit d'un quizz où vous et vos amis auront à répondre a différentes question,<br />
@@ -19,7 +19,7 @@ const Home = () => (
             <p className="home__carousel-select">ici choix des photos</p>
         </div>
         <button className="home__play-button" type="button"> Jouer</button>
-    </div>
+    </main>
 );
 
 //Export Home component
