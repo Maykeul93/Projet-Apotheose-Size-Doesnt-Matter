@@ -12,6 +12,20 @@
     }
     &__rules {
         flex-grow: 2;
+        color : $color-white;
+        & h2 {
+            font-size: $h2-size;
+        }
+        & ul {
+            margin-top: $gutter;
+            list-style: square;
+            & li {
+                margin-top: $gutter / 2;
+            }
+        }
+        & p {
+            margin-top: $gutter;
+        }
     }
     &__interactions {
         & .create {
