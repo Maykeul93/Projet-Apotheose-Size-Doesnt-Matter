@@ -2,9 +2,9 @@ import api from 'api';
 
 import {
     SUBMIT_LOGIN,
-    setPseudo,
     setLoadingState,
     setLogged,
+    setUser,
   } from 'actions/user';
 
 const logger = (store) => (next) => (action) => {
@@ -17,8 +17,8 @@ const logger = (store) => (next) => (action) => {
                 password,
             })
             .then((result) => result.data)
-            .then(({pseudo}) => {
-                store.dispatch(setPseudo(pseudo));
+            .then(({id, email, pseudo}) => {
+                store.dispatch(setUser(id, email, pseudo));
                 store.dispatch(setLogged(true));
             })
             .finally(() => {
