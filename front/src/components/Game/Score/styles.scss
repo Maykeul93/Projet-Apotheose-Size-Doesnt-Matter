@@ -1,0 +1,16 @@
+@import 'src/styles/vars.scss';
+
+.score {
+    min-height: 7vh;
+    padding: $gutter / 2;
+    &__pseudo {
+        background: $color-white;
+        display: inline-block;
+        padding: $gutter / 2;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+    &__points {
+        margin-top: $gutter / 2;
+    }
+}

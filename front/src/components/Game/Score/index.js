@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import './styles.scss';
 
 function Score({ player }) {
     return (

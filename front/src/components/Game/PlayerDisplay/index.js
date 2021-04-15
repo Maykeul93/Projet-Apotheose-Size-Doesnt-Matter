@@ -4,9 +4,10 @@ function PlayerDisplay({ player }) {
     return (
         <div className="playerDisplay">
             <div className="playerDisplay__pseudo">
-                pseudo
+                {player.pseudo}
             </div>
             <div className="playerDisplay__progBar">
+                {/* Need the player answer to adapt progress bar */}
                 <span className="playerDisplay__progBar--full" />
             </div>
             <div className="playerDisplay__avatar">

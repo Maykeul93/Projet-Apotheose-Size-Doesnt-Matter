@@ -17,6 +17,21 @@
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
+        &--question {
+            font-size: $h2-size;
+            flex-grow: 1;
+        }
+        &--players {
+            display: flex;
+            justify-content: space-evenly;
+            border: 1px solid white;
+            flex-grow: 10;
+            width: 95%;
+        }
+        &--answer {
+            flex-grow: 1;
+            margin-top: $gutter;
+        }
     }
     &__tchat {
         border: 1px solid $color-white;
@@ -44,17 +59,6 @@
     }
 }
 
-.score {
-    min-height: 7vh;
-    padding: $gutter / 2;
-    &__pseudo {
-        background: $color-white;
-        display: inline-block;
-        padding: $gutter / 2;
-        border-radius: 5px;
-        font-weight: bold;
-    }
-    &__points {
-        margin-top: $gutter / 2;
-    }
+.playerDisplay {
+
 }
