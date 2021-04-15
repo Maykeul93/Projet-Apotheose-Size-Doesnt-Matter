@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 import Header from 'containers/Header';
 import Footer from 'components/Footer';
 import CreateRoom from 'containers/CreateRoom';
+import SignUp from 'components/SignUp'
 
 //Import Home component
-import Home from 'components/Home';
+import Home from 'containers/Home';
 
 import './style.scss';
 
@@ -17,7 +18,7 @@ function Page() {
     console.log(page);
 
     const component = {
-        signin: 'Signin Component',
+        signup: <SignUp />,
         profil: 'Profil Component',
         admin: 'Admin Component',
         createRoom: <CreateRoom />,

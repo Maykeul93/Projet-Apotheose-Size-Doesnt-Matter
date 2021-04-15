@@ -12,14 +12,14 @@ const logger = (store) => (next) => (action) => {
         case SUBMIT_LOGIN: {
             store.dispatch(setLoadingState(true));
             const {email, password } = store.getState().user;
-            api.post('/login', {
+            api.post('/signin', {
                 email,
                 password,
             })
             .then((result) => result.data)
             .then(({pseudo}) => {
                 store.dispatch(setPseudo(pseudo));
-                store.dispatch(setLogged(true))
+                store.dispatch(setLogged(true));
             })
             .finally(() => {
                 store.dispatch(setLoadingState(false));
