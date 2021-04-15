@@ -1,0 +1,42 @@
+@import 'src/styles/vars.scss';
+
+.profil{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__onglet-content{
+        display: flex;
+        width: 100%;
+        .profil__onglet{
+            cursor: pointer;
+            flex-grow: 1;
+            text-align: center;
+            padding: $gutter;
+            border: 2px solid lightblue;
+        }
+    }
+    &__avatar-content{
+        span{
+            cursor: pointer;
+        }
+    }
+    &__avatar{
+        width: 100px;
+    }
+    &__add-avatar{
+        position: absolute;
+        font-size: 3em;
+        
+    }
+    &__form{
+        display: flex;
+        flex-direction: column;
+        label{
+            margin: $gutter*0.5 0;
+
+        }
+        button{
+            margin: $gutter*0.5 0;
+        }
+    }
+}

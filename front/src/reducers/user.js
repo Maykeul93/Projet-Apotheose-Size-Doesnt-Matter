@@ -1,11 +1,10 @@
 import { 
         SET_EMAIL_INPUT_VALUE,
         SET_PASSWORD_INPUT_VALUE,
-        SET_PSEUDO,
         SET_LOADING_STATE,
         SET_LOGGED,
-        SET_DISPLAYED
-
+        SET_DISPLAYED,
+        SET_USER
     } from 'actions/user';
 
 const initialState = {
@@ -29,11 +28,6 @@ const reducer = (state = initialState, action = {}) => {
                 ...state,
                 password: action.value
             };
-        case SET_PSEUDO :
-            return {
-                ...state,
-                pseudo: action.pseudo
-            };
         case SET_LOADING_STATE :
             return {
                 ...state,
@@ -48,6 +42,13 @@ const reducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 isDisplayed: !state.isDisplayed
+            };
+        case SET_USER :
+            return {
+                ...state,
+                id: action.id,
+                email: action.email,
+                pseudo: action.pseudo,
             };
         default:
             return state;

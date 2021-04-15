@@ -12,13 +12,6 @@ export const setPasswordInputValue = (value) => ({
   value,
 });
 
-export const SET_PSEUDO = 'SET_PSEUDO';
-
-export const setPseudo = (pseudo) => ({
-  type: SET_PSEUDO,
-  pseudo,
-});
-
 export const SET_LOADING_STATE = 'SET_LOADING_STATE';
 
 export const setLoadingState = (loading) => ({
@@ -43,4 +36,13 @@ export const SET_DISPLAYED = 'SET_DISPLAYED';
 
 export const setDisplayed = (value) => ({
   type: SET_DISPLAYED,
+});
+
+export const SET_USER= 'SET_USER';
+
+export const setUser = (id, email, pseudo) => ({
+  type: SET_USER,
+  id,
+  email,
+  pseudo,
 });
