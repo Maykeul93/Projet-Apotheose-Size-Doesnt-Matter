@@ -8,12 +8,10 @@ const Connexion = ({
     onEmailInputChange, 
     passwordValue, 
     onPasswordInputChange, 
-    onLogin, 
+    onLogin,
+    isDisplayed,
+    onDisplayChange 
     }) => {
-    const [displayed, setDisplayed] = useState(false);
-    const toggleDisplayed = () => {
-        setDisplayed(!displayed)
-    }
     const handleSubmit = (e) => {
         e.preventDefault();
         onLogin();
@@ -23,12 +21,12 @@ const Connexion = ({
             <button 
             className="connexion__button" 
             type ="button"
-            onClick={toggleDisplayed}
+            onClick={onDisplayChange}
             >
                 Connexion
             </button>
             <div className={
-                classNames("connection__menu", {"is-displayed": displayed})
+                classNames("connection__menu", {"is-displayed": isDisplayed})
             }>
                 <form 
                 className="connection__form"

@@ -38,3 +38,9 @@ export const setLogged = (value) => ({
   type: SET_LOGGED,
   value,
 });
+
+export const SET_DISPLAYED = 'SET_DISPLAYED';
+
+export const setDisplayed = (value) => ({
+  type: SET_DISPLAYED,
+});

@@ -7,7 +7,7 @@ import CreateRoom from 'containers/CreateRoom';
 import SignUp from 'components/SignUp'
 
 //Import Home component
-import Home from 'components/Home';
+import Home from 'containers/Home';
 
 import './style.scss';
 
