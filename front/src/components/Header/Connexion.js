@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
 
 const Connexion = ({ 
     emailValue, 
     onEmailInputChange, 
     passwordValue, 
     onPasswordInputChange, 
-    onLogin, 
+    onLogin,
+    isDisplayed,
+    onDisplayChange 
     }) => {
-    const [displayed, setDisplayed] = useState(false);
-    const toggleDisplayed = () => {
-        setDisplayed(!displayed)
-    }
     const handleSubmit = (e) => {
         e.preventDefault();
         onLogin();
@@ -22,12 +21,12 @@ const Connexion = ({
             <button 
             className="connexion__button" 
             type ="button"
-            onClick={toggleDisplayed}
+            onClick={onDisplayChange}
             >
                 Connexion
             </button>
             <div className={
-                classNames("connection__menu", {"is-displayed": displayed})
+                classNames("connection__menu", {"is-displayed": isDisplayed})
             }>
                 <form 
                 className="connection__form"
@@ -52,6 +51,7 @@ const Connexion = ({
                     >
                         Valider
                     </button>
+                    <Link to="/page/signup">Inscription</Link>
                 </form>
                
             </div>

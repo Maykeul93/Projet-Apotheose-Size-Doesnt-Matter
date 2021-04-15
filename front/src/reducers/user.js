@@ -3,7 +3,8 @@ import {
         SET_PASSWORD_INPUT_VALUE,
         SET_PSEUDO,
         SET_LOADING_STATE,
-        SET_LOGGED
+        SET_LOGGED,
+        SET_DISPLAYED
 
     } from 'actions/user';
 
@@ -13,6 +14,7 @@ const initialState = {
     password: '',
     pseudo: '',
     loading: false,
+    isDisplayed: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -41,6 +43,11 @@ const reducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 isLogged: action.value
+            };
+        case SET_DISPLAYED :
+            return {
+                ...state,
+                isDisplayed: !state.isDisplayed
             };
         default:
             return state;
