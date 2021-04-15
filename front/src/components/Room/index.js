@@ -27,6 +27,9 @@ function Room({
                     <div className="room__left--player">
                         <h2>{player}</h2>
                         {/* Avatar */}
+                        <div>
+                            Avatar
+                        </div>
                     </div>
                     <div className="room__left--launch">
                         {/* Need to implement a verification to authorize only the game master to launch game*/}

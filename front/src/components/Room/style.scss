@@ -4,10 +4,22 @@
     display: flex;
     justify-content: space-around;
     color: $color-white;
+    padding: $gutter;
     &__left {
         flex-grow: 1;
-        &--player h2 {
-            font-size: $h2-size;
+        &--player {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            & h2 {
+                font-size: $h2-size;
+            }
+            & div { /* Avatar of the player, will be an img */
+                margin-top: $gutter;
+                width: 250px;
+                height: 300px;
+                border: 1px solid white;
+            }
         }
         &--launch {
             margin-top: $gutter * 2;
@@ -15,6 +27,14 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            align-items: center;
+            & button {
+                width: 50%;
+                border: none;
+                border-radius: $button-radius;
+                padding: $gutter / 2;
+                font-weight: bold;
+            }
         }
     }
     &__right {

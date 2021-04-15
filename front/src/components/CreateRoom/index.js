@@ -37,12 +37,15 @@ function CreateRoom({
         <main className="createRoom page__main">
             <div className="createRoom__infos">
                 <div className="createRoom__player">
-                    <p>Pseudo</p>
+                    <h2>Pseudo</h2>
                     <div className="createRoom__avatarChoice">
                         <button type="button">
                             &lt;
                         </button>
-                            <img src="" alt=""/>
+                        <div className="createRoom__avatarChoice--img">
+                            {/* Here place the img of the avatar */}
+                            Avatar
+                        </div>
                         <button type="button">
                             &gt;
                         </button>
