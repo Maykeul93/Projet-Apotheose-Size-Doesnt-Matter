@@ -29,7 +29,7 @@ const SignIn = ({}) => {
         if (password !== validPassword){
             return setMessage('Vos mots de passe ne sont pas identiques')
         };
-        // Sign in request API
+        // Sign up request API
         setLoading(true);
         api.post('/signup', {
             pseudo,
