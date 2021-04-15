@@ -26,7 +26,6 @@ const SignIn = ({}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Check Password
         if (password !== validPassword){
             return setMessage('Vos mots de passe ne sont pas identiques')
         };
