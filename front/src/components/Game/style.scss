@@ -13,6 +13,10 @@
         border: 1px solid $color-white;
         padding: $gutter;
         flex-grow: 3;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
     }
     &__tchat {
         border: 1px solid $color-white;
