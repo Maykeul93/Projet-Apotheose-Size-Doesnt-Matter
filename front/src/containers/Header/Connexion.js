@@ -16,7 +16,11 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   onEmailInputChange : (value) => dispatch(setEmailInputValue(value)),
   onPasswordInputChange : (value) => dispatch(setPasswordInputValue(value)),
-  onLogin: () => dispatch(submitLogin()),
+  onLogin: () => {
+    dispatch(submitLogin())
+    dispatch(setPasswordInputValue(''))
+    dispatch(setEmailInputValue(''))
+  },
   onDisplayChange: () => dispatch(setDisplayed())
 });
 
