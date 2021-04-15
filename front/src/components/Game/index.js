@@ -51,6 +51,7 @@ function Game({
                                     <PlayerDisplay
                                         key={player.id}
                                         player={player}
+                                        exactAnswer={12} // For the test
                                     />
                                 ))
                             }

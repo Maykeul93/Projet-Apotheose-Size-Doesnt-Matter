@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
+import './styles.scss';
 
-function PlayerDisplay({ player }) {
+
+function PlayerDisplay({ player, exactAnswer }) {
     // Algo de calcul de la taille de la barre de progression
     return (
         <div className="playerDisplay">
@@ -13,6 +15,7 @@ function PlayerDisplay({ player }) {
             </div>
             <div className="playerDisplay__avatar">
                 {/* player avatar import */}
+                Avatar
             </div>
         </div>
     );
@@ -20,6 +23,7 @@ function PlayerDisplay({ player }) {
 
 PlayerDisplay.propTypes = {
     player: PropTypes.object.isRequired,
+    exactAnswer: PropTypes.number.isRequired,
 };
 
 export default PlayerDisplay;
