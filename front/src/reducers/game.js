@@ -15,9 +15,11 @@ const initialState = {
         {
             id: 1,
             pseudo: 'Bilbo',
+            answer: '4',
         }, {
             id: 2,
             pseudo: 'Gandalf',
+            answer: '6',
         }
     ],
     isLaunch: false,

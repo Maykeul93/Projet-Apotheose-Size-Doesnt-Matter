@@ -12,7 +12,6 @@
     &__interface {
         border: 1px solid $color-white;
         padding: $gutter;
-        flex-grow: 3;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -22,11 +21,13 @@
             flex-grow: 1;
         }
         &--players {
+            margin-top: $gutter;
             display: flex;
             justify-content: space-evenly;
             border: 1px solid white;
-            flex-grow: 10;
+            flex-grow: 4;
             width: 95%;
+            padding: $gutter;
         }
         &--answer {
             flex-grow: 1;

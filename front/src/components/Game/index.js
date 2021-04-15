@@ -17,7 +17,7 @@ function Game({
         id: 8,
         pseudo: 'J1',
         avatar: 'avatar.png',
-        answer: '52',
+        answer: '9',
     }
 
     // Display user in the middle
