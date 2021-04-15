@@ -1,8 +1,8 @@
 USER(id SERIAL, email VARCHAR (60) NOT NULL UNIQUE, password VARCHAR (60) NOT NULL, pseudo VARCHAR (15) NOT NULL, role TEXT)
 
-GAME(id SERIAL,room TEXT)
+GAME(id SERIAL,room TEXT,number_player INT )
 
-USER_PLAY_GAME(#USER(id), #GAME(id), score INT DEFAULT 0, position INT, number_player INT, date TIMESTAMPZ, number_exact_answer INT DEFAULT 0))
+USER_PLAY_GAME(#USER(id), #GAME(id), score INT DEFAULT 0, position INT, date TIMESTAMPZ, number_exact_answer INT DEFAULT 0))
 
 QUESTION(id SERIAL, answer TEXT NOT NULL, content TEXT NOT NULL)
 

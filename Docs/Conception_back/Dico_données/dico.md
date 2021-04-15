@@ -19,7 +19,7 @@ Nom |   Description                     | Type   | Commentaire                  
 |   room     |   salle regroupant les joueurs avant que le début de la partie      |    TEXT     |   sous forme de code    |     game    |
 |   score     |   score du joueur      |    INT DEFAULT 0     |   spécifique à une partie  |     play    |
 |   position     |   position du joueur      |    INT     |   spécifique à une partie    |     play    |
-|   number player     |   nombre de joueurs total       |    INT     |   spécifique à une partie    |     play    |
+|   number player     |   nombre de joueurs total       |    INT     |   spécifique à une partie    |     game    |
 |   date     |   date de partie      |    TIMESTAMPZ     |   spécifique à une partie    |     play    |
 |   exact answer     |   nombre de bonne réponse      |    INT DEFAULT 0     |   spécifique à une partie    |     play    |
 |   answer     |   réponse à une question      |    TEXT NOT NULL     |   spécifique à une question    |     question    |
