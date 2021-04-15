@@ -5,7 +5,7 @@ import './style.scss';
 function Timmer() {
     return (
         <div className="timmer">
-            Timmer
+            <span className="timmer__value">Timmer</span>
         </div>
     );
 }

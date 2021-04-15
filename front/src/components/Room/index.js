@@ -7,7 +7,6 @@ import PlayerWithAvatar from 'containers/PlayerWithAvatar';
 import './style.scss';
 
 function Room({
-    player,
     otherPlayers,
     room,
     launchGame,

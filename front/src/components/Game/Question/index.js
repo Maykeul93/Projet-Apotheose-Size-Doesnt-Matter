@@ -4,7 +4,7 @@ import './style.scss';
 
 function Question() {
     return (
-        <div className="question">Question</div>
+        <h2 className="question">Question</h2>
     );
 }
 

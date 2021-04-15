@@ -1,0 +1,13 @@
+@import 'src/styles/vars.scss';
+
+.leaveGame {
+    width: 100px;
+    height: 3rem;
+    background-color: red;
+    color: $color-white;
+    font-weight: bold;
+    border: none;
+    border-radius: $button-radius;
+    align-self: center;
+
+}

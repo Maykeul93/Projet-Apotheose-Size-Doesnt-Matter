@@ -6,7 +6,6 @@ import {
 
 const mapStateToProps = (state) => ({
     otherPlayers: state.game.players,
-    player: state.user.pseudo,
     room: state.room.room,
     isLaunch: state.room.isLaunch,
 });

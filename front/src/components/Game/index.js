@@ -3,9 +3,12 @@ import PropTypes from 'prop-types';
 
 import Header from 'containers/Header';
 import PlayerAnswer from 'containers/Game/PlayerAnswer';
+import LeaveGame from 'containers/Game/LeaveGame';
 import DisplayAllPlayers from './DisplayAllPlayers';
 import Ranking from './Ranking';
 import Timmer from './Timmer';
+import Question from './Question';
+import Round from './Round';
 
 import './style.scss';
 
@@ -35,12 +38,16 @@ function Game({
                 <div className="game__left">
                     <div className="game__interface">
                         <Timmer />
-                        <h2 className="game__interface--question">Question</h2>
+                        <Question />
                         <DisplayAllPlayers displayedPlayers={displayedPlayers} />
                         <PlayerAnswer />
+                        <Round />
                     </div>
-                    <div className="game__tchat">
-                        Tchat
+                    <div className="game__bottom">
+                        <div className="game__tchat">
+                            Tchat
+                        </div>
+                        <LeaveGame />
                     </div>
                 </div>
                 <Ranking

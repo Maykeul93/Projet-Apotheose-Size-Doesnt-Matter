@@ -16,14 +16,17 @@
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        &--question {
-            font-size: $h2-size;
-            flex-grow: 1;
-        }
+        position: relative;
     }
-    &__tchat {
+    &__bottom {
         border: 1px solid $color-white;
         flex-grow: 1;
         margin-top: $gutter;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__tchat {
+        width: 80%;
+        border: 1px solid white;
     }
 }
