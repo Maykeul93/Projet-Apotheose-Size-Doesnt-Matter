@@ -22,7 +22,7 @@ function Room({
     return (
         <>
             <Header />
-            <main className="room page__main">
+            <main className="room game__main">
                 <div className="room__left">
                     <div className="room__left--player">
                         <h2>{player}</h2>

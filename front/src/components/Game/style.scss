@@ -1,1 +1,56 @@
 @import 'src/styles/vars.scss';
+
+.game {
+    display: flex;
+    justify-content: space-between;
+    &__left {
+        flex-grow: 10;
+        padding: $gutter;
+        display: flex;
+        flex-direction: column;
+    }
+    &__interface {
+        border: 1px solid $color-white;
+        padding: $gutter;
+        flex-grow: 3;
+    }
+    &__tchat {
+        border: 1px solid $color-white;
+        flex-grow: 1;
+        margin-top: $gutter;
+    }
+    &__ranking {
+        flex-grow: 1;
+        padding: $gutter 0; 
+        margin: $gutter;
+        border: 1px solid $color-white;
+        text-align: center;
+
+        & h2 {
+            font-size: $h2-size;
+        }
+
+        &--list {
+            margin-top: $gutter;
+            display:flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            overflow-y: auto;
+        }
+    }
+}
+
+.score {
+    min-height: 7vh;
+    padding: $gutter / 2;
+    &__pseudo {
+        background: $color-white;
+        display: inline-block;
+        padding: $gutter / 2;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+    &__points {
+        margin-top: $gutter / 2;
+    }
+}

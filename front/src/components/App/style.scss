@@ -7,3 +7,9 @@
     background: linear-gradient(to right, #753a88, #cc2b5e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     min-height: 100vh;
 }
+
+.game__main {
+    border: 1px solid $color-white;
+    margin: $gutter;
+    height: 80vh;
+}
