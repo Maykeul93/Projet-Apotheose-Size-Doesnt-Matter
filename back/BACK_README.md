@@ -61,6 +61,8 @@ git subtree push –prefix back heroku master
 ```
 lien de notre bdd en ligne : https://size-doesnt-matter.herokuapp.com/
 
+PS : Ajout variable d'environnement ```JWT_SIGN_SECRET``` dans les variables d'environnement Heroku sinon error 500 lors de l'envoi du Token.
+
 ## Sqitch
 
 Sqitch est un outil de versionning pour la DB.

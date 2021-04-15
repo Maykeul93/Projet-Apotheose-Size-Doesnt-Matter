@@ -46,6 +46,7 @@ module.exports = {
     const mail = await userDataMapper.checkMail(email); 
     // email verification
     if (mail.length === 0) {return res.status(400).json({'error': 'Email invalide'});}
+    
     for (const i of mail){
       const password = i.password;
       const id = i.id; 
