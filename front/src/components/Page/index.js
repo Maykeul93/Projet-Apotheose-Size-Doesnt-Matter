@@ -4,12 +4,13 @@ import PropTypes from 'prop-types';
 import Header from 'containers/Header';
 import Footer from 'components/Footer';
 import CreateRoom from 'containers/CreateRoom';
-import SignUp from 'components/SignUp'
+import SignUp from 'components/SignUp';
+import Profil from 'components/Profil';
 
 //Import Home component
 import Home from 'containers/Home';
 
-import './style.scss';
+import './styles.scss';
 
 function Page() {
     // get the params of the road to choose which content is displayed
@@ -19,7 +20,7 @@ function Page() {
 
     const component = {
         signup: <SignUp />,
-        profil: 'Profil Component',
+        profil: <Profil />,
         admin: 'Admin Component',
         createRoom: <CreateRoom />,
         aboutUs: 'AboutUs Component',
