@@ -7,20 +7,6 @@
     padding: $gutter;
     &__left {
         flex-grow: 1;
-        &--player {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            & h2 {
-                font-size: $h2-size;
-            }
-            & div { /* Avatar of the player, will be an img */
-                margin-top: $gutter;
-                width: 250px;
-                height: 300px;
-                border: 1px solid white;
-            }
-        }
         &--launch {
             margin-top: $gutter * 2;
             height: 10vh;

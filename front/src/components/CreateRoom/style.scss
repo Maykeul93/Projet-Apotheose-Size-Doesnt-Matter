@@ -7,59 +7,6 @@
         display: flex;
         justify-content: space-between;
     }
-    &__player {
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        & h2 {
-            font-size: $h2-size;
-        }
-    }
-    &__avatarChoice {
-        border: 1px solid white;
-        height: 350px;
-        width: 300px;
-        margin-top: $gutter;
-        display: flex;
-        justify-content: space-between;
-        & button {
-            width: 50px;
-            height: 50px;
-            align-self: center;
-        }
-        &--img {
-            background-color: white;
-            width: 90%;
-        }
-    }
-    &__interactions {
-        & .create {
-            background: $button-create-bg;
-            border: none;
-            padding: $gutter / 2;
-            color: $color-white;
-            border-radius: $button-radius;
-            margin-top: $gutter;
-            font-weight: bold;
-        }
-        & .joinForm {
-            margin-top: $gutter;
-            display: flex;
-            & .join {
-                background: $button-join-bg;
-                border: none;
-                color: $color-white;
-                padding: $gutter / 2;
-                border-radius: $button-radius;
-                margin-right: $gutter * 2;
-                font-weight: bold;
-            }
-            & input {
-                width: 250px;
-            }
-        }
-    }
 }
 
 .rules {
@@ -78,12 +25,4 @@
     &__footer {
         margin-top: $gutter;
     }
-}
-
-.is-hidden {
-    display: none;
-}
-
-.error {
-    color: red;
 }
