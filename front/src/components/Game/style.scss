@@ -20,42 +20,10 @@
             font-size: $h2-size;
             flex-grow: 1;
         }
-        &--players {
-            margin-top: $gutter;
-            display: flex;
-            justify-content: space-evenly;
-            border: 1px solid white;
-            flex-grow: 4;
-            width: 95%;
-            padding: $gutter;
-        }
-        &--answer {
-            flex-grow: 1;
-            margin-top: $gutter;
-        }
     }
     &__tchat {
         border: 1px solid $color-white;
         flex-grow: 1;
         margin-top: $gutter;
-    }
-    &__ranking {
-        flex-grow: 1;
-        padding: $gutter 0; 
-        margin: $gutter;
-        border: 1px solid $color-white;
-        text-align: center;
-
-        & h2 {
-            font-size: $h2-size;
-        }
-
-        &--list {
-            margin-top: $gutter;
-            display:flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            overflow-y: auto;
-        }
     }
 }

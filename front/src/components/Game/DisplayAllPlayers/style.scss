@@ -1,0 +1,11 @@
+@import 'src/styles/vars.scss';
+
+.players {
+    margin-top: $gutter;
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid white;
+    flex-grow: 4;
+    width: 95%;
+    padding: $gutter;
+}

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 
-import Header from 'components/Header';
+import Header from 'containers/Header';
 
 import './style.scss';
 

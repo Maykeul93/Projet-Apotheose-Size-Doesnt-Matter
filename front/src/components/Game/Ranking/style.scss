@@ -1,0 +1,21 @@
+@import 'src/styles/vars.scss';
+
+.ranking {
+    flex-grow: 1;
+    padding: $gutter 0; 
+    margin: $gutter;
+    border: 1px solid $color-white;
+    text-align: center;
+
+    &__title {
+        font-size: $h2-size;
+    }
+
+    &__list {
+        margin-top: $gutter;
+        display:flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        overflow-y: auto;
+    }
+}

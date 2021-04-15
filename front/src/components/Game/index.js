@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Header from 'components/Header';
-import Score from './Score';
-import PlayerDisplay from './PlayerDisplay';
+import Header from 'containers/Header';
+import PlayerAnswer from 'containers/Game/PlayerAnswer';
+import DisplayAllPlayers from './DisplayAllPlayers';
+import Ranking from './Ranking';
+import Timmer from './Timmer';
+
 import './style.scss';
 
 function Game({
     player,
     otherPlayers,
-    inputValue,
-    changeInputValue,
-    sendResponse,
 }) {
     const playerUser = { // Only for the demo
         ...player,
@@ -28,71 +28,25 @@ function Game({
     const displayedPlayers = [...otherPlayers];
     displayedPlayers.splice(middleOfPlayers, 0, playerUser);
 
-    // handle the user answer validation
-    const handleSubmitAnswer = (e) => {
-        e.preventDefault();
-        sendResponse(inputValue);
-    };
-
     return (
         <>
             <Header />
             <div className="game game__main">
                 <div className="game__left">
                     <div className="game__interface">
-                        {/* Timmer */}
+                        <Timmer />
                         <h2 className="game__interface--question">Question</h2>
-                        <div className="game__interface--players">
-                            {/* List of players, need to place user in the middle */}
-                            {/* Need to receive pseudo, avatar, answer, id, exact_answer */}
-                            {
-                                displayedPlayers.map((player) => (
-                                    <PlayerDisplay
-                                        key={player.id}
-                                        player={player}
-                                        exactAnswer={12} // For the test
-                                    />
-                                ))
-                            }
-                        </div>
-                        <form
-                            className="game__interface--answer"
-                            onSubmit={handleSubmitAnswer}
-                        >
-                            {/* When the form is submit, send the user answer to the socket server */}
-                            <input
-                                type="number"
-                                placeholder="Votre réponse.."
-                                value={inputValue}
-                                onChange={(e) => changeInputValue(e.target.value)}
-                            />
-                            <button
-                                type="submit"
-                            >
-                                Valider
-                            </button>
-                        </form>
+                        <DisplayAllPlayers displayedPlayers={displayedPlayers} />
+                        <PlayerAnswer />
                     </div>
                     <div className="game__tchat">
                         Tchat
                     </div>
                 </div>
-                <div className="game__ranking">
-                    <h2>Ranking</h2>
-                    <div className="game__ranking--list">
-                        {/* Display user score in first position */}
-                        <Score player={playerUser} />
-                        {/* then other players */}
-                        {
-                            otherPlayers.map((player) => (
-                                <Score
-                                    key={player.id}
-                                    player={player}
-                                />
-                            ))
-                        }
-                    </div>
-                </div>
+                <Ranking
+                    player={playerUser}
+                    otherPlayers={otherPlayers}
+                />
             </div>
         </>
     );
@@ -101,8 +55,6 @@ function Game({
 Game.propTypes = {
     player: PropTypes.object.isRequired,
     otherPlayers: PropTypes.array.isRequired, // Need id, pseudo, answer, score, codeAvatar
-    inputValue: PropTypes.string.isRequired,
-    changeInputValue: PropTypes.func.isRequired,
 };
 
 export default Game;
