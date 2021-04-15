@@ -6,6 +6,14 @@ const server = http.createServer(app);
 const io = require('socket.io')(server); 
 const cors = require('cors');
 
+const bodyParser = require('body-parser'); //parse body's answer for token 
+
+const routers = require('./routers');
+
+// Body Parser configuration
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html'); 
 });
@@ -14,6 +22,8 @@ app.get('/', (req, res) => {
 app.use(cors({
   origin: '*', // give autorisation to all extern users to use this API 
 }));
+
+app.use(routers); 
 
 io.on('connection', (socket) => {
     console.log('a user connected'); 

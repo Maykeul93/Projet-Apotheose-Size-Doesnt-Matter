@@ -12,7 +12,8 @@ CREATE TABLE "user" (
 
 CREATE TABLE game (
     id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    room TEXT
+    room TEXT, 
+    number_player INT
     
 );
 
@@ -21,7 +22,6 @@ CREATE TABLE user_play_game (
     game_id INT NOT NULL REFERENCES game(id),
     score INT DEFAULT 0,
     position INT,
-    number_player INT,
     date TIMESTAMPTZ,
     exact_answer INT DEFAULT 0
 
