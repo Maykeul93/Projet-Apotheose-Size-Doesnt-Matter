@@ -6,6 +6,8 @@ import {
 
 import {
     SEND_USER_ANSWER,
+    validateUserAnswer,
+    LEAVE_GAME,
 } from 'actions/gameInterface';
 
 const gameMiddleware = (store) => (next) => (action) => {
@@ -22,7 +24,10 @@ const gameMiddleware = (store) => (next) => (action) => {
             store.dispatch(stockRoomIntoState('randomRoom'));
             break;
         case SEND_USER_ANSWER:
-            console.log('user answer', action.value);
+            store.dispatch(validateUserAnswer(action.value));
+            return next(action);
+        case LEAVE_GAME:
+            // Socket request to signal player is leaving the game
             return next(action);
         default:
             next(action);

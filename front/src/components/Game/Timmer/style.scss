@@ -1,0 +1,17 @@
+@import 'src/styles/vars.scss';
+
+.timmer {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border-radius: 50%;
+    top: -20px;
+    left: -20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__value {
+        display: inline-block;
+    }
+}

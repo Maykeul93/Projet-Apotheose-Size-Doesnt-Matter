@@ -1,6 +1,3 @@
-import PropTypes from 'prop-types';
-import './style.scss';
-
 function Rules() {
     return (
         <div className="rules">
@@ -14,9 +11,5 @@ function Rules() {
         </div>
     );
 }
-
-Rules.propTypes = {
-
-};
 
 export default Rules;

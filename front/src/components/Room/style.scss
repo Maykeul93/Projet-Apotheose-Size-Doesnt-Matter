@@ -4,17 +4,23 @@
     display: flex;
     justify-content: space-around;
     color: $color-white;
+    padding: $gutter;
     &__left {
         flex-grow: 1;
-        &--player h2 {
-            font-size: $h2-size;
-        }
         &--launch {
             margin-top: $gutter * 2;
             height: 10vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            align-items: center;
+            & button {
+                width: 50%;
+                border: none;
+                border-radius: $button-radius;
+                padding: $gutter / 2;
+                font-weight: bold;
+            }
         }
     }
     &__right {
