@@ -11,6 +11,7 @@ function Game({
     otherPlayers,
     inputValue,
     changeInputValue,
+    sendResponse,
 }) {
     const playerUser = { // Only for the demo
         id: 8,
@@ -19,12 +20,21 @@ function Game({
         answer: '52',
     }
 
+    // Display user in the middle
+
     // Get the length of the array to insert a new element in the middle
     const middleOfPlayers = Math.round(otherPlayers.length / 2);
 
     // Insert the user into the other players in the middle
     const displayedPlayers = [...otherPlayers];
     displayedPlayers.splice(middleOfPlayers, 0, playerUser);
+
+    // handle the user answer validation
+    const handleSubmitAnswer = (e) => {
+        e.preventDefault();
+        sendResponse(inputValue);
+    };
+
     return (
         <>
             <Header />
@@ -35,6 +45,7 @@ function Game({
                         <h2 className="game__interface--question">Question</h2>
                         <div className="game__interface--players">
                             {/* List of players, need to place user in the middle */}
+                            {/* Need to receive pseudo, avatar, answer, id, exact_answer */}
                             {
                                 displayedPlayers.map((player) => (
                                     <PlayerDisplay
@@ -46,7 +57,9 @@ function Game({
                         </div>
                         <form
                             className="game__interface--answer"
+                            onSubmit={handleSubmitAnswer}
                         >
+                            {/* When the form is submit, send the user answer to the socket server */}
                             <input
                                 type="text"
                                 placeholder="Votre réponse.."

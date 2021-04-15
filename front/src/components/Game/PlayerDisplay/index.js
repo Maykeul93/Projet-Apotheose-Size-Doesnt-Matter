@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
 function PlayerDisplay({ player }) {
+    // Algo de calcul de la taille de la barre de progression
     return (
         <div className="playerDisplay">
             <div className="playerDisplay__pseudo">
