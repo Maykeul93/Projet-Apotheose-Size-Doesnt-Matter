@@ -57,7 +57,7 @@ git push
 git push heroku 
 
 # comme nous avons tout nos documents back dans un dossiers back et non en racine de notre repo il faut effectuer cette commande 
-git subtree push –prefix back heroku master
+git subtree push --prefix back heroku master
 ```
 lien de notre bdd en ligne : https://size-doesnt-matter.herokuapp.com/
 
