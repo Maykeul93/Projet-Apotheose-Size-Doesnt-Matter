@@ -2,3 +2,4 @@
 %project=aposize
 
 00-init-schema.sql 2021-04-14T11:28:53Z "Etudiant O'clock",,, <etudiant@teleporteur> # initialisation BDD
+05-insert-data 2021-04-15T10:01:07Z "Etudiant O'clock",,, <etudiant@teleporteur> # insert data to our bdd
