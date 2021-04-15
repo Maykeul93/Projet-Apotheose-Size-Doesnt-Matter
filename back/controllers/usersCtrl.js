@@ -50,11 +50,12 @@ module.exports = {
     for (const i of mail){
       const password = i.password;
       const id = i.id; 
-      const pseudo = i.pseudo; 
+      const pseudo = i.pseudo;
+      const email = i.email 
       try {
         //password verification
         if (await bcrypt.compare(req.body.password, password) ) {
-          res.status(201).json({'succes':'true', 'id':id, 'pseudo':pseudo, 'token':jwtUtils.generateTokenForUser(mail)});
+          res.status(201).json({'succes':'true', 'id':id, 'pseudo':pseudo, 'email':email,'token':jwtUtils.generateTokenForUser(mail)});
         } else {
           return res.status(400).json({'error': 'Mot de passe incorrect '});
         }
