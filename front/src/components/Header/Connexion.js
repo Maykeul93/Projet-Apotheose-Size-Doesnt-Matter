@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
 
 const Connexion = ({ 
     emailValue, 
@@ -52,6 +53,7 @@ const Connexion = ({
                     >
                         Valider
                     </button>
+                    <Link to="/page/signup">Inscription</Link>
                 </form>
                
             </div>

@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import './style.scss';
 
 function Menu() {
@@ -19,7 +20,11 @@ function Menu() {
             <ul
                 className="menu__options"
             >
-                <li className="menu__option">Mon profil</li>
+                <li className="menu__option">
+                    <Link to="/page/profil">
+                        Mon profil
+                    </Link>
+                </li>
                 <li className="menu__option">Jouer</li>
                 <li className="menu__option">Se déconnecter</li>
             </ul>
