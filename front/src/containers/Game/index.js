@@ -6,7 +6,10 @@ import {
 } from 'actions/gameInterface';
 
 const mapStateToProps = (state) => ({
-    player: state.user.pseudo, // temporary
+    player: {
+        pseudo: state.user.pseudo,
+        answer: state.game.userAnswerValidate,
+    }, // temporary
     otherPlayers: state.game.players,
     inputValue: state.game.userAnswer,
 });

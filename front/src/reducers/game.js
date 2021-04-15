@@ -6,6 +6,7 @@ import {
 
 import {
     SET_USER_ANSWER,
+    VALIDATE_USER_ANSWER,
 } from 'actions/gameInterface';
 
 const initialState = {
@@ -24,6 +25,7 @@ const initialState = {
     ],
     isLaunch: false,
     userAnswer: '',
+    userAnswerValidate: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -47,6 +49,12 @@ const reducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 userAnswer: action.value,
+            }
+        case VALIDATE_USER_ANSWER:
+            return {
+                ...state,
+                userAnswerValidate: action.value,
+                userAnswer: '',
             }
         default:
             return state;

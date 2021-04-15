@@ -1,26 +1,14 @@
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
+
+import { getPercentOfProgressBar } from 'selectors/gameSelectors';
+
 import './styles.scss';
 
 
 function PlayerDisplay({ player, exactAnswer }) {
-    // Algo de calcul de la taille de la barre de progression
-    const getPercentOfProgressBar = () => {
-        const playerAnswer = Number(player.answer);
 
-        if (!isNaN(playerAnswer)){
-            const percent = (playerAnswer * 100) / exactAnswer;
-            const style = {
-                height: percent.toFixed(2) + '%',
-            }
-            return style;
-        }
-        else {
-            // Display an error
-        }
-    };
-    const styleSpan = getPercentOfProgressBar();
-    console.log(player.pseudo, styleSpan);
+    const styleSpan = getPercentOfProgressBar(player.answer, exactAnswer);
 
     // Add verification to compare pseudo with pseudo user of the state
     // If is equal, add special css to display progress bar bigger 

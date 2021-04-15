@@ -14,10 +14,9 @@ function Game({
     sendResponse,
 }) {
     const playerUser = { // Only for the demo
+        ...player,
         id: 8,
-        pseudo: 'J1',
         avatar: 'avatar.png',
-        answer: '9',
     }
 
     // Display user in the middle
@@ -62,7 +61,7 @@ function Game({
                         >
                             {/* When the form is submit, send the user answer to the socket server */}
                             <input
-                                type="text"
+                                type="number"
                                 placeholder="Votre réponse.."
                                 value={inputValue}
                                 onChange={(e) => changeInputValue(e.target.value)}
@@ -100,7 +99,7 @@ function Game({
 }
 
 Game.propTypes = {
-    player: PropTypes.string.isRequired,
+    player: PropTypes.object.isRequired,
     otherPlayers: PropTypes.array.isRequired, // Need id, pseudo, answer, score, codeAvatar
     inputValue: PropTypes.string.isRequired,
     changeInputValue: PropTypes.func.isRequired,

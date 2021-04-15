@@ -6,6 +6,7 @@ import {
 
 import {
     SEND_USER_ANSWER,
+    validateUserAnswer,
 } from 'actions/gameInterface';
 
 const gameMiddleware = (store) => (next) => (action) => {
@@ -23,6 +24,7 @@ const gameMiddleware = (store) => (next) => (action) => {
             break;
         case SEND_USER_ANSWER:
             console.log('user answer', action.value);
+            store.dispatch(validateUserAnswer(action.value));
             return next(action);
         default:
             next(action);
