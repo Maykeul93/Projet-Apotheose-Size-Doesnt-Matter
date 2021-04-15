@@ -25,7 +25,11 @@ function Menu() {
                         Mon profil
                     </Link>
                 </li>
-                <li className="menu__option">Jouer</li>
+                <li className="menu__option">
+                    <Link to="/page/createRoom">
+                        Jouer
+                    </Link>
+                    </li>
                 <li className="menu__option">Se déconnecter</li>
             </ul>
         </div>

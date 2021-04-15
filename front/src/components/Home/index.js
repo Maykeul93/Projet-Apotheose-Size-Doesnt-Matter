@@ -22,7 +22,7 @@ const Home = ({isLogged, onDisplayChange}) => {
             </div>
             {
                 isLogged ? (
-                <Link to='/game/createRoom'>
+                <Link to='/page/createRoom'>
                     <button 
                         className="home__play-button" 
                         type="button"
