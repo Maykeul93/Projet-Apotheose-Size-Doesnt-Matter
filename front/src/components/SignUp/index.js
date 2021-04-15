@@ -1,3 +1,4 @@
+import { setEmailInputValue } from 'actions/user';
 import api from 'api';
 import React, { useState } from 'react';
 
@@ -37,7 +38,11 @@ const SignIn = ({}) => {
             password,
         })
         .then((response)=> {
-            setMessage(response.data)
+            setMessage(response.data);
+            setPseudo('');
+            setEmail('');
+            setPassword('')
+            setValidPassword('');
         })
         .catch((error)=> {
             setMessage(error)
