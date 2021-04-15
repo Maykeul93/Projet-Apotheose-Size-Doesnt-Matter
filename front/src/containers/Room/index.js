@@ -7,8 +7,8 @@ import {
 const mapStateToProps = (state) => ({
     otherPlayers: state.game.players,
     player: state.user.pseudo,
-    room: state.game.room,
-    isLaunch: state.game.isLaunch,
+    room: state.room.room,
+    isLaunch: state.room.isLaunch,
 });
 
 const mapDispatchStateToProps = (dispatch) => ({

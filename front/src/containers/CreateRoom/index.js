@@ -8,8 +8,8 @@ import {
 } from 'actions/game';
 
 const mapStateToProps = (state) => ({
-    inputValue: state.game.codeRoomInput,
-    room: state.game.room,
+    inputValue: state.room.codeRoomInput,
+    room: state.room.room,
 });
 
 const mapDispatchStateToProps = (dispatch) => ({
