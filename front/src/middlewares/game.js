@@ -4,6 +4,10 @@ import {
     stockRoomIntoState,
 } from 'actions/game';
 
+import {
+    SEND_USER_ANSWER,
+} from 'actions/gameInterface';
+
 const gameMiddleware = (store) => (next) => (action) => {
     switch (action.type) {
         case CREATE_NEW_GAME:
@@ -17,6 +21,9 @@ const gameMiddleware = (store) => (next) => (action) => {
             console.log('je rejoins une nouvelle partie');
             store.dispatch(stockRoomIntoState('randomRoom'));
             break;
+        case SEND_USER_ANSWER:
+            console.log('user answer', action.value);
+            return next(action);
         default:
             next(action);
     }

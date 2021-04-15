@@ -4,8 +4,11 @@ import {
     LAUNCH_GAME,
 } from 'actions/game';
 
+import {
+    SET_USER_ANSWER,
+} from 'actions/gameInterface';
+
 const initialState = {
-    users: [],
     codeRoomInput: '',
     room: '',
     players: [
@@ -18,6 +21,7 @@ const initialState = {
         }
     ],
     isLaunch: false,
+    userAnswer: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -36,6 +40,11 @@ const reducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 isLaunch: true,
+            }
+        case SET_USER_ANSWER:
+            return {
+                ...state,
+                userAnswer: action.value,
             }
         default:
             return state;
