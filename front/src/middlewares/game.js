@@ -10,8 +10,17 @@ import {
     LEAVE_GAME,
 } from 'actions/gameInterface';
 
+import {
+    SOCKET_CONNECTION,
+    setSocket,
+} from 'actions/socket';
+
 const gameMiddleware = (store) => (next) => (action) => {
     switch (action.type) {
+        case SOCKET_CONNECTION:
+            const socket = window.io('https://size-doesnt-matter.herokuapp.com/');
+            store.dispatch(setSocket(socket));
+            break;
         case CREATE_NEW_GAME:
             // connexion avec le serveur pour générer une room
             // réception de la room générée qui sera stockée dans le state
