@@ -37,6 +37,7 @@ const Profil = ({pseudo, email}) => {
                             <input type="password" placeholder="Valider mot de passe"/>
                             <button type="submit">Valider</button>
                         </form>
+                        <button type="button">Supprimer mon compte</button>
                     </div>
                 )
             }
