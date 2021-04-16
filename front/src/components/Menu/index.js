@@ -26,6 +26,11 @@ function Menu() {
                     </Link>
                 </li>
                 <li className="menu__option">
+                    <Link to="/page/admin">
+                        Admin
+                    </Link>
+                </li>
+                <li className="menu__option">
                     <Link to="/page/createRoom">
                         Jouer
                     </Link>

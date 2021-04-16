@@ -6,9 +6,14 @@ import slide from './slide.jpg';
 import './styles.scss';
 
 //Create Home component
-const Home = ({isLogged, onDisplayChange}) => {
+const Home = ({isLogged, onDisplayChange, isRegistered}) => {
     return(
         <main className="home page__main">
+            {
+                isRegistered && (
+                    <p>Inscription Réussi</p>
+                )
+            }
             <p className="home__description">
                 Bienvenue, Size Doesn't Matter est un jeu multijoueur en ligne.<br />
                 Il s'agit d'un quizz où vous et vos amis auront à répondre a différentes question,<br />
