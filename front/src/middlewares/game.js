@@ -22,9 +22,9 @@ const gameMiddleware = (store) => (next) => (action) => {
         case SOCKET_CONNECTION:
             const socket = io('https://size-doesnt-matter.herokuapp.com/', {
                 withCredentials: true,
-                extraHeaders: {
-                    "my-custom-header": "abcd"
-                  }
+                headers: {
+                    "Authorization": "abcd"
+                }
             });
             store.dispatch(setSocket(socket));
             break;
