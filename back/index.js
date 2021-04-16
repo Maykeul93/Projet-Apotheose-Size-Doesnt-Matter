@@ -3,7 +3,14 @@ const express = require('express');
 const app = express();
 const http = require('http');
 const server = http.createServer(app);
-const io = require('socket.io')(server); 
+const io = require('socket.io')(server, {
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
+  }
+}); 
 const cors = require('cors');
 
 const bodyParser = require('body-parser'); //parse body's answer for token 
