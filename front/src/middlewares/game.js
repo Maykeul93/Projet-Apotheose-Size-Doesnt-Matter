@@ -19,22 +19,41 @@ import {
 
 const gameMiddleware = (store) => (next) => (action) => {
     switch (action.type) {
-        case SOCKET_CONNECTION:
-            const socket = io('https://size-doesnt-matter.herokuapp.com/');
-            store.dispatch(setSocket(socket));
+        case SOCKET_CONNECTION: {
+            const socketConnection = io('http://localhost:3002');
+            store.dispatch(setSocket(socketConnection));
             break;
-        case CREATE_NEW_GAME:
-            // connexion avec le serveur pour générer une room
-            // réception de la room générée qui sera stockée dans le state
-            store.dispatch(stockRoomIntoState('randomRoom'));
+        }
+        case CREATE_NEW_GAME: {
+            // socket connexion to create a room
+            const { socket, id } = store.getState().user;
+            socket.emit('front_create_game', id);
+            // get the new room here and set the state
+            socket.on('server_create_game', (data) => {
+                console.log(data);
+                store.dispatch(stockRoomIntoState(data.room));
+            });
             break;
-        case JOIN_NEW_GAME:
-            // Connexion avec le serveur pour confirmer que la room entrée existe
-            // réception de la confirmation de la room qui sera stockée dans le state
-            console.log('je rejoins une nouvelle partie');
-            store.dispatch(stockRoomIntoState('randomRoom'));
+        }
+        case JOIN_NEW_GAME:{
+            const { socket, id } = store.getState().user;
+            const { codeRoomInput } = store.getState().room;
+            // confirm that's codeRoom exist, if exist, connect the user to the room
+            socket.emit('front_join_game', {
+                id,
+                room: codeRoomInput,
+            });
+            socket.on('server_join_game', (data) => {
+                store.dispatch(stockRoomIntoState(data.room));
+                // dispatch otherPlayers pour afficher tous les joueurs dans le salon
+            })
+            socket.on('server_join_game_error', ({ error }) => {
+                // dispatch de l'erreur
+            });
             break;
+        }
         case SEND_USER_ANSWER:
+            // socket.emit --> envoi de la réponse au back
             store.dispatch(validateUserAnswer(action.value));
             return next(action);
         case LEAVE_GAME:

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
 export default axios.create({
-  baseURL: 'https://size-doesnt-matter.herokuapp.com',
+  baseURL: 'http://localhost:3002',
   timeout: 1000,
 });
