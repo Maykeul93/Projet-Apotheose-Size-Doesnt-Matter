@@ -17,7 +17,6 @@ module.exports = {
         const { room, id } = await game.getIdGame(roomFront);
       // bound a user with a game in database
         const isBounded = await this.boundGameOnUser(id, idUser);
-        console.log(isBounded);
         if (isBounded) {
           socket.emit('server_create_game', {
             room,
@@ -34,6 +33,26 @@ module.exports = {
       }); 
     }
   },
+  async checkRoom(room) {
+    try {
+      const idGame = await game.roomIsExist(room);
+      return idGame;
+    } catch (error) {
+      return false;
+    }
+  },
+  async getAllPlayers(idGame) {
+    try {
+      const idPlayers = await game.getAllPlayersInOneGame(idGame);
+      const players = await idPlayers.map(async (player) => {
+        return (await game.playerPseudo(player.user_id));
+      });
+      console.log('players', players);
+      return players;
+    } catch (error) {
+      return error;
+    }
+  }
 }
 
 
