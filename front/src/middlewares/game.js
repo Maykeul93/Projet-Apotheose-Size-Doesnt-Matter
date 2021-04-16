@@ -20,12 +20,7 @@ import {
 const gameMiddleware = (store) => (next) => (action) => {
     switch (action.type) {
         case SOCKET_CONNECTION:
-            const socket = io('https://size-doesnt-matter.herokuapp.com/', {
-                withCredentials: true,
-                headers: {
-                    "Authorization": "abcd"
-                }
-            });
+            const socket = io('https://size-doesnt-matter.herokuapp.com/');
             store.dispatch(setSocket(socket));
             break;
         case CREATE_NEW_GAME:
