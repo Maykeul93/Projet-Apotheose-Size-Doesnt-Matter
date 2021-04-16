@@ -5,7 +5,9 @@ import {
     setLoadingState,
     setLogged,
     setUser,
-  } from 'actions/user';
+} from 'actions/user';
+
+import { socketConnection } from 'actions/socket';
 
 const logger = (store) => (next) => (action) => {
     switch(action.type) {
@@ -20,6 +22,7 @@ const logger = (store) => (next) => (action) => {
             .then(({id, email, pseudo}) => {
                 store.dispatch(setUser(id, email, pseudo));
                 store.dispatch(setLogged(true));
+                store.dispatch(socketConnection());
             })
             .finally(() => {
                 store.dispatch(setLoadingState(false));

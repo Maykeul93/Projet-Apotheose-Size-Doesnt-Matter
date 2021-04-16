@@ -7,6 +7,10 @@ import {
         SET_USER
     } from 'actions/user';
 
+    import {
+        SET_SOCKET,
+    } from 'actions/socket';
+
 const initialState = {
     isLogged: false,
     email: '',
@@ -14,6 +18,7 @@ const initialState = {
     pseudo: '',
     loading: false,
     isDisplayed: false,
+    socket: {},
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -50,6 +55,11 @@ const reducer = (state = initialState, action = {}) => {
                 email: action.email,
                 pseudo: action.pseudo,
             };
+        case SET_SOCKET:
+            return {
+                ...state,
+                socket: action.socket,
+            }
         default:
             return state;
     }
