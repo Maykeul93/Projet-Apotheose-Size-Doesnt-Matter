@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import Game from 'components/Game';
+import { setRound } from 'actions/gameInterface';
 
 const mapStateToProps = (state) => ({
     player: {
@@ -7,8 +8,13 @@ const mapStateToProps = (state) => ({
         answer: state.game.userAnswerValidate,
     }, // temporary
     otherPlayers: state.game.players,
+    isRound: state.game.isRound,
 });
 
-const mapDispatchStateToProps = (dispatch) => ({});
+const mapDispatchStateToProps = (dispatch) => ({
+    setRound: () => {
+        dispatch(setRound());
+    }
+});
 
 export default connect(mapStateToProps, mapDispatchStateToProps)(Game);

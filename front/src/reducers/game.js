@@ -1,6 +1,7 @@
 import {
     SET_USER_ANSWER,
     VALIDATE_USER_ANSWER,
+    SET_ROUND,
 } from 'actions/gameInterface';
 
 const initialState = {
@@ -17,6 +18,8 @@ const initialState = {
     ],
     userAnswer: '',
     userAnswerValidate: '',
+    score: [],
+    isRound: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -31,6 +34,11 @@ const reducer = (state = initialState, action = {}) => {
                 ...state,
                 userAnswerValidate: action.value,
                 userAnswer: '',
+            }
+        case SET_ROUND:
+            return {
+                ...state,
+                isRound: !state.isRound,
             }
         default:
             return state;

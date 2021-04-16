@@ -1,12 +1,12 @@
-import React from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Header from 'containers/Header';
 import PlayerAnswer from 'containers/Game/PlayerAnswer';
 import LeaveGame from 'containers/Game/LeaveGame';
 import DisplayAllPlayers from './DisplayAllPlayers';
+import Timer from './Timer';
 import Ranking from './Ranking';
-import Timmer from './Timmer';
 import Question from './Question';
 import Round from './Round';
 
@@ -15,6 +15,8 @@ import './style.scss';
 function Game({
     player,
     otherPlayers,
+    isRound,
+    setRound,
 }) {
     const playerUser = { // Only for the demo
         ...player,
@@ -37,7 +39,10 @@ function Game({
             <div className="game game__main">
                 <div className="game__left">
                     <div className="game__interface">
-                        <Timmer />
+                        <Timer
+                            isRound={isRound}
+                            setRound={setRound}
+                        />
                         <Question />
                         <DisplayAllPlayers displayedPlayers={displayedPlayers} />
                         <PlayerAnswer />
@@ -62,6 +67,8 @@ function Game({
 Game.propTypes = {
     player: PropTypes.object.isRequired,
     otherPlayers: PropTypes.array.isRequired, // Need id, pseudo, answer, score, codeAvatar
+    isRound: PropTypes.bool.isRequired,
+    setRound: PropTypes.func.isRequired,
 };
 
 export default Game;
