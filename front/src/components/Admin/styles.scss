@@ -1,0 +1,28 @@
+@import 'src/styles/vars.scss';
+
+.admin{
+    &__title{
+        font-size: 3em;
+        text-align: center;
+    }
+    &__content{
+        display: flex;
+        margin: $gutter;
+
+        &-left{
+            .section{
+                margin: $gutter 0;
+                &__title{
+                    font-size: 2em;
+                }
+                &__list{
+                    margin: $gutter*0.5 $gutter;
+                }
+                &__item{
+                    margin: $gutter*0.5 $gutter;
+                    font-size: 1.5em;
+                }
+            }
+        }
+    }
+}
