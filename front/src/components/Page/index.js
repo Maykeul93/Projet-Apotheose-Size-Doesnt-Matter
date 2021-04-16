@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 import Header from 'containers/Header';
 import Footer from 'components/Footer';
 import CreateRoom from 'containers/CreateRoom';
-import SignUp from 'components/SignUp';
+import SignUp from 'containers/SignUp';
 import Profil from 'containers/Profil';
+import Admin from 'components/Admin';
 
 //Import Home component
 import Home from 'containers/Home';
@@ -21,7 +22,7 @@ function Page() {
     const component = {
         signup: <SignUp />,
         profil: <Profil />,
-        admin: 'Admin Component',
+        admin: <Admin />,
         createRoom: <CreateRoom />,
         aboutUs: 'AboutUs Component',
         error: 'Error Component',

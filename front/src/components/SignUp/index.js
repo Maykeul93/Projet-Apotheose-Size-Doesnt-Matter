@@ -1,55 +1,13 @@
-import { setEmailInputValue } from 'actions/user';
-import api from 'api';
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import './styles.scss';
+import Field from 'containers/Field';
 
-const SignIn = ({}) => {
-    const [pseudo, setPseudo] = useState('')
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [validPassword, setValidPassword] = useState('')
-    const [message, setMessage] = useState('')
-    const [loading, setLoading] = useState(false);
-
-    const handlePseudoChange = (e) => {
-        setPseudo(e.target.value)
-    }
-    const handleEmailChange = (e) => {
-        setEmail(e.target.value)
-    }
-    const handlePasswordChange = (e) => {
-        setPassword(e.target.value)
-    }
-    const handleValidPasswordChange = (e) => {
-        setValidPassword(e.target.value)
-    }
-
+const SignUp = ({ loading, onSubmit }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (password !== validPassword){
-            return setMessage('Vos mots de passe ne sont pas identiques')
-        };
-        // Sign up request API
-        setLoading(true);
-        api.post('/signup', {
-            pseudo,
-            email,
-            password,
-        })
-        .then((response)=> {
-            setMessage(response.data);
-            setPseudo('');
-            setEmail('');
-            setPassword('')
-            setValidPassword('');
-        })
-        .catch((error)=> {
-            setMessage(error)
-        })
-        .finally(() => {
-            setLoading(false)
-        });
+        onSubmit()
     };
     return(
         <main className="signup page__main">
@@ -57,38 +15,34 @@ const SignIn = ({}) => {
             <form className="signup__form" onSubmit={handleSubmit}>
                 <label className="signup__label">
                     <p>Choisissez un pseudo:</p>
-                    <input 
+                    <Field 
                         type="text"
                         placeholder="Pseudo"
-                        value={pseudo}
-                        onChange={handlePseudoChange}
+                        name='pseudo'
                     />
                     </label>
                 <label className="signup__label">
                     <p>Entrer votre adresse email:</p>
-                    <input 
+                    <Field 
                         type="email"
                         placeholder="Email"
-                        value={email}
-                        onChange={handleEmailChange}
+                        name='email'
                     />
                 </label>
                 <label className="signup__label">
                     <p>Choisissez un mot de passe:</p>
-                    <input 
+                    <Field 
                         type="password"
                         placeholder="Password"
-                        value={password}
-                        onChange={handlePasswordChange}
+                        name='password'
                     />
                 </label>
                 <label className="signup__label">
                     <p>Valider votre mot de passe:</p>
-                    <input 
+                    <Field 
                         type="password"
                         placeholder="Password"
-                        value={validPassword}
-                        onChange={handleValidPasswordChange}
+                        name='validPassword'
                     />
                 </label>
                 {
@@ -100,13 +54,18 @@ const SignIn = ({}) => {
                         </button>
                     )
                 }
-                {
-                    message.length > 0 &&
-                    <p>{message}</p>
-                }
             </form>
         </main>
     )
 };
 
-export default SignIn;
+SignUp.propTypes = {
+    loading: PropTypes.bool,
+};
+
+SignUp.defaultProps = {
+    loading: false,
+};
+
+
+export default SignUp;
