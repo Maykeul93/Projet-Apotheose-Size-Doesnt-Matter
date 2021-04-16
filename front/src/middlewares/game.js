@@ -1,3 +1,5 @@
+import io from "socket.io-client";
+
 import {
     CREATE_NEW_GAME,
     JOIN_NEW_GAME,
@@ -18,7 +20,12 @@ import {
 const gameMiddleware = (store) => (next) => (action) => {
     switch (action.type) {
         case SOCKET_CONNECTION:
-            const socket = window.io('https://size-doesnt-matter.herokuapp.com/');
+            const socket = io('https://size-doesnt-matter.herokuapp.com/', {
+                withCredentials: true,
+                headers: {
+                    "Authorization": "abcd"
+                }
+            });
             store.dispatch(setSocket(socket));
             break;
         case CREATE_NEW_GAME:
