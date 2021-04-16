@@ -36,12 +36,11 @@ const gameController = require('./controllers/gameController');
 
 io.on('connection', (socket) => {
     console.log('a user connected :', socket.id); 
-    socket.on('front_create_game', (id) => {
+    socket.on('front_create_game', (idUser) => {
       const room = uniqid();
       socket.join(room);
       // requete SQL pour créer un enregistrement dans Game et y stocker la room
-      gameController.gameRecRoom(socket, room); 
-      // utilisation de l'id de l'utilisateur pour le lier via la table de liaison à la nouvelle partie 
+      const idGame = gameController.gameRecRoom(socket, room, idUser); 
     });
 
     socket.on('front_join_game', ({ id, room }) => {
