@@ -30,6 +30,7 @@ const gameMiddleware = (store) => (next) => (action) => {
             socket.emit('front_create_game', id);
             // get the new room here and set the state
             socket.on('server_create_game', (data) => {
+                console.log(data);
                 store.dispatch(stockRoomIntoState(data.room));
             });
             break;
@@ -44,6 +45,7 @@ const gameMiddleware = (store) => (next) => (action) => {
             });
             socket.on('server_join_game', (data) => {
                 store.dispatch(stockRoomIntoState(data.room));
+                // dispatch otherPlayers pour afficher tous les joueurs dans le salon
             })
             socket.on('server_join_game_error', ({ error }) => {
                 // dispatch de l'erreur
@@ -51,6 +53,7 @@ const gameMiddleware = (store) => (next) => (action) => {
             break;
         }
         case SEND_USER_ANSWER:
+            // socket.emit --> envoi de la réponse au back
             store.dispatch(validateUserAnswer(action.value));
             return next(action);
         case LEAVE_GAME:

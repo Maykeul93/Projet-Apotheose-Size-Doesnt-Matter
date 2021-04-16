@@ -32,6 +32,7 @@ app.use(cors({
 
 app.use(routers); 
 
+const gameController = require('./controllers/gameController'); 
 
 io.on('connection', (socket) => {
     console.log('a user connected :', socket.id); 
@@ -39,16 +40,8 @@ io.on('connection', (socket) => {
       const room = uniqid();
       socket.join(room);
       // requete SQL pour créer un enregistrement dans Game et y stocker la room
-      // utilisation de l'id de l'utilisateur pour le lier via la table de liaison à la nouvelle partie
-      // Si une erreur survient, envoyer l'erreur (bloc if pour envoyer l'event custom correspondant)
-      socket.emit('server_create_game', {
-        room,
-        // id de la partie (peut etre)
-      });
-
-      // socket.emit('server_create_game_error', {
-      //   error: sendError
-      // });
+      gameController.gameRecRoom(socket, room); 
+      // utilisation de l'id de l'utilisateur pour le lier via la table de liaison à la nouvelle partie 
     });
 
     socket.on('front_join_game', ({ id, room }) => {
@@ -56,15 +49,21 @@ io.on('connection', (socket) => {
 
       // if exists, connect the player to the room
       // Connect the player to the game into the Database
+      // requete api pour sélectionner tous les joueurs présents dans la partie
+      // Retourner tableau d'objet des joueurs dans la réponse socket
+      // Pour chaque joueur --> id, pseudo, (avatar, a voir plus tard)
+
       // if (exist) {
-        socket.on('server_join_game', {
+        
+        socket.emit('server_join_game', {
           room,
           // id de la partie (peut etre)
+          // tableau avec tous les joueurs déjà présents
         });
       // }
       // if doesn't exist, send an error to the front
       // else {
-        socket.on('server_join_game_error', {
+        socket.emit('server_join_game_error', {
           // error: sendError
         });
       // }
