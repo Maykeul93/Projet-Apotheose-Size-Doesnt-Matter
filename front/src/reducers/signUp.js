@@ -27,7 +27,7 @@ const reducer = (state = initialState, action = {}) => {
         case SET_REGISTERED :
             return {
                 ...state,
-                isRegistered: true,
+                isRegistered: !state.isRegistered,
             };
         default:
             return state;

@@ -4,6 +4,7 @@ import { setDisplayed } from 'actions/user';
 
 const mapStateToProps = (state) => ({
   isLogged: state.user.isLogged,
+  isRegistered: state.signUp.isRegistered,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -4,6 +4,7 @@ import { submitRegistered } from 'actions/signUp';
 
 const mapStateToProps = (state) => ({
   loading: state.signUp.loading,
+  isRegistered : state.signUp.isRegistered,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 
 import './styles.scss';
 import Field from 'containers/Field';
 
-const SignUp = ({ loading, onSubmit }) => {
+const SignUp = ({ loading, onSubmit, isRegistered }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         onSubmit()
     };
+
+    if (isRegistered){
+        return <Redirect to="/" />
+    }
+
     return(
         <main className="signup page__main">
             <h1 className="signup__title">Inscription</h1>
