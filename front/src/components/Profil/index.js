@@ -3,15 +3,17 @@ import PropTypes from 'prop-types';
 
 import avatar from './avatar.png';
 import './styles.scss';
+import Informations from 'containers/Profil/Informations';
+import Historique from './Historique';
 
 const Profil = ({pseudo, email}) => {
-    const [onglet, setOnglet] = useState("information")
+    const [onglet, setOnglet] = useState("informations")
     return(
         <div className="profil page__main">
             <div className="profil__onglet-content">
                 <span 
                     className="profil__onglet"
-                    onClick={() => setOnglet('information')}
+                    onClick={() => setOnglet('informations')}
                 >Informations</span>
                 <span 
                     className="profil__onglet"
@@ -20,39 +22,15 @@ const Profil = ({pseudo, email}) => {
             </div>
 
             {
-                onglet ==="information" && (
-                    <div className="profil profil__information">
-                        <div className="profil__avatar-content">
-                            <img className="profil__avatar" src={avatar} alt="avatar"/>
-                            <span className="profil__add-avatar">+</span>
-                        </div>
-                        <form className="profil__form">
-                            <label>{ pseudo }<span>+</span></label>
-                            <input type="text" placeholder="Nouveau pseudo"/>
-                            <label>{ email }<span>+</span></label>
-                            <input type="email" placeholder="Nouvelle adresse email"/>
-                            <label>Mot de passe :</label>
-                            <input type="password" placeholder="Ancien mot de passe"/>
-                            <input type="password" placeholder="Nouveau mot de passe"/>
-                            <input type="password" placeholder="Valider mot de passe"/>
-                            <button type="submit">Valider</button>
-                        </form>
-                        <button type="button">Supprimer mon compte</button>
-                    </div>
+                onglet ==="informations" && (
+                    <Informations 
+                        avatar={avatar}
+                    />
                 )
             }
             {
                 onglet ==="historique" && (
-                    <div className="profil profil__historique">
-                        <div className="profil__avatar-content">
-                            <img className="profil__avatar" src={avatar} alt="avatar"/>
-                        </div>
-                        <p>1ere place: 0 </p>
-                        <p>2eme place: 0 </p>
-                        <p>3eme place: 0 </p>
-                        <p>Dernière partie jouer : jamais </p>
-                        <p>Nombre de réponses éxactes: 0 </p>
-                    </div>
+                    <Historique avatar={avatar}/>
                 )
             }
         </div>

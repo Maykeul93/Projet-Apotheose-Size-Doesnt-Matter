@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 
 import './styles.scss';
-import Field from 'containers/Field';
+import Field from 'containers/SignUp/Field';
 
 const SignUp = ({ loading, onSubmit, isRegistered }) => {
     const handleSubmit = (e) => {
