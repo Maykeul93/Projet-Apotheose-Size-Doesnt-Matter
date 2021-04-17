@@ -19,7 +19,6 @@ function Game({
 }) {
     const playerUser = { // Only for the demo
         ...player,
-        id: 8,
         avatar: 'avatar.png',
     }
 
