@@ -4,18 +4,12 @@ import {
     SET_ROUND,
 } from 'actions/gameInterface';
 
+import {
+    SET_OTHER_PLAYERS,
+} from 'actions/game';
+
 const initialState = {
-    players: [
-        {
-            id: 1,
-            pseudo: 'Bilbo',
-            answer: '4',
-        }, {
-            id: 2,
-            pseudo: 'Gandalf',
-            answer: '6',
-        }
-    ],
+    players: [],
     userAnswer: '',
     userAnswerValidate: '',
     score: [],
@@ -24,6 +18,11 @@ const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
     switch (action.type) {
+        case SET_OTHER_PLAYERS:
+            return {
+                ...state,
+                players: action.players,
+            }
         case SET_USER_ANSWER:
             return {
                 ...state,

@@ -6,6 +6,7 @@ import {
     stockRoomIntoState,
     launchNewGame,
     SET_LAUNCH_GAME,
+    setOtherPlayers,
 } from 'actions/game';
 
 import {
@@ -22,7 +23,7 @@ import {
 const gameMiddleware = (store) => (next) => (action) => {
     switch (action.type) {
         case SOCKET_CONNECTION: {
-            const socketConnection = io('https://size-doesnt-matter.herokuapp.com/');
+            const socketConnection = io('https://size-doesnt-matter.herokuapp.com/users');
             store.dispatch(setSocket(socketConnection));
             break;
         }
@@ -47,6 +48,11 @@ const gameMiddleware = (store) => (next) => (action) => {
             });
             socket.on('server_join_game', (data) => {
                 store.dispatch(stockRoomIntoState(data.room));
+                console.log(data);
+                //! Soucis de players à revoir
+                const players = data.players.map((player) => player.id !== id);
+                console.log(players);
+                store.dispatch(setOtherPlayers(players));
                 // dispatch otherPlayers pour afficher tous les joueurs dans le salon
             })
             socket.on('server_join_game_error', ({ error }) => {
@@ -55,14 +61,32 @@ const gameMiddleware = (store) => (next) => (action) => {
             break;
         }
         case SET_LAUNCH_GAME: {
-            // Réception message serveur lancer la partie
-            store.dispatch(launchNewGame());
+            const { socket, id } = store.getState().user;
+            const { room } = store.getState().room;
+            socket.emit('front_launch_game', { id, room });
+
+            socket.on('server_launch_game', () => {
+                store.dispatch(launchNewGame());
+            });
             break;
         }
-        case SEND_USER_ANSWER:
+        case SEND_USER_ANSWER: {
             // socket.emit --> envoi de la réponse au back
-            store.dispatch(validateUserAnswer(action.value));
-            return next(action);
+            const { socket, id } = store.getState().user;
+            const { room } = store.getState().room;
+            socket.emit('front_send_answer', {
+                id,
+                answer: action.value,
+                room,
+            });
+
+            socket.on('server_send_answer', ({ id, answer }) => {
+                console.log(id, ' a répondu : ', answer);
+                //! A modifier
+                store.dispatch(validateUserAnswer(action.value));
+            });
+            break;
+        }
         case LEAVE_GAME:
             // Socket request to signal player is leaving the game
             return next(action);
