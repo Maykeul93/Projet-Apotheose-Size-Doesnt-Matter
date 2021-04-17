@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 
 import Header from 'containers/Header';
-import PlayerWithAvatar from 'containers/PlayerWithAvatar';
+import PlayerWithAvatar from 'components/PlayerWithAvatar';
 
 import './style.scss';
 
@@ -11,6 +11,7 @@ function Room({
     room,
     launchGame,
     isLaunch,
+    user,
 }) {
     if (isLaunch) {
         const path = `/game/${room}`
@@ -24,7 +25,7 @@ function Room({
             <Header />
             <main className="room game__main">
                 <div className="room__left">
-                    <PlayerWithAvatar />
+                    <PlayerWithAvatar user={user} />
                     <div className="room__left--launch">
                         {/* Need to implement a verification to authorize only the game master to launch game*/}
                         <button
@@ -40,7 +41,10 @@ function Room({
                 <div className="room__right">
                     <div className="room__right--playersList">
                         {
-                            otherPlayers.map((player) => (<h2 key={player.id}>{player.pseudo}</h2>))
+                            otherPlayers.map((player) => (<PlayerWithAvatar
+                                key={player.id}
+                                user={player}
+                            />))
                         }
                     </div>
                     <div className="room__right--tchat">
@@ -58,6 +62,7 @@ Room.propTypes = {
     room: PropTypes.string.isRequired,
     launchGame: PropTypes.func.isRequired,
     isLaunch: PropTypes.bool.isRequired,
+    user: PropTypes.object.isRequired,
 };
 
 export default Room;
