@@ -23,11 +23,10 @@ const Profil = (store) => (next) => (action) => {
                 newPassword, 
                 validPassword 
             })
-            .then((result) => result.data)
+            .then((result) => result.data[0])
             .then(({id, pseudo, email })=> {
-                console.log('hello')
                 store.dispatch(setMessage('Changement effectué'));
-                store.dispatch(setUser(id,pseudo, email));
+                store.dispatch(setUser(id,email, pseudo));
             })
             .catch((error)=> {
                 console.log(error)
