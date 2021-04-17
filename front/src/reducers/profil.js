@@ -1,4 +1,4 @@
-import { SET_LOADING, SET_PROFIL_INPUT_VALUE, SET_MESSAGE } from "actions/profil";
+import { SET_LOADING, SET_PROFIL_INPUT_VALUE, SET_MESSAGE, RESET_INPUT } from "actions/profil";
 
 const initialState = {
     email: undefined,
@@ -16,6 +16,15 @@ const reducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 [action.name]: action.value,
+            };
+        case RESET_INPUT :
+            return {
+                ...state,
+                email: undefined,
+                pseudo: undefined,
+                oldPassword: undefined,
+                newPassword: undefined,
+                validPassword: undefined,
             };
         case SET_LOADING :
             return {

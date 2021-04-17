@@ -40,7 +40,7 @@ const Informations = ({avatar, pseudo, email, onSubmit, message }) => {
                 <Field 
                     type="password" 
                     placeholder="Valider mot de passe"
-                    name="validNewPassword"
+                    name="validPassword"
                     />
                 <button type="submit">Valider</button>
             </form>
