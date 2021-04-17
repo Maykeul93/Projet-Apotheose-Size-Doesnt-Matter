@@ -2,6 +2,7 @@ import {
     SET_USER_ANSWER,
     VALIDATE_USER_ANSWER,
     SET_ROUND,
+    SET_OTHER_PLAYER_ANSWER,
 } from 'actions/gameInterface';
 
 import {
@@ -34,6 +35,23 @@ const reducer = (state = initialState, action = {}) => {
                 userAnswerValidate: action.value,
                 userAnswer: '',
             }
+        case SET_OTHER_PLAYER_ANSWER: {
+            console.log('je recois la réponse d un autre joueur');
+            const setPlayerAnswer = state.players.map((player) => {
+                if (player.id === action.id){
+                    return {
+                        ...player,
+                        answer: action.answer,
+                    }
+                }
+                return player;
+            });
+            console.log('setPlayerAnswer', setPlayerAnswer);
+            return {
+                ...state,
+                players: setPlayerAnswer,
+            };
+        }
         case SET_ROUND:
             return {
                 ...state,

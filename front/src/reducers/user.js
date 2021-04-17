@@ -18,7 +18,7 @@ const initialState = {
     pseudo: '',
     loading: false,
     isDisplayed: false,
-    socket: {},
+    socket: null,
 };
 
 const reducer = (state = initialState, action = {}) => {

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Header from 'containers/Header';
@@ -20,7 +19,6 @@ function Game({
 }) {
     const playerUser = { // Only for the demo
         ...player,
-        id: 8,
         avatar: 'avatar.png',
     }
 

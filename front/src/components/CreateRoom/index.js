@@ -2,11 +2,12 @@ import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import UserInteractions from 'containers/CreateRoom/UserInteractions';
-import PlayerWithAvatar from 'containers/PlayerWithAvatar';
+import PlayerWithAvatar from 'components/PlayerWithAvatar';
 import Rules from './Rules';
 import './style.scss';
 
 function CreateRoom({
+    user,
     room,
 }) {
     
@@ -18,7 +19,7 @@ function CreateRoom({
     return (
         <main className="createRoom page__main">
             <div className="createRoom__infos">
-                <PlayerWithAvatar />
+                <PlayerWithAvatar user={user} />
                 <Rules />
             </div>
             <UserInteractions />
@@ -28,6 +29,7 @@ function CreateRoom({
 
 CreateRoom.propTypes = {
     room: PropTypes.string.isRequired,
+    user: PropTypes.object.isRequired,
 };
 
 export default CreateRoom;

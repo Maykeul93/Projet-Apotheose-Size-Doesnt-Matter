@@ -13,6 +13,7 @@ import {
     SEND_USER_ANSWER,
     validateUserAnswer,
     LEAVE_GAME,
+    setOtherPlayerAnswer,
 } from 'actions/gameInterface';
 
 import {
@@ -23,8 +24,29 @@ import {
 const gameMiddleware = (store) => (next) => (action) => {
     switch (action.type) {
         case SOCKET_CONNECTION: {
-            const socketConnection = io('https://size-doesnt-matter.herokuapp.com');
-            store.dispatch(setSocket(socketConnection));
+            const { id } = store.getState().user;
+            const socket = io('https://size-doesnt-matter.herokuapp.com');
+            store.dispatch(setSocket(socket));
+
+            socket.on('server_launch_game', () => {
+                // Reception des questions/réponses
+                store.dispatch(launchNewGame());
+            });
+
+            socket.on('server_join_game', (data) => {
+                store.dispatch(stockRoomIntoState(data.room));
+                const otherPlayers = data.players.filter((player) => player.id !== id);
+                store.dispatch(setOtherPlayers(otherPlayers));
+            });
+
+            socket.on('server_send_answer', ({ id: playerId, answer }) => {
+                if ( playerId === id){
+                    store.dispatch(validateUserAnswer(answer));
+                }
+                else {
+                    store.dispatch(setOtherPlayerAnswer(playerId, answer));
+                }
+            });
             break;
         }
         case CREATE_NEW_GAME: {
@@ -33,7 +55,6 @@ const gameMiddleware = (store) => (next) => (action) => {
             socket.emit('front_create_game', id);
             // get the new room here and set the state
             socket.on('server_create_game', (data) => {
-                console.log(data);
                 store.dispatch(stockRoomIntoState(data.room));
             });
             break;
@@ -46,46 +67,26 @@ const gameMiddleware = (store) => (next) => (action) => {
                 id,
                 room: codeRoomInput,
             });
-            socket.on('server_join_game', (data) => {
-                store.dispatch(stockRoomIntoState(data.room));
-                console.log(data);
-                //! Soucis de players à revoir
-                const players = data.players.map((player) => player.id !== id);
-                console.log(players);
-                store.dispatch(setOtherPlayers(players));
-                // dispatch otherPlayers pour afficher tous les joueurs dans le salon
-            })
+           
             socket.on('server_join_game_error', ({ error }) => {
-                // dispatch de l'erreur
+                //! dispatch de l'erreur à placer dans les ecouteurs socket
             });
             break;
         }
         case SET_LAUNCH_GAME: {
             const { socket, id } = store.getState().user;
             const { room } = store.getState().room;
-            // envoie id de la game
             socket.emit('front_launch_game', { id, room });
 
-            socket.on('server_launch_game', () => {
-                // Reception des questions/réponses
-                store.dispatch(launchNewGame());
-            });
             break;
         }
         case SEND_USER_ANSWER: {
-            // socket.emit --> envoi de la réponse au back
             const { socket, id } = store.getState().user;
             const { room } = store.getState().room;
             socket.emit('front_send_answer', {
                 id,
                 answer: action.value,
                 room,
-            });
-
-            socket.on('server_send_answer', ({ id, answer }) => {
-                console.log(id, ' a répondu : ', answer);
-                //! A modifier
-                store.dispatch(validateUserAnswer(action.value));
             });
             break;
         }

@@ -8,6 +8,10 @@ const mapStateToProps = (state) => ({
     otherPlayers: state.game.players,
     room: state.room.room,
     isLaunch: state.room.isLaunch,
+    user: {
+        pseudo: state.user.pseudo,
+        id: state.user.id,
+    }
 });
 
 const mapDispatchStateToProps = (dispatch) => ({
