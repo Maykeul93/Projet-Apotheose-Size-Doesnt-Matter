@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Room from 'components/Room';
 import {
-    launchNewGame,
+    setLaunchGame,
 } from 'actions/game';
 
 const mapStateToProps = (state) => ({
@@ -12,7 +12,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchStateToProps = (dispatch) => ({
     launchGame: () => {
-        dispatch(launchNewGame());
+        dispatch(setLaunchGame());
     },
 });
 
