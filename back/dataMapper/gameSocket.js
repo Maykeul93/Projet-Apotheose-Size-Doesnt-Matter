@@ -26,9 +26,10 @@ module.exports = {
         return result.rows[0]; 
     },
 
-    async getAllPlayersInOneGame (gameId) { 
-        // Jointure
-        const result = await client.query(`SELECT "user_id" FROM "user_play_game" WHERE "game_id"= $1`, [gameId]);
+    async getAllPlayersInOneGame (gameId) {
+        // Pour les avatar ajouter u.avatar dans le SELECT
+        const result = await client.query(`SELECT u.id, u.pseudo FROM "user" u JOIN "user_play_game" upg ON u.id = upg.user_id JOIN game ON upg.game_id = game.id WHERE game.id = $1`, [gameId]);
+        console.log(result.rows);
         return result.rows; 
     }, 
 }

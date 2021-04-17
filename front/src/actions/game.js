@@ -4,6 +4,7 @@ export const JOIN_NEW_GAME = 'JOIN_NEW_GAME';
 export const STOCK_ROOM = 'STOCK_ROOM';
 export const LAUNCH_GAME = 'LAUNCH_GAME';
 export const SET_LAUNCH_GAME = 'SET_LAUNCH_GAME';
+export const SET_OTHER_PLAYERS = 'SET_OTHER_PLAYERS';
 
 export const setCodeRoomInput = (value) => ({
     type: SET_CODE_ROOM_INPUT,
@@ -30,4 +31,9 @@ export const launchNewGame = () => ({
 
 export const setLaunchGame = () => ({
     type: SET_LAUNCH_GAME,
+});
+
+export const setOtherPlayers = (players) => ({
+    type: SET_OTHER_PLAYERS,
+    players,
 });

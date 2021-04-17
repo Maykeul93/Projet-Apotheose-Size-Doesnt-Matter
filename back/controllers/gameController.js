@@ -43,14 +43,10 @@ module.exports = {
   },
   async getAllPlayers(idGame) {
     try {
-      const idPlayers = await game.getAllPlayersInOneGame(idGame);
-      const players = await idPlayers.map(async (player) => {
-        return (await game.playerPseudo(player.user_id));
-      });
-      console.log('players', players);
+      const players = await game.getAllPlayersInOneGame(idGame);
       return players;
     } catch (error) {
-      return error;
+      return false;
     }
   }
 }

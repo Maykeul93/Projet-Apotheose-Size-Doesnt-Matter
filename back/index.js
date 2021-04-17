@@ -45,16 +45,16 @@ io.on('connection', (socket) => {
 
     socket.on('front_join_game', async ({ id, room }) => {
       // Check in the database if code Room exists
+      //! Gestion d'erreur a revoir
       const idGame = await gameController.checkRoom(room);
       if (idGame) {
-        const otherPlayers = await gameController.getAllPlayers(idGame);
         await gameController.boundGameOnUser(idGame, id);
+        const players = await gameController.getAllPlayers(idGame);
         socket.join(room);
-        socket.emit('server_join_game', {
+        io.to(room).emit('server_join_game', {
           room,
-          // id de la partie (peut etre)
-          // tableau avec tous les joueurs déjà présents
-          otherPlayers,
+          idGame,
+          players,
         });
       }
       else {
@@ -62,16 +62,25 @@ io.on('connection', (socket) => {
           error: 'Cette partie n\'existe pas!!',
         });
       }
-      // requete api pour sélectionner tous les joueurs présents dans la partie
-      // Retourner tableau d'objet des joueurs dans la réponse socket
-      // Pour chaque joueur --> id, pseudo, (avatar, a voir plus tard)
+      //ajouter avatar pour plus tard
+    });
+
+    socket.on('front_launch_game', ({ id, room }) => {
+      console.log(id, ' lance la partie!');
+      io.to(room).emit('server_launch_game');
+    });
+
+    socket.on('front_send_answer', ({ id, answer, room }) => {
+      io.to(room).emit('server_send_answer', {
+        id,
+        answer,
+      });
     });
 
     socket.on('disconnect', () => {
       console.log('user disconnect'); 
     });
 });
-
 
 
 server.listen(process.env.PORT || 3000, () => {
