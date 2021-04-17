@@ -48,15 +48,11 @@ const gameMiddleware = (store) => (next) => (action) => {
             });
             socket.on('server_join_game', (data) => {
                 store.dispatch(stockRoomIntoState(data.room));
-                console.log(data);
-                //! Soucis de players à revoir
-                const players = data.players.map((player) => player.id !== id);
-                console.log(players);
-                store.dispatch(setOtherPlayers(players));
-                // dispatch otherPlayers pour afficher tous les joueurs dans le salon
+                const otherPlayers = data.players.filter((player) => player.id !== id);
+                store.dispatch(setOtherPlayers(otherPlayers));
             })
             socket.on('server_join_game_error', ({ error }) => {
-                // dispatch de l'erreur
+                //! dispatch de l'erreur
             });
             break;
         }

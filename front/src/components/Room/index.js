@@ -41,10 +41,7 @@ function Room({
                 <div className="room__right">
                     <div className="room__right--playersList">
                         {
-                            otherPlayers.map((player) => (<PlayerWithAvatar
-                                key={player.id}
-                                user={player}
-                            />))
+                            otherPlayers.map((player) => (<h2 key={player.id}>{player.pseudo}</h2>))
                         }
                     </div>
                     <div className="room__right--tchat">
@@ -57,7 +54,6 @@ function Room({
 }
 
 Room.propTypes = {
-    player: PropTypes.string.isRequired, // just for the demo, in fact we will receive an object
     otherPlayers: PropTypes.array.isRequired,
     room: PropTypes.string.isRequired,
     launchGame: PropTypes.func.isRequired,

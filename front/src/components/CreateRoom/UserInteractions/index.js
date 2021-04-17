@@ -60,7 +60,10 @@ function UserInteractions({
 }
 
 UserInteractions.propTypes = {
-
+    inputValue: PropTypes.string.isRequired,
+    setInputValue: PropTypes.func.isRequired,
+    createGame: PropTypes.func.isRequired,
+    joinGame: PropTypes.func.isRequired,
 };
 
 export default UserInteractions;
