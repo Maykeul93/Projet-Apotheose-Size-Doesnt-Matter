@@ -4,6 +4,8 @@ import {
     CREATE_NEW_GAME,
     JOIN_NEW_GAME,
     stockRoomIntoState,
+    launchNewGame,
+    SET_LAUNCH_GAME,
 } from 'actions/game';
 
 import {
@@ -50,6 +52,11 @@ const gameMiddleware = (store) => (next) => (action) => {
             socket.on('server_join_game_error', ({ error }) => {
                 // dispatch de l'erreur
             });
+            break;
+        }
+        case SET_LAUNCH_GAME: {
+            // Réception message serveur lancer la partie
+            store.dispatch(launchNewGame());
             break;
         }
         case SEND_USER_ANSWER:
