@@ -4,7 +4,8 @@ import { submitProfil } from 'actions/profil';
 
 const mapStateToProps = (state) => ({
   pseudo:state.user.pseudo,
-  email:state.user.email
+  email:state.user.email,
+  message:state.profil.message
 });
 
 const mapDispatchToProps = (dispatch) => ({
