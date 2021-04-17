@@ -81,10 +81,10 @@ module.exports = {
     
     
     try{
-      const tab = []
+      const tab = []// retour des succes ou erreur pas obligatoire 
       if (email){
         if (checkMail.length === 0){
-          await userDataMapper.updateMail(email, user[0].id);
+           await userDataMapper.updateMail(email, user[0].id);
           const result = {'succes':'Nouveau email enregistré'}
           tab.push(result)
         } else {
@@ -109,8 +109,10 @@ module.exports = {
       } else {
           res.status(400).json({'errors':'Soit les nouveaux MDP ne correspondent pas soit ancien MDP est incorrect'});
         }}
-        res.json(tab)
-      } catch (error){
+        console.log(tab);
+        const infoUser = await userDataMapper.infoUser(id)
+        res.json(infoUser)
+      } catch (errors){
         res.status(500).send(errors);
       }
   },

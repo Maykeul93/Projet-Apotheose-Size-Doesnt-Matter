@@ -54,5 +54,10 @@ async updatePseudo (pseudo, id){
 async updatePassword (password, id){
     const result = await client.query(`UPDATE "user" SET password = $1 WHERE id = $2`, [password, id]);
     return result.rows;
-}
+},
+
+async infoUser (userId){
+    const result = await client.query(`SELECT id, email, pseudo FROM "user" WHERE id = $1`, [userId])
+    return result.rows;
+},
 }

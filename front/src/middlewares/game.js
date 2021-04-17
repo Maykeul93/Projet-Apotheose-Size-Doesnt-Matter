@@ -23,7 +23,7 @@ import {
 const gameMiddleware = (store) => (next) => (action) => {
     switch (action.type) {
         case SOCKET_CONNECTION: {
-            const socketConnection = io('https://size-doesnt-matter.herokuapp.com/users');
+            const socketConnection = io('https://size-doesnt-matter.herokuapp.com');
             store.dispatch(setSocket(socketConnection));
             break;
         }
