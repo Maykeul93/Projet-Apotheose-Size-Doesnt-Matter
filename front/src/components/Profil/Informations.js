@@ -1,13 +1,19 @@
 import React from 'react';
 import Field from 'containers/Profil/Field';
+import PropTypes from 'prop-types';
 
-const Informations = ({avatar, pseudo, email }) => (
+const Informations = ({avatar, pseudo, email, onSubmit, message }) => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        onSubmit();
+    }
+    return(
         <div className="profil profil__information">
             <div className="profil__avatar-content">
                 <img className="profil__avatar" src={avatar} alt="avatar"/>
                 <span className="profil__add-avatar">+</span>
             </div>
-            <form className="profil__form">
+            <form className="profil__form" onSubmit={handleSubmit}>
                 <label>{ pseudo }<span>+</span></label>
                 <Field 
                     type="text" 
@@ -34,12 +40,34 @@ const Informations = ({avatar, pseudo, email }) => (
                 <Field 
                     type="password" 
                     placeholder="Valider mot de passe"
-                    name="validNewPassword"
+                    name="validPassword"
                     />
                 <button type="submit">Valider</button>
             </form>
+            {
+                message.length > 0  && (
+                    <p>{message}</p>
+                )
+            }
             <button type="button">Supprimer mon compte</button>
         </div>
-);
+    )
+};
+
+Informations.propTypes = {
+    avatar: PropTypes.string,
+    pseudo: PropTypes.string,
+    email: PropTypes.string,
+    message: PropTypes.string,
+    onSubmit: PropTypes.func,
+};
+
+Informations.defaultProps = {
+    avatar: '',
+    pseudo: '',
+    email: '',
+    message: '',
+    onSubmit: () => {}
+};
 
 export default Informations;
