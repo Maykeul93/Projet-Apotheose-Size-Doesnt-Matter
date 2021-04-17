@@ -63,9 +63,11 @@ const gameMiddleware = (store) => (next) => (action) => {
         case SET_LAUNCH_GAME: {
             const { socket, id } = store.getState().user;
             const { room } = store.getState().room;
+            // envoie id de la game
             socket.emit('front_launch_game', { id, room });
 
             socket.on('server_launch_game', () => {
+                // Reception des questions/réponses
                 store.dispatch(launchNewGame());
             });
             break;
