@@ -66,8 +66,12 @@ io.on('connection', (socket) => {
     });
 
     socket.on('front_launch_game', ({ id, room }) => {
+      // Recevra id de la game en plus
+      // cosnt questions = Requete SQL pour récupérer les questions
+      // Lier les question à la game
+      
       console.log(id, ' lance la partie!');
-      io.to(room).emit('server_launch_game');
+      io.to(room).emit('server_launch_game');// { questions }
     });
 
     socket.on('front_send_answer', ({ id, answer, room }) => {
