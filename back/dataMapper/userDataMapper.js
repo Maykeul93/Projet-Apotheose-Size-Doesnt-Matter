@@ -4,7 +4,7 @@ const client = require('./client');
 
 module.exports = {
 async recupUser() {
-    const result = await client.query('SELECT * FROM "user"') 
+    const result = await client.query('SELECT * FROM "user" ORDER BY id ASC') 
     return result.rows;
 },
 

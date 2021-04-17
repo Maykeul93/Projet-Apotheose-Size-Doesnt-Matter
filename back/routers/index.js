@@ -8,9 +8,9 @@ router.get('/', function (req, res) {
 });
 
 // road for getting all users
-router.get('/users', usersCtrl.recupUser);
+router.get('/users', usersCtrl.getUsers);
 // road for getting user by an id
-router.get('/users/:id', usersCtrl.recupUserById);
+router.get('/users/:id', usersCtrl.getUserById);
 // road for update User
 router.put('/users/:id',usersCtrl.updateUser);
 // road for delete a user

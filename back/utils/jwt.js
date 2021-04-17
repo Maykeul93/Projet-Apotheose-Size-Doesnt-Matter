@@ -10,7 +10,7 @@ module.exports = {
       userId: userData.id,
       isAdmin: userData.isAdmin
     },
-    process.env.JWT_SIGN_SECRET,// Sur heroku a mettre dans les variables d'environnement
+    process.env.JWT_SIGN_SECRET,// Sur heroku a mettre dans les variables d'environnement (ne pas supprimer le com)
     {
       expiresIn: '48h'
     })
