@@ -18,3 +18,10 @@ export const SUBMIT_PROFIL = 'SUBMIT_PROFIL';
 export const submitProfil = () => ({
     type: SUBMIT_PROFIL,
   });
+
+export const SET_MESSAGE = 'SET_MESSAGE';
+
+export const setMessage = (value) => ({
+    type: SET_MESSAGE,
+    value
+  });
