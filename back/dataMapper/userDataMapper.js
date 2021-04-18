@@ -4,7 +4,7 @@ const client = require('./client');
 
 module.exports = {
 async recupUser() {
-    const result = await client.query('SELECT * FROM "user" ORDER BY id ASC') 
+    const result = await client.query('SELECT id, email, pseudo FROM "user" ORDER BY id ASC') 
     return result.rows;
 },
 
@@ -58,6 +58,11 @@ async updatePassword (password, id){
 
 async infoUser (userId){
     const result = await client.query(`SELECT id, email, pseudo FROM "user" WHERE id = $1`, [userId])
+    return result.rows;
+},
+
+async getHistory (userId){
+    const result = await client.query(`SELECT user_id, room, score, position, date FROM user_play_game JOIN game ON user_id = game_id WHERE id = $1 `, [userId])
     return result.rows;
 },
 }
