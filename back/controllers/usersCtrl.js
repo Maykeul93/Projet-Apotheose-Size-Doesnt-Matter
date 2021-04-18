@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt');
+
 const userDataMapper = require('../dataMapper/userDataMapper');
 const jwtUtils = require('../utils/jwt');
 
@@ -7,9 +8,9 @@ module.exports = {
   async getUsers(req, res) {
     try {
       const users = await userDataMapper.recupUser();
-      res.send({users});
-    } catch {
-      res.status(500).send(errors);
+      res.send(users);
+    } catch (error) {
+      res.status(500).send(error);
     }
   },
   
@@ -17,9 +18,9 @@ module.exports = {
       const userId = req.params.id;
     try {
       const user =  await userDataMapper.recupUserById(userId);
-      res.send({user});
-    } catch {
-      res.status(500).send(errors);
+      res.send(user);
+    } catch (error) {
+      res.status(500).send(error);
     }
   },
   
@@ -42,8 +43,8 @@ module.exports = {
       } else {
        return res.status(400).json({'error': 'Déja inscrit'});
       }
-    } catch {
-      res.status(500).send();
+    } catch (error){
+      res.status(500).send(error);
       }
   },
   
@@ -60,8 +61,8 @@ module.exports = {
         } else {
           return res.status(400).json({'error': 'Mot de passe incorrect '});
         }
-      } catch {
-        res.status(500).send();
+      } catch (error){
+        res.status(500).send(error);
         }
     
   },
@@ -112,8 +113,8 @@ module.exports = {
         console.log(tab);
         const infoUser = await userDataMapper.infoUser(id)
         res.json(infoUser)
-      } catch (errors){
-        res.status(500).send(errors);
+      } catch (error){
+        res.status(500).send(error);
       }
   },
 
@@ -123,7 +124,17 @@ module.exports = {
       await userDataMapper.deleteUser(id);
       res.status(201).json({'succes':'true'})
     } catch (error) {
-      res.status(500).send(errors);
+      res.status(500).send(error);
       }
   },
+
+  async getHistory (req, res){
+    const userId = req.params.id
+    try {
+      const history =  await userDataMapper.getHistory(userId);
+      res.send({history});
+    } catch (error){
+      res.status(500).send(error);
+    }
+  }
 }

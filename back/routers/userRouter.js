@@ -16,5 +16,9 @@ router.delete('/users/:id',usersCtrl.deleteUser);
 router.post('/signup', usersCtrl.signup);
 // road for sign in (se connecter)
 router.post('/signin',usersCtrl.signin);
+// road to display the history of a player
+router.get('/history/:id', usersCtrl.getHistory);
+
+
 
 module.exports = router;
