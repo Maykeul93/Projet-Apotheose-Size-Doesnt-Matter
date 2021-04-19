@@ -4,16 +4,14 @@ import './style.scss';
 
 function Question({ question }) {
     return (
-        <h2 className="question">Question</h2>
+        <h2 className="question">
+            {question}
+        </h2>
     );
 }
 
 Question.propTypes = {
-    question: PropTypes.string,
+    question: PropTypes.string.isRequired,
 };
-
-PropTypes.default = {
-    question: 'Question',
-}
 
 export default Question;

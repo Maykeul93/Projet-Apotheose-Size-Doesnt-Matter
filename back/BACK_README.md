@@ -33,6 +33,8 @@ Nous avons ensuite ajouté dans notre ```./back/.env``` notre DATABASE_URL.
 DATABASE _URL=postgres://user:password@localhost/database
 ```
 
+**Egalement pour `revert` et `deploy` via sqitch sur la base de données créer sur Heroku. Allez dans votre Heroku puis dans votre projet, cliquez sur la techno de bdd utiliser (ici PostgreSQL) puis dans `Settings` et faite `View Credentials`. Vous pourez donc copier votre adresse nommé `URI`**
+
 Dans notre ```./back/dataMapper/client.js``` nous avons ajouter notre database url d enotre .env et un paramètre ssl pour avoir tout les droits sur Heroku lors du deploiement. 
 
 ```

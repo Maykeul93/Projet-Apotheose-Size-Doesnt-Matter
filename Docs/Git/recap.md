@@ -1,8 +1,11 @@
 # Utilisation de Git
 
 [Lien decouverte de Git](https://www.atlassian.com/fr/git/tutorials/learn-git-with-bitbucket-cloud)
+
 [Lien recap kourou Git Branch](https://kourou.oclock.io/ressources/fiche-recap/branches/)
+
 [Lien fiche recap git Kourou](https://kourou.oclock.io/ressources/fiche-recap/git-et-github/)
+
 [Lien fiche recap git Remote Kourou](https://kourou.oclock.io/ressources/fiche-recap/git-remotes/)
 
 ## Utiliser les branches

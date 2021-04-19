@@ -1,4 +1,4 @@
-INSERT INTO question (answer, content) VALUES
+INSERT INTO question (content, answer) VALUES
 ('Combien faut-il d''humains allongés pour réussir à faire la circonférence de la terre ?','7 495 294'),
 ('Combien faut-il de burgers empilés pour avoir la taille de la tour Eiffel ?','3000'),
 ('Combien faut-il de burger pour peser aussi lourd que le Titanic ?','153 852 941'),
