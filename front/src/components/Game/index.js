@@ -77,18 +77,20 @@ function Game({
                         {/* Insertion composant pour afficher des messages Par dessus interface de jeu */}
                         {
                             startTimer && (
-                                <Timer
-                                    isRound={isRound}
-                                    setRound={setIsRound}
-                                    isLaunch={isLaunch}
-                                    startTimer={startTimer}
-                                />
+                                <>
+                                    <Timer
+                                        isRound={isRound}
+                                        setRound={setIsRound}
+                                        isLaunch={isLaunch}
+                                        startTimer={startTimer}
+                                    />
+                                    <Question
+                                        round={round}
+                                        questions={questions}
+                                    />
+                                </>
                             )
                         }
-                        <Question
-                            round={round}
-                            questions={questions}
-                        />
                         <DisplayAllPlayers
                             displayedPlayers={displayedPlayers}
                             exactAnswer={exactAnswer}

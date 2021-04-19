@@ -6,6 +6,7 @@ import PlayerDisplay from './../PlayerDisplay';
 import './style.scss';
 
 function DisplayAllPlayers({ displayedPlayers, exactAnswer }) {
+    const isNumberAnswer = Number(exactAnswer);
     return (
         <div className="players">
             {/* List of players, need to place user in the middle */}
@@ -15,7 +16,7 @@ function DisplayAllPlayers({ displayedPlayers, exactAnswer }) {
                     <PlayerDisplay
                         key={player.id}
                         player={player}
-                        exactAnswer={exactAnswer} // For the test
+                        exactAnswer={isNumberAnswer}
                     />
                 ))
             }
