@@ -48,7 +48,7 @@ module.exports = {
       }
   },
   
-  
+ 
   async signin (req, res){
     const email = req.body.email;
     const mail = await userDataMapper.checkMail(email); 
@@ -112,6 +112,7 @@ module.exports = {
         }}
         console.log(tab);
         const infoUser = await userDataMapper.infoUser(id)
+        //res.json(tab)
         res.json(infoUser)
       } catch (error){
         res.status(500).send(error);

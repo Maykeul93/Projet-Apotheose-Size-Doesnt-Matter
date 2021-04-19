@@ -7,6 +7,7 @@ CREATE TABLE "user" (
     email VARCHAR (60) NOT NULL UNIQUE,
     password VARCHAR (60) NOT NULL,
     pseudo VARCHAR (60) NOT NULL,
+    avatar VARCHAR (15) ,
     role TEXT
 );
 
