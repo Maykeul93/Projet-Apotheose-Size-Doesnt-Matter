@@ -4,16 +4,12 @@ import {
     CREATE_NEW_GAME,
     JOIN_NEW_GAME,
     stockRoomIntoState,
-    launchNewGame,
     SET_LAUNCH_GAME,
-    setOtherPlayers,
 } from 'actions/game';
 
 import {
     SEND_USER_ANSWER,
-    validateUserAnswer,
     LEAVE_GAME,
-    setOtherPlayerAnswer,
 } from 'actions/gameInterface';
 
 import {
@@ -24,29 +20,9 @@ import {
 const gameMiddleware = (store) => (next) => (action) => {
     switch (action.type) {
         case SOCKET_CONNECTION: {
-            const { id } = store.getState().user;
             const socket = io('https://size-doesnt-matter.herokuapp.com');
             store.dispatch(setSocket(socket));
 
-            socket.on('server_launch_game', () => {
-                // Reception des questions/réponses
-                store.dispatch(launchNewGame());
-            });
-
-            socket.on('server_join_game', (data) => {
-                store.dispatch(stockRoomIntoState(data.room));
-                const otherPlayers = data.players.filter((player) => player.id !== id);
-                store.dispatch(setOtherPlayers(otherPlayers));
-            });
-
-            socket.on('server_send_answer', ({ id: playerId, answer }) => {
-                if ( playerId === id){
-                    store.dispatch(validateUserAnswer(answer));
-                }
-                else {
-                    store.dispatch(setOtherPlayerAnswer(playerId, answer));
-                }
-            });
             break;
         }
         case CREATE_NEW_GAME: {
@@ -76,8 +52,10 @@ const gameMiddleware = (store) => (next) => (action) => {
         case SET_LAUNCH_GAME: {
             const { socket, id } = store.getState().user;
             const { room } = store.getState().room;
-            socket.emit('front_launch_game', { id, room });
-
+            socket.emit('front_launch_game', {
+                id,
+                room,
+            });
             break;
         }
         case SEND_USER_ANSWER: {
@@ -90,9 +68,16 @@ const gameMiddleware = (store) => (next) => (action) => {
             });
             break;
         }
-        case LEAVE_GAME:
-            // Socket request to signal player is leaving the game
-            return next(action);
+        // Envoi des score + id game
+        case LEAVE_GAME: {
+            const { socket, id } = store.getState().user;
+            const { room } = store.getState().room;
+            socket.emit('front_leave_game', {
+                id,
+                room,
+            });
+            break;
+        }
         default:
             next(action);
     }

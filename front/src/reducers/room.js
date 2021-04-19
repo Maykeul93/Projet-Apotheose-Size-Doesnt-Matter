@@ -2,6 +2,7 @@ import {
     SET_CODE_ROOM_INPUT,
     STOCK_ROOM,
     LAUNCH_GAME,
+    RESET_ROOM,
 } from 'actions/game';
 
 const initialState = {
@@ -26,6 +27,12 @@ const reducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 isLaunch: true,
+            }
+        case RESET_ROOM:
+            return {
+                ...state,
+                isLaunch: false,
+                room: '',
             }
         default:
             return state;
