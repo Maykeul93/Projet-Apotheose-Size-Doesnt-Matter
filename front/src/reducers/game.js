@@ -36,7 +36,7 @@ const reducer = (state = initialState, action = {}) => {
                 userAnswer: '',
             }
         case SET_OTHER_PLAYER_ANSWER: {
-            console.log('je recois la réponse d un autre joueur');
+            // Set the other player's answer into the otherPlayers Array
             const setPlayerAnswer = state.players.map((player) => {
                 if (player.id === action.id){
                     return {

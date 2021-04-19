@@ -24,29 +24,9 @@ import {
 const gameMiddleware = (store) => (next) => (action) => {
     switch (action.type) {
         case SOCKET_CONNECTION: {
-            const { id } = store.getState().user;
             const socket = io('https://size-doesnt-matter.herokuapp.com');
             store.dispatch(setSocket(socket));
 
-            socket.on('server_launch_game', () => {
-                // Reception des questions/réponses
-                store.dispatch(launchNewGame());
-            });
-
-            socket.on('server_join_game', (data) => {
-                store.dispatch(stockRoomIntoState(data.room));
-                const otherPlayers = data.players.filter((player) => player.id !== id);
-                store.dispatch(setOtherPlayers(otherPlayers));
-            });
-
-            socket.on('server_send_answer', ({ id: playerId, answer }) => {
-                if ( playerId === id){
-                    store.dispatch(validateUserAnswer(answer));
-                }
-                else {
-                    store.dispatch(setOtherPlayerAnswer(playerId, answer));
-                }
-            });
             break;
         }
         case CREATE_NEW_GAME: {
