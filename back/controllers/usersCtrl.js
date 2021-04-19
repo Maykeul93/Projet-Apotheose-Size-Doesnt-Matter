@@ -97,7 +97,9 @@ module.exports = {
       if (pseudo){
         await userDataMapper.updatePseudo(pseudo, id);
         const result = {'succes':'Nouveau pseudo enregistré'}
-        tab.push(result)
+        if (user[0].pseudo !== pseudo){
+          tab.push(result)
+        }
       }
 
       if (password){
@@ -105,15 +107,19 @@ module.exports = {
         if (newPassword === newPassword2 && testPassword === true){
           const hashedPassword = await bcrypt.hash(newPassword, 10)
           await userDataMapper.updatePassword(hashedPassword, id);
-          const result = {'succes':'Nouveau MDP enregistré'}
-          tab.push(result)
+          const result = {'succes':'Nouveau MDP enregistré'};
+          const verifPassword = await bcrypt.compare(req.body.newPassword, user[0].password);
+          if (verifPassword === false ) {
+            tab.push(result)
+          }
+          
       } else {
-          res.status(400).json({'errors':'Soit les nouveaux MDP ne correspondent pas soit ancien MDP est incorrect'});
+          const result = {'errors':'Soit les nouveaux MDP ne correspondent pas soit ancien MDP est incorrect'};
+          tab.push(result);
         }}
-        console.log(tab);
+        
         const infoUser = await userDataMapper.infoUser(id)
-        //res.json(tab)
-        res.json(infoUser)
+        res.json({infoUser , tab});
       } catch (error){
         res.status(500).send(error);
       }
