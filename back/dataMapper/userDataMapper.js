@@ -30,8 +30,8 @@ async register(email, password, pseudo, role) {
     return result.rows; 
 },
 
-async updateUser(email, password, pseudo, id) {
-    const result = await client.query(`UPDATE "user" SET email = $1, password = $2, pseudo = $3 WHERE id = $4`, [email, password, pseudo, id]);
+async updateUser(email, password, pseudo, avatar, id) {
+    const result = await client.query(`UPDATE "user" SET email = $1, password = $2, pseudo = $3, avatar = $4 WHERE id = $4`, [email, password, pseudo, avatar, id]);
     return result.rows;
 },
 

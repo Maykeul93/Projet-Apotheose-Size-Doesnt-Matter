@@ -1,3 +1,4 @@
+const { updateCorrespondence } = require('../dataMapper/adminDataMapper');
 const adminDataMapper = require('../dataMapper/adminDataMapper');
 
 module.exports = {
@@ -59,6 +60,7 @@ module.exports = {
     async deleteQuestion(req, res) {
         const questionId = req.params.id;
         try {
+            await adminDataMapper.deleteCorrespondence(questionId);
             await adminDataMapper.deleteQuestion(questionId);
             res.status(201).json({'succes':'true'})            
         } catch (error) {
@@ -68,12 +70,10 @@ module.exports = {
     async createQuestion(req, res) {
         const answer = req.body.answer;
         const content = req.body.content;
-        //const tag = req.body.tag;
-        //const question_id = req.body.question_id;
-        //const tag_id = req.body.tag_id;
+        const tag_id = req.body.tag_id;
         try {
-            await adminDataMapper.createQuestion(answer, content);
-            // const avec id de la question
+            const questionInfo = await adminDataMapper.createQuestion(answer, content);
+            await adminDataMapper.insertCorrespondance(tag_id, questionInfo[0].id);
             res.status(201).json({'succes':'true'});
         } catch (error) {
             res.status(500).send(error);
@@ -97,7 +97,7 @@ module.exports = {
             res.status(500).send(error);
         }
     },
-    async deleteUser (req, res){
+    async deleteUser (req, res) {
         const id = req.params.id;
         try {
           await adminDataMapper.deleteUser(id);
@@ -105,6 +105,23 @@ module.exports = {
         } catch (error) {
           res.status(500).send(error);
           }
+    },
+    async updateQuestion (req, res) {
+        const id = req.params.id;
+        const content = req.body.content;
+        const answer = req.body.answer;
+        const tag_id = req.body.tag_id;
+        
+        try {
+            await adminDataMapper.updateQuestion(content, answer, id)
+            await adminDataMapper.updateCorrespondence(tag_id, id);
+            
+            
+            res.status(201).json({'succes':'true'})
+            
+        } catch (error) {
+            res.status(500).send(error);
+        }
     },
 
 
