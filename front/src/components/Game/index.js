@@ -26,6 +26,8 @@ function Game({
     const [ question, setQuestion ] = useState('');
     const [ exactAnswer, setExactAnswer ] = useState('');
 
+    console.log(otherPlayers);
+    
     useEffect(() => {
 
         if (round === questions.length) {
@@ -60,6 +62,7 @@ function Game({
     // Insert the user into the other players in the middle
     const displayedPlayers = [...otherPlayers];
     displayedPlayers.splice(middleOfPlayers, 0, playerUser);
+    console.log(displayedPlayers)
 
     // Start the game after a few seconds to let a delay for all players to prepare themselves
     // Fonction pour commencer le jeu apres un délai de 5 secondes
