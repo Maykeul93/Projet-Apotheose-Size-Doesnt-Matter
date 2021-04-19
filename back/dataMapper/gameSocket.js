@@ -32,4 +32,10 @@ module.exports = {
         console.log(result.rows);
         return result.rows; 
     }, 
+
+    async getRandomQuestion () {
+        const result = await client.query(`SELECT * FROM "question" ORDER BY random() LIMIT 5`); 
+        console.log(result.rows); 
+        return result.rows; 
+    }
 }

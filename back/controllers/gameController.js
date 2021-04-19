@@ -48,6 +48,15 @@ module.exports = {
     } catch (error) {
       return false;
     }
+  }, 
+
+  async sendRandomQuestion () {
+    try {
+      const sendRandQuestion = await game.getRandomQuestion();
+      return sendRandQuestion; 
+    } catch (error) {
+      return false; 
+    }
   }
 }
 
