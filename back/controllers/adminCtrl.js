@@ -1,5 +1,3 @@
-
-const { deleteQuestion, createQuestion, createTag, deleteTag } = require('../dataMapper/adminDataMapper');
 const adminDataMapper = require('../dataMapper/adminDataMapper');
 
 module.exports = {
@@ -75,7 +73,7 @@ module.exports = {
         //const tag_id = req.body.tag_id;
         try {
             await adminDataMapper.createQuestion(answer, content);
-
+            // const avec id de la question
             res.status(201).json({'succes':'true'});
         } catch (error) {
             res.status(500).send(error);
@@ -107,7 +105,7 @@ module.exports = {
         } catch (error) {
           res.status(500).send(error);
           }
-      },
+    },
 
 
 
