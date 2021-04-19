@@ -8,7 +8,7 @@
     &__content{
         display: flex;
         margin: $gutter;
-
+        justify-content: space-around;
         &-left{
             .section{
                 margin: $gutter 0;
@@ -21,6 +21,22 @@
                 &__item{
                     margin: $gutter*0.5 $gutter;
                     font-size: 1.5em;
+                }
+            }
+        }
+        &-right{
+            .form-content{
+                display: flex;
+                flex-direction: column;
+                padding: $gutter*3 0;
+                &__label{
+                    margin: $gutter*0.5 0;
+                }
+                &__input{
+                    margin: $gutter*0.5 0;
+                }
+                &__button{
+                    margin: $gutter*0.5 0;
                 }
             }
         }

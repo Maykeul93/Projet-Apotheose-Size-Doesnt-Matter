@@ -6,6 +6,7 @@ import gameReducer from './game';
 import roomReducer from './room';
 import signUpReducer from './signUp';
 import profilReducer from './profil';
+import adminReducer from './admin';
 
 const rootReducer = combineReducers({
     user: userReducer,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
     room: roomReducer,
     signUp : signUpReducer,
     profil: profilReducer,
+    admin: adminReducer,
 });
 
 export default rootReducer;
