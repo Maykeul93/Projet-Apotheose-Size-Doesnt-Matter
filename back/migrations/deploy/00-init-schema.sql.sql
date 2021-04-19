@@ -23,7 +23,7 @@ CREATE TABLE user_play_game (
     game_id INT NOT NULL REFERENCES game(id),
     score INT DEFAULT 0,
     position INT,
-    date TIMESTAMPTZ,
+    date TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     exact_answer INT DEFAULT 0
 
 );

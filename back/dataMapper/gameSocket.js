@@ -29,13 +29,16 @@ module.exports = {
     async getAllPlayersInOneGame (gameId) {
         // Pour les avatar ajouter u.avatar dans le SELECT
         const result = await client.query(`SELECT u.id, u.pseudo FROM "user" u JOIN "user_play_game" upg ON u.id = upg.user_id JOIN game ON upg.game_id = game.id WHERE game.id = $1`, [gameId]);
-        console.log(result.rows);
         return result.rows; 
     }, 
 
     async getRandomQuestion () {
         const result = await client.query(`SELECT * FROM "question" ORDER BY random() LIMIT 5`); 
-        console.log(result.rows); 
+        return result.rows; 
+    }, 
+
+    async insertHistory (userID, gameID, score, position, date, exactAnswer) {
+        const result = await client.query(`UPDATE  "user_play_game" SET "score"=$1, "position"=$2, "exact_answer"=$3 WHERE "user_id" = $4  AND "game_id"=$5`, [score, position, exactAnswer, userID, gameID]); 
         return result.rows; 
     }
 }

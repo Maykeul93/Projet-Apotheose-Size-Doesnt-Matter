@@ -45,8 +45,21 @@ module.exports = {
         const result = await client.query(`DELETE FROM "user" WHERE id = $1`, [id])
         return result.rows;
     },
-
-
+    async insertCorrespondance(tag_id, question_id ){
+        const result = await client.query(`INSERT INTO tag_categorize_question (tag_id, question_id) VALUES ($1, $2) RETURNING *`, [tag_id, question_id])
+        return result.rows;
+    },
+    async deleteCorrespondence(id) {
+        const result = await client.query(`DELETE FROM tag_categorize_question WHERE question_id = $1`, [id])
+        return result.rows;
+    },
+    async updateQuestion(content, answer, id) {
+        const result = await client.query(`UPDATE question SET content = $1, answer = $2 WHERE id = $3`, [content, answer, id])
+        return result.rows
+    },
+    async updateCorrespondence(tag_id, id) {
+        const result = await client.query(`UPDATE tag_categorize_question SET tag_id = $1 WHERE question_id = $2`, [tag_id, id])
+    },
 
 
 
