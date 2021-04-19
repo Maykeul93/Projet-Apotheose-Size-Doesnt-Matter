@@ -65,19 +65,33 @@ io.on('connection', (socket) => {
       //ajouter avatar pour plus tard
     });
 
-    socket.on('front_launch_game', ({ id, room }) => {
+    socket.on('front_launch_game', async ({ id, room }) => {
       // Recevra id de la game en plus
       // cosnt questions = Requete SQL pour récupérer les questions
       // Lier les question à la game
-      
-      console.log(id, ' lance la partie!');
-      io.to(room).emit('server_launch_game');// { questions }
+      const idGame = await gameController.checkRoom(room);
+      if (idGame) {
+        const questions = await gameController.sendRandomQuestion(); 
+        console.log(id, ' lance la partie!');
+        console.log(questions) ; 
+        io.to(room).emit('server_launch_game', {questions});
+      } else {
+        socket.emit('server_join_game_error', {
+          error: 'Cette partie n\'existe pas!!',
+        });
+      }
     });
 
     socket.on('front_send_answer', ({ id, answer, room }) => {
       io.to(room).emit('server_send_answer', {
         id,
         answer,
+      });
+    });
+
+    socket.on('front_leave_game', ({ id, room }) => {
+      io.to(room).emit('server_leave_game', {
+        id
       });
     });
 
