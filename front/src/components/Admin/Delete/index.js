@@ -1,17 +1,25 @@
 import React from 'react';
+import DeleteQuestion from './DeleteQuestion';
+import DeleteTag from './DeleteTag';
 
-const Delete = () => (
-    <div className="form-content">
-        <label className="form-content__label">
-            Selectionner la question à supprimer :
-        </label>
-        <select className="form-content__item" name="question">
-            <option value="test">test</option>
-            <option value="test2">test2</option>
-        </select>
-        <button className="form-content__button" type="submit">Valider</button>
-
-    </div>
-);
+const Delete = ({sousOption}) => {
+    const component = () => {
+        switch(sousOption) {
+            case 'question':
+                return <DeleteQuestion />
+            case 'tag':
+                return <DeleteTag />
+            default :
+            return <DeleteQuestion />;
+        }
+    }
+    return (
+        <div className="form-content">
+            {
+                component()
+            }
+        </div>
+    )
+};
 
 export default Delete;

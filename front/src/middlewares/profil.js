@@ -15,7 +15,6 @@ const Profil = (store) => (next) => (action) => {
                 validPassword : newPassword2,
                 } = store.getState().profil;
 
-            console.log(password,newPassword, newPassword2)
             api.put(`/users/${id}`, {
                 pseudo, 
                 email, 
@@ -23,7 +22,9 @@ const Profil = (store) => (next) => (action) => {
                 newPassword, 
                 newPassword2 
             })
-            .then((result) => result.data[0])
+            .then((result) => {
+                return result.data[0]
+            })
             .then(({id, pseudo, email })=> {
                 store.dispatch(setMessage('Changement effectué'));
                 store.dispatch(setUser(id,email, pseudo));
@@ -31,6 +32,8 @@ const Profil = (store) => (next) => (action) => {
             })
             .catch((error)=> {
                 console.log(error)
+                store.dispatch(setMessage('Une erreur c\'est produite, veuillez réessayer'));
+                store.dispatch(resetInput());
             })
             .finally(() => {
                 store.dispatch(setLoading(false))

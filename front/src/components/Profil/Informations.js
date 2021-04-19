@@ -14,13 +14,13 @@ const Informations = ({avatar, pseudo, email, onSubmit, message }) => {
                 <span className="profil__add-avatar">+</span>
             </div>
             <form className="profil__form" onSubmit={handleSubmit}>
-                <label>{ pseudo }<span>+</span></label>
+                <label>{ pseudo }</label>
                 <Field 
                     type="text" 
                     placeholder="Nouveau pseudo"
                     name="pseudo"
                 />
-                <label>{ email }<span>+</span></label>
+                <label>{ email }</label>
                 <Field 
                     type="email" 
                     placeholder="Nouvelle adresse email"

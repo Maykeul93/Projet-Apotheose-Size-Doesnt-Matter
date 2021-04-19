@@ -1,24 +1,26 @@
 import React from 'react';
+import AddQuestion from 'containers/Admin//Add/AddQuestion';
+import AddTag from './AddTag';
 
-const Add = () => (
-    <div className="form-content">
-        <label className="form-content__label">
-            Question:
-            <input className="form-content__item" type="text" />
-        </label>
-        <label className="form-content__label">
-            Réponse:
-            <input className="form-content__item" type="text" />
-        </label>
-        <label className="form-content__label">
-            Tag:
-            <select className="form-content__item" name="tag" >
-                <option value="test">Test</option>
-                <option value="test2">Test2</option>
-            </select>
-        </label>
-        <button type="submit">Valider</button>
-    </div>
-);
+const Add = ({sousOption}) => {
+    const component = () => {
+        switch(sousOption) {
+            case 'question':
+                return <AddQuestion />
+            case 'tag':
+                return <AddTag />
+            default :
+            return <AddQuestion />;
+        }
+    }
+    return (
+        <div className="form-content">
+            {
+                component()
+            }
+
+        </div>
+    )
+};
 
 export default Add;

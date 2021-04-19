@@ -1,16 +1,25 @@
 import React from 'react';
+import UpdateQuestion from './UpdateQuestion';
+import UpdateTag from './UpdateTag';
 
-const Update = () => (
-    <div className="form-content">
-        <label className="form-content__label">
-            Selectionner la question à modifier :
-        </label>
-        <select className="form-content__item" name="question">
-            <option value="test">test</option>
-            <option value="test2">test2</option>
-        </select>
-        <button className="form-content__button" type="submit">Valider</button>
-    </div>
-);
+const Update = ({sousOption}) => {
+    const component = () => {
+        switch(sousOption) {
+            case 'question':
+                return <UpdateQuestion />
+            case 'tag':
+                return <UpdateTag />
+            default :
+            return <UpdateQuestion />;
+        }
+    }
+    return (
+        <div className="form-content">
+            {
+                component()
+            }
+        </div>
+    )
+};
 
 export default Update;

@@ -1,7 +1,12 @@
-import { SET_OPTION } from "actions/admin";
+import { SET_OPTION, SET_QUESTION, SET_TAG } from "actions/admin";
 
 const initialState = {
     option: '',
+    addQuestionInputValue: '',
+    addReponseInputValue: '',
+    selectTag: '',
+    question : [],
+    tag: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -10,6 +15,16 @@ const reducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 option: action.value,
+            }
+        case SET_QUESTION:
+            return {
+                ...state,
+                question: action.value,
+            }
+        case SET_TAG:
+            return {
+                ...state,
+                tag: action.value,
             }
         default:
             return state;

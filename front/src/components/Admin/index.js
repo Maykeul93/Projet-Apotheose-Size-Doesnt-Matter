@@ -1,26 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Question from 'containers/Admin/Question';
-import Tag from './Tag';
+import Tag from 'containers/Admin/Tag';
 import Role from './Role';
 import Form from 'containers/Admin/Form';
 
 import './styles.scss';
+import { setAdmin } from 'actions/admin';
+import { useDispatch } from 'react-redux';
 
-const Admin = () => (
-    <main className="admin page__main">
-        <h1 className="admin__title">Admin</h1>
-        <div className="admin__content">
-            <div className="admin__content-left">
-                <Question />
-                <Tag />
-                <Role />
+const Admin = () => {
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(setAdmin())
+    },[dispatch])
+    return(
+
+        <main className="admin page__main">
+            <h1 className="admin__title">Admin</h1>
+            <div className="admin__content">
+                <div className="admin__content-left">
+                    <Question />
+                    <Tag />
+                    <Role />
+                </div>
+                <div className="admin__content-right">
+                    <Form />
+                </div>
             </div>
-            <div className="admin__content-right">
-                <Form />
-            </div>
-        </div>
-    </main>
-);
+        </main>
+    )
+};
 
 export default Admin;

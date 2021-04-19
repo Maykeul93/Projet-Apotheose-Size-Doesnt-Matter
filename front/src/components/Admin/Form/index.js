@@ -10,13 +10,22 @@ const Form = ({option}) => {
         switch (option) {
 
             case "add-question" : 
-                return <Add />;
+                return <Add sousOption="question"/>;
 
             case 'update-question': 
-                return <Update />;
+                return <Update sousOption="question"/>;
 
             case 'delete-question': 
-                return <Delete />;
+                return <Delete sousOption="question"/>;
+
+            case "add-tag" : 
+                return <Add sousOption="tag"/>;
+
+            case 'update-tag': 
+                return <Update sousOption="tag"/>;
+
+            case 'delete-tag': 
+                return <Delete sousOption="tag"/>;
                 
             default : 
                 return <Add />;
