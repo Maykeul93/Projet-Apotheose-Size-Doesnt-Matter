@@ -49,9 +49,10 @@ module.exports = {
         }
     },
     async getTagById(req, res) {
-        const tagId = req.params.id;
+        const id = req.params.id;
+        console.log(id);
         try {
-            const result = await adminDataMapper.getTagById(tagId);
+            const result = await adminDataMapper.getTagById(id);
             res.send(result)
         } catch (error) {
             res.status(500).send(error);

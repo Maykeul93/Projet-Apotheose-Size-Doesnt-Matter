@@ -18,6 +18,7 @@ module.exports = {
       const userId = req.params.id;
     try {
       const user =  await userDataMapper.recupUserById(userId);
+      //console.log(user[0].role);
       res.send(user);
     } catch (error) {
       res.status(500).send(error);
@@ -61,6 +62,7 @@ module.exports = {
         } else {
           return res.status(400).json({'error': 'Mot de passe incorrect '});
         }
+        
       } catch (error){
         res.status(500).send(error);
         }
