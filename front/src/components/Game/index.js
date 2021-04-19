@@ -18,34 +18,31 @@ function Game({
     otherPlayers,
     questions,
     isLaunch,
+    resetAllPlayersAnswers,
 }) {
-    const [ isRound, setIsRound ] = useState(false);
-    const [ startTimer, setStartTimer ] = useState(false);
+    const [ isRound, setIsRound ] = useState(true);
+    const [ startTimer, setStartTimer ] = useState(true);
     const [ round, setRound ] = useState(0);
-    const [ exactAnswer, setExactAnswer ] = useState(questions[round].answer);
+    const [ question, setQuestion ] = useState('');
+    const [ exactAnswer, setExactAnswer ] = useState('');
 
     useEffect(() => {
-        let timeout;
-        setTimeout(() => {
-            setStartTimer(true);
-            setIsRound(true);
-        }, 5000);
 
-        return () => clearTimeout(timeout);
-    }, []);
-
-    useEffect(() => {
-        if (isRound) {
-            setRound(round + 1);
-            setExactAnswer(questions[round].answer);
-        }
-        // End of the game
-        if (round === questions.length){
+        if (round === questions.length) {
             setStartTimer(false);
-            setRound(0);
+        }
+        if (startTimer) {
+            if (isRound) {
+                setRound(round + 1);
+                setQuestion(questions[round].content);
+                setExactAnswer(questions[round].answer);
+            }
+            if (!isRound) {
+                resetAllPlayersAnswers();
+                // On incrémente les scores
+            }
         }
     }, [isRound]);
-
     const playerUser = { // Only for the demo
         ...player,
         avatar: 'avatar.png',
@@ -85,8 +82,7 @@ function Game({
                                         startTimer={startTimer}
                                     />
                                     <Question
-                                        round={round}
-                                        questions={questions}
+                                        question={question}
                                     />
                                 </>
                             )
@@ -95,7 +91,9 @@ function Game({
                             displayedPlayers={displayedPlayers}
                             exactAnswer={exactAnswer}
                         />
-                        <PlayerAnswer />
+                        {
+                            isRound && <PlayerAnswer />
+                        }
                         <Round
                             round={round}
                             numberOfRounds={questions.length}
@@ -122,6 +120,7 @@ Game.propTypes = {
     otherPlayers: PropTypes.array.isRequired, // Need id, pseudo, answer, score, codeAvatar
     questions: PropTypes.array.isRequired,
     isLaunch: PropTypes.bool.isRequired,
+    resetAllPlayersAnswers: PropTypes.func.isRequired,
 };
 
 Game.defaultProps = {

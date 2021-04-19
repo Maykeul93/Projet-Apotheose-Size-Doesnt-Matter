@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import Game from 'components/Game';
+import { resetAllPlayersAnswer } from 'actions/gameInterface';
 
 const mapStateToProps = (state) => ({
     player: {
@@ -12,6 +13,10 @@ const mapStateToProps = (state) => ({
     isLaunch: state.room.isLaunch,
 });
 
-const mapDispatchStateToProps = (dispatch) => ({});
+const mapDispatchStateToProps = (dispatch) => ({
+    resetAllPlayersAnswers: () => {
+        dispatch(resetAllPlayersAnswer());
+    }
+});
 
 export default connect(mapStateToProps, mapDispatchStateToProps)(Game);

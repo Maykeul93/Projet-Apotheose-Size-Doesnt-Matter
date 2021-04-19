@@ -5,6 +5,7 @@ import {
     SET_GAME_QUESTIONS,
     RESET_GAME_STATE,
     SET_PLAYER_LEAVE_GAME,
+    RESET_ALL_PLAYERS_ANSWER,
 } from 'actions/gameInterface';
 
 import {
@@ -58,6 +59,21 @@ const reducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 players: setPlayerAnswer,
+            };
+        }
+        case RESET_ALL_PLAYERS_ANSWER: {
+            const resetPlayersAnswer = state.players.map((player) => {
+                return {
+                    ...player,
+                    answer: '',
+                }
+            });
+            console.log('resetPlayersAnswer', resetPlayersAnswer);
+            return {
+                ...state,
+                userAnswer: '',
+                userAnswerValidate: '',
+                players: resetPlayersAnswer,
             };
         }
         case SET_PLAYER_LEAVE_GAME: {

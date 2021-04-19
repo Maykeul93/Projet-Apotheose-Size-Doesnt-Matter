@@ -2,18 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './style.scss';
 
-function Question({ round, questions }) {
-    console.log(questions[round === 0 ? 0 : round - 1].answer);
+function Question({ question }) {
     return (
         <h2 className="question">
-            {questions[round === 0 ? 0 : round - 1].content}
+            {question}
         </h2>
     );
 }
 
 Question.propTypes = {
-    round: PropTypes.number.isRequired,
-    questions: PropTypes.array.isRequired,
+    question: PropTypes.string.isRequired,
 };
 
 export default Question;

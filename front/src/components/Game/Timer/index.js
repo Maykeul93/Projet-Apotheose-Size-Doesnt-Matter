@@ -18,7 +18,7 @@ function Timmer({
                     clearTimeout(timeout);
                 }
             }
-            
+
             timeout = setTimeout(() => {
                 setSeconds(seconds - 1) 
             }, 1000);
@@ -28,13 +28,17 @@ function Timmer({
                 setRound(!isRound);
                 return () => {
                     clearTimeout(timeout);
+
                 }
             }
         }
-        else {
-            return () => { clearTimeout(timeout) };
-        }
-    }, [seconds]);
+        
+        return () => {
+            clearTimeout(timeout)
+            console.log('je clear le timeout')
+        };
+
+    });
 
     useEffect(() => {
         setSeconds(isRound ? 30 : 15);
