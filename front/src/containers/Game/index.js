@@ -10,6 +10,8 @@ const mapStateToProps = (state) => ({
     },
     otherPlayers: state.game.players,
     isRound: state.game.isRound,
+    questions: state.game.questions,
+    numberOfRounds: state.game.numberOfRounds,
 });
 
 const mapDispatchStateToProps = (dispatch) => ({

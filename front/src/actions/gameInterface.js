@@ -4,6 +4,7 @@ export const VALIDATE_USER_ANSWER = 'VALIDATE_USER_ANSWER';
 export const LEAVE_GAME = 'LEAVE_GAME';
 export const SET_ROUND = 'SET_ROUND';
 export const SET_OTHER_PLAYER_ANSWER = 'SET_OTHER_PLAYER_ANSWER';
+export const SET_GAME_QUESTIONS = 'SET_GAME_QUESTIONS';
 
 export const setUserAnswer = (value) => ({
     type: SET_USER_ANSWER,
@@ -32,4 +33,9 @@ export const setOtherPlayerAnswer = (id, answer) => ({
     type: SET_OTHER_PLAYER_ANSWER,
     id,
     answer,
+});
+
+export const setGameQuestions = (questions) => ({
+    type: SET_GAME_QUESTIONS,
+    questions,
 });

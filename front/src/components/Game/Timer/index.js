@@ -7,7 +7,7 @@ function Timmer({
     setRound,
 }) {
     const [seconds, setSeconds] = useState(isRound ? 30 : 15);
-    const [startTimer, setStartTimer] = useState(true);
+    const [ startTimer, setStartTimer ] = useState(true);
     
     useEffect(() => {
         let timeout;

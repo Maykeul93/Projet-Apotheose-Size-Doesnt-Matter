@@ -16,7 +16,10 @@ function Game({
     otherPlayers,
     isRound,
     setRound,
+    questions,
+    numberOfRounds,
 }) {
+     
     const playerUser = { // Only for the demo
         ...player,
         avatar: 'avatar.png',
@@ -31,12 +34,16 @@ function Game({
     const displayedPlayers = [...otherPlayers];
     displayedPlayers.splice(middleOfPlayers, 0, playerUser);
 
+    // Start the game after a few seconds to let a delay for all players to prepare themselves
+    // Fonction pour commencer le jeu apres un délai de 5 secondes
+
     return (
         <>
             <Header />
             <div className="game game__main">
                 <div className="game__left">
                     <div className="game__interface">
+                        {/* Insertion composant pour afficher des messages Par dessus interface de jeu */}
                         <Timer
                             isRound={isRound}
                             setRound={setRound}
@@ -67,6 +74,8 @@ Game.propTypes = {
     otherPlayers: PropTypes.array.isRequired, // Need id, pseudo, answer, score, codeAvatar
     isRound: PropTypes.bool.isRequired,
     setRound: PropTypes.func.isRequired,
+    questions: PropTypes.array.isRequired,
+    numberOfRounds: PropTypes.number.isRequired,
 };
 
 export default Game;

@@ -56,8 +56,10 @@ const gameMiddleware = (store) => (next) => (action) => {
         case SET_LAUNCH_GAME: {
             const { socket, id } = store.getState().user;
             const { room } = store.getState().room;
-            socket.emit('front_launch_game', { id, room });
-
+            socket.emit('front_launch_game', {
+                id,
+                room,
+            });
             break;
         }
         case SEND_USER_ANSWER: {
@@ -70,9 +72,15 @@ const gameMiddleware = (store) => (next) => (action) => {
             });
             break;
         }
-        case LEAVE_GAME:
-            // Socket request to signal player is leaving the game
-            return next(action);
+        case LEAVE_GAME: {
+            const { socket, id } = store.getState().user;
+            const { room } = store.getState().room;
+            socket.emit('front_leave_game', {
+                id,
+                room,
+            });
+            break;
+        }
         default:
             next(action);
     }

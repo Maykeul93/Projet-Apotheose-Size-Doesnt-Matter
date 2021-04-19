@@ -3,6 +3,7 @@ import {
     VALIDATE_USER_ANSWER,
     SET_ROUND,
     SET_OTHER_PLAYER_ANSWER,
+    SET_GAME_QUESTIONS,
 } from 'actions/gameInterface';
 
 import {
@@ -15,6 +16,8 @@ const initialState = {
     userAnswerValidate: '',
     score: [],
     isRound: false,
+    questions: [],
+    numberOfRounds: null,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -23,18 +26,24 @@ const reducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 players: action.players,
-            }
+            };
+        case SET_GAME_QUESTIONS:
+            return {
+                ...state,
+                questions: action.questions,
+                numberOfRounds: action.questions.length,
+            };
         case SET_USER_ANSWER:
             return {
                 ...state,
                 userAnswer: action.value,
-            }
+            };
         case VALIDATE_USER_ANSWER:
             return {
                 ...state,
                 userAnswerValidate: action.value,
                 userAnswer: '',
-            }
+            };
         case SET_OTHER_PLAYER_ANSWER: {
             // Set the other player's answer into the otherPlayers Array
             const setPlayerAnswer = state.players.map((player) => {
@@ -42,7 +51,7 @@ const reducer = (state = initialState, action = {}) => {
                     return {
                         ...player,
                         answer: action.answer,
-                    }
+                    };
                 }
                 return player;
             });
@@ -56,7 +65,7 @@ const reducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 isRound: !state.isRound,
-            }
+            };
         default:
             return state;
     }

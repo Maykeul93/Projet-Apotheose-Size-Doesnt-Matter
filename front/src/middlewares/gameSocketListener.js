@@ -7,6 +7,7 @@ import {
 import {
     validateUserAnswer,
     setOtherPlayerAnswer,
+    setGameQuestions,
 } from 'actions/gameInterface';
 
 const gameSocketListener = (store) => (next) => (action) => {
@@ -15,8 +16,8 @@ const gameSocketListener = (store) => (next) => (action) => {
             const { id, socket } = store.getState().user;
 
             if (socket) {
-                socket.on('server_launch_game', () => {
-                    // Reception des questions/réponses
+                socket.on('server_launch_game', ({ questions }) => {
+                    store.dispatch(setGameQuestions(questions));
                     store.dispatch(launchNewGame());
                 });
     
