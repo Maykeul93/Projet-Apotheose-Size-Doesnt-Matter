@@ -2,12 +2,15 @@ import {
     stockRoomIntoState,
     launchNewGame,
     setOtherPlayers,
+    resetRoom,
 } from 'actions/game';
 
 import {
     validateUserAnswer,
     setOtherPlayerAnswer,
     setGameQuestions,
+    resetGameState,
+    setPlayerLeaveGame,
 } from 'actions/gameInterface';
 
 const gameSocketListener = (store) => (next) => (action) => {
@@ -33,6 +36,16 @@ const gameSocketListener = (store) => (next) => (action) => {
                     }
                     else {
                         store.dispatch(setOtherPlayerAnswer(playerId, answer));
+                    }
+                });
+
+                socket.on('server_leave_game', ({ id: playerId }) => {
+                    if (playerId === id){
+                        store.dispatch(resetGameState());
+                        store.dispatch(resetRoom());
+                    }
+                    else {
+                        store.dispatch(setPlayerLeaveGame(playerId));
                     }
                 });
             }

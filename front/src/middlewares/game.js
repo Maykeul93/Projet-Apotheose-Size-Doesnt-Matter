@@ -4,16 +4,12 @@ import {
     CREATE_NEW_GAME,
     JOIN_NEW_GAME,
     stockRoomIntoState,
-    launchNewGame,
     SET_LAUNCH_GAME,
-    setOtherPlayers,
 } from 'actions/game';
 
 import {
     SEND_USER_ANSWER,
-    validateUserAnswer,
     LEAVE_GAME,
-    setOtherPlayerAnswer,
 } from 'actions/gameInterface';
 
 import {

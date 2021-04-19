@@ -1,3 +1,4 @@
+import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import Header from 'containers/Header';
@@ -18,13 +19,17 @@ function Game({
     setRound,
     questions,
     numberOfRounds,
+    isLaunch,
 }) {
-     
     const playerUser = { // Only for the demo
         ...player,
         avatar: 'avatar.png',
     }
 
+    if (!isLaunch){
+        console.log('je redirige');
+        return (<Redirect to="/page/createRoom" />);
+    }
     // Display user in the middle
 
     // Get the length of the array to insert a new element in the middle
@@ -47,6 +52,7 @@ function Game({
                         <Timer
                             isRound={isRound}
                             setRound={setRound}
+                            isLaunch={isLaunch}
                         />
                         <Question />
                         <DisplayAllPlayers displayedPlayers={displayedPlayers} />
@@ -75,7 +81,12 @@ Game.propTypes = {
     isRound: PropTypes.bool.isRequired,
     setRound: PropTypes.func.isRequired,
     questions: PropTypes.array.isRequired,
-    numberOfRounds: PropTypes.number.isRequired,
+    numberOfRounds: PropTypes.number,
+    isLaunch: PropTypes.bool.isRequired,
 };
+
+Game.defaultProps = {
+    numberOfRounds: 0,
+}
 
 export default Game;

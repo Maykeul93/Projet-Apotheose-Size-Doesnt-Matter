@@ -5,12 +5,18 @@ import './style.scss';
 function Timmer({
     isRound,
     setRound,
+    isLaunch,
 }) {
     const [seconds, setSeconds] = useState(isRound ? 30 : 15);
     const [ startTimer, setStartTimer ] = useState(true);
     
     useEffect(() => {
         let timeout;
+        if (!isLaunch) {
+            return () => {
+                clearTimeout(timeout);
+            }
+        }
         if (startTimer) {
             timeout = setTimeout(() => {
                 setSeconds(seconds - 1) 
@@ -41,6 +47,7 @@ function Timmer({
 Timmer.propTypes = {
     isRound: PropTypes.bool.isRequired,
     setRound: PropTypes.func.isRequired,
+    isLaunch: PropTypes.bool.isRequired,
 };
 
 export default Timmer;

@@ -4,6 +4,8 @@ import {
     SET_ROUND,
     SET_OTHER_PLAYER_ANSWER,
     SET_GAME_QUESTIONS,
+    RESET_GAME_STATE,
+    SET_PLAYER_LEAVE_GAME,
 } from 'actions/gameInterface';
 
 import {
@@ -55,12 +57,21 @@ const reducer = (state = initialState, action = {}) => {
                 }
                 return player;
             });
-            console.log('setPlayerAnswer', setPlayerAnswer);
+
             return {
                 ...state,
                 players: setPlayerAnswer,
             };
         }
+        case SET_PLAYER_LEAVE_GAME: {
+            const players = state.players.filter((player) => player.id !== action.id);
+            return {
+                ...state,
+                players,
+            }
+        }
+        case RESET_GAME_STATE:
+            return initialState;
         case SET_ROUND:
             return {
                 ...state,
