@@ -75,6 +75,7 @@ module.exports = {
     const password = req.body.password;
     const newPassword = req.body.newPassword;
     const newPassword2 = req.body.newPassword2;
+    const avatar = req.body.avatar
     const user = await userDataMapper.recupUserById(id); 
     const checkMail = await userDataMapper.checkMail(email);
     
