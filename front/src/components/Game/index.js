@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -15,17 +16,42 @@ import './style.scss';
 function Game({
     player,
     otherPlayers,
-    isRound,
-    setRound,
     questions,
-    numberOfRounds,
     isLaunch,
 }) {
+    const [ isRound, setIsRound ] = useState(false);
+    const [ startTimer, setStartTimer ] = useState(false);
+    const [ round, setRound ] = useState(0);
+    const [ exactAnswer, setExactAnswer ] = useState(questions[round].answer);
+
+    useEffect(() => {
+        let timeout;
+        setTimeout(() => {
+            setStartTimer(true);
+            setIsRound(true);
+        }, 5000);
+
+        return () => clearTimeout(timeout);
+    }, []);
+
+    useEffect(() => {
+        if (isRound) {
+            setRound(round + 1);
+            setExactAnswer(questions[round].answer);
+        }
+        // End of the game
+        if (round === questions.length){
+            setStartTimer(false);
+            setRound(0);
+        }
+    }, [isRound]);
+
     const playerUser = { // Only for the demo
         ...player,
         avatar: 'avatar.png',
     }
 
+    // When the user leaves the game, reset the state 'isLaunch' & redirect to the page of creation Room
     if (!isLaunch){
         return (<Redirect to="/page/createRoom" />);
     }
@@ -40,6 +66,7 @@ function Game({
 
     // Start the game after a few seconds to let a delay for all players to prepare themselves
     // Fonction pour commencer le jeu apres un délai de 5 secondes
+    
 
     return (
         <>
@@ -48,15 +75,29 @@ function Game({
                 <div className="game__left">
                     <div className="game__interface">
                         {/* Insertion composant pour afficher des messages Par dessus interface de jeu */}
-                        <Timer
-                            isRound={isRound}
-                            setRound={setRound}
-                            isLaunch={isLaunch}
+                        {
+                            startTimer && (
+                                <Timer
+                                    isRound={isRound}
+                                    setRound={setIsRound}
+                                    isLaunch={isLaunch}
+                                    startTimer={startTimer}
+                                />
+                            )
+                        }
+                        <Question
+                            round={round}
+                            questions={questions}
                         />
-                        <Question />
-                        <DisplayAllPlayers displayedPlayers={displayedPlayers} />
+                        <DisplayAllPlayers
+                            displayedPlayers={displayedPlayers}
+                            exactAnswer={exactAnswer}
+                        />
                         <PlayerAnswer />
-                        <Round />
+                        <Round
+                            round={round}
+                            numberOfRounds={questions.length}
+                        />
                     </div>
                     <div className="game__bottom">
                         <div className="game__tchat">
@@ -77,10 +118,7 @@ function Game({
 Game.propTypes = {
     player: PropTypes.object.isRequired,
     otherPlayers: PropTypes.array.isRequired, // Need id, pseudo, answer, score, codeAvatar
-    isRound: PropTypes.bool.isRequired,
-    setRound: PropTypes.func.isRequired,
     questions: PropTypes.array.isRequired,
-    numberOfRounds: PropTypes.number,
     isLaunch: PropTypes.bool.isRequired,
 };
 

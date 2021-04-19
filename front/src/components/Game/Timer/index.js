@@ -6,34 +6,37 @@ function Timmer({
     isRound,
     setRound,
     isLaunch,
+    startTimer,
 }) {
     const [seconds, setSeconds] = useState(isRound ? 30 : 15);
-    const [ startTimer, setStartTimer ] = useState(true);
     
     useEffect(() => {
         let timeout;
-        if (!isLaunch) {
-            return () => {
-                clearTimeout(timeout);
-            }
-        }
         if (startTimer) {
+            if (!isLaunch) {
+                return () => {
+                    clearTimeout(timeout);
+                }
+            }
+            
             timeout = setTimeout(() => {
                 setSeconds(seconds - 1) 
             }, 1000);
-        }
 
-        if (seconds === 0) {
-            setRound();
-            setStartTimer(false);
-            return () => {
-                clearTimeout(timeout);
+    
+            if (seconds === 0) {
+                setRound(!isRound);
+                return () => {
+                    clearTimeout(timeout);
+                }
             }
+        }
+        else {
+            return () => { clearTimeout(timeout) };
         }
     }, [seconds]);
 
     useEffect(() => {
-        setStartTimer(true);
         setSeconds(isRound ? 30 : 15);
     }, [isRound]);
 
@@ -48,6 +51,7 @@ Timmer.propTypes = {
     isRound: PropTypes.bool.isRequired,
     setRound: PropTypes.func.isRequired,
     isLaunch: PropTypes.bool.isRequired,
+    startTimer: PropTypes.bool.isRequired,
 };
 
 export default Timmer;

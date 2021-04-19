@@ -1,7 +1,6 @@
 import {
     SET_USER_ANSWER,
     VALIDATE_USER_ANSWER,
-    SET_ROUND,
     SET_OTHER_PLAYER_ANSWER,
     SET_GAME_QUESTIONS,
     RESET_GAME_STATE,
@@ -17,9 +16,7 @@ const initialState = {
     userAnswer: '',
     userAnswerValidate: '',
     score: [],
-    isRound: false,
     questions: [],
-    numberOfRounds: null,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -72,11 +69,6 @@ const reducer = (state = initialState, action = {}) => {
         }
         case RESET_GAME_STATE:
             return initialState;
-        case SET_ROUND:
-            return {
-                ...state,
-                isRound: !state.isRound,
-            };
         default:
             return state;
     }

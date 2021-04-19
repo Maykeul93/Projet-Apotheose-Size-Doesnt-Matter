@@ -5,7 +5,7 @@ import PlayerDisplay from './../PlayerDisplay';
 
 import './style.scss';
 
-function DisplayAllPlayers({ displayedPlayers }) {
+function DisplayAllPlayers({ displayedPlayers, exactAnswer }) {
     return (
         <div className="players">
             {/* List of players, need to place user in the middle */}
@@ -15,7 +15,7 @@ function DisplayAllPlayers({ displayedPlayers }) {
                     <PlayerDisplay
                         key={player.id}
                         player={player}
-                        exactAnswer={12} // For the test
+                        exactAnswer={exactAnswer} // For the test
                     />
                 ))
             }
@@ -25,6 +25,7 @@ function DisplayAllPlayers({ displayedPlayers }) {
 
 DisplayAllPlayers.propTypes = {
     displayedPlayers: PropTypes.array.isRequired,
+    exactAnswer: PropTypes.string.isRequired,
 };
 
 export default DisplayAllPlayers;
