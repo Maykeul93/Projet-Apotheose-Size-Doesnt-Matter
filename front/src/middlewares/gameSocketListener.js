@@ -19,12 +19,13 @@ const gameSocketListener = (store) => (next) => (action) => {
             const { id, socket } = store.getState().user;
 
             if (socket) {
-                socket.on('server_launch_game', ({ questions }) => {
+                socket.on('server_launch_game', ({ idGame, questions }) => {
+                    // stockage de l'id de la game
                     store.dispatch(setGameQuestions(questions));
                     store.dispatch(launchNewGame());
                 });
     
-                socket.on('server_join_game', (data) => {
+                socket.on('server_join_game', (data) => { 
                     store.dispatch(stockRoomIntoState(data.room));
                     const otherPlayers = data.players.filter((player) => player.id !== id);
                     store.dispatch(setOtherPlayers(otherPlayers));

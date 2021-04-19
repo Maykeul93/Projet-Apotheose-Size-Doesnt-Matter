@@ -68,6 +68,7 @@ const gameMiddleware = (store) => (next) => (action) => {
             });
             break;
         }
+        // Envoi des score + id game
         case LEAVE_GAME: {
             const { socket, id } = store.getState().user;
             const { room } = store.getState().room;

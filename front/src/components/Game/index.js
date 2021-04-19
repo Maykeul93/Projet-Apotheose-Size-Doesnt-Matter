@@ -27,7 +27,6 @@ function Game({
     }
 
     if (!isLaunch){
-        console.log('je redirige');
         return (<Redirect to="/page/createRoom" />);
     }
     // Display user in the middle
