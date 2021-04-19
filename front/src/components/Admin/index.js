@@ -1,58 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
+import Question from 'containers/Admin/Question';
+import Tag from 'containers/Admin/Tag';
+import Role from './Role';
+import Form from 'containers/Admin/Form';
 
 import './styles.scss';
+import { setAdmin } from 'actions/admin';
+import { useDispatch } from 'react-redux';
 
-const Admin = () => (
-    <main className="admin page__main">
-        <h1 className="admin__title">Admin</h1>
-        <div className="admin__content">
-            <div className="admin__content-left">
-                <div className="section">
-                    <h3 className="section__title">Questions</h3>
-                    <ul className="section__list">
-                        <li className="section__item">
-                            <button type="button">Ajouter</button>
-                        </li>
-                        <li className="section__item">
-                            <button type="button">Modifier</button>
-                        </li>
-                        <li className="section__item">
-                            <button type="button">Supprimer</button>
-                        </li>
-                    </ul>
-                </div>
+const Admin = () => {
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(setAdmin())
+    },[dispatch])
+    return(
 
-                <div className="section">
-                    <h3 className="section__title">Thèmes</h3>
-                    <ul className="section__list">
-                        <li className="section__item">
-                            <button type="button">Ajouter</button>
-                        </li>
-                        <li className="section__item">
-                            <button type="button">Modifier</button>
-                        </li>
-                        <li className="section__item">
-                            <button type="button">Supprimer</button>
-                        </li>
-                    </ul>
+        <main className="admin page__main">
+            <h1 className="admin__title">Admin</h1>
+            <div className="admin__content">
+                <div className="admin__content-left">
+                    <Question />
+                    <Tag />
+                    <Role />
                 </div>
-                <div className="section">
-                    <h3 className="section__title">Utilisateur</h3>
-                    <ul className="section__list">
-                        <li className="section__item">
-                            <button type="button">Rôle</button>
-                        </li>
-                        <li className="section__item">
-                            <button type="button">Bannir</button>
-                        </li>
-                    </ul>
+                <div className="admin__content-right">
+                    <Form />
                 </div>
             </div>
-            <div className="admin__content-right">
-                
-            </div>
-        </div>
-    </main>
-);
+        </main>
+    )
+};
 
 export default Admin;
