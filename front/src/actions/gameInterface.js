@@ -1,4 +1,3 @@
-export const SET_USER_ANSWER = 'SET_USER_ANSWER';
 export const SEND_USER_ANSWER = 'SEND_USER_ANSWER';
 export const VALIDATE_USER_ANSWER = 'VALIDATE_USER_ANSWER';
 export const LEAVE_GAME = 'LEAVE_GAME';
@@ -7,11 +6,9 @@ export const RESET_ALL_PLAYERS_ANSWER = 'RESET_ALL_PLAYERS_ANSWER';
 export const SET_GAME_QUESTIONS = 'SET_GAME_QUESTIONS';
 export const RESET_GAME_STATE = 'RESET_GAME_STATE';
 export const SET_PLAYER_LEAVE_GAME = 'SET_PLAYER_LEAVE_GAME';
-
-export const setUserAnswer = (value) => ({
-    type: SET_USER_ANSWER,
-    value,
-});
+export const SET_ROUND = 'SET_ROUND';
+export const SET_IS_ROUND = 'SET_IS_ROUND';
+export const SET_GAME_IS_OVER = 'SET_GAME_IS_OVER';
 
 export const sendUserAnswer = (value) => ({
     type: SEND_USER_ANSWER,
@@ -33,7 +30,7 @@ export const setOtherPlayerAnswer = (id, answer) => ({
     answer,
 });
 
-export const resetAllPlayersAnswer = () => ({
+export const resetAllPlayersAnswers = () => ({
     type: RESET_ALL_PLAYERS_ANSWER,
 });
 
@@ -49,4 +46,16 @@ export const resetGameState = () => ({
 export const setPlayerLeaveGame = (id) => ({
     type: SET_PLAYER_LEAVE_GAME,
     id,
+});
+
+export const setRound = () => ({
+    type: SET_ROUND,
+});
+
+export const setIsRound = () => ({
+    type: SET_IS_ROUND,
+});
+
+export const setGameIsOver = () => ({
+    type: SET_GAME_IS_OVER,
 });

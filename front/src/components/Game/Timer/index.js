@@ -3,26 +3,27 @@ import PropTypes from 'prop-types';
 import './style.scss';
 
 function Timmer({
-    allValues,
+    isRound,
+    setIsRound,
     setRound,
-    startTimer,
+    resetAllPlayersAnswers,
 }) {
-    const { isRound } = allValues;
     const [seconds, setSeconds] = useState(isRound ? 30 : 15);
-    
+
     useEffect(() => {
-        if (startTimer) {
-            if (seconds === 0) {
-                setRound({
-                    ...allValues,
-                    isRound: !isRound
-                });
+        if (seconds === 0) {
+            setIsRound(!isRound);
+            if (isRound) {
+                resetAllPlayersAnswers();
             }
-            const timer = 
-            seconds > 0 && setInterval(() => setSeconds(seconds - 1), 1000);
-            return () => clearInterval(timer);
+            else {
+                setRound();
+            }
         }
-    });
+        const timer = 
+        seconds > 0 && setInterval(() => setSeconds(seconds - 1), 1000);
+        return () => clearInterval(timer);
+    }, [seconds]);
 
     useEffect(() => {
         setSeconds(isRound ? 30 : 15);
@@ -36,10 +37,10 @@ function Timmer({
 }
 
 Timmer.propTypes = {
-    allValues: PropTypes.object.isRequired,
+    isRound: PropTypes.bool.isRequired,
+    setIsRound: PropTypes.func.isRequired,
     setRound: PropTypes.func.isRequired,
-    isLaunch: PropTypes.bool.isRequired,
-    startTimer: PropTypes.bool.isRequired,
+    resetAllPlayersAnswers: PropTypes.func.isRequired,
 };
 
 export default Timmer;

@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import PlayerAnswer from 'components/Game/PlayerAnswer';
 import {
-    setUserAnswer,
     sendUserAnswer,
 } from 'actions/gameInterface';
 
