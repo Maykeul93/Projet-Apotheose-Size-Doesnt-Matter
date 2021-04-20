@@ -1,6 +1,6 @@
 import React from 'react';
-import AddQuestion from 'containers/Admin//Add/AddQuestion';
-import AddTag from './AddTag';
+import AddQuestion from 'containers/Admin/Add/AddQuestion';
+import AddTag from 'containers/Admin/Add/AddTag';
 
 const Add = ({sousOption}) => {
     const component = () => {

@@ -96,3 +96,18 @@ export const DELETE_QUESTION = 'DELETE_QUESTION';
 export const deleteQuestion = () => ({
     type: DELETE_QUESTION,
 })
+
+// ADD TAG
+export const SET_ADD_TAG_INPUT_VALUE = 'SET_ADD_TAG_INPUT_VALUE';
+
+export const setAddTagInputValue = (name, value) => ({
+    type: SET_ADD_TAG_INPUT_VALUE,
+    name,
+    value
+})
+
+export const ADD_TAG = 'ADD_TAG';
+
+export const addTag = () => ({
+    type: ADD_TAG,
+})

@@ -8,6 +8,7 @@ import {
     UPDATE_QUESTION,
     setUpdateQuestionInputValue,
     DELETE_QUESTION,
+    ADD_TAG,
  } from "actions/admin";
 import api from "api";
 
@@ -81,6 +82,24 @@ const admin = (store) => (next) => (action) => {
             store.dispatch(setLoading(true));
             const { questionId } = store.getState().admin.deleteQuestion;
             api.delete(`admin/1/question/${questionId}`)
+            .then((result)=> {
+                console.log(result.data)
+            })
+            .catch((error)=> {
+                console.lof(error)
+            })
+            .finally(() => {
+                store.dispatch(setLoading(false))
+            });
+            return next(action);
+        }
+
+        case ADD_TAG: {
+            store.dispatch(setLoading(true));
+            const { tag } = store.getState().admin.addTag;
+            api.post(`admin/1/tag`,{
+                tag
+            })
             .then((result)=> {
                 console.log(result.data)
             })
