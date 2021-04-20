@@ -7,6 +7,7 @@ export const SET_GAME_QUESTIONS = 'SET_GAME_QUESTIONS';
 export const RESET_GAME_STATE = 'RESET_GAME_STATE';
 export const SET_PLAYER_LEAVE_GAME = 'SET_PLAYER_LEAVE_GAME';
 export const SET_ROUND = 'SET_ROUND';
+export const SET_IS_ROUND = 'SET_IS_ROUND';
 export const SET_GAME_IS_OVER = 'SET_GAME_IS_OVER';
 
 export const sendUserAnswer = (value) => ({
@@ -49,6 +50,10 @@ export const setPlayerLeaveGame = (id) => ({
 
 export const setRound = () => ({
     type: SET_ROUND,
+});
+
+export const setIsRound = () => ({
+    type: SET_IS_ROUND,
 });
 
 export const setGameIsOver = () => ({

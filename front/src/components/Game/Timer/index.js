@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import './style.scss';
 
 function Timmer({
+    isRound,
+    setIsRound,
     setRound,
     resetAllPlayersAnswers,
 }) {
-    const [ isRound, setIsRound ] = useState(false);
     const [seconds, setSeconds] = useState(isRound ? 30 : 15);
 
     useEffect(() => {
@@ -36,6 +37,8 @@ function Timmer({
 }
 
 Timmer.propTypes = {
+    isRound: PropTypes.bool.isRequired,
+    setIsRound: PropTypes.func.isRequired,
     setRound: PropTypes.func.isRequired,
     resetAllPlayersAnswers: PropTypes.func.isRequired,
 };

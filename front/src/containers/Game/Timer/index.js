@@ -3,9 +3,12 @@ import Timer from 'components/Game/Timer';
 import {
     resetAllPlayersAnswers,
     setRound,
+    setIsRound,
 } from 'actions/gameInterface';
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+    isRound: state.game.isRound,
+});
 
 const mapDispatchStateToProps = (dispatch) => ({
     resetAllPlayersAnswers: () => {
@@ -14,6 +17,9 @@ const mapDispatchStateToProps = (dispatch) => ({
     setRound: () => {
         dispatch(setRound());
     },
+    setIsRound: () => {
+        dispatch(setIsRound());
+    }
 });
 
 export default connect(mapStateToProps, mapDispatchStateToProps)(Timer);

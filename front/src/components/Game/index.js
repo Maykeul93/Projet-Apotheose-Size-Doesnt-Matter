@@ -1,3 +1,4 @@
+import React from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -7,7 +8,7 @@ import LeaveGame from 'containers/Game/LeaveGame';
 import DisplayAllPlayers from 'containers/Game/DisplayAllPlayers';
 import Ranking from 'containers/Game/Ranking';
 import Timer from 'containers/Game/Timer';
-import Question from './Question';
+import Question from 'containers/Game/Question';
 import Round from 'containers/Game/Round';
 
 import './style.scss';
@@ -59,7 +60,7 @@ function Game({
 }
 
 Game.propTypes = {
-    isover: PropTypes.bool.isRequired,
+    isOver: PropTypes.bool.isRequired,
     isLaunch: PropTypes.bool.isRequired,
 };
 

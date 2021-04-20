@@ -6,6 +6,7 @@ import {
     SET_PLAYER_LEAVE_GAME,
     RESET_ALL_PLAYERS_ANSWER,
     SET_ROUND,
+    SET_IS_ROUND,
     SET_GAME_IS_OVER,
 } from 'actions/gameInterface';
 
@@ -20,6 +21,7 @@ const initialState = {
     questions: [],
     gameId: null,
     round: 0,
+    isRound:false,
     isOver: false,
 };
 
@@ -58,6 +60,11 @@ const reducer = (state = initialState, action = {}) => {
                 players: setPlayerAnswer,
             };
         }
+        case SET_IS_ROUND:
+            return {
+                ...state,
+                isRound: !state.isRound,
+            }
         case SET_ROUND: {
             return {
                 ...state,
