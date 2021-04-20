@@ -5,18 +5,15 @@ import PropTypes from 'prop-types';
 import Header from 'containers/Header';
 import PlayerAnswer from 'containers/Game/PlayerAnswer';
 import LeaveGame from 'containers/Game/LeaveGame';
-import DisplayAllPlayers from './DisplayAllPlayers';
+import DisplayAllPlayers from 'containers/Game/DisplayAllPlayers';
+import Ranking from 'containers/Game/Ranking';
 import Timer from './Timer';
-import Ranking from './Ranking';
 import Question from './Question';
 import Round from './Round';
 
 import './style.scss';
-import { placeUserintoTheMiddleOfOtherPlayers } from 'selectors/gameSelectors';
 
 function Game({
-    player,
-    otherPlayers,
     questions,
     isLaunch,
     resetAllPlayersAnswers,
@@ -33,8 +30,6 @@ function Game({
     // const [ round, setRound ] = useState(0);
     // const [ question, setQuestion ] = useState('');
     // const [ exactAnswer, setExactAnswer ] = useState('');
-
-    console.log(otherPlayers);
 
     const { isRound,
         startTimer,
@@ -69,19 +64,12 @@ function Game({
             }
         }
     }, [isRound]);
-    const playerUser = { // Only for the demo
-        ...player,
-        avatar: 'avatar.png',
-    }
 
     // When the user leaves the game, reset the state 'isLaunch' & redirect to the page of creation Room
     if (!isLaunch){
         return (<Redirect to="/page/createRoom" />);
     }
-    
-    const displayedPlayers = placeUserintoTheMiddleOfOtherPlayers(player, otherPlayers);
 
-    console.log('questions', questions);
     console.log('question', question);
     console.log('exactAnswer', exactAnswer);
     console.log('round', round);
@@ -109,7 +97,6 @@ function Game({
                             )
                         }
                         <DisplayAllPlayers
-                            displayedPlayers={displayedPlayers}
                             exactAnswer={exactAnswer}
                         />
                         {
@@ -127,10 +114,7 @@ function Game({
                         <LeaveGame />
                     </div>
                 </div>
-                <Ranking
-                    player={playerUser}
-                    otherPlayers={otherPlayers}
-                />
+                <Ranking />
             </div>
         </>
     );
