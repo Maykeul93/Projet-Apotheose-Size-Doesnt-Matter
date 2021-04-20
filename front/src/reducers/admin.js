@@ -9,7 +9,9 @@ import {
     SET_TAGS, 
     SET_UPDATE_QUESTION_INPUT_VALUE,
     SET_UPDATE_QUESTION_SELECT_QUESTION_VALUE,
-    SET_UPDATE_QUESTION_SELECT_TAG_VALUE} from "actions/admin";
+    SET_UPDATE_QUESTION_SELECT_TAG_VALUE,
+    SET_UPDATE_TAG_INPUT_VALUE,
+    SET_UPDATE_TAG_SELECT_TAG_VALUE} from "actions/admin";
 
 const initialState = {
     loading: false,
@@ -31,6 +33,10 @@ const initialState = {
         questionId:1
     },
     addTag : {
+        tag: '',
+    },
+    updateTag : {
+        tagId: 1,
         tag: '',
     }
 };
@@ -108,12 +114,30 @@ const reducer = (state = initialState, action = {}) => {
                     questionId: action.value
                 },
         }
+            //SET ADD TAG
         case SET_ADD_TAG_INPUT_VALUE: 
         return {
             ...state,
                 addTag:{
                     ...state.deleteQuestion,
                     tag: action.value
+                },
+        }
+            // SET UPDATE TAG
+        case SET_UPDATE_TAG_INPUT_VALUE: 
+        return {
+            ...state,
+                updateTag:{
+                    ...state.updateTag,
+                    tag: action.value
+                },
+        }
+        case SET_UPDATE_TAG_SELECT_TAG_VALUE: 
+        return {
+            ...state,
+                updateTag:{
+                    ...state.updateTag,
+                    tagId: action.value
                 },
         }
         default:

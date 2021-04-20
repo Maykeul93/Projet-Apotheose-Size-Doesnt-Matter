@@ -111,3 +111,26 @@ export const ADD_TAG = 'ADD_TAG';
 export const addTag = () => ({
     type: ADD_TAG,
 })
+
+//UPDATE TAGE
+
+export const SET_UPDATE_TAG_SELECT_TAG_VALUE = 'SET_UPDATE_TAG_SELECT_TAG_VALUE';
+
+export const setUpdateTagSelectTagValue = (value) => ({
+    type: SET_UPDATE_TAG_SELECT_TAG_VALUE,
+    value
+})
+
+export const SET_UPDATE_TAG_INPUT_VALUE = 'SET_UPDATE_TAG_INPUT_VALUE';
+
+export const setUpdateTagInputValue = (name, value) => ({
+    type: SET_UPDATE_TAG_INPUT_VALUE,
+    name,
+    value
+})
+
+export const UPDATE_TAG = 'UPDATE_TAG';
+
+export const updateTag = () => ({
+    type: UPDATE_TAG,
+})

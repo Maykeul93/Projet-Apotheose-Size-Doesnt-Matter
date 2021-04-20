@@ -25,18 +25,18 @@ const Profil = (store) => (next) => (action) => {
             .then((result) => {
                 console.log(result.data)
                 const infoUser = result.data.infoUser[0]
-                const message = result.data.tab[0]
+                const message = result.data.success
                 return {infoUser, message}
             })
             .then(({infoUser, message} )=> {
-                console.log(infoUser);
-                store.dispatch(setMessage(message.succes));
+                console.log(message);
+                store.dispatch(setMessage(message));
                 store.dispatch(setUser(infoUser.id,infoUser.email, infoUser.pseudo));
                 store.dispatch(resetInput());
             })
             .catch((error)=> {
                 console.log(error);
-                store.dispatch(setMessage('Une erreur c\'est produite, veuillez réessayer'));
+                store.dispatch(setMessage({error}));
                 store.dispatch(resetInput());
             })
             .finally(() => {

@@ -9,6 +9,8 @@ import {
     setUpdateQuestionInputValue,
     DELETE_QUESTION,
     ADD_TAG,
+    UPDATE_TAG,
+    setUpdateTagInputValue,
  } from "actions/admin";
 import api from "api";
 
@@ -105,6 +107,25 @@ const admin = (store) => (next) => (action) => {
             })
             .catch((error)=> {
                 console.lof(error)
+            })
+            .finally(() => {
+                store.dispatch(setLoading(false))
+            });
+            return next(action);
+        }
+
+        case UPDATE_TAG : {
+            store.dispatch(setLoading(true));
+            const { tag , tagId } = store.getState().admin.updateTag
+            api.put(`/admin/1/tag/${tagId}`,{
+                tag,
+            })
+            .then((result) => {
+                console.log(result.data)
+                store.dispatch(setUpdateTagInputValue('tag', ''))
+            })
+            .catch((error)=> {
+                console.log(error)
             })
             .finally(() => {
                 store.dispatch(setLoading(false))

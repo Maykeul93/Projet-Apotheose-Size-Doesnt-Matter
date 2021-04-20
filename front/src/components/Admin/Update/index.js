@@ -1,6 +1,6 @@
 import React from 'react';
 import UpdateQuestion from 'containers/Admin/Update/UpdateQuestion';
-import UpdateTag from './UpdateTag';
+import UpdateTag from 'containers/Admin/Update/UpdateTag';
 
 const Update = ({sousOption}) => {
     const component = () => {
