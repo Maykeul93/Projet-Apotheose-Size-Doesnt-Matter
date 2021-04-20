@@ -33,7 +33,7 @@ const gameSocketListener = (store) => (next) => (action) => {
                 socket.on('server_launch_game', ({ idGame, questions }) => {
                     // stockage de l'id de la game
                     store.dispatch(setGameQuestions(questions));
-                    store.dispatch(launchNewGame());
+                    store.dispatch(launchNewGame(idGame));
                 });
     
                 socket.on('server_send_answer', ({ id: playerId, answer }) => {
