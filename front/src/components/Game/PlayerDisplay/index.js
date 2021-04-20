@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { getPercentOfProgressBar } from 'selectors/gameSelectors';
@@ -33,7 +34,7 @@ function PlayerDisplay({ player, exactAnswer }) {
 
 PlayerDisplay.propTypes = {
     player: PropTypes.object.isRequired,
-    exactAnswer: PropTypes.number.isRequired,
+    exactAnswer: PropTypes.string.isRequired,
 };
 
 export default PlayerDisplay;

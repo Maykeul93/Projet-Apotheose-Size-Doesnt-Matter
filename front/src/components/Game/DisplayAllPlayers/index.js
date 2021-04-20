@@ -5,8 +5,14 @@ import PlayerDisplay from './../PlayerDisplay';
 
 import './style.scss';
 
-function DisplayAllPlayers({ displayedPlayers, exactAnswer }) {
-    const isNumberAnswer = Number(exactAnswer);
+import { placeUserintoTheMiddleOfOtherPlayers } from 'selectors/gameSelectors';
+
+function DisplayAllPlayers({ player, otherPlayers, questions, round }) {
+    const index = round === 0 ? 0 : round - 1;
+
+    const answer = questions.length > 0 ? questions[index].answer : 0;
+
+    const displayedPlayers = placeUserintoTheMiddleOfOtherPlayers(player, otherPlayers);
     return (
         <div className="players">
             {/* List of players, need to place user in the middle */}
@@ -16,7 +22,7 @@ function DisplayAllPlayers({ displayedPlayers, exactAnswer }) {
                     <PlayerDisplay
                         key={player.id}
                         player={player}
-                        exactAnswer={isNumberAnswer}
+                        exactAnswer={answer}
                     />
                 ))
             }
@@ -25,8 +31,10 @@ function DisplayAllPlayers({ displayedPlayers, exactAnswer }) {
 }
 
 DisplayAllPlayers.propTypes = {
-    displayedPlayers: PropTypes.array.isRequired,
-    exactAnswer: PropTypes.string.isRequired,
+    player: PropTypes.object.isRequired,
+    otherPlayers: PropTypes.array.isRequired,
+    questions: PropTypes.array.isRequired,
+    round: PropTypes.number.isRequired,
 };
 
 export default DisplayAllPlayers;
