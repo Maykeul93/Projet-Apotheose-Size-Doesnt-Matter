@@ -10,7 +10,7 @@ import { placeUserintoTheMiddleOfOtherPlayers } from 'selectors/gameSelectors';
 function DisplayAllPlayers({ player, otherPlayers, questions, round }) {
     const index = round === 0 ? 0 : round - 1;
 
-    const answer = Number(questions[index].answer);
+    const answer = questions.length > 0 ? questions[index].answer : 0;
 
     const displayedPlayers = placeUserintoTheMiddleOfOtherPlayers(player, otherPlayers);
     return (
