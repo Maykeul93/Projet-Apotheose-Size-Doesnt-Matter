@@ -27,7 +27,6 @@ function Game({
     const [ exactAnswer, setExactAnswer ] = useState('');
 
     console.log(otherPlayers);
-    console.log(exactAnswer);
 
     useEffect(() => {
 
@@ -70,7 +69,6 @@ function Game({
 
     return (
         <>
-        { console.log('je render le composant principal')}
             <Header />
             <div className="game game__main">
                 <div className="game__left">
