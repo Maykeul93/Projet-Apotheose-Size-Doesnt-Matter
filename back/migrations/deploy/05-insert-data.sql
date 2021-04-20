@@ -16,7 +16,7 @@ INSERT INTO question (content, answer) VALUES
 ('Combien faut-il de Double Steakhouse de chez BurgerKing pour peser aussi lourd que la Terre?','16 361 643 835 616 438 356 164 384'),
 ('Combien de mètres faut-il parcourir au Pérou pour tourner d''un angle de un degré à la surface de la Terre?','110 598'),
 ('Combien de mètres faut-il parcourir en Laponie pour tourner d''un angle de un degré à la surface de la Terre?','111 947'),
-('Combien de jours/ heures/ minutes faudrait-il pour se rendre du sommet du Mont Everest au centre de la Terre à la vitesse constante de 80km/h?','3 jours 7heures et 40minutes'),
+('Combien de jours faudrait-il pour se rendre du sommet du Mont Everest au centre de la Terre à la vitesse constante de 80km/h?','3'),
 ('Combien de kilomètres de différence y a-t-il entre la longueur du Nil et la distance centre de la Terre/Sommet de l''Everest?','268'),
 ('Combien de couleurs secondaires les crevettes-mantes peuvent-elles percevoir?','4082'),
 ('Combien faut-il empiler de boîtes d''hamburgers de base pour atteindre le plafond de la galerie des glaces du Chateau de Versailles?','117'),
@@ -34,10 +34,10 @@ INSERT INTO question (content, answer) VALUES
 ('Combien de pas devrons-nous faire pour effectuer un Paris-Marseille ?','1 191 231'),
 ('Combien de fois faudrait-il faire le record de saut à la perche pour arriver à un total équivaut à la taille du Kilimandjaro ?','958.5'),
 ('Combien de fois faudrait-il empiler l''homme le plus petit du monde pour atteindre le sommet de la Statue de la Liberté?','163'),
-('Combien de jours faudrait-il à un escargot pour faire le tour de la circonférence de la Terre?','463 831 jours'),
+('Combien de jours faudrait-il à un escargot pour faire le tour de la circonférence de la Terre?','463 831'),
 ('Combien de reines fourmi rousse de type Formica Rufa faudrait-il pour peser aussi lourd qu''une Twingo?','38 933 333'),
 ('Combien de stades de football américain faudrait-il pour arriver à une superficie équivalente à la plus grande superficie de l''empire Romain ?','920'),
-('Combien de secondes de différences y aurait-il sur un 100m nage libre entre le recordman en titre et un espadon?','43s785'),
+('Combien de secondes de différences y aurait-il sur un 100m nage libre entre le recordman en titre et un espadon?','43'),
 ('Combien de feuilles A4 standards faudrait-il empiler pour atteindre la taille du Colosse de Rhodes?','320 000	');
  	
 

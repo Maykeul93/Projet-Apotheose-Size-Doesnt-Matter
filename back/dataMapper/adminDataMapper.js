@@ -55,13 +55,14 @@ module.exports = {
     },
     async updateQuestion(content, answer, questionId) {
         const result = await client.query(`UPDATE question SET content = $1, answer = $2 WHERE id = $3`, [content, answer, questionId])
-        return result.rows
+        return result.rows; 
     },
     async updateCorrespondence(tag_id, id) {
-        const result = await client.query(`UPDATE tag_categorize_question SET tag_id = $1 WHERE question_id = $2`, [tag_id, id])
+        const result = await client.query(`UPDATE tag_categorize_question SET tag_id = $1 WHERE question_id = $2`, [tag_id, id]); 
+        return result.rows; 
     },
-
-
-
-
+    async updateTag (name, tagId) {
+        const result = await client.query(`UPDATE "tag" SET "name"=$1 WHERE "id"=$2`, [name, tagId]);
+        return result.rows;  
+    }
 }   
