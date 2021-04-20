@@ -18,6 +18,7 @@ const initialState = {
     userAnswerValidate: '',
     score: [],
     questions: [],
+    gameId: null,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -32,6 +33,7 @@ const reducer = (state = initialState, action = {}) => {
                 ...state,
                 questions: action.questions,
                 numberOfRounds: action.questions.length,
+                gameId: action.gameId,
             };
         case SET_USER_ANSWER:
             return {

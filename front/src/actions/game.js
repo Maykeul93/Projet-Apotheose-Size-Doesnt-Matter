@@ -30,8 +30,9 @@ export const resetRoom = () => ({
     type: RESET_ROOM,
 });
 
-export const launchNewGame = () => ({
+export const launchNewGame = (id) => ({
     type: LAUNCH_GAME,
+    id,
 });
 
 export const setLaunchGame = () => ({

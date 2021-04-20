@@ -6,7 +6,7 @@ import './styles.scss';
 
 
 function PlayerDisplay({ player, exactAnswer }) {
-
+    console.log(player.answer);
     const styleSpan = getPercentOfProgressBar(player.answer, exactAnswer);
 
     // Add verification to compare pseudo with pseudo user of the state
