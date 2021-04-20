@@ -1,14 +1,14 @@
-import React from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import './style.scss';
 
 function PlayerAnswer({
-    inputValue,
-    changeInputValue,
     sendResponse,
 }) {
+    const [ inputValue, changeInputValue ] = useState('');
     const handleSubmitAnswer = (e) => {
         e.preventDefault();
+        changeInputValue('');
         sendResponse(inputValue);
     };
     return (
@@ -35,8 +35,6 @@ function PlayerAnswer({
 }
 
 PlayerAnswer.propTypes = {
-    inputValue: PropTypes.string.isRequired,
-    changeInputValue: PropTypes.func.isRequired,
     sendResponse: PropTypes.func.isRequired,
 };
 

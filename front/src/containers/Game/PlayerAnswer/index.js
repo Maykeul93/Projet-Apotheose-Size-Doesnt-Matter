@@ -5,14 +5,9 @@ import {
     sendUserAnswer,
 } from 'actions/gameInterface';
 
-const mapStateToProps = (state) => ({
-    inputValue: state.game.userAnswer,
-});
+const mapStateToProps = (state) => ({});
 
 const mapDispatchStateToProps = (dispatch) => ({
-    changeInputValue: (value) => {
-        dispatch(setUserAnswer(value));
-    },
     sendResponse: (value) => {
         dispatch(sendUserAnswer(value));
     },
