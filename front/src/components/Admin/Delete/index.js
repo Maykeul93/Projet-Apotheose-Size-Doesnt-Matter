@@ -1,5 +1,5 @@
 import React from 'react';
-import DeleteQuestion from './DeleteQuestion';
+import DeleteQuestion from 'containers/Admin/Delete/DeleteQuestion';
 import DeleteTag from './DeleteTag';
 
 const Delete = ({sousOption}) => {
