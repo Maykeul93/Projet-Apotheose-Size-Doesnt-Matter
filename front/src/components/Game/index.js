@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -31,11 +30,20 @@ function Game({
                 <div className="game__left">
                     <div className="game__interface">
                         {/* Insertion composant pour afficher des messages Par dessus interface de jeu */}
-                        <Timer />
-                        <Question />
-                        <DisplayAllPlayers />
-                        <PlayerAnswer />
-                        <Round />
+                        {
+                            !isOver ? (
+                                <>
+                                    <Timer />
+                                    <Question />
+                                    <DisplayAllPlayers />
+                                    <PlayerAnswer />
+                                    <Round />
+                                </>
+                            ) : (
+                                <h1>Game is Over</h1>
+                            )
+                        }
+                        
                     </div>
                     <div className="game__bottom">
                         <div className="game__tchat">

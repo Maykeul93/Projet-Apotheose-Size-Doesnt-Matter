@@ -6,6 +6,7 @@ import {
     SET_PLAYER_LEAVE_GAME,
     RESET_ALL_PLAYERS_ANSWER,
     SET_ROUND,
+    SET_GAME_IS_OVER,
 } from 'actions/gameInterface';
 
 import {
@@ -67,7 +68,7 @@ const reducer = (state = initialState, action = {}) => {
             const resetPlayersAnswer = state.players.map((player) => {
                 return {
                     ...player,
-                    answer: '',
+                    answer: 0,
                 }
             });
             console.log('resetPlayersAnswer', resetPlayersAnswer);
@@ -84,6 +85,11 @@ const reducer = (state = initialState, action = {}) => {
                 players,
             }
         }
+        case SET_GAME_IS_OVER:
+            return {
+                ...state,
+                isOver: true,
+            }
         case RESET_GAME_STATE:
             return initialState;
         default:
