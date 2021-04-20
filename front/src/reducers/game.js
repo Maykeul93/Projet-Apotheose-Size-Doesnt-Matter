@@ -14,7 +14,6 @@ import {
 
 const initialState = {
     players: [],
-    userAnswer: '',
     userAnswerValidate: '',
     score: [],
     questions: [],

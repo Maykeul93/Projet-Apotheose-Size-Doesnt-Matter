@@ -53,8 +53,8 @@ module.exports = {
         const result = await client.query(`DELETE FROM tag_categorize_question WHERE question_id = $1`, [id])
         return result.rows;
     },
-    async updateQuestion(content, answer, id) {
-        const result = await client.query(`UPDATE question SET content = $1, answer = $2 WHERE id = $3`, [content, answer, id])
+    async updateQuestion(content, answer, questionId) {
+        const result = await client.query(`UPDATE question SET content = $1, answer = $2 WHERE id = $3`, [content, answer, questionId])
         return result.rows
     },
     async updateCorrespondence(tag_id, id) {
