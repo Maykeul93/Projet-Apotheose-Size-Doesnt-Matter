@@ -10,7 +10,6 @@ function CreateRoom({
     user,
     room,
 }) {
-    
     if (room) {
         const path = `/room/${room}`
         return (<Redirect to={path} />)

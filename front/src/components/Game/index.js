@@ -25,11 +25,6 @@ function Game({
         question: '',
         exactAnswer: 0,
     })
-    // const [ isRound, setIsRound ] = useState(true);
-    // const [ startTimer, setStartTimer ] = useState(true);
-    // const [ round, setRound ] = useState(0);
-    // const [ question, setQuestion ] = useState('');
-    // const [ exactAnswer, setExactAnswer ] = useState('');
 
     const { isRound,
         startTimer,
@@ -53,17 +48,14 @@ function Game({
                     round: round + 1,
                     question: questions[round].content,
                     exactAnswer: questions[round].answer,
-                })
-                // setRound(round + 1);
-                // setQuestion(questions[round].content);
-                // setExactAnswer(questions[round].answer);
+                });
             }
             if (!isRound) {
                 resetAllPlayersAnswers();
                 // On incrémente les scores
             }
         }
-    }, [isRound]);
+    }, []);
 
     // When the user leaves the game, reset the state 'isLaunch' & redirect to the page of creation Room
     if (!isLaunch){
