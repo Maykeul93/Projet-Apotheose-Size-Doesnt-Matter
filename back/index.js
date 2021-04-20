@@ -37,11 +37,22 @@ const gameController = require('./controllers/gameController');
 //Scoket Connection
 io.on('connection', (socket) => {
     console.log('a user connected :', socket.id); 
-    socket.on('front_create_game', (idUser) => {
+    socket.on('front_create_game', async (idUser) => {
       const room = uniqid();
       socket.join(room);
       // Insert the romm's number to the table game (room)
-      const idGame = gameController.gameRecRoom(socket, room, idUser); 
+      const idGame = await gameController.gameRecRoom(socket, room, idUser);
+      if (idGame) {
+        socket.emit('server_create_game', {
+          idUser,
+          room,
+        });
+      }
+      else {
+        socket.emit('server_create_game_error', {
+          error: 'Creation of game id compromised',
+        })
+      }
     });
 
     //Sending to the room all players (id and pseudo)
