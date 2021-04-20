@@ -1,5 +1,5 @@
 import React from 'react';
-import UpdateQuestion from './UpdateQuestion';
+import UpdateQuestion from 'containers/Admin/Update/UpdateQuestion';
 import UpdateTag from './UpdateTag';
 
 const Update = ({sousOption}) => {

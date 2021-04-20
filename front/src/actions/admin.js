@@ -55,3 +55,44 @@ export const addQuestion = () => ({
     type: ADD_QUESTION,
 })
 
+//Update Question Actions
+export const SET_UPDATE_QUESTION_INPUT_VALUE = 'SET_UPDATE_QUESTION_INPUT_VALUE';
+
+export const setUpdateQuestionInputValue = (name, value) => ({
+    type: SET_UPDATE_QUESTION_INPUT_VALUE,
+    name,
+    value
+})
+
+export const SET_UPDATE_QUESTION_SELECT_QUESTION_VALUE = 'SET_UPDATE_QUESTION_SELECT_QUESTION_VALUE';
+
+export const setUpdateQuestionSelectQuestionValue = (value) => ({
+    type: SET_UPDATE_QUESTION_SELECT_QUESTION_VALUE,
+    value
+})
+export const SET_UPDATE_QUESTION_SELECT_TAG_VALUE = 'SET_UPDATE_QUESTION_SELECT_TAG_VALUE';
+
+export const setUpdateQuestionSelectTagValue = (value) => ({
+    type: SET_UPDATE_QUESTION_SELECT_TAG_VALUE,
+    value
+})
+
+export const UPDATE_QUESTION = 'UPDATE_QUESTION';
+
+export const updateQuestion = () => ({
+    type: UPDATE_QUESTION,
+})
+
+// DELETE QUESTION
+export const SET_DELETE_QUESTION_SELECT_QUESTION_VALUE = 'SET_DELETE_QUESTION_SELECT_QUESTION_VALUE';
+
+export const setDeleteQuestionSelectQuestionValue = (value) => ({
+    type: SET_DELETE_QUESTION_SELECT_QUESTION_VALUE,
+    value
+})
+
+export const DELETE_QUESTION = 'DELETE_QUESTION';
+
+export const deleteQuestion = () => ({
+    type: DELETE_QUESTION,
+})
