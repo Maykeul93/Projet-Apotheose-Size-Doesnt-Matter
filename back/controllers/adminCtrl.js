@@ -109,26 +109,23 @@ module.exports = {
         const { content, answer, tagId } = req.body; 
         
         try {
-            await adminDataMapper.updateQuestion(content, answer, questionId)
+            await adminDataMapper.updateQuestion(content, answer, questionId); 
             await adminDataMapper.updateCorrespondence(tagId, questionId);
-            res.status(201).json({'succes':'true'})
+            res.status(201).json({'succes':'true'}); 
             
         } catch (error) {
             res.status(500).send(error);
         }
     },
+    async updateTag (req, res) {
+        const { tagId } = req.params; 
+        const { name } = req.body; 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+        try {
+            await adminDataMapper.updateTag(name, tagId)
+            res.status(201).json({'succes': 'true'}); 
+        } catch (error) {
+            res.status(500).send(error); 
+        }
+    },
 }

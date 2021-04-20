@@ -109,10 +109,16 @@ module.exports = {
           return res.status(400).json({'error': 'Cet avatar est déjà le votre'});
         }
       }
-      return res.status(201).json({'success': 'utilisateur mis à jour'}); 
+      const infoUser = await userDataMapper.infoUser(id)
+      return res.status(201).json({
+        'success': 'utilisateur mis à jour', 
+        infoUser 
+      }); 
     } catch (error) {
        res.status(500).json(error);
     }
+    
+    
   },
 
   async deleteUser (req, res){
