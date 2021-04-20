@@ -1,11 +1,11 @@
 import {
-    SET_USER_ANSWER,
     VALIDATE_USER_ANSWER,
     SET_OTHER_PLAYER_ANSWER,
     SET_GAME_QUESTIONS,
     RESET_GAME_STATE,
     SET_PLAYER_LEAVE_GAME,
     RESET_ALL_PLAYERS_ANSWER,
+    SET_ROUND,
 } from 'actions/gameInterface';
 
 import {
@@ -18,6 +18,8 @@ const initialState = {
     score: [],
     questions: [],
     gameId: null,
+    round: 0,
+    isOver: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -31,19 +33,12 @@ const reducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 questions: action.questions,
-                numberOfRounds: action.questions.length,
                 gameId: action.gameId,
-            };
-        case SET_USER_ANSWER:
-            return {
-                ...state,
-                userAnswer: action.value,
             };
         case VALIDATE_USER_ANSWER:
             return {
                 ...state,
                 userAnswerValidate: action.value,
-                userAnswer: '',
             };
         case SET_OTHER_PLAYER_ANSWER: {
             // Set the other player's answer into the otherPlayers Array
@@ -62,6 +57,12 @@ const reducer = (state = initialState, action = {}) => {
                 players: setPlayerAnswer,
             };
         }
+        case SET_ROUND: {
+            return {
+                ...state,
+                round: state.round + 1,
+            }
+        }
         case RESET_ALL_PLAYERS_ANSWER: {
             const resetPlayersAnswer = state.players.map((player) => {
                 return {
@@ -72,7 +73,6 @@ const reducer = (state = initialState, action = {}) => {
             console.log('resetPlayersAnswer', resetPlayersAnswer);
             return {
                 ...state,
-                userAnswer: '',
                 userAnswerValidate: '',
                 players: resetPlayersAnswer,
             };

@@ -7,64 +7,22 @@ import PlayerAnswer from 'containers/Game/PlayerAnswer';
 import LeaveGame from 'containers/Game/LeaveGame';
 import DisplayAllPlayers from 'containers/Game/DisplayAllPlayers';
 import Ranking from 'containers/Game/Ranking';
-import Timer from './Timer';
+import Timer from 'containers/Game/Timer';
 import Question from './Question';
-import Round from './Round';
+import Round from 'containers/Game/Round';
 
 import './style.scss';
 
 function Game({
-    questions,
     isLaunch,
-    resetAllPlayersAnswers,
+    isOver,
 }) {
-    const [ allValues, setAllValues ] = useState({
-        isRound: true,
-        startTimer: true,
-        round: 0,
-        question: '',
-        exactAnswer: 0,
-    })
-
-    const { isRound,
-        startTimer,
-        round,
-        question,
-        exactAnswer
-    } = allValues;
-
-    useEffect(() => {
-
-        if (round === questions.length) {
-            setAllValues({
-                ...allValues,
-                startTimer: false,
-            });
-        }
-        if (startTimer) {
-            if (isRound) {
-                setAllValues({
-                    ...allValues,
-                    round: round + 1,
-                    question: questions[round].content,
-                    exactAnswer: questions[round].answer,
-                });
-            }
-            if (!isRound) {
-                resetAllPlayersAnswers();
-                // On incrémente les scores
-            }
-        }
-    }, []);
 
     // When the user leaves the game, reset the state 'isLaunch' & redirect to the page of creation Room
     if (!isLaunch){
         return (<Redirect to="/page/createRoom" />);
     }
 
-    console.log('question', question);
-    console.log('exactAnswer', exactAnswer);
-    console.log('round', round);
     return (
         <>
             {console.log('je render l app')}
@@ -73,31 +31,11 @@ function Game({
                 <div className="game__left">
                     <div className="game__interface">
                         {/* Insertion composant pour afficher des messages Par dessus interface de jeu */}
-                        {
-                            startTimer && (
-                                <>
-                                    <Timer
-                                        allValues={allValues}
-                                        setRound={setAllValues}
-                                        isLaunch={isLaunch}
-                                        startTimer={startTimer}
-                                    />
-                                    <Question
-                                        question={question}
-                                    />
-                                </>
-                            )
-                        }
-                        <DisplayAllPlayers
-                            exactAnswer={exactAnswer}
-                        />
-                        {
-                            isRound && <PlayerAnswer />
-                        }
-                        <Round
-                            round={round}
-                            numberOfRounds={questions.length}
-                        />
+                        <Timer />
+                        <Question />
+                        <DisplayAllPlayers />
+                        <PlayerAnswer />
+                        <Round />
                     </div>
                     <div className="game__bottom">
                         <div className="game__tchat">
@@ -113,15 +51,8 @@ function Game({
 }
 
 Game.propTypes = {
-    player: PropTypes.object.isRequired,
-    otherPlayers: PropTypes.array.isRequired, // Need id, pseudo, answer, score, codeAvatar
-    questions: PropTypes.array.isRequired,
+    isover: PropTypes.bool.isRequired,
     isLaunch: PropTypes.bool.isRequired,
-    resetAllPlayersAnswers: PropTypes.func.isRequired,
 };
-
-Game.defaultProps = {
-    numberOfRounds: 0,
-}
 
 export default Game;
