@@ -72,53 +72,47 @@ module.exports = {
   async updateUser (req, res){
     const { pseudo, email, password, avatar, newPassword, newPassword2 } = req.body;
     const { id } = req.params;
-    console.log(pseudo); 
-    console.log(id); 
     const user = await userDataMapper.recupUserById(id); 
     const checkMail = await userDataMapper.checkMail(email);
-    
-    try{
-      const tab = []// retour des succes ou erreur pas obligatoire 
+
+    try {
       if (email){
         if (checkMail.length === 0){
-           await userDataMapper.updateMail(email, user[0].id);
-          const result = {'succes':'Nouveau email enregistré'}
-          tab.push(result)
-        } else {
-          const result = {'error':'Email déjà enregistré'}
-          tab.push(result)
+          await userDataMapper.updateMail(email, user[0].id);
+        } else { 
+           return res.status(400).json({error : 'Email déjà enregistré'});
         }
       }
 
       if (pseudo){
-        await userDataMapper.updatePseudo(pseudo, id);
-        const result = {'succes':'Nouveau pseudo enregistré'}
-        if (user[0].pseudo !== pseudo){
-          tab.push(result)
+        if (user[0].pseudo !== pseudo ) {
+          await userDataMapper.updatePseudo(pseudo, id);
+        }else {
+          return res.status(400).json({"error" : "Ce pseudo est déjà le votre"}); 
         }
       }
-
+      
       if (password){
-        const testPassword = await bcrypt.compare(req.body.password, user[0].password)
+        console.log("hello"); 
+        const testPassword = await bcrypt.compare(password, user[0].password)
         if (newPassword === newPassword2 && testPassword === true){
           const hashedPassword = await bcrypt.hash(newPassword, 10)
-          await userDataMapper.updatePassword(hashedPassword, id);
-          const result = {'succes':'Nouveau MDP enregistré'};
-          const verifPassword = await bcrypt.compare(req.body.newPassword, user[0].password);
-          if (verifPassword === false ) {
-            tab.push(result)
-          }
-          
+          await userDataMapper.updatePassword(hashedPassword, id);  
       } else {
-          const result = {'errors':'Soit les nouveaux MDP ne correspondent pas soit ancien MDP est incorrect'};
-          tab.push(result);
-        }}
-        
-        const infoUser = await userDataMapper.infoUser(id)
-        res.json({infoUser , tab});
-      } catch (error){
-        res.status(500).send(error);
+        return res.status(400).json({'errors':'Soit les nouveaux MDP ne correspondent pas soit ancien MDP est incorrect'});
+      }}
+
+      if (avatar) {
+        if (avatar !== user[0].avatar) {
+          await userDataMapper.updateAvatar(avatar, user[0].id); 
+        } else {
+          return res.status(400).json({'error': 'Cet avatar est déjà le votre'});
+        }
       }
+      return res.status(201).json({'success': 'utilisateur mis à jour'}); 
+    } catch (error) {
+       res.status(500).json(error);
+    }
   },
 
   async deleteUser (req, res){
