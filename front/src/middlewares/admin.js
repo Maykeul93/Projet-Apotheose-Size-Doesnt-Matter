@@ -116,9 +116,9 @@ const admin = (store) => (next) => (action) => {
 
         case UPDATE_TAG : {
             store.dispatch(setLoading(true));
-            const { tag , tagId } = store.getState().admin.updateTag
+            const { tag: name , tagId } = store.getState().admin.updateTag
             api.put(`/admin/1/tag/${tagId}`,{
-                tag,
+                name,
             })
             .then((result) => {
                 console.log(result.data)
