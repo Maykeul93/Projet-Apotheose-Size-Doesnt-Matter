@@ -12,6 +12,7 @@ import Question from './Question';
 import Round from './Round';
 
 import './style.scss';
+import { placeUserintoTheMiddleOfOtherPlayers } from 'selectors/gameSelectors';
 
 function Game({
     player,
@@ -20,24 +21,47 @@ function Game({
     isLaunch,
     resetAllPlayersAnswers,
 }) {
-    const [ isRound, setIsRound ] = useState(true);
-    const [ startTimer, setStartTimer ] = useState(true);
-    const [ round, setRound ] = useState(0);
-    const [ question, setQuestion ] = useState('');
-    const [ exactAnswer, setExactAnswer ] = useState('');
+    const [ allValues, setAllValues ] = useState({
+        isRound: true,
+        startTimer: true,
+        round: 0,
+        question: '',
+        exactAnswer: 0,
+    })
+    // const [ isRound, setIsRound ] = useState(true);
+    // const [ startTimer, setStartTimer ] = useState(true);
+    // const [ round, setRound ] = useState(0);
+    // const [ question, setQuestion ] = useState('');
+    // const [ exactAnswer, setExactAnswer ] = useState('');
 
     console.log(otherPlayers);
+
+    const { isRound,
+        startTimer,
+        round,
+        question,
+        exactAnswer
+    } = allValues;
 
     useEffect(() => {
 
         if (round === questions.length) {
-            setStartTimer(false);
+            setAllValues({
+                ...allValues,
+                startTimer: false,
+            });
         }
         if (startTimer) {
             if (isRound) {
-                setRound(round + 1);
-                setQuestion(questions[round].content);
-                setExactAnswer(questions[round].answer);
+                setAllValues({
+                    ...allValues,
+                    round: round + 1,
+                    question: questions[round].content,
+                    exactAnswer: questions[round].answer,
+                })
+                // setRound(round + 1);
+                // setQuestion(questions[round].content);
+                // setExactAnswer(questions[round].answer);
             }
             if (!isRound) {
                 resetAllPlayersAnswers();
@@ -54,21 +78,16 @@ function Game({
     if (!isLaunch){
         return (<Redirect to="/page/createRoom" />);
     }
-    // Display user in the middle
-
-    // Get the length of the array to insert a new element in the middle
-    const middleOfPlayers = Math.round(otherPlayers.length / 2);
-
-    // Insert the user into the other players in the middle
-    const displayedPlayers = [...otherPlayers];
-    displayedPlayers.splice(middleOfPlayers, 0, playerUser);
-
-    // Start the game after a few seconds to let a delay for all players to prepare themselves
-    // Fonction pour commencer le jeu apres un délai de 5 secondes
     
+    const displayedPlayers = placeUserintoTheMiddleOfOtherPlayers(player, otherPlayers);
 
+    console.log('questions', questions);
+    console.log('question', question);
+    console.log('exactAnswer', exactAnswer);
+    console.log('round', round);
     return (
         <>
+            {console.log('je render l app')}
             <Header />
             <div className="game game__main">
                 <div className="game__left">
@@ -78,8 +97,8 @@ function Game({
                             startTimer && (
                                 <>
                                     <Timer
-                                        isRound={isRound}
-                                        setRound={setIsRound}
+                                        allValues={allValues}
+                                        setRound={setAllValues}
                                         isLaunch={isLaunch}
                                         startTimer={startTimer}
                                     />
