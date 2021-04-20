@@ -68,9 +68,6 @@ module.exports = {
         }
     },
     async createQuestion(req, res) { 
-        // const answer = req.body.answer;
-        // const content = req.body.content;
-        // const tagId = req.body.tagId;
         const { content, answer, tagId } = req.body;
         try {
             const questionInfo = await adminDataMapper.createQuestion(answer, content);
@@ -99,25 +96,21 @@ module.exports = {
         }
     },
     async deleteUser (req, res) {
-        const id = req.params.id;
+        const { userId } = req.params;
         try {
-          await adminDataMapper.deleteUser(id);
+          await adminDataMapper.deleteUser(userId);
           res.status(201).json({'succes':'true'})
         } catch (error) {
           res.status(500).send(error);
           }
     },
     async updateQuestion (req, res) {
-        const id = req.params.id;
-        const content = req.body.content;
-        const answer = req.body.answer;
-        const tag_id = req.body.tag_id;
+        const { questionId } = req.params;
+        const { content, answer, tagId } = req.body; 
         
         try {
-            await adminDataMapper.updateQuestion(content, answer, id)
-            await adminDataMapper.updateCorrespondence(tag_id, id);
-            
-            
+            await adminDataMapper.updateQuestion(content, answer, questionId)
+            await adminDataMapper.updateCorrespondence(tagId, questionId);
             res.status(201).json({'succes':'true'})
             
         } catch (error) {

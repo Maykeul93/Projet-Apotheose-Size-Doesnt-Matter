@@ -68,21 +68,14 @@ module.exports = {
         }
     
   },
-
+  
   async updateUser (req, res){
-    //const {id: id, pseudo: pseudo, email: email, password: password, newPassword: newPassword, newPassword2: newPassword2} = req.body;
-    const id = parseInt(req.params.id);
-    const pseudo = req.body.pseudo;
-    const email = req.body.email;
-    const password = req.body.password;
-    const newPassword = req.body.newPassword;
-    const newPassword2 = req.body.newPassword2;
-    const avatar = req.body.avatar
+    const { pseudo, email, password, avatar, newPassword, newPassword2 } = req.body;
+    const { id } = req.params;
+    console.log(pseudo); 
+    console.log(id); 
     const user = await userDataMapper.recupUserById(id); 
     const checkMail = await userDataMapper.checkMail(email);
-    
-    
-    
     
     try{
       const tab = []// retour des succes ou erreur pas obligatoire 

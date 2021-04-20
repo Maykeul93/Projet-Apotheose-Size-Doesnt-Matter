@@ -23,9 +23,9 @@ router.delete('/admin/:id/question/:questionId',auth.authAdmin, adminCtrl.delete
 // road for delete a tag
 router.delete('/admin/:id/tag/:tagId',auth.authAdmin, adminCtrl.deleteTag);
 // road for delete a user
-router.delete('/admin/:id/user/:id',auth.authAdmin, adminCtrl.deleteUser);
+router.delete('/admin/:id/user/:userId',auth.authAdmin, adminCtrl.deleteUser);
 // road for update question
-router.put('/admin/:id/question/:id',auth.authAdmin, adminCtrl.updateQuestion);
+router.put('/admin/:id/question/:questionId',auth.authAdmin, adminCtrl.updateQuestion);
 
 
 module.exports = router;
