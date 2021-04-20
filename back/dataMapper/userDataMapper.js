@@ -55,7 +55,7 @@ module.exports = {
     },
     
     async infoUser (userId){
-        const result = await client.query(`SELECT id, email, pseudo FROM "user" WHERE id = $1`, [userId])
+        const result = await client.query(`SELECT id, email, pseudo, avatar FROM "user" WHERE id = $1`, [userId])
         return result.rows;
     },
     

@@ -9,7 +9,7 @@ router.get('/users', usersCtrl.getUsers);
 // road for getting user by an id
 router.get('/users/:id',auth.authUser, usersCtrl.getUserById);
 // road for update User
-router.put('/users/:id',usersCtrl.updateUser);
+router.put('/users/:id', auth.authUser, usersCtrl.updateUser);
 // road for delete a user
 router.delete('/users/:id',usersCtrl.deleteUser);
 // road for sign up (s'inscrire)
