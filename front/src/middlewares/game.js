@@ -29,10 +29,6 @@ const gameMiddleware = (store) => (next) => (action) => {
             // socket connexion to create a room
             const { socket, id } = store.getState().user;
             socket.emit('front_create_game', id);
-            // get the new room here and set the state
-            socket.on('server_create_game', (data) => {
-                store.dispatch(stockRoomIntoState(data.room));
-            });
             break;
         }
         case JOIN_NEW_GAME:{
