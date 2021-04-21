@@ -3,7 +3,8 @@ import React from 'react';
 import Add from 'components/Admin/Add'
 import Update from 'components/Admin/Update';
 import Delete from 'components/Admin/Delete';
-
+import Role from 'components/Admin/User/Role'
+import Ban from 'components/Admin/User/Ban'
 const Form = ({option}) => {
     const componentOption = () => {
 
@@ -26,6 +27,12 @@ const Form = ({option}) => {
 
             case 'delete-tag': 
                 return <Delete sousOption="tag"/>;
+
+            case 'role-user': 
+                return <Role />;
+
+            case 'ban-user': 
+                return <Ban />;
                 
             default : 
                 return <Add />;

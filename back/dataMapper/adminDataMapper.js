@@ -1,8 +1,8 @@
 const client = require ('./client');
 
 module.exports = {
-    async checkPseudo(pseudo) {
-        const result = await client.query(`SELECT * FROM "user" WHERE pseudo = $1`, [pseudo]);
+    async checkPseudo(pseudo, id) {
+        const result = await client.query(`SELECT * FROM "user" WHERE pseudo = $1 AND id = $2`, [pseudo, id]);
         return result.rows;
     },
     async changeRole(role, id) {
@@ -10,7 +10,7 @@ module.exports = {
         return result.rows;
     },
     async getAllQuestions() {
-        const result = await client.query(`SELECT * FROM question `)
+        const result = await client.query(`SELECT question_id, content, answer, name AS tag from question JOIN tag_categorize_question ON question.id = question_id JOIN tag ON tag_id = tag.id`)
         return result.rows;
     },
     async getQuestionById(id) {

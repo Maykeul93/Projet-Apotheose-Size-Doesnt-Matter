@@ -1,5 +1,6 @@
 require('dotenv').config()
 const express = require('express');
+const bodySanitizer = require('./body-sanitizer');
 const app = express();
 const http = require('http');
 const server = http.createServer(app);
@@ -30,6 +31,7 @@ app.use(cors({
   origin: '*', // give autorisation to all extern users to use this API 
 }));
 
+app.use(bodySanitizer);
 app.use(routers); 
 
 const gameController = require('./controllers/gameController'); 

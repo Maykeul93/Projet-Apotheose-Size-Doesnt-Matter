@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import Question from 'containers/Admin/Question';
 import Tag from 'containers/Admin/Tag';
-import Role from './Role';
+import User from './User';
 import Form from 'containers/Admin/Form';
 
 import './styles.scss';
@@ -22,7 +22,7 @@ const Admin = () => {
                 <div className="admin__content-left">
                     <Question />
                     <Tag />
-                    <Role />
+                    <User />
                 </div>
                 <div className="admin__content-right">
                     <Form />

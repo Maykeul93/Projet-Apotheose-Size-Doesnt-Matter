@@ -26,14 +26,11 @@ module.exports = {
   },
   
   async signup (req, res) {
-    const email = req.body.email;
-    const pseudo = req.body.pseudo;
-    const password = req.body.password;
+    const {email, pseudo, password, validPassword} = req.body;
     const role = "user";
     // verification email 
-    if (email == null || pseudo == null || password == null) {
-        return res.status(400).json({ 'error': 'paramètre manquant' });
-    }; 
+    if (email == null || pseudo == null || password == null || validPassword == null) {return res.status(400).json({ 'error': 'paramètre manquant' })}; 
+    if (password !== validPassword) {return res.status(400).json({ 'error': 'Les deux MDP ne correspondent pas' });}
     const userFound = await userDataMapper.checkMail(email); 
     //insert user's informations
     try {
@@ -93,7 +90,6 @@ module.exports = {
       }
       
       if (password){
-        console.log("hello"); 
         const testPassword = await bcrypt.compare(password, user[0].password)
         if (newPassword === newPassword2 && testPassword === true){
           const hashedPassword = await bcrypt.hash(newPassword, 10)
