@@ -14,10 +14,10 @@ const DeleteQuestion = ({questions, questionId, onSelectChange, onSubmit}) => (
                 {
                     questions.map((question) => (
                             <option 
-                            key={question.id}
-                            value={question.id}
+                            key={question.question_id}
+                            value={question.question_id}
                             >
-                                {question.id} - {question.content}
+                                {question.question_id} - {question.content}
                             </option>
                     ))
                 }

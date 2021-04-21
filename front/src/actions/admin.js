@@ -34,6 +34,13 @@ export const setTags = (value) => ({
     value
 })
 
+export const SET_USERS = 'SET_USERS';
+
+export const setUsers = (value) => ({
+    type: SET_USERS,
+    value
+})
+
 // Add question actions
 export const SET_ADD_QUESTION_INPUT_VALUE = 'SET_ADD_QUESTION_INPUT_VALUE';
 
@@ -149,3 +156,34 @@ export const DELETE_TAG = 'DELETE_TAG';
 export const deleteTag = () => ({
     type: DELETE_TAG,
 })
+
+// SET CHANGE ROLE
+
+export const SET_ROLE_SELECT_VALUE = 'SET_ROLE_SELECT_VALUE';
+
+export const setRoleSelectValue = (value) => ({
+    type: SET_ROLE_SELECT_VALUE,
+    value
+})
+
+export const CHANGE_ROLE = 'CHANGE_ROLE';
+
+export const changeRole = () => ({
+    type: CHANGE_ROLE,
+})
+
+// SET CHANGE ROLE
+
+export const SET_BAN_USER_SELECT_VALUE = 'SET_BAN_USER_SELECT_VALUE';
+
+export const setBanUserSelectValue = (value) => ({
+    type: SET_BAN_USER_SELECT_VALUE,
+    value
+})
+
+export const BAN_USER = 'BAN_USER';
+
+export const banUser = () => ({
+    type: BAN_USER,
+})
+

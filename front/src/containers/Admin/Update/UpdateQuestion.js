@@ -5,7 +5,7 @@ import { setUpdateQuestionSelectQuestionValue, setUpdateQuestionSelectTagValue, 
 const mapStateToProps = (state) => ({
     questions: state.admin.questions,
     tags: state.admin.tags,
-    questionId: state.admin.questionId,
+    questionId: state.admin.updateQuestion.questionId,
     tagId: state.admin.updateQuestion.tagId,
 });
 

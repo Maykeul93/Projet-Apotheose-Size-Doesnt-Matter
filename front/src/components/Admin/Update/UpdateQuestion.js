@@ -23,14 +23,12 @@ const UpdateQuestion = ({
             >
                 {
                     questions.map((question) => (
-                        <React.Fragment>
-                            <option 
-                            key={question.id}
-                            value={question.id}
-                            >
-                                {question.id} - {question.content}
-                            </option>
-                        </React.Fragment>
+                        <option 
+                        key={question.question_id}
+                        value={question.question_id}
+                        >
+                            {question.question_id} - {question.content}
+                        </option>
                     ))
                 }
             </select>
@@ -89,14 +87,8 @@ UpdateQuestion.propTypes = {
         Proptypes.string,
         Proptypes.number,
     ]).isRequired, 
-    onSelectQuestionChange: Proptypes.oneOfType([
-        Proptypes.string,
-        Proptypes.number,
-    ]).isRequired, 
-    onSelectTagChange: Proptypes.oneOfType([
-        Proptypes.string,
-        Proptypes.number,
-    ]).isRequired,
+    onSelectQuestionChange: Proptypes.func.isRequired, 
+    onSelectTagChange: Proptypes.func.isRequired,
     onSubmit: Proptypes.func.isRequired,
 };
 

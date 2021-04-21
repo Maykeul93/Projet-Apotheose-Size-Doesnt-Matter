@@ -2,23 +2,27 @@ import {
     SET_ADD_QUESTION_INPUT_VALUE, 
     SET_ADD_QUESTION_SELECT_VALUE, 
     SET_ADD_TAG_INPUT_VALUE, 
+    SET_BAN_USER_SELECT_VALUE, 
     SET_DELETE_QUESTION_SELECT_QUESTION_VALUE, 
     SET_DELETE_TAG_SELECT_TAG_VALUE, 
     SET_LOADING, 
     SET_OPTION, 
     SET_QUESTIONS, 
+    SET_ROLE_SELECT_VALUE, 
     SET_TAGS, 
     SET_UPDATE_QUESTION_INPUT_VALUE,
     SET_UPDATE_QUESTION_SELECT_QUESTION_VALUE,
     SET_UPDATE_QUESTION_SELECT_TAG_VALUE,
     SET_UPDATE_TAG_INPUT_VALUE,
-    SET_UPDATE_TAG_SELECT_TAG_VALUE} from "actions/admin";
+    SET_UPDATE_TAG_SELECT_TAG_VALUE,
+    SET_USERS} from "actions/admin";
 
 const initialState = {
     loading: false,
     option: '',
     questions : [],
     tags: [],
+    users: [],
     addQuestion:{
         question:'',
         answer:'',
@@ -42,6 +46,12 @@ const initialState = {
     },
     deleteTag : {
         tagId: 1,
+    },
+    user:{
+        userId: 1,
+    },
+    ban:{
+        userId: 1,
     }
 };
 
@@ -66,6 +76,11 @@ const reducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 tags: action.value,
+            }
+        case SET_USERS:
+            return {
+                ...state,
+                users: action.value,
             }
             //SET ADD QUESTION
         case SET_ADD_QUESTION_INPUT_VALUE:
@@ -153,6 +168,27 @@ const reducer = (state = initialState, action = {}) => {
                         tagId: action.value
                     },
             }
+
+        // CHANGE ROLE
+
+        case SET_ROLE_SELECT_VALUE: 
+        return {
+            ...state,
+            user:{
+                ...state.user,
+                userId: action.value,
+            }
+        }
+        // BAN USER
+
+        case SET_BAN_USER_SELECT_VALUE: 
+        return {
+            ...state,
+            ban:{
+                ...state.user,
+                userId: action.value,
+            }
+        }
         default:
             return state;
     }
