@@ -26,7 +26,7 @@ function Ranking({
     if (!isRound && round > 0) {
         console.log(score);
         // j'attribue les score
-        const newScore = attributePointsAtTheEndOfARound(player, otherPlayers, exactAnswer, score);
+        // attributePointsAtTheEndOfARound(player, otherPlayers, exactAnswer, score);
         setIsRanked(true);
         // je setIsRanked a true
     }

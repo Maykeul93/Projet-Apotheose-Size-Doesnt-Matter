@@ -36,8 +36,10 @@ export const attributePointsAtTheEndOfARound = (player, otherPlayers, exactAnswe
         ...player,
         answer: Number(player.answer),
     }));
+    console.log(players);
 
     let count = 0;
+    // Stock the 3 players who are the closest to the exact answer
     const winners = [];
 
     while (count < 2 || count < players.length) {
@@ -56,8 +58,13 @@ export const attributePointsAtTheEndOfARound = (player, otherPlayers, exactAnswe
 
     winners.forEach((element, index) => {
         const numberMaxOfPoints = 15;
+        // Find the index of the player into the score array
         const scoreIndex = newScore.findIndex((item) => element.id === item.id)
+
+        // Attributes points in term of player's position
         newScore[scoreIndex].score+= Math.round(numberMaxOfPoints / (index + 1));
+
+        // Gives to the player who guess the exact answer a bonus of points + increments the counter
         if (element.answer === exactAnswer) {
             newScore[scoreIndex].score += (numberMaxOfPoints * 2);
             newScore[scoreIndex].exactAnswer_count+=1;
