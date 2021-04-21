@@ -12,11 +12,14 @@ function Timmer({
 
     useEffect(() => {
         if (seconds === 0) {
+            // When Timer comes to 0, change the state of isRound to specify there is no question to display
             setIsRound(!isRound);
             if (isRound) {
+                // If we are at the end of a question, reset all answers to put all progres bar down
                 resetAllPlayersAnswers();
             }
             else {
+                // If it is the end of the break, increments the round
                 setRound();
             }
         }
