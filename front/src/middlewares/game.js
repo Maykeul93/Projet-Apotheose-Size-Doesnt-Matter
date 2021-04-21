@@ -42,8 +42,12 @@ const gameMiddleware = (store) => (next) => (action) => {
                 store.dispatch(setOtherPlayers(otherPlayers));
             });
 
+            socket.on('server_launch_game', ({ idGame, questions }) => {
+                store.dispatch(setGameQuestions(questions));
+                store.dispatch(launchNewGame(idGame));
+            });
+
             socket.on('server_send_answer', ({ id: playerId, answer }) => {
-                console.log('je recois ma reponse ud serveur');
                 if ( playerId === id){
                     store.dispatch(validateUserAnswer(answer));
                 }
@@ -90,13 +94,6 @@ const gameMiddleware = (store) => (next) => (action) => {
             socket.emit('front_launch_game', {
                 id,
                 room,
-            });
-
-            socket.on('server_launch_game', ({ idGame, questions }) => {
-                // stockage de l'id de la game
-                console.log('je lance la aprtie');
-                store.dispatch(setGameQuestions(questions));
-                store.dispatch(launchNewGame(idGame));
             });
             break;
         }

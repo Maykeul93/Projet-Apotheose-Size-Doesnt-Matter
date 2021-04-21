@@ -5,7 +5,7 @@ function Score({ player }) {
     return (
         <div className="score">
             <div className="score__pseudo">{player.pseudo}</div>
-            <div className="score__points">Score</div>
+            <div className="score__points">{player.score}</div>
         </div>
     );
 }
