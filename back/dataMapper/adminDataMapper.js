@@ -1,8 +1,8 @@
 const client = require ('./client');
 
 module.exports = {
-    async checkPseudo(pseudo, id) {
-        const result = await client.query(`SELECT * FROM "user" WHERE pseudo = $1 AND id = $2`, [pseudo, id]);
+    async checkPseudo(userId) {
+        const result = await client.query(`SELECT * FROM "user" WHERE id = $1 `, [userId]);
         return result.rows;
     },
     async changeRole(role, id) {

@@ -4,8 +4,8 @@ const adminDataMapper = require('../dataMapper/adminDataMapper');
 module.exports = {
     // put change role admin/user
     async updateRole(req, res) {
-        const {pseudo, id} = req.body;        
-        const checkPseudo = await adminDataMapper.checkPseudo(pseudo, id);
+        const {userId} = req.body;        
+        const checkPseudo = await adminDataMapper.checkPseudo(userId);
         if(checkPseudo.length === 0){ return res.status(400).json({ 'error': 'Pseudo innexistant ou ID' })}
         try {
             if(checkPseudo[0].role === 'user'){
