@@ -7,12 +7,11 @@ import game from 'middlewares/game';
 import signUp from 'middlewares/signUp';
 import profil from 'middlewares/profil';
 import admin from 'middlewares/admin';
-import gameSocketListener from 'middlewares/gameSocketListener';
 
 const store = createStore(
   reducer,
   composeWithDevTools(
-    applyMiddleware(logger, game, gameSocketListener, signUp, profil, admin),
+    applyMiddleware(logger, game, signUp, profil, admin),
   ),
 );
 
