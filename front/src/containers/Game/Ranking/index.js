@@ -7,6 +7,7 @@ const mapStateToProps = (state) => ({
         pseudo: state.user.pseudo,
     },
     otherPlayers: state.game.players,
+    exactAnswer: state.game.exactAnswer,
 });
 
 const mapDispatchStateToProps = (dispatch) => ({});

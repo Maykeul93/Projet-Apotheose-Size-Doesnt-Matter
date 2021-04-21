@@ -7,11 +7,10 @@ import './styles.scss';
 
 
 function PlayerDisplay({ player, exactAnswer }) {
-    console.log(player.answer);
     const styleSpan = getPercentOfProgressBar(player.answer, exactAnswer);
 
-    // Add verification to compare pseudo with pseudo user of the state
-    // If is equal, add special css to display progress bar bigger 
+    //TODO Add verification to compare pseudo with pseudo user of the state
+    //TODO  If is equal, add special css to display progress bar bigger 
     return (
         <div className="playerDisplay">
             <div className="playerDisplay__pseudo">
@@ -34,7 +33,7 @@ function PlayerDisplay({ player, exactAnswer }) {
 
 PlayerDisplay.propTypes = {
     player: PropTypes.object.isRequired,
-    exactAnswer: PropTypes.string.isRequired,
+    exactAnswer: PropTypes.number.isRequired,
 };
 
 export default PlayerDisplay;

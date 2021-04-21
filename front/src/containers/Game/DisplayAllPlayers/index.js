@@ -11,8 +11,7 @@ const mapStateToProps = (state) => ({
         id: player.id,
         pseudo: player.pseudo,
     })),
-    questions: state.game.questions,
-    round: state.game.round,
+    exactAnswer: state.game.exactAnswer,
 });
 
 const mapDispatchStateToProps = (dispatch) => ({});

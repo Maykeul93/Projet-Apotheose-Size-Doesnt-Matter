@@ -1,24 +1,107 @@
+import Field from 'containers/Admin/Update/UpdateQuestionField';
 import React from 'react';
+import Proptypes from 'prop-types';
 
-const UpdateQuestion = () => (
+const UpdateQuestion = ({
+    questions, 
+    tags, 
+    questionId, 
+    tagId, 
+    onSelectQuestionChange, 
+    onSelectTagChange,
+    onSubmit
+}) => (
     <React.Fragment>
         <label className="form-content__label">
             Selectionner la question à modifier :
         </label>
-        <select className="form-content__item" name="question">
-            <option value="test">test</option>
-            <option value="test2">test2</option>
-        </select>
+        <select 
+            className="form-content__item" 
+            name="questionId"
+            value ={questionId} 
+            onChange={(e) => onSelectQuestionChange(e.target.value)}
+            >
+                {
+                    questions.map((question) => (
+                        <React.Fragment>
+                            <option 
+                            key={question.id}
+                            value={question.id}
+                            >
+                                {question.id} - {question.content}
+                            </option>
+                        </React.Fragment>
+                    ))
+                }
+            </select>
         <label className="form-content__label">
             Modifier la question:
         </label>
-        <input className="form-content__item" />
+        <Field 
+        className="form-content__item"
+        type="text"
+        name="question"
+        />
         <label className="form-content__label">
             Modifier la réponse:
         </label>
-        <input className="form-content__item" />
-        <button className="form-content__button" type="submit">Valider</button>
+        <Field 
+        className="form-content__item"
+        type="text"
+        name="answer"
+        />
+        <label className="form-content__label">
+            Modifier le tag :
+        </label>
+        <select 
+            className="form-content__item" 
+            name="tagId"
+            value ={tagId} 
+            onChange={(e) => onSelectTagChange(e.target.value)}
+            >
+                {
+                    tags.map((tag) => (
+                        <option 
+                        key={tag.id}
+                        value={tag.id}
+                        >
+                            {tag.name}
+                        </option>
+                    ))
+                }
+            </select>
+        <button 
+        className="form-content__button" 
+        type="button"
+        onClick={onSubmit}
+        >Valider</button>
     </React.Fragment>
 );
+
+UpdateQuestion.propTypes = {
+    questions: Proptypes.array.isRequired, 
+    tags: Proptypes.array.isRequired, 
+    questionId: Proptypes.oneOfType([
+        Proptypes.string,
+        Proptypes.number,
+    ]).isRequired,
+    tagId: Proptypes.oneOfType([
+        Proptypes.string,
+        Proptypes.number,
+    ]).isRequired, 
+    onSelectQuestionChange: Proptypes.oneOfType([
+        Proptypes.string,
+        Proptypes.number,
+    ]).isRequired, 
+    onSelectTagChange: Proptypes.oneOfType([
+        Proptypes.string,
+        Proptypes.number,
+    ]).isRequired,
+    onSubmit: Proptypes.func.isRequired,
+};
+
+UpdateQuestion.defaultProps = {
+    param: '',
+};
 
 export default UpdateQuestion;
