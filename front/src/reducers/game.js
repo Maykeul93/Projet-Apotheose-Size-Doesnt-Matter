@@ -21,7 +21,7 @@ const initialState = {
     questions: [],
     gameId: null,
     round: 0,
-    exactAnswer: 0,
+    exactAnswer: null,
     isRound:false,
     isOver: false,
 };
@@ -38,6 +38,7 @@ const reducer = (state = initialState, action = {}) => {
                 ...state,
                 questions: action.questions,
                 gameId: action.gameId,
+                exactAnswer: Number(action.questions[0].answer),
             };
         case VALIDATE_USER_ANSWER:
             return {
@@ -65,13 +66,13 @@ const reducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 isRound: !state.isRound,
-            };
+            }
         case SET_ROUND: {
             return {
                 ...state,
                 round: state.round + 1,
                 exactAnswer: Number(state.questions[state.round].answer),
-            };
+            }
         }
         case RESET_ALL_PLAYERS_ANSWER: {
             const resetPlayersAnswer = state.players.map((player) => {
@@ -100,9 +101,7 @@ const reducer = (state = initialState, action = {}) => {
                 isOver: true,
             }
         case RESET_GAME_STATE:
-            return {
-                ...initialState
-            };
+            return initialState;
         default:
             return state;
     }

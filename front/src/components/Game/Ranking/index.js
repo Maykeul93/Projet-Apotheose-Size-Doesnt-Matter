@@ -24,7 +24,6 @@ function Ranking({
     }, []);
     // Quand bascule sur une pause --> attribue les score puis setIsRanked a true
     if (!isRound && round > 0) {
-        console.log(score);
         // j'attribue les score
         // attributePointsAtTheEndOfARound(player, otherPlayers, exactAnswer, score);
         setIsRanked(true);

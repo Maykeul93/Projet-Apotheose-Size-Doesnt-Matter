@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import Ranking from 'components/Game/Ranking';
 
+import { setExactAnswer } from 'actions/gameInterface';
+
 const mapStateToProps = (state) => ({
     player: {
         id: state.user.id,
