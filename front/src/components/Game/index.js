@@ -25,7 +25,6 @@ function Game({
 
     return (
         <>
-            {console.log('je render l app')}
             <Header />
             <div className="game game__main">
                 <div className="game__left">

@@ -43,13 +43,11 @@ const gameMiddleware = (store) => (next) => (action) => {
             });
 
             socket.on('server_launch_game', ({ idGame, questions }) => {
-                console.log('je lance la aprtie');
                 store.dispatch(setGameQuestions(questions));
                 store.dispatch(launchNewGame(idGame));
             });
 
             socket.on('server_send_answer', ({ id: playerId, answer }) => {
-                console.log('je recois ma reponse ud serveur');
                 if ( playerId === id){
                     store.dispatch(validateUserAnswer(answer));
                 }

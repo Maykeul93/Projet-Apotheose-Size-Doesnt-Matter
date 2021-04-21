@@ -35,13 +35,11 @@ export const attributePointsAtTheEndOfARound = (player, otherPlayers, exactAnswe
         ...player,
         answer: Number(player.answer),
     }));
-    console.log(players);
     
     const sortedPlayers = players.sort((a, b) => {
         return a.answer > b.answer;
     });
 
-    console.log(sortedPlayers);
     // trier le tableau dans l'ordre croissant
     // sort() + focntion de comparaison
     // push tout ça au state
