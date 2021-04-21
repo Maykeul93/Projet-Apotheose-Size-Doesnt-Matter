@@ -90,7 +90,6 @@ module.exports = {
       }
       
       if (password){
-        console.log("hello"); 
         const testPassword = await bcrypt.compare(password, user[0].password)
         if (newPassword === newPassword2 && testPassword === true){
           const hashedPassword = await bcrypt.hash(newPassword, 10)
