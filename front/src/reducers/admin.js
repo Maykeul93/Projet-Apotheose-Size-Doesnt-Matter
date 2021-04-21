@@ -3,6 +3,7 @@ import {
     SET_ADD_QUESTION_SELECT_VALUE, 
     SET_ADD_TAG_INPUT_VALUE, 
     SET_DELETE_QUESTION_SELECT_QUESTION_VALUE, 
+    SET_DELETE_TAG_SELECT_TAG_VALUE, 
     SET_LOADING, 
     SET_OPTION, 
     SET_QUESTIONS, 
@@ -38,6 +39,9 @@ const initialState = {
     updateTag : {
         tagId: 1,
         tag: '',
+    },
+    deleteTag : {
+        tagId: 1,
     }
 };
 
@@ -140,6 +144,15 @@ const reducer = (state = initialState, action = {}) => {
                     tagId: action.value
                 },
         }
+        //DELETE TAG
+        case SET_DELETE_TAG_SELECT_TAG_VALUE:
+            return {
+                ...state,
+                    deleteTag:{
+                        ...state.deleteTag,
+                        tagId: action.value
+                    },
+            }
         default:
             return state;
     }

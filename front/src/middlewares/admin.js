@@ -11,6 +11,7 @@ import {
     ADD_TAG,
     UPDATE_TAG,
     setUpdateTagInputValue,
+    DELETE_TAG,
  } from "actions/admin";
 import api from "api";
 
@@ -88,7 +89,7 @@ const admin = (store) => (next) => (action) => {
                 console.log(result.data)
             })
             .catch((error)=> {
-                console.lof(error)
+                console.log(error)
             })
             .finally(() => {
                 store.dispatch(setLoading(false))
@@ -106,7 +107,7 @@ const admin = (store) => (next) => (action) => {
                 console.log(result.data)
             })
             .catch((error)=> {
-                console.lof(error)
+                console.log(error)
             })
             .finally(() => {
                 store.dispatch(setLoading(false))
@@ -123,6 +124,22 @@ const admin = (store) => (next) => (action) => {
             .then((result) => {
                 console.log(result.data)
                 store.dispatch(setUpdateTagInputValue('tag', ''))
+            })
+            .catch((error)=> {
+                console.log(error)
+            })
+            .finally(() => {
+                store.dispatch(setLoading(false))
+            });
+            return next(action);
+        }
+
+        case DELETE_TAG: {
+            store.dispatch(setLoading(true));
+            const { tagId } = store.getState().admin.deleteTag;
+            api.delete(`admin/1/tag/${tagId}`)
+            .then((result)=> {
+                console.log(result.data)
             })
             .catch((error)=> {
                 console.log(error)

@@ -1,15 +1,32 @@
 import React from 'react';
 
-const DeleteTag = () => (
+const DeleteTag = ({tags, tagId, onSelectChange, onSubmit}) => (
     <React.Fragment>
         <label className="form-content__label">
             Selectionner le tag à supprimer :
         </label>
-        <select className="form-content__item" name="question">
-            <option value="test">test</option>
-            <option value="test2">test2</option>
-        </select>
-        <button className="form-content__button" type="submit">Valider</button>
+        <select 
+            className="form-content__item" 
+            name="tagId"
+            value ={tagId} 
+            onChange={(e) => onSelectChange(e.target.value)}
+            >
+                {
+                    tags.map((tag) => (
+                        <option 
+                        key={tag.id}
+                        value={tag.id}
+                        >
+                            {tag.name}
+                        </option>
+                    ))
+                }
+            </select>
+        <button 
+            className="form-content__button" 
+            type="button"
+            onClick={onSubmit}
+        >Valider</button>
     </React.Fragment>
 );
 
