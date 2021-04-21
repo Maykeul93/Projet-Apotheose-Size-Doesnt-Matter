@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 import Score from './../Score';
 import './style.scss';
 
-function Ranking({player, otherPlayers}) {
+function Ranking({
+    player,
+    otherPlayers,
+    exactAnswer,
+}) {
     return (
         <div className="ranking">
             <h2 className="ranking__title">Ranking</h2>
@@ -27,6 +31,7 @@ function Ranking({player, otherPlayers}) {
 Ranking.propTypes = {
     player: PropTypes.object.isRequired,
     otherPlayers: PropTypes.array.isRequired,
+    exactAnswer: PropTypes.number.isRequired,
 };
 
 export default Ranking;
