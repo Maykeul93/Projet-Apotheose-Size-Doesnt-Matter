@@ -11,7 +11,7 @@ router.get('/users/:id',auth.authUser, jwt.authentificationToken, usersCtrl.getU
 // road for update User
 router.put('/users/:id', auth.authUser, jwt.authentificationToken, usersCtrl.updateUser);
 // road for delete a user
-router.delete('/users/:id', auth.authUser, jwt.authentificationToken , usersCtrl.deleteUser);
+router.delete('/users/:id', auth.authUser, jwt.authentificationToken ,usersCtrl.deleteUser);
 // road for sign up (s'inscrire)
 router.post('/signup', usersCtrl.signup);
 // road for sign in (se connecter)
