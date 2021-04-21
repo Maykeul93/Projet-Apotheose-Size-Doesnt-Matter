@@ -4,9 +4,9 @@ const adminDataMapper = require('../dataMapper/adminDataMapper');
 module.exports = {
     // put change role admin/user
     async updateRole(req, res) {
-        const pseudo = req.body.pseudo;
-        const checkPseudo = await adminDataMapper.checkPseudo(pseudo);
-        if(checkPseudo.length === 0){ return res.status(400).json({ 'error': 'Pseudo innexistant' })}
+        const {pseudo, id} = req.body;        
+        const checkPseudo = await adminDataMapper.checkPseudo(pseudo, id);
+        if(checkPseudo.length === 0){ return res.status(400).json({ 'error': 'Pseudo innexistant ou ID' })}
         try {
             if(checkPseudo[0].role === 'user'){
                 let id = checkPseudo[0].id;
@@ -68,13 +68,14 @@ module.exports = {
         }
     },
     async createQuestion(req, res) { 
-        const { content, answer, tagId } = req.body;
+        const { content, answer, tagId } = req.body;  
         try {
+            if(content == null || answer == null || tagId == null){return res.status(400).json({ 'error': 'paramètre manquant' })};
             const questionInfo = await adminDataMapper.createQuestion(answer, content);
             await adminDataMapper.insertCorrespondance(tagId, questionInfo[0].id);
             res.status(201).json({'succes':'true'});
         } catch (error) {
-            res.status(500).send(error);
+            res.status(500).send(error); 
         }
     },
     async createTag(req, res) {
