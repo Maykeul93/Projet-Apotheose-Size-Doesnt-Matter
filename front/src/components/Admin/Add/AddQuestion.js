@@ -64,5 +64,9 @@ AddQuestion.propTypes = {
     onSelectChange: Proptypes.func.isRequired,
 };
 
+AddQuestion.defaultProps= {
+    question: '',
+    answer: '',
+}
 
 export default AddQuestion;

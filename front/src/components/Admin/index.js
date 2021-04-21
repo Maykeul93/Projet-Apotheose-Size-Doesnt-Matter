@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 
 import Question from 'containers/Admin/Question';
 import Tag from 'containers/Admin/Tag';
-import User from './User';
 import Form from 'containers/Admin/Form';
+import User from 'containers/Admin/User';
 
 import './styles.scss';
 import { setAdmin } from 'actions/admin';
