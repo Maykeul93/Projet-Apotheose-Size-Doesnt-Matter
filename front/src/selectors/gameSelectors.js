@@ -30,13 +30,18 @@ export const placeUserintoTheMiddleOfOtherPlayers = (player, otherPlayers) => {
     return displayedPlayers;
 }
 
-export const attributePointsAtTheEndOfARound = (player, otherPlayers, exactAnswer) => {
+export const attributePointsAtTheEndOfARound = (player, otherPlayers, exactAnswer, score) => {
     const players = [...otherPlayers, player].map((player) => ({
         ...player,
         answer: Number(player.answer),
     }));
     console.log(players);
     
+    const sortedPlayers = players.sort((a, b) => {
+        return a.answer > b.answer;
+    });
+
+    console.log(sortedPlayers);
     // trier le tableau dans l'ordre croissant
     // sort() + focntion de comparaison
     // push tout ça au state

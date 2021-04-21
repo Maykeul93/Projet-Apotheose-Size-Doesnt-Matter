@@ -21,7 +21,7 @@ function Ranking({
     // Quand bascule sur une pause --> attribue les score puis setIsRanked a true
     if (!isRound && round > 0) {
         // j'attribue les score
-        attributePointsAtTheEndOfARound(player, otherPlayers, exactAnswer);
+        attributePointsAtTheEndOfARound(player, otherPlayers, exactAnswer, score);
         // je setIsRanked a true
     }
     return (
