@@ -9,7 +9,7 @@ function PlayerAnswer({
     const handleSubmitAnswer = (e) => {
         e.preventDefault();
         changeInputValue('');
-        return sendResponse(inputValue);
+        sendResponse(inputValue);
     };
     return (
         <form

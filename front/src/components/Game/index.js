@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -17,7 +17,7 @@ function Game({
     isLaunch,
     isOver,
 }) {
-
+    const [ isRanked, setIsRanked ] = useState(false);
     // When the user leaves the game, reset the state 'isLaunch' & redirect to the page of creation Room
     if (!isLaunch){
         return (<Redirect to="/page/createRoom" />);
@@ -34,7 +34,7 @@ function Game({
                         {
                             !isOver ? (
                                 <>
-                                    <Timer />
+                                    <Timer isRanked={isRanked} setIsRanked={setIsRanked} />
                                     <Question />
                                     <DisplayAllPlayers />
                                     <PlayerAnswer />
@@ -53,7 +53,7 @@ function Game({
                         <LeaveGame />
                     </div>
                 </div>
-                <Ranking />
+                <Ranking setIsRanked={setIsRanked}/>
             </div>
         </>
     );
