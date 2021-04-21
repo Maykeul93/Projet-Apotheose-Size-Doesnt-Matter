@@ -1,6 +1,7 @@
 
 // Convert the player answer into a percent to display progressBar
 export const getPercentOfProgressBar = (answer, exactAnswer) => {
+    console.log(answer);
     if (!isNaN(answer)){
         const percent = (answer * 100) / exactAnswer;
 
@@ -27,4 +28,17 @@ export const placeUserintoTheMiddleOfOtherPlayers = (player, otherPlayers) => {
     displayedPlayers.splice(middleOfPlayers, 0, player);
 
     return displayedPlayers;
+}
+
+export const attributePointsAtTheEndOfARound = (player, otherPlayers, exactAnswer) => {
+    const players = [...otherPlayers, player].map((player) => ({
+        ...player,
+        answer: Number(player.answer),
+    }));
+    console.log(players);
+    
+    // trier le tableau dans l'ordre croissant
+    // sort() + focntion de comparaison
+    // push tout ça au state
+    // return le tableau des scores.
 }

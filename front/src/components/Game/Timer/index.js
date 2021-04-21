@@ -7,6 +7,8 @@ function Timmer({
     setIsRound,
     setRound,
     resetAllPlayersAnswers,
+    isRanked,
+    setIsRanked,
 }) {
     const [seconds, setSeconds] = useState(isRound ? 30 : 15);
 
@@ -14,13 +16,14 @@ function Timmer({
         if (seconds === 0) {
             // When Timer comes to 0, change the state of isRound to specify there is no question to display
             setIsRound(!isRound);
-            if (isRound) {
+            if (!isRound) {
+                // If it is the end of the break, increments the round & reset all players answers
+                setRound();
+            }
+            if (!isRound && isRanked){
                 // If we are at the end of a question, reset all answers to put all progres bar down
                 resetAllPlayersAnswers();
-            }
-            else {
-                // If it is the end of the break, increments the round
-                setRound();
+                setIsRanked(false);
             }
         }
         const timer = 
@@ -44,6 +47,8 @@ Timmer.propTypes = {
     setIsRound: PropTypes.func.isRequired,
     setRound: PropTypes.func.isRequired,
     resetAllPlayersAnswers: PropTypes.func.isRequired,
+    isRanked: PropTypes.bool.isRequired,
+    setIsRanked: PropTypes.func.isRequired,
 };
 
 export default Timmer;
