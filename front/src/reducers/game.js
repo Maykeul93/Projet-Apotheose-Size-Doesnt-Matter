@@ -101,7 +101,9 @@ const reducer = (state = initialState, action = {}) => {
                 isOver: true,
             }
         case RESET_GAME_STATE:
-            return initialState;
+            return {
+                ...initialState
+            };
         default:
             return state;
     }

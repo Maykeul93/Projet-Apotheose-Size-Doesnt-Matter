@@ -16,12 +16,18 @@ function Ranking({
     const [ score, setScore ] = useState([]);
 
     useEffect(() => {
-        setScore([player, ...otherPlayers]);
+        setScore([player, ...otherPlayers].map((player) => ({
+            ...player,
+            score: 0,
+            exactAnswer_count: 0,
+        })));
     }, []);
     // Quand bascule sur une pause --> attribue les score puis setIsRanked a true
     if (!isRound && round > 0) {
+        console.log(score);
         // j'attribue les score
-        attributePointsAtTheEndOfARound(player, otherPlayers, exactAnswer, score);
+        const newScore = attributePointsAtTheEndOfARound(player, otherPlayers, exactAnswer, score);
+        setIsRanked(true);
         // je setIsRanked a true
     }
     return (
