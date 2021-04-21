@@ -5,11 +5,12 @@ const signUp = (store) => (next) => (action) => {
     switch(action.type) {
         case SUBMIT_REGISTERED: {
             store.dispatch(setLoading(true));
-            const {pseudo, email, password} = store.getState().signUp;
+            const {pseudo, email, password, validPassword} = store.getState().signUp;
             api.post('/signup', {
             pseudo,
             email,
             password,
+            validPassword,
             })
             .then(()=> {
                 store.dispatch(setRegistered(true))
