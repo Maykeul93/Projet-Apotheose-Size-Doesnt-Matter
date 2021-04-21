@@ -1,7 +1,6 @@
 
 // Convert the player answer into a percent to display progressBar
 export const getPercentOfProgressBar = (answer, exactAnswer) => {
-    console.log(answer);
     if (!isNaN(answer)){
         const percent = (answer * 100) / exactAnswer;
 

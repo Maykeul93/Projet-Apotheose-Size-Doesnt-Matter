@@ -21,7 +21,7 @@ const initialState = {
     questions: [],
     gameId: null,
     round: 0,
-    exactAnswer: null,
+    exactAnswer: 0,
     isRound:false,
     isOver: false,
 };
@@ -38,7 +38,6 @@ const reducer = (state = initialState, action = {}) => {
                 ...state,
                 questions: action.questions,
                 gameId: action.gameId,
-                exactAnswer: Number(action.questions[0].answer),
             };
         case VALIDATE_USER_ANSWER:
             return {
@@ -68,6 +67,7 @@ const reducer = (state = initialState, action = {}) => {
                 isRound: !state.isRound,
             }
         case SET_ROUND: {
+            console.log('je set la reponse exacte', state.questions[state.round].answer)
             return {
                 ...state,
                 round: state.round + 1,
