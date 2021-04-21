@@ -134,3 +134,18 @@ export const UPDATE_TAG = 'UPDATE_TAG';
 export const updateTag = () => ({
     type: UPDATE_TAG,
 })
+
+//DELETE TAG
+
+export const SET_DELETE_TAG_SELECT_TAG_VALUE = 'SET_DELETE_TAG_SELECT_TAG_VALUE';
+
+export const setDeleteTagSelectTagValue = (value) => ({
+    type: SET_DELETE_TAG_SELECT_TAG_VALUE,
+    value
+})
+
+export const DELETE_TAG = 'DELETE_TAG';
+
+export const deleteTag = () => ({
+    type: DELETE_TAG,
+})
