@@ -137,7 +137,11 @@ const admin = (store) => (next) => (action) => {
         case DELETE_TAG: {
             store.dispatch(setLoading(true));
             const { tagId } = store.getState().admin.deleteTag;
-            api.delete(`admin/1/tag/${tagId}`)
+            const token = localStorage.getItem('token');
+            console.log(token)
+            api.delete(`admin/1/tag/${tagId}`,{
+                token
+            })
             .then((result)=> {
                 console.log(result.data)
             })
