@@ -15,6 +15,7 @@ import {
     setUsers,
     CHANGE_ROLE,
     BAN_USER,
+    setAdmin,
  } from "actions/admin";
 import api from "api";
 
@@ -23,7 +24,8 @@ const admin = (store) => (next) => (action) => {
         case SET_ADMIN: {
             store.dispatch(setLoading(true));
             const token = localStorage.getItem('token');
-            api.get(`/admin/8/question`,{
+            const adminId = store.getState().user.id
+            api.get(`/admin/${adminId}/question`,{
                 headers: {
                     "authorization" : `Bearer ${token}`
                 },
@@ -32,7 +34,7 @@ const admin = (store) => (next) => (action) => {
                 store.dispatch(setQuestions(result.data))
                 console.log(result.data)
             })
-            .then(() => api.get(`/admin/8/tag`,{
+            .then(() => api.get(`/admin/${adminId}/tag`,{
                 headers: {
                     "authorization" : `Bearer ${token}`
                 },
@@ -62,8 +64,9 @@ const admin = (store) => (next) => (action) => {
             store.dispatch(setLoading(true));
             const token = localStorage.getItem('token');
             const {question:content, answer, tagId} = store.getState().admin.addQuestion
+            const adminId = store.getState().user.id
             console.log(content, answer, tagId)
-            api.post(`/admin/8/question`,{
+            api.post(`/admin/${adminId}/question`,{
                 content,
                 answer,
                 tagId
@@ -76,6 +79,7 @@ const admin = (store) => (next) => (action) => {
                 console.log(result.data)
                 store.dispatch(setAddQuestionInputValue('question', ''))
                 store.dispatch(setAddQuestionInputValue('answer', ''))
+                store.dispatch(setAdmin())
             })
             .catch((error)=> {
                 console.log(error)
@@ -90,7 +94,8 @@ const admin = (store) => (next) => (action) => {
             store.dispatch(setLoading(true));
             const token = localStorage.getItem('token');
             const {question:content, answer, tagId, questionId} = store.getState().admin.updateQuestion
-            api.put(`/admin/8/question/${questionId}`,{
+            const adminId = store.getState().user.id
+            api.put(`/admin/${adminId}/question/${questionId}`,{
                 content,
                 answer,
                 tagId,
@@ -103,6 +108,7 @@ const admin = (store) => (next) => (action) => {
                 console.log(result.data)
                 store.dispatch(setUpdateQuestionInputValue('question', ''))
                 store.dispatch(setUpdateQuestionInputValue('answer', ''))
+                store.dispatch(setAdmin())
             })
             .catch((error)=> {
                 console.log(error)
@@ -117,13 +123,15 @@ const admin = (store) => (next) => (action) => {
             store.dispatch(setLoading(true));
             const token = localStorage.getItem('token');
             const { questionId } = store.getState().admin.deleteQuestion;
-            api.delete(`/admin/8/question/${questionId}`,{
+            const adminId = store.getState().user.id
+            api.delete(`/admin/${adminId}/question/${questionId}`,{
                 headers: {
                     "authorization" : `Bearer ${token}`
                 },
             })
             .then((result)=> {
                 console.log(result.data)
+                store.dispatch(setAdmin())
             })
             .catch((error)=> {
                 console.log(error)
@@ -138,8 +146,9 @@ const admin = (store) => (next) => (action) => {
             store.dispatch(setLoading(true));
             const token = localStorage.getItem('token');
             const { tag } = store.getState().admin.addTag;
+            const adminId = store.getState().user.id
             console.log('tag: ',tag)
-            api.post(`/admin/8/tag`,{
+            api.post(`/admin/${adminId}/tag`,{
                 tag,
             },{
                 headers: {
@@ -149,6 +158,7 @@ const admin = (store) => (next) => (action) => {
             })
             .then((result)=> {
                 console.log(result.data)
+                store.dispatch(setAdmin())
             })
             .catch((error)=> {
                 console.log(error)
@@ -163,7 +173,8 @@ const admin = (store) => (next) => (action) => {
             store.dispatch(setLoading(true));
             const token = localStorage.getItem('token');
             const { tag: name , tagId } = store.getState().admin.updateTag
-            api.put(`/admin/8/tag/${tagId}`,{
+            const adminId = store.getState().user.id
+            api.put(`/admin/${adminId}/tag/${tagId}`,{
                 name,
             },{
                 headers: {
@@ -173,6 +184,7 @@ const admin = (store) => (next) => (action) => {
             .then((result) => {
                 console.log(result.data)
                 store.dispatch(setUpdateTagInputValue('tag', ''))
+                store.dispatch(setAdmin())
             })
             .catch((error)=> {
                 console.log(error)
@@ -187,14 +199,16 @@ const admin = (store) => (next) => (action) => {
             store.dispatch(setLoading(true));
             const { tagId } = store.getState().admin.deleteTag;
             const token = localStorage.getItem('token');
+            const adminId = store.getState().user.id
             console.log(token)
-            api.delete(`/admin/8/tag/${tagId}`,{
+            api.delete(`/admin/${adminId}/tag/${tagId}`,{
                 headers: {
                     "authorization" : `Bearer ${token}`
                 }
             })
             .then((result)=> {
                 console.log(result.data)
+                store.dispatch(setAdmin())
             })
             .catch((error)=> {
                 console.log(error)
@@ -209,9 +223,10 @@ const admin = (store) => (next) => (action) => {
             store.dispatch(setLoading(true));
             const { userId } = store.getState().admin.role;
             const token = localStorage.getItem('token');
+            const adminId = store.getState().user.id
             console.log(userId)
             console.log(token)
-            api.put(`/admin/8/role`,{
+            api.put(`/admin/${adminId}/role`,{
                 userId
             },{
                 headers: {
@@ -220,6 +235,7 @@ const admin = (store) => (next) => (action) => {
             })
             .then((result)=> {
                 console.log(result.data)
+                store.dispatch(setAdmin())
             })
             .catch((error)=> {
                 console.log(error.response)
@@ -234,15 +250,17 @@ const admin = (store) => (next) => (action) => {
             store.dispatch(setLoading(true));
             const { userId } = store.getState().admin.ban;
             const token = localStorage.getItem('token');
+            const adminId = store.getState().user.id
             console.log(userId)
             console.log(token)
-            api.delete(`/admin/8/role/${userId}`,{
+            api.delete(`/admin/${adminId}/role/${userId}`,{
                 headers: {
                     "authorization" : `Bearer ${token}`
                 },
             })
             .then((result)=> {
                 console.log(result.data)
+                store.dispatch(setAdmin())
             })
             .catch((error)=> {
                 console.log(error.response)
