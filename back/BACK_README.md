@@ -93,3 +93,15 @@ Si je veux re-deployer mon Sql :
 ``` sqitch deploy db:pg://NomRole:MotDePasse@localhost:5432/NomDb```
 
 Liens Kourou : ```https://kourou.oclock.io/ressources/recap-quotidien/pan-data-04-sqitch/ ```
+
+## Start Local Game Front
+
+Modifier les url par ```http://localhost:PORT``` dans les fichiers : 
+
+- ./front/public/index.html
+- ./front/src/api/index.js
+- ./front/src/middlewares/game.js
+
+Si error ```Error: ENOSPC: System limit for number of file watchers reached, watch '/var/www/html/Apothéose/projet-size-does-not-matter/front/public``` 
+
+Regarder lien : https://stackoverflow.com/questions/55763428/react-native-error-enospc-system-limit-for-number-of-file-watchers-reached

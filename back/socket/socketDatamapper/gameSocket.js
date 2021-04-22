@@ -1,4 +1,4 @@
-const client = require ('./client');
+const client = require ('../../dataMapper/client');
 
 module.exports = {
     async recGame (room) {
