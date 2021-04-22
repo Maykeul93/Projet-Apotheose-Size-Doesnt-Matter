@@ -22,7 +22,7 @@ function Ranking({
             exactAnswer_count: 0,
         })));
     }, []);
-
+    console.log(score);
     // Quand bascule sur une pause --> attribue les score puis setIsRanked a true
     if (!isRound && round > 0) {
         // j'attribue les score

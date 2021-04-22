@@ -70,8 +70,9 @@ export const attributePointsAtTheEndOfARound = (player, otherPlayers, exactAnswe
         });
     }
     else {
+        console.log('j attribue ', numberMaxOfPoints, ' poitns');
         newScore[0].score += numberMaxOfPoints;
-        if (players[0].asnwer === exactAnswer){
+        if (players[0].answer === exactAnswer){
             newScore[0].score += numberMaxOfPoints * 2;
             newScore[0].exactAnswer_count += 1;
         }

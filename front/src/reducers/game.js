@@ -21,7 +21,7 @@ const initialState = {
     userAnswerValidate: '',
     score: [],
     questions: [],
-    gameId: null,
+    idGame: null,
     round: 0,
     exactAnswer: null,
     isRound:false,
@@ -39,7 +39,8 @@ const reducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 questions: action.questions,
-                gameId: action.gameId,
+                idGame: action.idGame,
+                isOver: false,
                 exactAnswer: transformExactAnswerIntoExploitableAnswer(action.questions[0].answer),
             };
         case VALIDATE_USER_ANSWER:
@@ -82,7 +83,6 @@ const reducer = (state = initialState, action = {}) => {
                     answer: 0,
                 }
             });
-            console.log('resetPlayersAnswer', resetPlayersAnswer);
             return {
                 ...state,
                 userAnswerValidate: '',
@@ -102,7 +102,9 @@ const reducer = (state = initialState, action = {}) => {
                 isOver: true,
             }
         case RESET_GAME_STATE:
-            return initialState;
+            return {
+                ...initialState,
+            }
         default:
             return state;
     }

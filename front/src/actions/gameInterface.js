@@ -34,9 +34,10 @@ export const resetAllPlayersAnswers = () => ({
     type: RESET_ALL_PLAYERS_ANSWER,
 });
 
-export const setGameQuestions = (questions) => ({
+export const setGameQuestions = (questions, idGame) => ({
     type: SET_GAME_QUESTIONS,
     questions,
+    idGame,
 });
 
 export const resetGameState = () => ({
