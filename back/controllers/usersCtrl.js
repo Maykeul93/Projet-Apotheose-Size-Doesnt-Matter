@@ -28,8 +28,12 @@ module.exports = {
   async signup (req, res) {
     const {email, pseudo, password, validPassword} = req.body;
     const role = "user";
+    const emailRegExp = new RegExp(/[a-zA-Z0-9\-_]+[a-zA-Z0-9\.\-_]*@[a-z0-9\.\-_]{2,}\.[a-z\.\-_]+[a-z\.\-_]+/);
+    const valid = emailRegExp.test(email);// test la regex sur l'email
+    
     // verification email 
     if (email == null || pseudo == null || password == null || validPassword == null) {return res.status(400).json({ 'error': 'paramètre manquant' })}; 
+    if(!valid){return res.status(400).json({'error':'email non valide'})}
     if (password !== validPassword) {return res.status(400).json({ 'error': 'Les deux MDP ne correspondent pas' });}
     const userFound = await userDataMapper.checkMail(email); 
     //insert user's informations
@@ -71,10 +75,10 @@ module.exports = {
     const { id } = req.params;
     const user = await userDataMapper.recupUserById(id); 
     const checkMail = await userDataMapper.checkMail(email);
-
+    
     try {
       if (email){
-        if (checkMail.length === 0){
+        if (checkMail.length === 0 ){
           await userDataMapper.updateMail(email, user[0].id);
         } else { 
            return res.status(400).json({error : 'Email déjà enregistré'});

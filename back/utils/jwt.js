@@ -24,11 +24,24 @@ module.exports = {
     if (token == 'undefined') {
       return res.status(403); 
     }
-    jwt.verify(req.token, process.env.JWT_SIGN_SECRET, (error) => {
+    jwt.verify(req.token, process.env.JWT_SIGN_SECRET, (error, authorizedata) => {
       if (error) {
         throw error; 
       }
       next(); 
     })
+  }, 
+
+  authentificationSocket (socket, next){
+    if (socket.handshake.query && socket.handshake.query.token){
+      jwt.verify(socket.handshake.query.token, 'SECRET_KEY', function(err, decoded) {
+        if (err) return next(new Error('Authentication error'));
+        socket.decoded = decoded;
+        next();
+      });
+    }
+    else {
+      next(new Error('Authentication error'));
+    }    
   }
 }

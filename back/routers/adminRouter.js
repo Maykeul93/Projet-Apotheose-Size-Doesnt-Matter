@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const adminCtrl = require('../controllers/adminCtrl');
-const auth = require('../auth');
+const auth = require('..//utils/auth');
 const jwt = require('../utils/jwt');
 
 // road to modify role on users/admin
