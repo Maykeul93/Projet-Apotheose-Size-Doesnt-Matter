@@ -1,4 +1,4 @@
-const game = require('../dataMapper/gameSocket');
+const game = require('../socketDatamapper/gameSocket');
 
 module.exports = {
   async boundGameOnUser(idGame, idUser){
