@@ -43,8 +43,8 @@ const gameMiddleware = (store) => (next) => (action) => {
             });
 
             socket.on('server_launch_game', ({ idGame, questions }) => {
-                store.dispatch(setGameQuestions(questions));
-                store.dispatch(launchNewGame(idGame));
+                store.dispatch(setGameQuestions(questions, idGame));
+                store.dispatch(launchNewGame());
             });
 
             socket.on('server_send_answer', ({ id: playerId, answer }) => {

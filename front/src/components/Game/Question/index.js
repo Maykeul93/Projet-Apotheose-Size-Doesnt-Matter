@@ -2,7 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './style.scss';
 
-function Question({ questions, round, isRound }) {
+function Question({
+    questions,
+    round,
+    isRound,
+}) {
     const index = round === 0 ? 0 : round - 1;
     return (
         <>
@@ -15,6 +19,14 @@ function Question({ questions, round, isRound }) {
                 </>
             ) : (
                 <>
+                {
+                    round > 0 && (
+                        <h2 className="question">
+                            La bonne réponse était : 
+                            <span className="question__answer">{questions[index].answer}</span>
+                        </h2>
+                    )
+                }
                 </>
             )
         }

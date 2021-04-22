@@ -1,7 +1,6 @@
 
 // Convert the player answer into a percent to display progressBar
 export const getPercentOfProgressBar = (answer, exactAnswer) => {
-
     if (!isNaN(answer)){
         const percent = (answer * 100) / exactAnswer;
 
@@ -30,38 +29,75 @@ export const placeUserintoTheMiddleOfOtherPlayers = (player, otherPlayers) => {
     return displayedPlayers;
 }
 
-export const attributePointsAtTheEndOfARound = (player, otherPlayers, exactAnswer, score) => {
-    const newScore = [...score];
-    const players = [player, ...otherPlayers].map((player) => ({
+export const selectClosestPlayersAtTheEndOfARound = (player, otherPlayers, exactAnswer) => {
+    const players = [...otherPlayers, player].map((player) => ({
         ...player,
         answer: Number(player.answer),
     }));
 
     let count = 0;
+    // Stock the 3 players who are the closest to the exact answer
     const winners = [];
-
-    while (count < 2 || count < players.length) {
-        // Math.abs return absolute value of the soustraction
-        // Here, if a is closest than b of the exact Answer, return a. Otherwise return b
-        const playerItem = players.reduce((a, b) => {
-            return Math.abs(a.answer - exactAnswer) < Math.abs(b.answer - exactAnswer) ? a : b;
-        });
-        winners.push(playerItem);
-        // Find the index of the closest player
-        const indexPlayer = players.findIndex((item) => item.id === playerItem.id);
-        // REmove the closest player of the array to avoid to select him again
-        players.splice(indexPlayer, 1);
-        count++;
+    if (players.length > 1) {
+        while (count < 2 || count < players.length) {
+            // Math.abs return absolute value of the soustraction
+            // Here, if a is closest than b of the exact Answer, return a. Otherwise return b
+            const playerItem = players.reduce((a, b) => {
+                return Math.abs(a.answer - exactAnswer) < Math.abs(b.answer - exactAnswer) ? a : b;
+            });
+            winners.push(playerItem);
+            // Find the index of the closest player
+            const indexPlayer = players.findIndex((item) => item.id === playerItem.id);
+            // REmove the closest player of the array to avoid to select him again
+            players.splice(indexPlayer, 1);
+            count++;
+        }
+        return winners;
     }
+    else {
+        return [...winners, player];
+    }
+}
+
+export const setScoreAtTheEndOfARound = (winners, oldScore, exactAnswer) => {
+    const score = oldScore.map((score) => ({ ...score }));
+    const numberMaxOfPoints = 15;
 
     winners.forEach((element, index) => {
-        const numberMaxOfPoints = 15;
-        const scoreIndex = newScore.findIndex((item) => element.id === item.id)
-        newScore[scoreIndex].score+= Math.round(numberMaxOfPoints / (index + 1));
+        // Find the index of the player into the score array
+        const scoreIndex = score.findIndex((item) => element.id === item.id)
+        const points = Math.round(numberMaxOfPoints / (index + 1));
+        // Attributes points in term of player's position
+        score[scoreIndex].score+= points;
+        console.log('points', points);
+        // Gives to the player who guess the exact answer a bonus of points + increments the counter
         if (element.answer === exactAnswer) {
-            newScore[scoreIndex].score += (numberMaxOfPoints * 2);
-            newScore[scoreIndex].exactAnswer_count+=1;
+            score[scoreIndex].score += (numberMaxOfPoints * 2);
+            score[scoreIndex].exactAnswer_count += 1;
         }
-    });
-    return newScore;
+        });
+    
+    return score;
+}
+
+export const transformExactAnswerIntoExploitableAnswer = (answer) => {
+    if (answer && answer.length > 0) {
+        // remove all the spaces into the string answer & transform the string into an array
+        const removeSpaces = answer.split(' ');
+
+        // Concate the array without spaces
+        const rebuildIntoStr = removeSpaces.join('');
+
+        // Convert the string into a number
+        const numericAnswer = Number(rebuildIntoStr);
+        if (!isNaN(numericAnswer)){
+            return numericAnswer;
+        }
+        else {
+            return 0;
+        }
+    }
+    else {
+        console.log(answer);
+    }
 }

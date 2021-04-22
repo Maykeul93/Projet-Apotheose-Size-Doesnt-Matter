@@ -37,6 +37,7 @@ function Game({
                                     <Question />
                                     <DisplayAllPlayers />
                                     <PlayerAnswer />
+                                    {/* Round Component set game is over at the end of the questions*/}
                                     <Round />
                                 </>
                             ) : (
