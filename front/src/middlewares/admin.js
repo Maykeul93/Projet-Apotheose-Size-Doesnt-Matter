@@ -14,6 +14,7 @@ import {
     DELETE_TAG,
     setUsers,
     CHANGE_ROLE,
+    BAN_USER,
  } from "actions/admin";
 import api from "api";
 
@@ -206,10 +207,11 @@ const admin = (store) => (next) => (action) => {
 
         case CHANGE_ROLE:{
             store.dispatch(setLoading(true));
-            const { userId } = store.getState().admin.user.userId;
+            const { userId } = store.getState().admin.role;
             const token = localStorage.getItem('token');
+            console.log(userId)
             console.log(token)
-            api.post(`/admin/8/role`,{
+            api.put(`/admin/8/role`,{
                 userId
             },{
                 headers: {
@@ -220,7 +222,30 @@ const admin = (store) => (next) => (action) => {
                 console.log(result.data)
             })
             .catch((error)=> {
-                console.log(error)
+                console.log(error.response)
+            })
+            .finally(() => {
+                store.dispatch(setLoading(false))
+            });
+            return next(action);
+        }
+
+        case BAN_USER:{
+            store.dispatch(setLoading(true));
+            const { userId } = store.getState().admin.ban;
+            const token = localStorage.getItem('token');
+            console.log(userId)
+            console.log(token)
+            api.delete(`/admin/8/role/${userId}`,{
+                headers: {
+                    "authorization" : `Bearer ${token}`
+                },
+            })
+            .then((result)=> {
+                console.log(result.data)
+            })
+            .catch((error)=> {
+                console.log(error.response)
             })
             .finally(() => {
                 store.dispatch(setLoading(false))

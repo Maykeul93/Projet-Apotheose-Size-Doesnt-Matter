@@ -47,7 +47,7 @@ const initialState = {
     deleteTag : {
         tagId: 1,
     },
-    user:{
+    role: {
         userId: 1,
     },
     ban:{
@@ -161,21 +161,21 @@ const reducer = (state = initialState, action = {}) => {
         }
         //DELETE TAG
         case SET_DELETE_TAG_SELECT_TAG_VALUE:
-            return {
-                ...state,
-                    deleteTag:{
-                        ...state.deleteTag,
-                        tagId: action.value
-                    },
-            }
+        return {
+            ...state,
+            deleteTag:{
+                ...state.deleteTag,
+                tagId: action.value
+            },
+        }
 
         // CHANGE ROLE
 
         case SET_ROLE_SELECT_VALUE: 
         return {
             ...state,
-            user:{
-                ...state.user,
+            role:{
+                ...state.role,
                 userId: action.value,
             }
         }
