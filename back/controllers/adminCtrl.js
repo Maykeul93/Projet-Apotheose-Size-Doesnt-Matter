@@ -66,11 +66,12 @@ module.exports = {
         } catch (error) {
             res.status(500).send(error);
         }
-    },
+    }, 
     async createQuestion(req, res) { 
         const { content, answer, tagId } = req.body;  
+        
         try {
-            if(content == null || answer == null || tagId == null){return res.status(400).json({ 'error': 'paramètre manquant' })};
+            if(content == null || content.length == 0 || answer == null || answer.length == 0 || tagId == null || tagId.length == 0){return res.status(400).json({ 'error': 'paramètre manquant' })};
             const questionInfo = await adminDataMapper.createQuestion(answer, content);
             await adminDataMapper.insertCorrespondance(tagId, questionInfo[0].id);
             res.status(201).json({'succes':'true'});
