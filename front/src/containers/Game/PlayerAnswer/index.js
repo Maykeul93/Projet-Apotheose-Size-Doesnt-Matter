@@ -4,7 +4,9 @@ import {
     sendUserAnswer,
 } from 'actions/gameInterface';
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+    isRound: state.game.isRound,
+});
 
 const mapDispatchStateToProps = (dispatch) => ({
     sendResponse: (value) => {

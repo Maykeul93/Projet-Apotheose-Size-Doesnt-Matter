@@ -54,12 +54,13 @@ module.exports = {
   async signin (req, res){
     const email = req.body.email;
     const mail = await userDataMapper.checkMail(email); 
+    console.log(mail[0]); 
     // email verification
     if (mail.length === 0) {return res.status(400).json({'error': 'Email invalide'});}
       try {
         //password verification
         if (await bcrypt.compare(req.body.password, mail[0].password) ) {
-          res.status(201).json({'succes':'true', 'id':mail[0].id , 'pseudo':mail[0].pseudo, 'email':mail[0].email,'token':jwtUtils.generateTokenForUser(mail)});
+          res.status(201).json({'succes':'true', 'id':mail[0].id , 'pseudo':mail[0].pseudo, 'email':mail[0].email, 'role':mail[0].role,'token':jwtUtils.generateTokenForUser(mail[0])});
         } else {
           return res.status(400).json({'error': 'Mot de passe incorrect '});
         }
@@ -117,8 +118,6 @@ module.exports = {
     } catch (error) {
        res.status(500).json(error);
     }
-    
-    
   },
 
   async deleteUser (req, res){
