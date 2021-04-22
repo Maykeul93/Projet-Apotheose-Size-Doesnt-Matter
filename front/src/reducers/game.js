@@ -8,6 +8,7 @@ import {
     SET_ROUND,
     SET_IS_ROUND,
     SET_GAME_IS_OVER,
+    SET_SCORE,
 } from 'actions/gameInterface';
 
 import {
@@ -43,6 +44,11 @@ const reducer = (state = initialState, action = {}) => {
                 isOver: false,
                 exactAnswer: transformExactAnswerIntoExploitableAnswer(action.questions[0].answer),
             };
+        case SET_SCORE:
+            return {
+                ...state,
+                score: action.score,
+            }
         case VALIDATE_USER_ANSWER:
             return {
                 ...state,

@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import Score from './../Score';
 import './style.scss';
 
-import { attributePointsAtTheEndOfARound } from 'selectors/gameSelectors';
+import {
+    selectClosestPlayersAtTheEndOfARound,
+    setScoreAtTheEndOfARound,
+} from 'selectors/gameSelectors';
 
 function Ranking({
     player,
@@ -12,9 +15,9 @@ function Ranking({
     isRound,
     round,
     setIsRanked,
+    score,
+    setScore,
 }) {
-    const [ score, setScore ] = useState([]);
-
     useEffect(() => {
         setScore([player, ...otherPlayers].map((player) => ({
             ...player,
@@ -22,14 +25,17 @@ function Ranking({
             exactAnswer_count: 0,
         })));
     }, []);
-    console.log(score);
     // Quand bascule sur une pause --> attribue les score puis setIsRanked a true
-    if (!isRound && round > 0) {
-        // j'attribue les score
-        attributePointsAtTheEndOfARound(player, otherPlayers, exactAnswer, score);
-        setIsRanked(true);
-        // je setIsRanked a true
-    }
+    useEffect(() => {
+        if (!isRound && round > 0) {
+            // j'attribue les score
+            const winners = selectClosestPlayersAtTheEndOfARound(player, otherPlayers, exactAnswer);
+            const newScore = setScoreAtTheEndOfARound(winners, score, exactAnswer);
+            setScore(newScore);
+            setIsRanked(true);
+            // je setIsRanked a true
+        }
+    }, [isRound]);
     return (
         <div className="ranking">
             <h2 className="ranking__title">Ranking</h2>
@@ -54,6 +60,8 @@ Ranking.propTypes = {
     isRound: PropTypes.bool.isRequired,
     round: PropTypes.number.isRequired,
     setIsRanked: PropTypes.func.isRequired,
+    score: PropTypes.array.isRequired,
+    setScore: PropTypes.func.isRequired,
 };
 
 export default Ranking;

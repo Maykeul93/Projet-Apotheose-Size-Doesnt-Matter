@@ -29,15 +29,13 @@ export const placeUserintoTheMiddleOfOtherPlayers = (player, otherPlayers) => {
     return displayedPlayers;
 }
 
-export const attributePointsAtTheEndOfARound = (player, otherPlayers, exactAnswer, score) => {
-    const newScore = [...score];
+export const selectClosestPlayersAtTheEndOfARound = (player, otherPlayers, exactAnswer) => {
     const players = [...otherPlayers, player].map((player) => ({
         ...player,
         answer: Number(player.answer),
     }));
 
     let count = 0;
-    const numberMaxOfPoints = 15;
     // Stock the 3 players who are the closest to the exact answer
     const winners = [];
     if (players.length > 1) {
@@ -54,47 +52,52 @@ export const attributePointsAtTheEndOfARound = (player, otherPlayers, exactAnswe
             players.splice(indexPlayer, 1);
             count++;
         }
-    
-        winners.forEach((element, index) => {
-            // Find the index of the player into the score array
-            const scoreIndex = newScore.findIndex((item) => element.id === item.id)
-    
-            // Attributes points in term of player's position
-            newScore[scoreIndex].score+= Math.round(numberMaxOfPoints / (index + 1));
-    
-            // Gives to the player who guess the exact answer a bonus of points + increments the counter
-            if (element.answer === exactAnswer) {
-                newScore[scoreIndex].score += (numberMaxOfPoints * 2);
-                newScore[scoreIndex].exactAnswer_count+=1;
-            }
-        });
+        return winners;
     }
     else {
-        console.log('j attribue ', numberMaxOfPoints, ' poitns');
-        newScore[0].score += numberMaxOfPoints;
-        if (players[0].answer === exactAnswer){
-            newScore[0].score += numberMaxOfPoints * 2;
-            newScore[0].exactAnswer_count += 1;
-        }
+        return [...winners, player];
     }
-        
-   
-    return newScore;
+}
+
+export const setScoreAtTheEndOfARound = (winners, oldScore, exactAnswer) => {
+    const score = oldScore.map((score) => ({ ...score }));
+    const numberMaxOfPoints = 15;
+
+    winners.forEach((element, index) => {
+        // Find the index of the player into the score array
+        const scoreIndex = score.findIndex((item) => element.id === item.id)
+        const points = Math.round(numberMaxOfPoints / (index + 1));
+        // Attributes points in term of player's position
+        score[scoreIndex].score+= points;
+        console.log('points', points);
+        // Gives to the player who guess the exact answer a bonus of points + increments the counter
+        if (element.answer === exactAnswer) {
+            score[scoreIndex].score += (numberMaxOfPoints * 2);
+            score[scoreIndex].exactAnswer_count += 1;
+        }
+        });
+    
+    return score;
 }
 
 export const transformExactAnswerIntoExploitableAnswer = (answer) => {
-    // remove all the spaces into the string answer & transform the string into an array
-    const removeSpaces = answer.split(' ');
+    if (answer && answer.length > 0) {
+        // remove all the spaces into the string answer & transform the string into an array
+        const removeSpaces = answer.split(' ');
 
-    // Concate the array without spaces
-    const rebuildIntoStr = removeSpaces.join('');
+        // Concate the array without spaces
+        const rebuildIntoStr = removeSpaces.join('');
 
-    // Convert the string into a number
-    const numericAnswer = Number(rebuildIntoStr);
-    if (!isNaN(numericAnswer)){
-        return numericAnswer;
+        // Convert the string into a number
+        const numericAnswer = Number(rebuildIntoStr);
+        if (!isNaN(numericAnswer)){
+            return numericAnswer;
+        }
+        else {
+            return 0;
+        }
     }
     else {
-        return 0;
+        console.log(answer);
     }
 }
