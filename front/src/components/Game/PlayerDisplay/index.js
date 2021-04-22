@@ -1,14 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { getPercentOfProgressBar } from 'selectors/gameSelectors';
+import {
+    getPercentOfProgressBar,
+    transformExactAnswerIntoExploitableAnswer,
+} from 'selectors/gameSelectors';
 
 import './styles.scss';
 
 
 function PlayerDisplay({ player, exactAnswer }) {
-    
-    const styleSpan = getPercentOfProgressBar(player.answer, exactAnswer);
+    const answer = transformExactAnswerIntoExploitableAnswer(player.answer);
+    const styleSpan = getPercentOfProgressBar(answer, exactAnswer);
 
     //TODO Add verification to compare pseudo with pseudo user of the state
     //TODO  If is equal, add special css to display progress bar bigger 

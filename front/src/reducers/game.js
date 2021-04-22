@@ -14,6 +14,8 @@ import {
     SET_OTHER_PLAYERS,
 } from 'actions/game';
 
+import { transformExactAnswerIntoExploitableAnswer } from 'selectors/gameSelectors';
+
 const initialState = {
     players: [],
     userAnswerValidate: '',
@@ -38,7 +40,7 @@ const reducer = (state = initialState, action = {}) => {
                 ...state,
                 questions: action.questions,
                 gameId: action.gameId,
-                exactAnswer: action.questions[0].answer,
+                exactAnswer: transformExactAnswerIntoExploitableAnswer(action.questions[0].answer),
             };
         case VALIDATE_USER_ANSWER:
             return {
@@ -67,13 +69,12 @@ const reducer = (state = initialState, action = {}) => {
                 ...state,
                 isRound: !state.isRound,
             }
-        case SET_ROUND: {
+        case SET_ROUND: 
             return {
                 ...state,
                 round: state.round + 1,
-                exactAnswer: state.questions[state.round].answer,
+                exactAnswer: transformExactAnswerIntoExploitableAnswer(state.questions[state.round].answer),
             }
-        }
         case RESET_ALL_PLAYERS_ANSWER: {
             const resetPlayersAnswer = state.players.map((player) => {
                 return {
