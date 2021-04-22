@@ -6,6 +6,7 @@ const Profil = (store) => (next) => (action) => {
     switch(action.type) {
         case SUBMIT_PROFIL: {
             store.dispatch(setLoading(true));
+            const token = localStorage.getItem('token');
             const { id } = store.getState().user
             let { 
                 pseudo, 
@@ -21,6 +22,10 @@ const Profil = (store) => (next) => (action) => {
                 password, 
                 newPassword, 
                 newPassword2 
+            },{
+                headers: {
+                    "authorization" : `Bearer ${token}`
+                },
             })
             .then((result) => {
                 console.log(result.data)
