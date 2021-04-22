@@ -7,9 +7,8 @@ import './styles.scss';
 
 
 function PlayerDisplay({ player, exactAnswer }) {
-    console.log('player', player);
-    const answer = Number(player.answer);
-    const styleSpan = getPercentOfProgressBar(answer, exactAnswer);
+    
+    const styleSpan = getPercentOfProgressBar(player.answer, exactAnswer);
 
     //TODO Add verification to compare pseudo with pseudo user of the state
     //TODO  If is equal, add special css to display progress bar bigger 

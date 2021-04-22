@@ -22,6 +22,7 @@ function Ranking({
             exactAnswer_count: 0,
         })));
     }, []);
+
     // Quand bascule sur une pause --> attribue les score puis setIsRanked a true
     if (!isRound && round > 0) {
         // j'attribue les score
@@ -49,7 +50,7 @@ function Ranking({
 Ranking.propTypes = {
     player: PropTypes.object.isRequired,
     otherPlayers: PropTypes.array.isRequired,
-    exactAnswer: PropTypes.number.isRequired,
+    exactAnswer: PropTypes.string.isRequired,
     isRound: PropTypes.bool.isRequired,
     round: PropTypes.number.isRequired,
     setIsRanked: PropTypes.func.isRequired,
