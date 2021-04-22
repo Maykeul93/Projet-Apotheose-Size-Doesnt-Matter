@@ -4,10 +4,14 @@ require('dotenv').config();
 
 // Exported functions
 module.exports = {
+  //Generate token 
   generateTokenForUser: function(userData) {
     return jwt.sign({
-      userId: userData.id,
-      isAdmin: userData.isAdmin
+      id: userData.id,
+      pseudo: userData.pseudo, 
+      email: userData.email, 
+      avatar: userData.avatar, 
+      role: userData.role
     },
     process.env.JWT_SIGN_SECRET,// Sur heroku a mettre dans les variables d'environnement (ne pas supprimer le com)
     {
@@ -31,7 +35,7 @@ module.exports = {
       next(); 
     })
   }, 
-
+  // Check token in socket connection
   authentificationSocket (socket, next){
     if (socket.handshake.query && socket.handshake.query.token){
       jwt.verify(socket.handshake.query.token, 'SECRET_KEY', function(err, decoded) {
