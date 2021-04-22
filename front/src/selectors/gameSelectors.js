@@ -90,7 +90,7 @@ export const transformExactAnswerIntoExploitableAnswer = (answer) => {
 
     // Convert the string into a number
     const numericAnswer = Number(rebuildIntoStr);
-    if (!isNaN) {
+    if (!isNaN(numericAnswer)){
         return numericAnswer;
     }
     else {
