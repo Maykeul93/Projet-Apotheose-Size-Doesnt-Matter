@@ -11,17 +11,15 @@
         font-size: $p-size * 1.2;
     }
 
-    &__carousel{
-        margin: $gutter;
-
+    .containerSlide {
+        width: 650px;
+        margin: auto;
+        padding-top: 200px;
     }
-    &__carousel-image{
-        width: 800px;
-        height: 400px;
-        border-radius: 15px;
-    }
-    &__carousel-select{
-        text-align: center;
+    
+    .containerSlide img {
+        height: 500px;
+    
     }
 
     &__play-button{

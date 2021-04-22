@@ -6,7 +6,7 @@ import Footer from 'components/Footer';
 import CreateRoom from 'containers/CreateRoom';
 import SignUp from 'containers/SignUp';
 import Profil from 'containers/Profil';
-import Admin from 'components/Admin';
+import Admin from 'containers/Admin';
 
 //Import Home component
 import Home from 'containers/Home';

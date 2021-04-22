@@ -172,7 +172,7 @@ export const changeRole = () => ({
     type: CHANGE_ROLE,
 })
 
-// SET CHANGE ROLE
+// SET BAN ROLE
 
 export const SET_BAN_USER_SELECT_VALUE = 'SET_BAN_USER_SELECT_VALUE';
 

@@ -4,7 +4,7 @@ import { setRoleSelectValue, changeRole } from 'actions/admin';
 
 const mapStateToProps = (state) => ({
     users: state.admin.users,
-    userId: state.admin.user.userId,
+    userId: state.admin.role.userId,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -45,7 +45,7 @@ const UpdateQuestion = ({
         </label>
         <Field 
         className="form-content__item"
-        type="text"
+        type="number"
         name="answer"
         />
         <label className="form-content__label">

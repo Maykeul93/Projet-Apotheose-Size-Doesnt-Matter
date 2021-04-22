@@ -6,16 +6,12 @@ import Form from 'containers/Admin/Form';
 import User from 'containers/Admin/User';
 
 import './styles.scss';
-import { setAdmin } from 'actions/admin';
-import { useDispatch } from 'react-redux';
 
-const Admin = () => {
-    const dispatch = useDispatch()
-    useEffect(() => {
-        dispatch(setAdmin())
-    },[dispatch])
+const Admin = ({setAdmin}) => {
+    useEffect(()=>{
+        setAdmin()
+    },[setAdmin])
     return(
-
         <main className="admin page__main">
             <h1 className="admin__title">Admin</h1>
             <div className="admin__content">

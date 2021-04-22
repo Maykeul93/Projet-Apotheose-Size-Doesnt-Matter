@@ -4,7 +4,7 @@ import Add from 'components/Admin/Add'
 import Update from 'components/Admin/Update';
 import Delete from 'components/Admin/Delete';
 import Role from 'containers/Admin/User/Role'
-import Ban from 'components/Admin/User/Ban'
+import Ban from 'containers/Admin/User/Ban'
 const Form = ({option}) => {
     const componentOption = () => {
 

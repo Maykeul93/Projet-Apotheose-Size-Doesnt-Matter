@@ -23,7 +23,7 @@ const AddQuestion = ({tags, tagId, onSelectChange, onSubmit}) => {
             Réponse:
             <Field
             className="form-content__item" 
-            type="text"
+            type="number"
             name="answer"
             />
         </label>

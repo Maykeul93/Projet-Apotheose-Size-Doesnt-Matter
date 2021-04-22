@@ -1,6 +1,6 @@
 //Import images from carousel
 import { Link } from 'react-router-dom';
-import slide from './slide.jpg';
+import Slides from './Slides';
 
 // Import styles 
 import './styles.scss';
@@ -21,10 +21,7 @@ const Home = ({isLogged, onDisplayChange, isRegistered}) => {
                 Vous etes prêt? <br /> 
                 Inscrivez vous, invitez vos amis et jouez !
             </p>
-            <div className="home__carousel">
-                <img className="home__carousel-image" src={slide} alt="slide1" />
-                <p className="home__carousel-select">ici choix des photos</p>
-            </div>
+            <Slides />
             {
                 isLogged ? (
                 <Link to='/page/createRoom'>
