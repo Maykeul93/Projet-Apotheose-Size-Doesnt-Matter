@@ -119,11 +119,11 @@ const gameMiddleware = (store) => (next) => (action) => {
         case SEND_SCORE_TO_DB: {
             const { socket } = store.getState().user;
             const { room } = store.getState().room;
-            const { idGame } = store.getState().game;
+            const { idGame, score } = store.getState().game;
             socket.emit('front_send_score', {
                 idGame,
                 room,
-                globalScore: action.score,
+                globalScore: score,
             });
             break;
         }

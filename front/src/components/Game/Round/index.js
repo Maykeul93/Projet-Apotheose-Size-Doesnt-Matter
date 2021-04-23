@@ -7,7 +7,7 @@ function Round({
     numberOfRounds,
     sendScore
 }) {
-    if (round === numberOfRounds) {
+    if (round === numberOfRounds + 1) {
         sendScore();
     }
     return (
@@ -20,7 +20,7 @@ function Round({
 Round.propTypes = {
     round: PropTypes.number.isRequired,
     numberOfRounds: PropTypes.number.isRequired,
-    setIsOver: PropTypes.func.isRequired,
+    sendScore: PropTypes.func.isRequired,
 }
 
 export default Round;
