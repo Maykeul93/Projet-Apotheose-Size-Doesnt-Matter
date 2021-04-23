@@ -9,7 +9,7 @@ const Messages = ({ messages, userId }) => {
     return(
         <div className="chat__messages">
             {
-                messages.map((message)=> (
+                messages.length > 0 && messages.map((message)=> (
                     //TODO checker l'id du message, si id === userId aors on ajoute une classe pour afficher le message à droite ou dans une autre couleur
                     // classname pour attribuer la classe 'ownMessage'
                     // classnames('message', { ownMessage: id === userId })
