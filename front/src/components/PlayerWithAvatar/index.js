@@ -1,8 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import avatars from 'styles/images/avatars';
 import './style.scss';
 
+
 function PlayerWithAvatar({ user }) {
+    
+console.log(avatars);
     return (
         <div className="playerCard">
             <h2 className="playerCard__title">{user.pseudo}</h2>
