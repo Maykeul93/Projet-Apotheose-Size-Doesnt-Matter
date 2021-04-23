@@ -10,6 +10,7 @@ export const SET_ROUND = 'SET_ROUND';
 export const SET_IS_ROUND = 'SET_IS_ROUND';
 export const SET_GAME_IS_OVER = 'SET_GAME_IS_OVER';
 export const SET_SCORE = 'SET_SCORE';
+export const SEND_SCORE_TO_DB = 'SEND_SCORE_TO_DB';
 
 export const sendUserAnswer = (value) => ({
     type: SEND_USER_ANSWER,
@@ -65,4 +66,8 @@ export const setGameIsOver = () => ({
 export const setScore = (score) => ({
     type: SET_SCORE,
     score,
+});
+
+export const sendScoreToDB = () => ({
+    type: SEND_SCORE_TO_DB,
 });

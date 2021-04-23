@@ -75,7 +75,8 @@ module.exports = {
     });
 
     //! features 
-    socket.on('front_send_score', ({room, userID, gameID, score, position, exactAnswer}) => {
+    socket.on('front_send_score', ({ room, idGame, globalScore }) => {
+      // GlobalScore --> tableau d'objets qui contient le score de chaque joueur
       // recup gameID en back 
       //call controler to execute the datamapper function 
       //emit 
