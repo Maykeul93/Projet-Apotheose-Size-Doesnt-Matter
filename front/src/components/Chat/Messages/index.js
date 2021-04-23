@@ -1,19 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import uniqid from 'uniqid';
+// import module classnames
 
 import './styles.scss';
 
-const Messages = ({messages}) => {
+const Messages = ({ messages, userId }) => {
     return(
         <div className="chat__messages">
             {
-                //TODO générer un id unique pour la key (via selector ou uniqid)
-                messages.map((message, index)=> (
+                messages.map((message)=> (
+                    //TODO checker l'id du message, si id === userId aors on ajoute une classe pour afficher le message à droite ou dans une autre couleur
+                    // classname pour attribuer la classe 'ownMessage'
+                    // classnames('message', { ownMessage: id === userId })
                     <div
                         className="message"
-                        key={`message${index}`}
+                        key={uniqid()}
                     >
-                        <p className="message__author">{message.author}</p>
+                        <p className="message__author">{message.pseudo}</p>
                         <p className="message__content">{message.message}</p>
                     </div>
                 ))
@@ -23,6 +27,7 @@ const Messages = ({messages}) => {
 };
 
 Messages.propTypes = {
+    userId: PropTypes.number.isRequired,
     messages: PropTypes.array.isRequired,
 };
 export default Messages;

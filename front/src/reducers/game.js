@@ -13,6 +13,7 @@ import {
 
 import {
     SET_OTHER_PLAYERS,
+    CHAT_RECEIVE_MESSAGE,
 } from 'actions/game';
 
 import { transformExactAnswerIntoExploitableAnswer } from 'selectors/gameSelectors';
@@ -37,6 +38,11 @@ const reducer = (state = initialState, action = {}) => {
                 ...state,
                 players: action.players,
             };
+        case CHAT_RECEIVE_MESSAGE:
+            return {
+                ...state,
+                chatMessages: [...state.chatMessage, action.message],
+            }
         case SET_GAME_QUESTIONS:
             return {
                 ...state,
