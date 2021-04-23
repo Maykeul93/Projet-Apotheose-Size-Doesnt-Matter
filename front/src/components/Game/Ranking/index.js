@@ -30,8 +30,10 @@ function Ranking({
         if (!isRound && round > 0) {
             // j'attribue les score
             const winners = selectClosestPlayersAtTheEndOfARound(player, otherPlayers, exactAnswer);
+            console.log(winners);
             const newScore = setScoreAtTheEndOfARound(winners, score, exactAnswer);
             setScore(newScore);
+            console.log(newScore);
             setIsRanked(true);
             // je setIsRanked a true
         }

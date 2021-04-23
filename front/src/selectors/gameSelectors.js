@@ -71,7 +71,8 @@ export const setScoreAtTheEndOfARound = (winners, oldScore, exactAnswer) => {
         score[scoreIndex].score+= points;
         console.log('points', points);
         // Gives to the player who guess the exact answer a bonus of points + increments the counter
-        if (element.answer === exactAnswer) {
+        if (Number(element.answer) === exactAnswer) {
+            console.log('je veux attribuer le bonus')
             score[scoreIndex].score += (numberMaxOfPoints * 2);
             score[scoreIndex].exactAnswer_count += 1;
         }
