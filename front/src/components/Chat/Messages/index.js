@@ -15,7 +15,7 @@ const Messages = ({ messages, userId }) => {
                     // classname pour attribuer la classe 'ownMessage'
                     // classnames('message', { ownMessage: id === userId })
                     <div
-                        className={classnames('message', {ownMessage: message.id === userId })}
+                        className={classnames('message', {'ownMessage': message.id === userId })}
                         key={uniqid()}
                     >
                         <p className="message__author">{message.pseudo}</p>

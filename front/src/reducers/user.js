@@ -4,7 +4,8 @@ import {
         SET_LOADING_STATE,
         SET_LOGGED,
         SET_DISPLAYED,
-        SET_USER
+        SET_USER,
+        SET_LOGOUT
     } from 'actions/user';
 
     import {
@@ -60,6 +61,14 @@ const reducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 socket: action.socket,
+            }
+        case SET_LOGOUT:
+            return {
+                ...state,
+                id: '',
+                email: '',
+                pseudo: '',
+                isLogged: false
             }
         default:
             return state;
