@@ -10,6 +10,7 @@ const io = require('socket.io')(server, {
     methods: ["GET", "POST"],
   }
 }); 
+
 const cors = require('cors');
 
 const bodyParser = require('body-parser'); //parse body's answer for token 
@@ -36,12 +37,14 @@ app.use(routers);
 
 
 const { startGame } = require('./socket/app'); 
+const { initChat } = require ('./socket/socketChat/socketChat');
 //Socket Token 
 // io.use(jwt.authentificationSocket); 
 
 // Socket Connection
 io.on('connection', function (socket) {
   startGame(io, socket); 
+  initChat(io, socket);
 });
  
 
