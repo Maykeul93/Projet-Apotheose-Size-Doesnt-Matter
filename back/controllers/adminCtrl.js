@@ -12,12 +12,12 @@ module.exports = {
                 let id = checkPseudo[0].id;
                 let role = "admin";
                 const changeRole = await adminDataMapper.changeRole(role, id);
-                return res.status(201).json({"succes":"true"});
+                return res.status(201).json({"succes":"Changement de role éfféctué"});
             } else {
                 let id = checkPseudo[0].id;
                 let role = "user";
                 const changeRole = await adminDataMapper.changeRole(role, id);
-                return res.status(201).json({"succes":"true"});
+                return res.status(201).json({"succes":"Changement de role éfféctué"});
             }
         } catch {
             res.status(500).send();
@@ -62,7 +62,7 @@ module.exports = {
         try {
             await adminDataMapper.deleteCorrespondence(questionId);
             await adminDataMapper.deleteQuestion(questionId);
-            res.status(201).json({'succes':'true'})            
+            res.status(201).json({'succes':'Question supprimé'})            
         } catch (error) {
             res.status(500).send(error);
         }
@@ -74,7 +74,7 @@ module.exports = {
             if(content == null || content.length == 0 || answer == null || answer.length == 0 || tagId == null || tagId.length == 0){return res.status(400).json({ 'error': 'paramètre manquant' })};
             const questionInfo = await adminDataMapper.createQuestion(answer, content);
             await adminDataMapper.insertCorrespondance(tagId, questionInfo[0].id);
-            res.status(201).json({'succes':'true'});
+            res.status(201).json({'succes':'Nouvelle question / réponse enregistrée'});
         } catch (error) {
             res.status(500).send(error); 
         }
@@ -83,7 +83,7 @@ module.exports = {
         const { tag } = req.body;
         try {
             await adminDataMapper.createTag(tag);
-            res.status(201).json({'succes':'true'})
+            res.status(201).json({'succes':'Nouveau Tag créé'})
         } catch (error) {
             res.status(500).send(error);
         }
@@ -92,7 +92,7 @@ module.exports = {
         const { tagId } = req.params;
         try {
             await adminDataMapper.deleteTag(tagId);
-            res.status(201).json({'succes':'true'})            
+            res.status(201).json({'succes':'Tag supprimé'})            
         } catch (error) {
             res.status(500).send(error);
         }
@@ -101,7 +101,7 @@ module.exports = {
         const { userId } = req.params;
         try {
           await adminDataMapper.deleteUser(userId);
-          res.status(201).json({'succes':'true'})
+          res.status(201).json({'succes':'Utilisateur supprimé'})
         } catch (error) {
           res.status(500).send(error);
           }
@@ -113,7 +113,7 @@ module.exports = {
         try {
             await adminDataMapper.updateQuestion(content, answer, questionId); 
             await adminDataMapper.updateCorrespondence(tagId, questionId);
-            res.status(201).json({'succes':'true'}); 
+            res.status(201).json({'succes':'La question / réponse a bien été mis à jour'}); 
             
         } catch (error) {
             res.status(500).send(error);
@@ -125,7 +125,7 @@ module.exports = {
 
         try {
             await adminDataMapper.updateTag(name, tagId)
-            res.status(201).json({'succes': 'true'}); 
+            res.status(201).json({'succes': 'Le tag a bien été mis à jour'}); 
         } catch (error) {
             res.status(500).send(error); 
         }
