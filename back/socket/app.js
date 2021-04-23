@@ -79,12 +79,9 @@ module.exports = {
       socket.leave(room); 
     });
 
-    //! features 
-    socket.on('front_send_score', ({ room, idGame, globalScore }) => {
-      // GlobalScore --> tableau d'objets qui contient le score de chaque joueur
-      // recup gameID en back 
-      //call controler to execute the datamapper function 
-      //emit 
+    //Insert score for each player after the end of the game
+    socket.on('front_send_score', async ({ room, idGame, globalScore }) => {
+      const createHistory = await gameController.insertScoreGame(idGame, globalScore); 
       io.to(room).emit('server_end_game', {
         succes: "true" 
       }); 
