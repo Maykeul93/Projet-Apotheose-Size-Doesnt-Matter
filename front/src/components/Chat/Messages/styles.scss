@@ -8,12 +8,15 @@
     .message{
         text-align: right;
         border-bottom: 1px solid black;
+        background: white;
         &__author {
             padding: 0.6em 0.6em 0.2em 0;
             margin-left: 1.5rem;
-            }
+            font-weight: bold;
+        }
         &__content{
-            
+            font-style: italic;
         }
     }
 }
+
