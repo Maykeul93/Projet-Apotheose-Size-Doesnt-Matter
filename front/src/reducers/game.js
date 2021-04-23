@@ -77,12 +77,14 @@ const reducer = (state = initialState, action = {}) => {
                 ...state,
                 isRound: !state.isRound,
             }
-        case SET_ROUND: 
+        case SET_ROUND: {
+            const { round, questions } = state;
             return {
                 ...state,
-                round: state.round + 1,
-                exactAnswer: transformExactAnswerIntoExploitableAnswer(state.questions[state.round].answer),
+                round: round + 1,
+                exactAnswer: round < questions.length ? transformExactAnswerIntoExploitableAnswer(questions[round].answer) : 0,
             }
+        }
         case RESET_ALL_PLAYERS_ANSWER: {
             const resetPlayersAnswer = state.players.map((player) => {
                 return {

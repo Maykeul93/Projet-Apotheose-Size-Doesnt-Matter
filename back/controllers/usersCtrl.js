@@ -18,7 +18,6 @@ module.exports = {
       const userId = req.params.id;
     try {
       const user =  await userDataMapper.recupUserById(userId);
-      //console.log(user[0].role);
       res.send(user);
     } catch (error) {
       res.status(500).send(error);
@@ -41,7 +40,7 @@ module.exports = {
       if (userFound.length === 0) {
         const hashedPassword = await bcrypt.hash(password, 10) 
         await userDataMapper.register(email, hashedPassword, pseudo, role);
-        res.status(201).json({'succes':'true'});
+        res.status(201).json({'succes':'Votre compte a bien été créé'});
       } else {
        return res.status(400).json({'error': 'Déja inscrit'});
       }
@@ -50,7 +49,6 @@ module.exports = {
       }
   },
   
- 
   async signin (req, res){
     const email = req.body.email;
     const mail = await userDataMapper.checkMail(email); 
@@ -60,7 +58,7 @@ module.exports = {
       try {
         //password verification
         if (await bcrypt.compare(req.body.password, mail[0].password) ) {
-          res.status(201).json({'succes':'true', 'id':mail[0].id , 'pseudo':mail[0].pseudo, 'email':mail[0].email, 'role':mail[0].role,'token':jwtUtils.generateTokenForUser(mail[0])});
+          res.status(201).json({'succes':'Vous êtes connecté', 'id':mail[0].id , 'pseudo':mail[0].pseudo, 'email':mail[0].email, 'role':mail[0].role, 'avatar':mail[0].avatar, 'token':jwtUtils.generateTokenForUser(mail[0])});
         } else {
           return res.status(400).json({'error': 'Mot de passe incorrect '});
         }
@@ -82,7 +80,7 @@ module.exports = {
         if (checkMail.length === 0 ){
           await userDataMapper.updateMail(email, user[0].id);
         } else { 
-           return res.status(400).json({error : 'Email déjà enregistré'});
+           return res.status(400).json({'error' : 'Email déjà enregistré'});
         }
       }
 
@@ -124,7 +122,7 @@ module.exports = {
     const id = parseInt(req.params.id);
     try {
       await userDataMapper.deleteUser(id);
-      res.status(201).json({'succes':'true'})
+      res.status(201).json({'succes':'Votre compte a bien été supprimé'})
     } catch (error) {
       res.status(500).send(error);
       }

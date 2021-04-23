@@ -7,7 +7,7 @@ function Question({
     round,
     isRound,
 }) {
-    const index = round === 0 ? 0 : round - 1;
+    const index = round < questions.length ? round - 1 : questions.length - 1;
     return (
         <>
         {
