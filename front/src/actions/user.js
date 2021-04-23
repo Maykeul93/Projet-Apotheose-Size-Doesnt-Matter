@@ -46,3 +46,9 @@ export const setUser = (id, email, pseudo) => ({
   email,
   pseudo,
 });
+
+export const SET_LOGOUT = 'SET_LOGOUT';
+
+export const setLogout = () => ({
+  type: SET_LOGOUT,
+});
