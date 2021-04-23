@@ -6,7 +6,7 @@
     padding: $gutter*0.5;
     overflow: auto;
     .message{
-        text-align: left;
+        text-align: right;
         border-bottom: 1px solid black;
         &__author {
             padding: 0.6em 0.6em 0.2em 0;
