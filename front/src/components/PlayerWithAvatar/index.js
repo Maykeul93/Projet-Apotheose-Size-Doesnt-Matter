@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 import avatars from 'styles/images/avatars';
 import './style.scss';
 
+import { findIndexOfUserAvatar } from 'selectors/gameSelectors';
+
 
 function PlayerWithAvatar({ user, setAvatar }) {
     const [ index, setIndex ] = useState(0);
 
     useEffect(() => {
-        const userAvatarIndex = avatars.findIndex((avatar) => avatar.name === user.avatar);
+        const userAvatarIndex = findIndexOfUserAvatar(user, avatars);
         setIndex( userAvatarIndex !== -1 ? userAvatarIndex : 0);
     }, []);
 
@@ -36,7 +38,7 @@ function PlayerWithAvatar({ user, setAvatar }) {
                     &lt;
                 </button>
                 <div className="playerCard__avatarChoice--img">
-                    <img src={avatars[index].path} alt=""/>
+                    <img src={avatars[index].path} alt={`user's avatar : ${avatars[index].name}`}/>
                 </div>
                 <button
                     type="button"

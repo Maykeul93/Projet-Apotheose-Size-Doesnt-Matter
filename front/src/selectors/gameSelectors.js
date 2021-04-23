@@ -102,3 +102,8 @@ export const transformExactAnswerIntoExploitableAnswer = (answer) => {
         console.log(answer);
     }
 }
+
+export const findIndexOfUserAvatar = (user, avatars) => {
+    const index = avatars.findIndex((avatar) => avatar.name === user.avatar);
+    return (index !== -1 ? index : 0);
+}
