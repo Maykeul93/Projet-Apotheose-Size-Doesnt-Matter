@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import images from 'styles/images/avatars';
 import './style.scss';
 
 function PlayerWithAvatar({ user }) {
