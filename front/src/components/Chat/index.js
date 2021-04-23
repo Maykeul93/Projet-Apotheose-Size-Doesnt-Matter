@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import './styles.scss'
 import Messages from './Messages';
 import Form from './Form';
 
-const Chat = ({ messages, chatSendMessage }) => {
+const Chat = ({ messages, userId, chatSendMessage }) => {
     return (
 
         <div className=" chat room__right--tchat">
-            <Messages messages={messages} />
+            <Messages
+                messages={messages}
+                userId={userId}
+            />
             <Form onSubmit={chatSendMessage} />
         </div>
     )
@@ -17,6 +20,7 @@ const Chat = ({ messages, chatSendMessage }) => {
 
 Chat.propTypes = {
     messages: PropTypes.array.isRequired,
+    userId: PropTypes.number.isRequired,
     chatSendMessage: PropTypes.func.isRequired,
 };
 

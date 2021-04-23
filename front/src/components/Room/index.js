@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 
 import Header from 'containers/Header';
 import PlayerWithAvatar from 'components/PlayerWithAvatar';
-import Chat from 'components/Chat';
+import Chat from 'containers/Chat';
 
 import './style.scss';
 
