@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 
 import Header from 'containers/Header';
 import PlayerWithAvatar from 'components/PlayerWithAvatar';
+import Chat from 'containers/Chat';
 
 import './style.scss';
 
@@ -44,9 +45,7 @@ function Room({
                             otherPlayers.map((player) => (<h2 key={player.id}>{player.pseudo}</h2>))
                         }
                     </div>
-                    <div className="room__right--tchat">
-                        Tchat
-                    </div>
+                    <Chat />
                 </div>
             </main>
         </>

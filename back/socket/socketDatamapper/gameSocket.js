@@ -37,7 +37,7 @@ module.exports = {
         return result.rows; 
     }, 
 
-    async insertHistory (userID, gameID, score, position, date, exactAnswer) {
+    async insertHistory (userID, gameID, score, position, exactAnswer) {
         const result = await client.query(`UPDATE  "user_play_game" SET "score"=$1, "position"=$2, "exact_answer"=$3 WHERE "user_id" = $4  AND "game_id"=$5`, [score, position, exactAnswer, userID, gameID]); 
         return result.rows; 
     }

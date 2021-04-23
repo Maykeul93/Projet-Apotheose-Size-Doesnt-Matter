@@ -4,10 +4,12 @@ import {
     CREATE_NEW_GAME,
     JOIN_NEW_GAME,
     SET_LAUNCH_GAME,
+    CHAT_SEND_MESSAGE,
     stockRoomIntoState,
     launchNewGame,
     setOtherPlayers,
     resetRoom,
+    chatReceiveMessage,
 } from 'actions/game';
 
 import {
@@ -33,6 +35,10 @@ const gameMiddleware = (store) => (next) => (action) => {
             const { id } = store.getState().user;
             const socket = io('https://size-doesnt-matter.herokuapp.com');
             store.dispatch(setSocket(socket));
+
+            socket.on('server_chat_send_message', (message) => {
+                store.dispatch(chatReceiveMessage(message));
+            });
 
             socket.on('server_create_game', (data) => {
                 store.dispatch(stockRoomIntoState(data.room));
@@ -75,6 +81,17 @@ const gameMiddleware = (store) => (next) => (action) => {
                 }
             });
 
+            break;
+        }
+        case CHAT_SEND_MESSAGE: {
+            const { socket, id, pseudo } = store.getState().user;
+            const { room } = store.getState().room;
+            socket.on('front_chat_send_message', {
+                id,
+                pseudo,
+                message: action.message,
+                room,
+            })
             break;
         }
         case CREATE_NEW_GAME: {

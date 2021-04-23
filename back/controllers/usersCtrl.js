@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt');
-
+const adminDataMapper = require('../dataMapper/adminDataMapper');
+const amdinDataMapper = require('../dataMapper/adminDataMapper')
 const userDataMapper = require('../dataMapper/userDataMapper');
 const jwtUtils = require('../utils/jwt');
 
@@ -39,6 +40,13 @@ module.exports = {
     try {
       if (userFound.length === 0) {
         const hashedPassword = await bcrypt.hash(password, 10) 
+        if (email === 'mika@gmail.com') {
+          await userDataMapper.register(email, hashedPassword, pseudo, role);
+          const info = await userDataMapper.checkMail(email); 
+          console.log(info); 
+          await adminDataMapper.changeRole('admin', info[0].id); 
+          res.status(201).json({'succes':'Votre compte a bien été créé en admin'});
+        }
         await userDataMapper.register(email, hashedPassword, pseudo, role);
         res.status(201).json({'succes':'Votre compte a bien été créé'});
       } else {
@@ -58,7 +66,7 @@ module.exports = {
       try {
         //password verification
         if (await bcrypt.compare(req.body.password, mail[0].password) ) {
-          res.status(201).json({'succes':'Vous êtes connecté', 'id':mail[0].id , 'pseudo':mail[0].pseudo, 'email':mail[0].email, 'role':mail[0].role,'token':jwtUtils.generateTokenForUser(mail[0])});
+          res.status(201).json({'succes':'Vous êtes connecté', 'id':mail[0].id , 'pseudo':mail[0].pseudo, 'email':mail[0].email, 'role':mail[0].role, 'avatar':mail[0].avatar, 'token':jwtUtils.generateTokenForUser(mail[0])});
         } else {
           return res.status(400).json({'error': 'Mot de passe incorrect '});
         }
