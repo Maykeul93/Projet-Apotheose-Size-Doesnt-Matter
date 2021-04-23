@@ -10,6 +10,7 @@ import Ranking from 'containers/Game/Ranking';
 import Timer from 'containers/Game/Timer';
 import Question from 'containers/Game/Question';
 import Round from 'containers/Game/Round';
+import Chat from 'containers/Chat';
 
 import './style.scss';
 
@@ -48,7 +49,7 @@ function Game({
                     </div>
                     <div className="game__bottom">
                         <div className="game__tchat">
-                            Tchat
+                            <Chat />
                         </div>
                         <LeaveGame />
                     </div>

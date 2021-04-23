@@ -37,6 +37,7 @@ const gameMiddleware = (store) => (next) => (action) => {
             store.dispatch(setSocket(socket));
 
             socket.on('server_chat_send_message', (message) => {
+                console.log(message);
                 store.dispatch(chatReceiveMessage(message));
             });
 
@@ -84,9 +85,10 @@ const gameMiddleware = (store) => (next) => (action) => {
             break;
         }
         case CHAT_SEND_MESSAGE: {
+            console.log('j envoi un message au serveur')
             const { socket, id, pseudo } = store.getState().user;
             const { room } = store.getState().room;
-            socket.on('front_chat_send_message', {
+            socket.emit('front_chat_send_message', {
                 id,
                 pseudo,
                 message: action.message,

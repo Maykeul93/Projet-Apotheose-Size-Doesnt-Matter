@@ -7,7 +7,8 @@ const Form = ({onSubmit}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onSubmit(inputValue)
+        onSubmit(inputValue);
+        setInputValue('');
     }
     return(
         <form 
