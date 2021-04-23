@@ -1,11 +1,13 @@
 const uniqid = require('uniqid'); 
-
 const gameController = require('./socketController/gameController');
+
 
 module.exports = {
   startGame (io, socket) {
     console.log('a user connected :', socket.id); 
     socket.on('front_create_game', async (idUser) =>  {
+      
+      
       const room = uniqid();
       socket.join(room);
       // Insert the romm's number to the table game (room)
@@ -14,6 +16,7 @@ module.exports = {
         socket.emit('server_create_game', {
           idUser,
           room,
+          
         });
       }
       else {
@@ -32,10 +35,12 @@ module.exports = {
         await gameController.boundGameOnUser(idGame, id);
         const players = await gameController.getAllPlayers(idGame);
         socket.join(room);
+        
         io.to(room).emit('server_join_game', {
           room,
           idGame,
           players,
+          
         });
       }
       else {
