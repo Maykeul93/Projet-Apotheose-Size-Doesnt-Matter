@@ -27,6 +27,7 @@ const initialState = {
     exactAnswer: null,
     isRound:false,
     isOver: false,
+    chatMessages: [],
 };
 
 const reducer = (state = initialState, action = {}) => {

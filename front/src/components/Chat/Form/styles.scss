@@ -1,0 +1,8 @@
+@import 'src/styles/vars.scss';
+
+.chat__form{
+    display: flex;
+    .input{
+        flex: 1;
+    }
+}
