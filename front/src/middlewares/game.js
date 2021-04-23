@@ -13,11 +13,13 @@ import {
 import {
     SEND_USER_ANSWER,
     LEAVE_GAME,
+    SEND_SCORE_TO_DB,
     validateUserAnswer,
     setOtherPlayerAnswer,
     setGameQuestions,
     resetGameState,
     setPlayerLeaveGame,
+    setGameIsOver,
 } from 'actions/gameInterface';
 
 import {
@@ -53,6 +55,13 @@ const gameMiddleware = (store) => (next) => (action) => {
                 }
                 else {
                     store.dispatch(setOtherPlayerAnswer(playerId, answer));
+                }
+            });
+
+            socket.on('server_end_game', ({ success }) => {
+                store.dispatch(setGameIsOver());
+                if (!success) {
+                    console.log('erreur de serveur');
                 }
             });
 
@@ -107,7 +116,17 @@ const gameMiddleware = (store) => (next) => (action) => {
             });
             break;
         }
-        // Envoi des score + id game
+        case SEND_SCORE_TO_DB: {
+            const { socket } = store.getState().user;
+            const { room } = store.getState().room;
+            const { idGame } = store.getState().game;
+            socket.emit('front_send_score', {
+                idGame,
+                room,
+                globalScore: action.score,
+            });
+            break;
+        }
         case LEAVE_GAME: {
             const { socket, id } = store.getState().user;
             const { room } = store.getState().room;

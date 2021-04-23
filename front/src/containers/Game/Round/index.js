@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Round from 'components/Game/Round';
-import { setGameIsOver } from 'actions/gameInterface';
+import { sendScoreToDB } from 'actions/gameInterface';
 
 const mapStateToProps = (state) => ({
     round: state.game.round,
@@ -8,8 +8,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchStateToProps = (dispatch) => ({
-    setIsOver: () => {
-        dispatch(setGameIsOver());
+    sendScore: () => {
+        dispatch(sendScoreToDB());
     }
 });
 

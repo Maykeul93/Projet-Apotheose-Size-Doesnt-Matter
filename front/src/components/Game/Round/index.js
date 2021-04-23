@@ -2,9 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './style.scss';
 
-function Round({ round, numberOfRounds, setIsOver}) {
+function Round({
+    round,
+    numberOfRounds,
+    sendScore
+}) {
     if (round === numberOfRounds) {
-        setIsOver();
+        sendScore();
     }
     return (
         <div className="round">
