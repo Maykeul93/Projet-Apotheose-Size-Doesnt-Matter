@@ -58,7 +58,7 @@ module.exports = {
       try {
         //password verification
         if (await bcrypt.compare(req.body.password, mail[0].password) ) {
-          res.status(201).json({'succes':'Vous êtes connecté', 'id':mail[0].id , 'pseudo':mail[0].pseudo, 'email':mail[0].email, 'role':mail[0].role,'token':jwtUtils.generateTokenForUser(mail[0])});
+          res.status(201).json({'succes':'Vous êtes connecté', 'id':mail[0].id , 'pseudo':mail[0].pseudo, 'email':mail[0].email, 'role':mail[0].role, 'avatar':mail[0].avatar, 'token':jwtUtils.generateTokenForUser(mail[0])});
         } else {
           return res.status(400).json({'error': 'Mot de passe incorrect '});
         }
