@@ -41,7 +41,7 @@ const reducer = (state = initialState, action = {}) => {
         case CHAT_RECEIVE_MESSAGE:
             return {
                 ...state,
-                chatMessages: [...state.chatMessage, action.message],
+                chatMessages: [...state.chatMessages, action.message],
             }
         case SET_GAME_QUESTIONS:
             return {

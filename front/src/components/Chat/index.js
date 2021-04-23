@@ -20,6 +20,7 @@ const Chat = ({ messages, chatSendMessage, userId }) => {
 
 Chat.propTypes = {
     messages: PropTypes.array.isRequired,
+    userId: PropTypes.number.isRequired,
     chatSendMessage: PropTypes.func.isRequired,
 };
 

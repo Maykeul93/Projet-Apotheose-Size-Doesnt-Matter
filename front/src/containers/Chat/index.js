@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Chat from 'src/components/Chat';
+import Chat from 'components/Chat';
 
 import { chatSendMessage } from 'actions/game';
 
@@ -9,8 +9,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchStateToProps = (dispatch) => ({
-    chatSendMessage: () => {
-
+    chatSendMessage: (message) => {
+        dispatch(chatSendMessage(message));
     },
 });
 
