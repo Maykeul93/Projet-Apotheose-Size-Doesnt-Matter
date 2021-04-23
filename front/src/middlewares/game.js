@@ -29,6 +29,8 @@ import {
     setSocket,
 } from 'actions/socket';
 
+//TODO Créer un action pour envoyer au back les références des avatars des autres joueurs (au lancement de la partie peut-être ?)
+
 const gameMiddleware = (store) => (next) => (action) => {
     switch (action.type) {
         case SOCKET_CONNECTION: {
@@ -85,7 +87,6 @@ const gameMiddleware = (store) => (next) => (action) => {
             break;
         }
         case CHAT_SEND_MESSAGE: {
-            console.log('j envoi un message au serveur')
             const { socket, id, pseudo } = store.getState().user;
             const { room } = store.getState().room;
             socket.emit('front_chat_send_message', {

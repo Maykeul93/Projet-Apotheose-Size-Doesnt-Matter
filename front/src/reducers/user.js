@@ -5,7 +5,8 @@ import {
         SET_LOGGED,
         SET_DISPLAYED,
         SET_USER,
-        SET_LOGOUT
+        SET_LOGOUT,
+        SET_USER_AVATAR,
     } from 'actions/user';
 
     import {
@@ -21,6 +22,7 @@ const initialState = {
     loading: false,
     isDisplayed: false,
     socket: null,
+    avatar: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -56,11 +58,17 @@ const reducer = (state = initialState, action = {}) => {
                 id: action.id,
                 email: action.email,
                 pseudo: action.pseudo,
+                avatar: action.avatar,
             };
         case SET_SOCKET:
             return {
                 ...state,
                 socket: action.socket,
+            }
+        case SET_USER_AVATAR:
+            return {
+                ...state,
+                avatar: action.avatar,
             }
         case SET_LOGOUT:
             return {

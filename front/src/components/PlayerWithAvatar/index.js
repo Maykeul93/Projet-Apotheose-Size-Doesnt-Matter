@@ -1,20 +1,50 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import avatars from 'styles/images/avatars';
 import './style.scss';
 
-function PlayerWithAvatar({ user }) {
+import { findIndexOfUserAvatar } from 'selectors/gameSelectors';
+
+
+function PlayerWithAvatar({ user, setAvatar }) {
+    const [ index, setIndex ] = useState(0);
+
+    useEffect(() => {
+        const userAvatarIndex = findIndexOfUserAvatar(user, avatars);
+        setIndex( userAvatarIndex !== -1 ? userAvatarIndex : 0);
+    }, []);
+
+    const previousAvatar = () => {
+        const newIndex = index === 0 ? avatars.length - 1 : index - 1;
+        setIndex(newIndex);
+        setAvatar(avatars[newIndex].name);
+    };
+
+    const nextAvatar = () => {
+        const newIndex = index === avatars.length - 1 ? 0 : index + 1;
+        setIndex(newIndex);
+        setAvatar(avatars[newIndex].name);
+    };
+
     return (
         <div className="playerCard">
             <h2 className="playerCard__title">{user.pseudo}</h2>
             <div className="playerCard__avatarChoice">
-                <button type="button">
+                <button
+                    type="button"
+                    onClick={previousAvatar}
+                >
+                    {/* Ajouter une image plus sympa*/}
                     &lt;
                 </button>
                 <div className="playerCard__avatarChoice--img">
-                    {/* Here place the img of the avatar */}
-                    {user.avatar}
+                    <img src={avatars[index].path} alt={`user's avatar : ${avatars[index].name}`}/>
                 </div>
-                <button type="button">
+                <button
+                    type="button"
+                    onClick={nextAvatar}
+                >
+                    {/* Ajouter une image plus sympa*/}
                     &gt;
                 </button>
             </div>
@@ -24,6 +54,7 @@ function PlayerWithAvatar({ user }) {
 
 PlayerWithAvatar.propTypes = {
     user: PropTypes.object.isRequired,
+    setAvatar: PropTypes.func.isRequired,
 };
 
 export default PlayerWithAvatar;

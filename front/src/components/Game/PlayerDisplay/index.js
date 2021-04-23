@@ -1,5 +1,6 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import avatars from 'styles/images/avatars';
+import { findIndexOfUserAvatar } from 'selectors/gameSelectors';
 
 import {
     getPercentOfProgressBar,
@@ -10,6 +11,8 @@ import './styles.scss';
 
 
 function PlayerDisplay({ player, exactAnswer }) {
+    const index = findIndexOfUserAvatar(player, avatars);
+    console.log(index);
     const answer = transformExactAnswerIntoExploitableAnswer(player.answer);
     const styleSpan = getPercentOfProgressBar(answer, exactAnswer);
 
@@ -29,7 +32,7 @@ function PlayerDisplay({ player, exactAnswer }) {
             </div>
             <div className="playerDisplay__avatar">
                 {/* player avatar import */}
-                Avatar
+                <img src={avatars[index].path} alt={`user's avatar : ${avatars[index].name}`}/>
             </div>
         </div>
     );
