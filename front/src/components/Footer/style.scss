@@ -6,9 +6,13 @@
     padding: $gutter;
     background-color: $footer-bg;
     border: 1px solid $border-color;
+    border-radius: 30px;
+   
+    
     &__link {
         color: $footer-color;
         text-decoration: none;
+        
     }
     &__link:hover {
         text-decoration: underline;
