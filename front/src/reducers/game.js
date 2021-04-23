@@ -8,20 +8,23 @@ import {
     SET_ROUND,
     SET_IS_ROUND,
     SET_GAME_IS_OVER,
+    SET_SCORE,
 } from 'actions/gameInterface';
 
 import {
     SET_OTHER_PLAYERS,
 } from 'actions/game';
 
+import { transformExactAnswerIntoExploitableAnswer } from 'selectors/gameSelectors';
+
 const initialState = {
     players: [],
     userAnswerValidate: '',
     score: [],
     questions: [],
-    gameId: null,
+    idGame: null,
     round: 0,
-    exactAnswer: 0,
+    exactAnswer: null,
     isRound:false,
     isOver: false,
 };
@@ -37,8 +40,15 @@ const reducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 questions: action.questions,
-                gameId: action.gameId,
+                idGame: action.idGame,
+                isOver: false,
+                exactAnswer: transformExactAnswerIntoExploitableAnswer(action.questions[0].answer),
             };
+        case SET_SCORE:
+            return {
+                ...state,
+                score: action.score,
+            }
         case VALIDATE_USER_ANSWER:
             return {
                 ...state,
@@ -66,14 +76,12 @@ const reducer = (state = initialState, action = {}) => {
                 ...state,
                 isRound: !state.isRound,
             }
-        case SET_ROUND: {
-            console.log('je set la reponse exacte', state.questions[state.round].answer)
+        case SET_ROUND: 
             return {
                 ...state,
                 round: state.round + 1,
-                exactAnswer: Number(state.questions[state.round].answer),
+                exactAnswer: transformExactAnswerIntoExploitableAnswer(state.questions[state.round].answer),
             }
-        }
         case RESET_ALL_PLAYERS_ANSWER: {
             const resetPlayersAnswer = state.players.map((player) => {
                 return {
@@ -81,7 +89,6 @@ const reducer = (state = initialState, action = {}) => {
                     answer: 0,
                 }
             });
-            console.log('resetPlayersAnswer', resetPlayersAnswer);
             return {
                 ...state,
                 userAnswerValidate: '',
@@ -102,8 +109,8 @@ const reducer = (state = initialState, action = {}) => {
             }
         case RESET_GAME_STATE:
             return {
-                ...initialState
-            };
+                ...initialState,
+            }
         default:
             return state;
     }

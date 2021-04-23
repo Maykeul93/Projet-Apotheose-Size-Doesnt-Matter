@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import Ranking from 'components/Game/Ranking';
 
+import { setScore } from 'actions/gameInterface';
+
 const mapStateToProps = (state) => ({
     player: {
         id: state.user.id,
@@ -11,8 +13,13 @@ const mapStateToProps = (state) => ({
     exactAnswer: state.game.exactAnswer,
     isRound: state.game.isRound,
     round: state.game.round,
+    score: state.game.score,
 });
 
-const mapDispatchStateToProps = (dispatch) => ({});
+const mapDispatchStateToProps = (dispatch) => ({
+    setScore: (score) => {
+        dispatch(setScore(score));
+    },
+});
 
 export default connect(mapStateToProps, mapDispatchStateToProps)(Ranking);

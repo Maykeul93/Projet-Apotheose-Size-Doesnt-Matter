@@ -9,7 +9,6 @@ const initialState = {
     room: '',
     codeRoomInput: '',
     isLaunch: false,
-    gameId: null,
 }
 
 const reducer = (state = initialState, action = {}) => {
@@ -28,13 +27,11 @@ const reducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 isLaunch: true,
-                gameId: action.id,
             }
         case RESET_ROOM:
             return {
-                ...state,
+                ...initialState,
                 isLaunch: false,
-                room: '',
             }
         default:
             return state;

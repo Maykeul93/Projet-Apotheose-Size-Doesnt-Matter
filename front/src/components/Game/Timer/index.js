@@ -15,7 +15,7 @@ function Timmer({
     useEffect(() => {
         if (seconds === 0) {
             // When Timer comes to 0, change the state of isRound to specify there is no question to display
-            setIsRound(!isRound);
+            setIsRound();
             if (!isRound) {
                 // If it is the end of the break, increments the round & reset all players answers
                 setRound();
