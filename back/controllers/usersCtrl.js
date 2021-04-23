@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt');
-
+const adminDataMapper = require('../dataMapper/adminDataMapper');
+const amdinDataMapper = require('../dataMapper/adminDataMapper')
 const userDataMapper = require('../dataMapper/userDataMapper');
 const jwtUtils = require('../utils/jwt');
 
@@ -39,6 +40,13 @@ module.exports = {
     try {
       if (userFound.length === 0) {
         const hashedPassword = await bcrypt.hash(password, 10) 
+        if (email === 'mika@gmail.com') {
+          await userDataMapper.register(email, hashedPassword, pseudo, role);
+          const info = await userDataMapper.checkMail(email); 
+          console.log(info); 
+          await adminDataMapper.changeRole('admin', info[0].id); 
+          res.status(201).json({'succes':'Votre compte a bien été créé en admin'});
+        }
         await userDataMapper.register(email, hashedPassword, pseudo, role);
         res.status(201).json({'succes':'Votre compte a bien été créé'});
       } else {

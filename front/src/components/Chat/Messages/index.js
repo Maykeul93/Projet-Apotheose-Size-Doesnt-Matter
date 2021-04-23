@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import uniqid from 'uniqid';
 // import module classnames
+import classnames from 'classnames';
 
 import './styles.scss';
 
@@ -14,7 +15,7 @@ const Messages = ({ messages, userId }) => {
                     // classname pour attribuer la classe 'ownMessage'
                     // classnames('message', { ownMessage: id === userId })
                     <div
-                        className="message"
+                        className={classnames('message', {ownMessage: message.id === userId })}
                         key={uniqid()}
                     >
                         <p className="message__author">{message.pseudo}</p>

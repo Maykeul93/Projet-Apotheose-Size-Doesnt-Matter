@@ -5,7 +5,7 @@ import './styles.scss'
 import Messages from './Messages';
 import Form from './Form';
 
-const Chat = ({ messages, userId, chatSendMessage }) => {
+const Chat = ({ messages, chatSendMessage, userId }) => {
     return (
 
         <div className=" chat room__right--tchat">
