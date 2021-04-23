@@ -31,7 +31,7 @@ const gameMiddleware = (store) => (next) => (action) => {
     switch (action.type) {
         case SOCKET_CONNECTION: {
             const { id } = store.getState().user;
-            const socket = io('https://size-doesnt-matter.herokuapp.com');
+            const socket = io('http://localhost:3006');
             store.dispatch(setSocket(socket));
 
             socket.on('server_create_game', (data) => {

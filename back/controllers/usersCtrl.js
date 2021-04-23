@@ -50,7 +50,6 @@ module.exports = {
       }
   },
   
- 
   async signin (req, res){
     const email = req.body.email;
     const mail = await userDataMapper.checkMail(email); 
