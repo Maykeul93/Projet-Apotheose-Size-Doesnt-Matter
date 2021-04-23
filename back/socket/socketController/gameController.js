@@ -57,6 +57,19 @@ module.exports = {
     } catch (error) {
       return false; 
     }
+  }, 
+  async insertScoreGame (idGame, globalScore) {
+    try { 
+      for (let element of globalScore) {
+        let id = element.id; 
+        let score = element.score; 
+        let position = globalScore.indexOf(element) + 1; 
+        let exactAnswer = element.exactAnswer_count;   
+        await game.insertHistory(id, idGame, score, position, exactAnswer); 
+      }
+    }catch (error) {
+      return false; 
+    }
   }
 }
 
