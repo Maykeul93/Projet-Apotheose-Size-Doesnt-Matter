@@ -29,6 +29,8 @@ import {
     setSocket,
 } from 'actions/socket';
 
+//TODO Créer un action pour envoyer au back les références des avatars des autres joueurs (au lancement de la partie peut-être ?)
+
 const gameMiddleware = (store) => (next) => (action) => {
     switch (action.type) {
         case SOCKET_CONNECTION: {
