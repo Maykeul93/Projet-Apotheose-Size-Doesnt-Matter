@@ -1,14 +1,15 @@
 @import 'src/styles/vars.scss';
 
 .home{
-
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
     margin: $gutter *2;
 
     &__description{
         font-size: $p-size * 1.2;
+        margin-right: 2rem; 
+        color: white; 
     }
 
     .containerSlide {
@@ -24,13 +25,21 @@
 
     &__play-button{
         font-size: $p-size * 1.5;
-        margin: $gutter;
+        margin-left: $gutter*38;
         padding: $gutter;
-        border-radius: 15px;
+        border-radius: 10px;
         border: none;
-        background-color: rgb(54, 211, 11);
-    }
-    &__play-button:hover{
-        background-color: rgb(31, 128, 11);
+        color:rgb(235, 235, 235);
+        width: 15%;
+        margin-bottom: 15px;
+        border: none; 
+        transition-duration: 0.2s;
+        background-color: #692b67; 
+        &:hover {
+            background-color: #dcdbdb; /* Green */
+            color: #692b67;
+            font-size: 1.8rem;
+        }
+        
     }
 }
