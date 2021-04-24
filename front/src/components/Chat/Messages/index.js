@@ -18,7 +18,7 @@ const Messages = ({ messages, userId }) => {
                         className={classnames('message', {'ownMessage': message.id === userId })}
                         key={uniqid()}
                     >
-                        <p className="message__author">{message.pseudo}</p>
+                        <p className="message__author">{message.pseudo + ' :'}</p>
                         <p className="message__content">{message.message}</p>
                     </div>
                 ))

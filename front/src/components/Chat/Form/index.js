@@ -22,6 +22,7 @@ const Form = ({onSubmit}) => {
             value={inputValue}
             />
             <button 
+            className="submit"
             type="submit" 
             >Envoyer</button>
         </form>
