@@ -35,7 +35,7 @@
     &__button {
         width: 100%;
         margin-right: 2rem;
-        background-color: #843781; 
+        // background-color: #843781; 
         color: white; 
         border: 1px solid rgb(161, 34, 192); 
         padding-bottom: 0.5rem;
@@ -43,10 +43,12 @@
         font-size: 0.9rem;
         border-radius: 5%;
         margin-bottom: 0.5rem; 
-        transition-duration: 0.4s;
+        transition-duration: 0.2s;
+        background-color: #692b67; 
         &:hover {
-            background-color: #A43171; /* Green */
-            color: white;
+            background-color: #dcdbdb; /* Green */
+            color: #692b67;
+            font-size: 1rem;
         }
         
     }
@@ -83,14 +85,14 @@
         margin-bottom: 15px;
         // background-color: #4CAF50;
         border: none; 
-        transition-duration: 0.4s;
+        transition-duration: 0.2s;
         background-color: #843781; 
         padding-bottom: 0.5rem;
         padding-top: 0.5rem; 
         font-size: 1.1rem;
         &:hover {
-            background-color: #A43171; /* Green */
-            color: white;
+            background-color: rgb(223, 222, 222);
+            color: #692b67;;
         }
     }
         
