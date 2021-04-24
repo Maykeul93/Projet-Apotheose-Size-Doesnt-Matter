@@ -20,32 +20,36 @@ const SignUp = ({ loading, onSubmit, isRegistered }) => {
             <h1 className="signup__title">Inscription</h1>
             <form className="signup__form" onSubmit={handleSubmit}>
                 <label className="signup__label">
-                    <p>Choisissez un pseudo:</p>
+                    <p>Choisir votre pseudo:</p>
                     <Field 
+                        className="signup__field"
                         type="text"
                         placeholder="Pseudo"
                         name='pseudo'
                     />
                     </label>
                 <label className="signup__label">
-                    <p>Entrer votre adresse email:</p>
-                    <Field 
+                    <p>Entrer une adresse email:</p>
+                    <Field
+                        className="signup__field" 
                         type="email"
                         placeholder="Email"
                         name='email'
                     />
                 </label>
                 <label className="signup__label">
-                    <p>Choisissez un mot de passe:</p>
+                    <p>Choisir un mot de passe:</p>
                     <Field 
+                        className="signup__field"
                         type="password"
                         placeholder="Password"
                         name='password'
                     />
                 </label>
                 <label className="signup__label">
-                    <p>Valider votre mot de passe:</p>
+                    <p>Confirmer votre mot de passe:</p>
                     <Field 
+                        className="signup__field"
                         type="password"
                         placeholder="Password"
                         name='validPassword'
@@ -55,7 +59,7 @@ const SignUp = ({ loading, onSubmit, isRegistered }) => {
                     loading ?  (
                         <p>Inscription en cours</p>
                     ) : (
-                        <button type="submit">
+                        <button className="signup__button" type="submit">
                             S'inscrire
                         </button>
                     )
