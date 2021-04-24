@@ -47,11 +47,12 @@ const Connexion = ({
                         onChange={(e) => onPasswordInputChange(e.target.value)}
                     />
                     <button 
+                    className="connection__valider"
                     type="submit"
                     >
                         Valider
                     </button>
-                    <Link to="/page/signup">Inscription</Link>
+                    <Link  className="connection__link" to="/page/signup">Inscription</Link>
                 </form>
                
             </div>
