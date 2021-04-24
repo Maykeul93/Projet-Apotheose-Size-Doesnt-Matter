@@ -2,8 +2,11 @@
 
 .menu {
     position: relative;
+    
     &__icon {
         cursor: pointer;
+        font-size: 1.5rem;
+        margin-right: 1.5rem;
     }
     &__options {
         position: absolute;
@@ -12,16 +15,22 @@
         right: -200px;
         z-index: 10;
         width: 100px;
-        padding: $gutter;
+        padding: $gutter*2;
+        margin-right: 10px;
         border: 1px solid $border-color;
         animation: slideout .7s ease-out;
+        background-color: rgb(223, 222, 222);
+        border-radius: 5px;
     }
     &__option {
         margin-top: $gutter/2;
+        color: rgb(103, 33, 121);
     }
     &__option:hover {
         text-decoration: underline;
+        color: rgb(34, 34, 167);
     }
+    
 }
 
 .is-active {

@@ -1,21 +1,62 @@
 @import 'src/styles/vars.scss';
 
 .signup{
+    
     &__title {
         text-align: center;
         margin: $gutter;
+        margin-bottom: 2rem;
+        font-size: 2.2rem; 
+        color: white; 
     };
 
     &__form{
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: left;
+        font-size: 1.5rem;
+        margin-left: 32rem; 
+        background-color: rgb(223, 222, 222);
+        width: 30%;
+        flex-wrap: wrap;
+        border-radius: 5px;
+        margin-bottom: 1.2rem;
     }
 
     &__label{
-        margin: $gutter*0.5 0;
+        margin: $gutter*1.5;
         p{
-            margin-bottom: $gutter*0.5;
+            margin-bottom: $gutter*1.5;
+            font-size: 1.6rem;
+        }
+    }
+    &__field {
+        background-color: rgb(223, 222, 222);
+        border: none; 
+        border-bottom: 2px solid #843781;
+        margin-left: 2rem;
+        width: 80%;
+        font-size: 1.2rem;
+        transition-duration: 0.2s;
+            &:hover {
+                color: #692b67;
+            }
+    }
+    &__button {
+        width: 30%;
+        margin-left: 10rem;
+        margin-bottom: 1.5rem;
+        padding-top: 0.6rem;
+        padding-bottom: 0.6rem;
+        border: none;
+        border-radius: 5px;
+        background-color: #692b67; 
+        color: white;
+        &:hover {
+            background-color: #dcdbdb; /* Green */
+            color: #692b67;
+            font-size: 1rem;
+            border: 2px solid rgb(196, 195, 195);
         }
     }
 }
