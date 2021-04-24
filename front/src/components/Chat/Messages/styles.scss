@@ -5,18 +5,32 @@
     height: 150px;
     padding: $gutter*0.5;
     overflow: auto;
+    
+    
+    
     .message{
-        text-align: right;
+        text-align: left;
         border-bottom: 1px solid black;
-        background: white;
+        
+        border-radius: 0px;
+        display: flex;
+        margin-top: 0.5rem;
         &__author {
             padding: 0.6em 0.6em 0.2em 0;
             margin-left: 1.5rem;
             font-weight: bold;
+            color: black;
         }
         &__content{
             font-style: italic;
+            padding-top: 0.6rem;
+            
+            color: white ;
         }
     }
+    
 }
 
+div.chat__messages::-webkit-scrollbar {
+    opacity: 0;
+  }
