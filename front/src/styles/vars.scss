@@ -42,8 +42,14 @@ $h2-size: 1.5em;
     src: url('fonts/AirmoleShaded.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Vanilla';
+    src: url('fonts/Vanilla.ttf') format('truetype');
+}
+
 $h1-police: 'Airmoleshaded', serif;
-$carbon-police: 'CarbonBlock', 'serif';
+$carbon-police: 'CarbonBlock', serif;
+$vanilla-police: 'Vanilla', serif;
 
 // text shadow
 $shadow-letters: 1.5px 1.5px 5px black;

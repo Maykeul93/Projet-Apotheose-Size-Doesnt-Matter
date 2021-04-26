@@ -48,7 +48,9 @@ function Room({
                             otherPlayers.map((player) => (<h2 key={player.id}>{player.pseudo}</h2>))
                         }
                     </div>
-                    <Chat />
+                    <div className="room__right--chat">
+                        <Chat />
+                    </div>
                 </div>
             </main>
         </>
