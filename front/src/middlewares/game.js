@@ -113,12 +113,13 @@ const gameMiddleware = (store) => (next) => (action) => {
             break;
         }
         case JOIN_NEW_GAME:{
-            const { socket, id } = store.getState().user;
+            const { socket, id, avatar } = store.getState().user;
             const { codeRoomInput } = store.getState().room;
             // confirm that's codeRoom exist, if exist, connect the user to the room
             socket.emit('front_join_game', {
                 id,
                 room: codeRoomInput,
+                avatar,
             });
            
             socket.on('server_join_game_error', ({ error }) => {

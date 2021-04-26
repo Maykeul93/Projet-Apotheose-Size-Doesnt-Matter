@@ -35,7 +35,7 @@ function Room({
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
-            progress: 2,
+            progress: undefined,
         });
     };
 
@@ -85,7 +85,6 @@ function Room({
                         <div className="leaveButton__container room__left--button">
                             <LeaveGame
                                 buttonContent={"Quitter le salon"}
-                                width="100%"
                             />
                         </div>
                     </div>
@@ -93,7 +92,19 @@ function Room({
                 <div className="room__right">
                     <div className="room__right--playersList">
                         {
-                            otherPlayers.map((player) => (<h2 key={player.id}>{player.pseudo}</h2>))
+                            otherPlayers.map(({ id, pseudo }) => (
+                                <div
+                                    key={id}
+                                    className="room__playerCard"
+                                >
+                                    <h2 className="room__playerCard--pseudo">{pseudo}</h2>
+                                    <img
+                                        src=""
+                                        alt=""
+                                        className="room__playerCard--img"
+                                    />
+                                </div>
+                            ))
                         }
                     </div>
                     <div className="room__right--chat">

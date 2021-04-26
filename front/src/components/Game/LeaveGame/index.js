@@ -2,15 +2,11 @@ import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './style.scss';
 
-function LeaveGame({ leaveGame, buttonContent, width }) {
+function LeaveGame({ leaveGame, buttonContent }) {
     let history = useHistory();
     const handleClick = () => {
         history.push('/page/createRoom');
         leaveGame();
-    };
-
-    const buttonStyles = {
-        width,
     };
 
     return (
@@ -18,7 +14,6 @@ function LeaveGame({ leaveGame, buttonContent, width }) {
             className="leaveGame"
             type="button"
             onClick={handleClick}
-            style={buttonStyles}
         >
             {buttonContent}
         </button>
@@ -28,7 +23,6 @@ function LeaveGame({ leaveGame, buttonContent, width }) {
 LeaveGame.propTypes = {
     leaveGame: PropTypes.func.isRequired,
     buttonContent: PropTypes.string.isRequired,
-    width: PropTypes.string.isRequired,
 };
 
 export default LeaveGame;
