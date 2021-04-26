@@ -6,7 +6,7 @@ import images from 'styles/images/homeCarousel'
 
 const Slides = () => (
         <Carousel 
-        width={800}
+        width={640}
         autoPlay
         interval='3000'
         infiniteLoop
