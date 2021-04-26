@@ -6,7 +6,7 @@
     align-items: center;
     
     
-    padding: 0 1rem 1rem 1rem;
+    padding: 0 1rem 0rem 1rem;
     
     
     &__historique-first{
@@ -14,10 +14,9 @@
         font-weight: bold;
         font-size: 25px;
         margin-top: 0.5rem;
-        position: absolute;
-        right: 680px;
-        top: 420px;
-        
+        position: relative;
+        left: 195px;
+        bottom: 175px; 
     }
 
     &__historique-second{
@@ -25,9 +24,9 @@
         font-weight: bold;
         font-size: 25px;
         margin-top: 0.5rem;
-        position: absolute;
-        right: 670px;
-        top: 580px;
+        position: relative;
+        left: 205px;
+        bottom: 100px;
         
     }
 
@@ -36,9 +35,9 @@
         font-weight: bold;
         font-size: 25px;
         margin-top: 0.5rem;
-        position: absolute;
-        bottom: 295px;
-        left: 900px;
+        position: relative;
+        bottom: 45px;
+        left: 20px;
     }
 
     &__historique-last{
@@ -46,9 +45,9 @@
         font-weight: bold;
         font-size: 25px;
         margin-top: 0.5rem;
-        position: absolute;
-        left: 590px;
-        top: 580px;
+        position: relative;
+        right: 225px;
+        bottom: 165px;
     }
 
     &__historique-exactly{
@@ -56,9 +55,9 @@
         font-weight: bold;
         font-size: 25px;
         margin-top: 0.5rem;
-        position: absolute;
-        left: 510px;
-        top: 420px;
+        position: relative;
+        right: 260px;
+        bottom: 310px;
     }
 
     &__historique-game{
@@ -66,8 +65,9 @@
         font-weight: bold;
         font-size: 25px;
         margin-top: 0.5rem;
-        position: absolute;
-        left: 870px;
+        position: relative;
+        left: 20px;
+        bottom: 470px;
     }
 
     
@@ -84,6 +84,7 @@
             font-size: 30px;
             font-weight: bold;
             color: white;
+            margin-bottom: 2rem; 
         }
     }
     &__avatar-content{
@@ -93,9 +94,8 @@
     }
     &__avatar{
         
-        border-radius:90px;
-        width:140px;
-        height:140px;
+        border-radius:100px;
+        width:110px;
         border: 1px solid rgb(247, 195, 36);
         padding: 1rem;
         margin-top: 4rem;
@@ -107,7 +107,7 @@
 
         border-radius:90px;
         width:140px;
-        height:140px;
+        
         border: 1px solid rgb(247, 195, 36);
         padding: 1rem;
         margin-top: 4rem;
@@ -124,6 +124,8 @@
         display: flex;
         flex-direction: column;
         margin-left: 2rem;
+        
+        
         label{
             margin: $gutter*0.5 0;
             text-align: center;
@@ -146,9 +148,9 @@
             border-radius: 5px;
             padding: 0.5rem;
             font-weight: bold;
-            position: absolute;
-            bottom: 159px;
-            left: 1100px;
+            position: relative;
+            bottom: 40px;
+            left: 225px;
             padding-right: 50px;
             padding-left: 50px;
             
@@ -159,9 +161,9 @@
             border-radius: 5px;
             padding: 0.5rem;
             font-weight: bold;
-            position: absolute;
-            top: 275px;
-            left:300px;
+            position: relative;
+            bottom: 630px;
+            right:670px;
             
         }
 
@@ -214,9 +216,150 @@
     }
 }
 
-.profil__onglet{
-    font-size: 30px;
-    font-weight: bold;
-    color: white;
 
+
+//Mobile
+@media screen  and (min-width:0px) and (max-width: 420px) {
+    .profil{
+        
+
+        &__historique-first{
+            color: black;
+            font-weight: bold;
+            font-size: 20px;
+            margin-top: 0.5rem;
+            position: initial;
+        }
+    
+        &__historique-second{
+            color: black;
+            font-weight: bold;
+            font-size: 20px;
+            margin-top: 0.5rem;
+            position: initial;
+            
+        }
+    
+        &__historique-third{
+            color: black;
+            font-weight: bold;
+            font-size: 20px;
+            margin-top: 0.5rem;
+            position: initial;
+        }
+    
+        &__historique-last{
+            color: black;
+            font-weight: bold;
+            font-size: 20px;
+            margin-top: 0.5rem;
+            position: initial;
+        }
+    
+        &__historique-exactly{
+            color: black;
+            font-weight: bold;
+            font-size: 19px;
+            margin-top: 0.5rem;
+            position: initial;
+        }
+    
+        &__historique-game{
+            color: black;
+            font-weight: bold;
+            font-size: 20px;
+            margin-top: 0.5rem;
+            position: initial;
+        }
+
+        &__avatar-history{
+            margin-top: 1rem;
+        }
+
+        &__onglet-content{
+            display: flex;
+            width: 100%;
+            .profil__onglet{
+                cursor: pointer;
+                flex-grow: 1;
+                text-align: center;
+                padding: $gutter;
+                border: 2px solid rgb(133, 130, 130);
+                font-size: 20px;
+                font-weight: bold;
+                color: white;
+                margin-bottom: 2rem; 
+            }
+        }
+        
+        
+        }
+        
+}
+//Tablet
+@media screen  and (min-width:420px) and (max-width: 900px) {
+    .profil{
+        
+
+        &__historique-first{
+            color: black;
+            font-weight: bold;
+            font-size: 25px;
+            margin-top: 0.5rem;
+            position: initial;
+        }
+    
+        &__historique-second{
+            color: black;
+            font-weight: bold;
+            font-size: 25px;
+            margin-top: 0.5rem;
+            position: initial;
+            
+        }
+    
+        &__historique-third{
+            color: black;
+            font-weight: bold;
+            font-size: 25px;
+            margin-top: 0.5rem;
+            position: initial;
+        }
+    
+        &__historique-last{
+            color: black;
+            font-weight: bold;
+            font-size: 25px;
+            margin-top: 0.5rem;
+            position: initial;
+        }
+    
+        &__historique-exactly{
+            color: black;
+            font-weight: bold;
+            font-size: 25px;
+            margin-top: 0.5rem;
+            position: initial;
+        }
+    
+        &__historique-game{
+            color: black;
+            font-weight: bold;
+            font-size: 25px;
+            margin-top: 0.5rem;
+            position: initial;
+        }
+
+        &__avatar-history{
+            margin-top: 1rem;
+        }
+        }
+}
+//Tablet Landscape
+@media screen  and (min-width:901px) and (max-width: 1024px) {
+    
+}
+//Laptop
+@media screen and  (max-width: 1600px) {
+    
 }
