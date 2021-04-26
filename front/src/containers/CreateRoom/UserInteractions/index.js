@@ -5,10 +5,12 @@ import {
     setCodeRoomInput,
     createNewGame,
     joinNewGame,
+    resetRoomError,
 } from 'actions/game';
 
 const mapStateToProps = (state) => ({
     inputValue: state.room.codeRoomInput,
+    roomError: state.room.error,
 });
 
 const mapDispatchStateToProps = (dispatch) => ({
@@ -20,7 +22,10 @@ const mapDispatchStateToProps = (dispatch) => ({
     },
     joinGame: (roomCode) => {
         dispatch(joinNewGame(roomCode));
-    }
+    },
+    resetRoomError: () => {
+        dispatch(resetRoomError());
+    },
 });
 
 export default connect(mapStateToProps, mapDispatchStateToProps)(UserInteractions);

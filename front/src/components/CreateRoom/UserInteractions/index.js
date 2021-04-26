@@ -1,5 +1,5 @@
+import { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import classname from 'classnames';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -10,7 +10,24 @@ function UserInteractions({
     setInputValue,
     createGame,
     joinGame,
+    resetRoomError,
+    roomError,
 }) {
+    useEffect(() => {
+        if (roomError) {
+            toast.error(roomError, {
+                position: "bottom-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            resetRoomError();
+        }
+    }, [roomError]);
+
     const joinRoom = (e) => {
         e.preventDefault();
         if (inputValue) {
@@ -26,8 +43,7 @@ function UserInteractions({
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
-                });
-            
+            });
         }
     };
     return (
@@ -74,6 +90,12 @@ UserInteractions.propTypes = {
     setInputValue: PropTypes.func.isRequired,
     createGame: PropTypes.func.isRequired,
     joinGame: PropTypes.func.isRequired,
+    resetRoomError: PropTypes.func.isRequired,
+    roomError: PropTypes.string,
 };
+
+UserInteractions.defaultProps = {
+    roomError: null,
+}
 
 export default UserInteractions;
