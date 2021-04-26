@@ -37,7 +37,9 @@ function Room({
                             Lancer la partie
                         </button>
                         <h3 className="roomCode">Code de la partie: {room}</h3>
-                        <LeaveGame />
+                        <LeaveGame
+                            buttonContent={"Quitter le salon"}
+                        />
                     </div>
                 </div>
                 <div className="room__right">
