@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import Header from 'containers/Header';
 import PlayerWithAvatar from 'containers/PlayerWithAvatar';
 import Chat from 'containers/Chat';
+import LeaveGame from 'containers/Game/LeaveGame';
 
 import './style.scss';
 
@@ -13,13 +14,13 @@ function Room({
     launchGame,
     isLaunch,
 }) {
+    if(!room) {
+        return <Redirect to="/page/createRoom" />
+    }
     if (isLaunch) {
         const path = `/game/${room}`
         return (<Redirect to={path} />)
     }
-    const handleClick = () => {
-        launchGame();
-    };
     return (
         <>
             <Header />
@@ -31,11 +32,12 @@ function Room({
                         <button
                             className="launchGame"
                             type="button"
-                            onClick={handleClick}
+                            onClick={launchGame}
                         >
                             Lancer la partie
                         </button>
                         <h3 className="roomCode">Code de la partie: {room}</h3>
+                        <LeaveGame />
                     </div>
                 </div>
                 <div className="room__right">
