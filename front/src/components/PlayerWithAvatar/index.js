@@ -8,7 +8,11 @@ import './style.scss';
 import { findIndexOfUserAvatar } from 'selectors/gameSelectors';
 
 
-function PlayerWithAvatar({ user, setAvatar }) {
+function PlayerWithAvatar({
+    user,
+    setAvatar,
+    canChoose,
+}) {
     const [ index, setIndex ] = useState(0);
 
     useEffect(() => {
@@ -63,6 +67,11 @@ function PlayerWithAvatar({ user, setAvatar }) {
 PlayerWithAvatar.propTypes = {
     user: PropTypes.object.isRequired,
     setAvatar: PropTypes.func.isRequired,
+    canChoose: PropTypes.bool,
 };
+
+PlayerWithAvatar.defaultProps = {
+    canChoose: true,
+}
 
 export default PlayerWithAvatar;

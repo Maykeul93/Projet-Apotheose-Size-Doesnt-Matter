@@ -8,6 +8,7 @@ function LeaveGame({ leaveGame, buttonContent }) {
         history.push('/page/createRoom');
         leaveGame();
     };
+
     return (
         <button
             className="leaveGame"
