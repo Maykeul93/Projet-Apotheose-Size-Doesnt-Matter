@@ -10,6 +10,11 @@
         color: $color-white;
         border: none;
         font-weight: bold;
+        font-family: $h1-police;
+        font-size: 1.1rem;
+        &:hover {
+            cursor: pointer;
+        }
     }
     &__create {
         background: $button-create-bg;
