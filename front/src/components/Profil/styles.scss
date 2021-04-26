@@ -4,6 +4,74 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    
+    
+    padding: 0 1rem 1rem 1rem;
+    
+    
+    &__historique-first{
+        color: white;
+        font-weight: bold;
+        font-size: 25px;
+        margin-top: 0.5rem;
+        position: absolute;
+        right: 680px;
+        top: 420px;
+        
+    }
+
+    &__historique-second{
+        color: white;
+        font-weight: bold;
+        font-size: 25px;
+        margin-top: 0.5rem;
+        position: absolute;
+        right: 670px;
+        top: 580px;
+        
+    }
+
+    &__historique-third{
+        color: white;
+        font-weight: bold;
+        font-size: 25px;
+        margin-top: 0.5rem;
+        position: absolute;
+        bottom: 295px;
+        left: 900px;
+    }
+
+    &__historique-last{
+        color: white;
+        font-weight: bold;
+        font-size: 25px;
+        margin-top: 0.5rem;
+        position: absolute;
+        left: 590px;
+        top: 580px;
+    }
+
+    &__historique-exactly{
+        color: white;
+        font-weight: bold;
+        font-size: 25px;
+        margin-top: 0.5rem;
+        position: absolute;
+        left: 510px;
+        top: 420px;
+    }
+
+    &__historique-game{
+        color: white;
+        font-weight: bold;
+        font-size: 25px;
+        margin-top: 0.5rem;
+        position: absolute;
+        left: 870px;
+    }
+
+    
+
     &__onglet-content{
         display: flex;
         width: 100%;
@@ -12,7 +80,10 @@
             flex-grow: 1;
             text-align: center;
             padding: $gutter;
-            border: 2px solid lightblue;
+            border: 2px solid rgb(133, 130, 130);
+            font-size: 30px;
+            font-weight: bold;
+            color: white;
         }
     }
     &__avatar-content{
@@ -21,8 +92,29 @@
         }
     }
     &__avatar{
-        width: 100px;
+        
+        border-radius:90px;
+        width:140px;
+        height:140px;
+        border: 1px solid rgb(247, 195, 36);
+        padding: 1rem;
+        margin-top: 4rem;
+        margin-left: 2rem;
+        
     }
+
+    &__avatar-history{
+
+        border-radius:90px;
+        width:140px;
+        height:140px;
+        border: 1px solid rgb(247, 195, 36);
+        padding: 1rem;
+        margin-top: 4rem;
+        margin-left: 2rem;
+        margin-top: 6rem;
+    }
+
     &__add-avatar{
         position: absolute;
         font-size: 3em;
@@ -31,12 +123,100 @@
     &__form{
         display: flex;
         flex-direction: column;
+        margin-left: 2rem;
         label{
             margin: $gutter*0.5 0;
-
+            text-align: center;
+            font-weight: bold;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 25px;
+            
+            
         }
         button{
             margin: $gutter*0.5 0;
+            
         }
+        
+        
+        &-valid{
+            background-color: rgb(26, 174, 159);
+            border: 1px solid transparent;
+            border-radius: 5px;
+            padding: 0.5rem;
+            font-weight: bold;
+            position: absolute;
+            bottom: 159px;
+            left: 1100px;
+            padding-right: 50px;
+            padding-left: 50px;
+            
+        }
+        &-delete{
+            background-color: red;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            padding: 0.5rem;
+            font-weight: bold;
+            position: absolute;
+            top: 275px;
+            left:300px;
+            
+        }
+
+        &-pseudo{
+            border: 1px solid gray;
+            padding: 0.5rem;
+            
+
+            
+            
+        }
+        
+        &-email{
+            border: 1px solid gray;
+            padding: 0.5rem;
+            
+        }
+
+        &-oldpassword{
+            border: 1px solid gray;
+            padding: 0.5rem;
+            &::placeholder{
+                font-weight: bold;
+            }
+        }
+
+        &-newpassword{
+            border: 1px solid gray;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            &::placeholder{
+                font-weight: bold;
+            }
+        }
+
+        &-validpassword{
+            border: 1px solid gray;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            &::placeholder{
+               font-weight: bold; 
+            }
+        }
+
     }
+    &__add-avatar{
+        color: rgb(247, 195, 36);
+        position: absolute;
+        top: 320px;
+    }
+}
+
+.profil__onglet{
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+
 }

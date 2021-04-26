@@ -16,40 +16,45 @@ const Informations = ({avatar, pseudo, email, onSubmit, message }) => {
             <form className="profil__form" onSubmit={handleSubmit}>
                 <label>{ pseudo }</label>
                 <Field 
+                    className="profil__form-pseudo"
                     type="text" 
                     placeholder="Nouveau pseudo"
                     name="pseudo"
                 />
                 <label>{ email }</label>
                 <Field 
+                    className="profil__form-email"
                     type="email" 
                     placeholder="Nouvelle adresse email"
                     name="email"
                     />
                 <label>Mot de passe :</label>
                 <Field 
+                    className="profil__form-oldpassword"
                     type="password" 
                     placeholder="Ancien mot de passe"
                     name="oldPassword"
                     />
                 <Field 
+                    className="profil__form-newpassword"
                     type="password" 
                     placeholder="Nouveau mot de passe"
                     name="newPassword"
                     />
                 <Field 
+                    className="profil__form-validpassword"
                     type="password" 
                     placeholder="Valider mot de passe"
                     name="validPassword"
                     />
-                <button type="submit">Valider</button>
+                <button type="submit" className="profil__form-valid" >Valider</button>
             </form>
             {
                 message.length > 0  && (
                     <p>{message}</p>
                 )
             }
-            <button type="button">Supprimer mon compte</button>
+            <button type="button" className="profil__form-delete">Supprimer mon compte</button>
         </div>
     )
 };
