@@ -8,6 +8,8 @@ export const SET_LAUNCH_GAME = 'SET_LAUNCH_GAME';
 export const SET_OTHER_PLAYERS = 'SET_OTHER_PLAYERS';
 export const CHAT_SEND_MESSAGE = 'CHAT_SEND_MESSAGE';
 export const CHAT_RECEIVE_MESSAGE = 'CHAT_RECEIVE_MESSAGE';
+export const SET_ROOM_ERROR = 'SET_ROOM_ERROR';
+export const RESET_ROOM_ERROR = 'RESET_ROOM_ERROR';
 
 export const setCodeRoomInput = (value) => ({
     type: SET_CODE_ROOM_INPUT,
@@ -53,4 +55,13 @@ export const chatSendMessage = (message) => ({
 export const chatReceiveMessage = (message) => ({
     type: CHAT_RECEIVE_MESSAGE,
     message,
+});
+
+export const setRoomError = (error) => ({
+    type: SET_ROOM_ERROR,
+    error,
+});
+
+export const resetRoomError = () => ({
+    type: RESET_ROOM_ERROR,
 });

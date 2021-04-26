@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import classname from 'classnames';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import './style.scss';
 
@@ -9,10 +10,23 @@ function UserInteractions({
     setInputValue,
     createGame,
     joinGame,
+    resetRoomError,
+    roomError,
 }) {
-    const [ error, setError ] = useState(false);
-
-    const classnameError = classname('error', {'is-hidden': !error});
+    useEffect(() => {
+        if (roomError) {
+            toast.error(roomError, {
+                position: "bottom-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            resetRoomError();
+        }
+    }, [roomError]);
 
     const joinRoom = (e) => {
         e.preventDefault();
@@ -21,14 +35,22 @@ function UserInteractions({
         }
         else {
             // if there is no code room, displayed the error & remove it 3seconds later
-            setError(true);
-            setTimeout(() => setError(false), 3000);
+            toast.error('Vous devez entrer un code de partie avant de cliquer sur le bouton "Rejoindre"!', {
+                position: "bottom-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
         }
     };
+
     return (
         <div className="interactions">
             <button
-                className="interactions__create"
+                className="interactions__create interactions__button"
                 type="button"
                 onClick={createGame}
             >
@@ -36,7 +58,7 @@ function UserInteractions({
             </button>
             <form className="interactions__joinForm">
                 <button
-                    className="interactions__joinForm--join"
+                    className="interactions__joinForm--join interactions__button"
                     onClick={joinRoom}
                 >
                     Rejoindre une partie
@@ -47,14 +69,21 @@ function UserInteractions({
                     placeholder="code de la partie à rejoindre"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
+                    onFocus={(e) => e.target.placeholder = ''}
+                    onBlur={(e) => e.target.placeholder = "code de la partie à rejoindre"}
                 />
             </form>
-            {
-                error ? (
-                <div className={classnameError}>
-                    Il faut entrer un code de partie pour rejoindre une partie!
-                </div>) : (<></>)
-            }
+            <ToastContainer
+                position="bottom-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
         </div>
     );
 }
@@ -64,6 +93,12 @@ UserInteractions.propTypes = {
     setInputValue: PropTypes.func.isRequired,
     createGame: PropTypes.func.isRequired,
     joinGame: PropTypes.func.isRequired,
+    resetRoomError: PropTypes.func.isRequired,
+    roomError: PropTypes.string,
 };
+
+UserInteractions.defaultProps = {
+    roomError: null,
+}
 
 export default UserInteractions;

@@ -10,6 +10,7 @@ import {
     setOtherPlayers,
     resetRoom,
     chatReceiveMessage,
+    setRoomError,
 } from 'actions/game';
 
 import {
@@ -43,14 +44,22 @@ const gameMiddleware = (store) => (next) => (action) => {
                 store.dispatch(chatReceiveMessage(message));
             });
 
-            socket.on('server_create_game', (data) => {
+            socket.on('server_create_game', (data) => {  
                 store.dispatch(stockRoomIntoState(data.room));
             });
 
-            socket.on('server_join_game', (data) => { 
+            socket.on('server_create_game_error', ({ error }) => {
+                store.dispatch(setRoomError(error));
+            });
+
+            socket.on('server_join_game', (data) => {
                 store.dispatch(stockRoomIntoState(data.room));
                 const otherPlayers = data.players.filter((player) => player.id !== id);
                 store.dispatch(setOtherPlayers(otherPlayers));
+            });
+
+            socket.on('server_join_game_error', ({ error }) => {
+                store.dispatch(setRoomError(error));
             });
 
             socket.on('server_launch_game', ({ idGame, questions }) => {

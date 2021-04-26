@@ -3,12 +3,15 @@ import {
     STOCK_ROOM,
     LAUNCH_GAME,
     RESET_ROOM,
+    SET_ROOM_ERROR,
+    RESET_ROOM_ERROR,
 } from 'actions/game';
 
 const initialState = {
     room: '',
     codeRoomInput: '',
     isLaunch: false,
+    error: null,
 }
 
 const reducer = (state = initialState, action = {}) => {
@@ -33,6 +36,16 @@ const reducer = (state = initialState, action = {}) => {
                 ...initialState,
                 isLaunch: false,
             }
+        case SET_ROOM_ERROR:
+            return {
+                ...state,
+                error: action.error,
+            }
+        case RESET_ROOM_ERROR: {
+            return {
+                ...initialState,
+            }
+        }
         default:
             return state;
     }

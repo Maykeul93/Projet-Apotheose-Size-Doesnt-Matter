@@ -1,13 +1,14 @@
 @import 'src/styles/vars.scss';
 
 .page {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     min-height: 96vh;
     padding: $gutter;
     &__main {
-        width: 70%;
+        width: 80%;
         margin: 0 auto;
         border: 1px solid transparent;
         background-color: rgba(26, 11, 43, 0.035);
@@ -15,5 +16,40 @@
         border-radius: 10px;
         min-height: 50vh;
         padding: $gutter;
+    }
+}
+
+// Media Queries
+
+//Mobile
+@media screen  and (min-width:0px) and (max-width: 480px) {
+    .page {
+        &__main {
+            width: 98%;
+        }
+    }
+}
+//Tablet
+@media screen  and (min-width:481px) and (max-width: 768px) {
+    .page {
+        &__main {
+            width: 95%;
+        }
+    }
+}
+//Tablet Landscape
+@media screen  and (min-width:769px) and (max-width: 1024px) {
+    .page {
+        &__main {
+            width: 95%;
+        }
+    }
+}
+//Laptop
+@media screen  and (min-width:1025px) and (max-width: 1600px) {
+    .page {
+        &__main {
+            width: 85%;
+        }
     }
 }
