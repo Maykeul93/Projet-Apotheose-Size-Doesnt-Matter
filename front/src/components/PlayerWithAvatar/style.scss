@@ -50,16 +50,59 @@
 
 //Mobile
 @media screen  and (min-width:0px) and (max-width: 480px) {
+    .playerCard {
+        &__title {
+            font-size: $h2-size * 1.4;
+        }
+        &__avatarChoice {
+            max-width: 300px;
+            min-width: 250px;
+        }
+        &__button {
+            &--left {
+                transform: scale(0.6) rotate(135deg);
+            }
+            &--right {
+                transform: scale(0.6) rotate(-45deg);
+            }
+        }
+    }
 }
 //Tablet
 @media screen  and (min-width:481px) and (max-width: 768px) {
+    .playerCard {
+        &__title {
+            font-size: $h2-size * 1.6;
+        }
+        &__avatarChoice {
+            max-width: 300px;
+            min-width: 250px;
+        }
+        &__button {
+            &--left {
+                transform: scale(0.8) rotate(135deg);
+            }
+            &--right {
+                transform: scale(0.8) rotate(-45deg);
+            }
+        }
+    }
 }
 //Tablet Landscape
 @media screen  and (min-width:769px) and (max-width: 1024px) {
+    .playerCard {
+        &__avatarChoice {
+            max-width: 300px;
+            min-width: 250px;
+        }
+    }
 }
 //Laptop
 @media screen  and (min-width:1025px) and (max-width: 1600px) {
-}
-//Desktop
-@media screen  and (min-width:1601px) {
+    .playerCard {
+        &__avatarChoice {
+            max-width: 300px;
+            min-width: 250px;
+        }
+    }
 }
