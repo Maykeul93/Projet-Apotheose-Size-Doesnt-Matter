@@ -56,21 +56,6 @@
 //Mobile
 @media screen  and (min-width:0px) and (max-width: 480px) {
     .interactions {
-
-
-        &__button {
-            min-width: none;
-        }
-        &__joinForm {
-            &--roomCode {
-                font-size: 1.2em;
-            }
-        }
-    }
-}
-//Tablet
-@media screen  and (min-width:481px) and (max-width: 768px) {
-    .interactions {
         width: 90%;
         display: flex;
         flex-direction: column;
@@ -96,8 +81,9 @@
         }
     }
 }
+
 //Tablet Landscape
-@media screen  and (min-width:769px) and (max-width: 900px) {
+@media screen  and (max-width: 900px) {
     .interactions {
         width: 90%;
         display: flex;
