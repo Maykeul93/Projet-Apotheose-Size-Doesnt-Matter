@@ -1,6 +1,7 @@
 @import 'src/styles/vars.scss';
 
 .page {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

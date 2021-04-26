@@ -38,16 +38,45 @@
 
 //Mobile
 @media screen  and (min-width:0px) and (max-width: 480px) {
+    .createRoom {
+        &__player {
+
+        }
+        &__menu {
+            
+        }
+    }
 }
 //Tablet
 @media screen  and (min-width:481px) and (max-width: 768px) {
+    .createRoom {
+        &__player {
+
+        }
+        &__menu {
+            
+        }
+    }
 }
 //Tablet Landscape
-@media screen  and (min-width:769px) and (max-width: 1024px) {
+@media screen  and (min-width:769px) and (max-width: 900px) {
+    .createRoom {
+        &__player {
+
+        }
+        &__menu {
+            
+        }
+    }
 }
 //Laptop
-@media screen  and (min-width:1025px) and (max-width: 1600px) {
-}
-//Desktop
-@media screen  and (min-width:1601px) {
+@media screen  and (min-width:901px) and (max-width: 1377px) {
+    .createRoom {
+        &__player {
+            flex-grow: 0.8;
+        }
+        &__menu {
+            flex-grow: 4;
+        }
+    }
 }
