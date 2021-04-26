@@ -2,26 +2,65 @@
 
 .room {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     color: $color-white;
     padding: $gutter;
     &__left {
         border: 1px solid white;
         flex-grow: 1;
+        &--button {
+            width: 50%;
+            border: none;
+            border-radius: $button-radius;
+            margin-top: $gutter;
+            font-weight: bold;
+            box-shadow: $shadow-letters;
+        }
         &--launch {
-            border: 1px white solid;
+            position: relative;
             margin-top: $gutter * 2;
             height: 10vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            & button {
+            & .launchGame {
+                padding: $gutter;
+                font-family: $h1-police;
+                font-size: $h2-size;
+            }
+            & .roomCode {
+                margin-top: $gutter * 2;
+                display: flex;
+                align-items: baseline;
+                &__content {
+                    font-size: 1em;
+                    align-self: flex-start;
+                    & span {
+                        font-size: 1.1em;
+                        font-weight: bold;
+                        font-family: $vanilla-police;
+                        display: inline-block;
+                        margin-left: $gutter / 2;
+                        text-shadow: $shadow-letters;
+                    }
+                }
+                &__button {
+                    position: absolute;
+                    top: 80px;
+                    right: 90px;
+                    background-color: transparent;
+                    border: 1px solid white;
+                    box-shadow: $shadow-letters;
+                    width: 50px;
+                    padding: 10px;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+            & .leaveButton__container {
                 width: 50%;
-                border: none;
-                border-radius: $button-radius;
-                margin-top: $gutter;
-                font-weight: bold;
             }
         }
     }
