@@ -60,7 +60,7 @@ function UserInteractions({
                 Créer une partie
             </button>
             {
-                screenWidth < 769 && (
+                screenWidth < 900 && (
                     <>
                         <h3 className="interactions__or">OU</h3>
                     </>

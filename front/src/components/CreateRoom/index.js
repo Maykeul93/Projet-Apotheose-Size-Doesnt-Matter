@@ -2,6 +2,8 @@ import { HiOutlineInformationCircle } from 'react-icons/hi';
 import { IconContext } from 'react-icons';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import UserInteractions from 'containers/CreateRoom/UserInteractions';
 import PlayerWithAvatar from 'containers/PlayerWithAvatar';
@@ -19,13 +21,25 @@ function CreateRoom({
         return (<Redirect to={path} />)
     }
 
+    const handleRules = () => {
+        toast.info(<Rules />, {
+            position: "top-center",
+            autoClose: false,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    };
+
     return (
         <main className="createRoom page__main">
             <div className="createRoom__player">
                 <PlayerWithAvatar />
             </div>
             {
-                screenWidth > 769 ? (
+                screenWidth > 900 ? (
                     <div className="createRoom__menu">
                         <Rules />
                         <UserInteractions />
@@ -39,6 +53,7 @@ function CreateRoom({
                             <button
                                 className="createRoom__rulesIcon--button"
                                 type="button"
+                                onClick={handleRules}
                             >
                                 <IconContext.Provider
                                     value={{className: "createRoom__rulesIcon--icon"}}
@@ -48,7 +63,15 @@ function CreateRoom({
                                 <h2>Règles du jeu</h2>
                             </button>
                         </div>
-                        
+                        <ToastContainer
+                            position="top-center"
+                            autoClose={false}
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss
+                            draggable
+                        />
                     </>
                 )
             }
