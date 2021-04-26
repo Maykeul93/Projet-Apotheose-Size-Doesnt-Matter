@@ -14,15 +14,17 @@ const Home = ({isLogged, onDisplayChange, isRegistered}) => {
                     <p>Inscription Réussi</p>
                 )
             }
+            <h2 className="home__title" >Bienvenue !</h2>
             <p className="home__description">
-                Bienvenue, Size Doesn't Matter est un jeu multijoueur en ligne.<br />
+                <span>Size Doesn't Matter</span> est un jeu multijoueur en ligne.<br />
                 <br></br>
-                Il s'agit d'un quizz où vous et vos amis auront à répondre a différentes question,<br />
-                plus votre réponse est proche de la réponse éxact plus vous gagnez de point.<br />
+                Il s'agit d'un quizz ou vous et vos amis auront a repondre a differentes question,
+                plus votre reponse est proche de la reponse exact plus vous gagnez de point.<br />
                 <br></br>
-                Vous etes prêt? <br /> 
                 <br></br>
-                Inscrivez vous, invitez vos amis et jouez !
+                Vous etes pret? <br /> 
+                <br></br>
+                Inscrivez vous, invitez vos amis et <span>Jouez</span> !
             </p>
             <Slides />
             {
