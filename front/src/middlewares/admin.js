@@ -16,9 +16,9 @@ import {
     CHANGE_ROLE,
     BAN_USER,
     setAdmin,
+    setMessage,
  } from "actions/admin";
 import api from "api";
-
 const admin = (store) => (next) => (action) => {
     switch(action.type) {
         case SET_ADMIN: {
@@ -80,9 +80,11 @@ const admin = (store) => (next) => (action) => {
                 store.dispatch(setAddQuestionInputValue('question', ''))
                 store.dispatch(setAddQuestionInputValue('answer', ''))
                 store.dispatch(setAdmin())
+                store.dispatch(setMessage(result.data.succes))
             })
             .catch((error)=> {
-                console.log(error)
+                console.log(error.response.data.error)
+                store.dispatch(setMessage(error.response.data.error))
             })
             .finally(() => {
                 store.dispatch(setLoading(false))
@@ -109,9 +111,11 @@ const admin = (store) => (next) => (action) => {
                 store.dispatch(setUpdateQuestionInputValue('question', ''))
                 store.dispatch(setUpdateQuestionInputValue('answer', ''))
                 store.dispatch(setAdmin())
+                store.dispatch(setMessage(result.data.succes))
             })
             .catch((error)=> {
                 console.log(error)
+                store.dispatch(setMessage(error.response.data.error))
             })
             .finally(() => {
                 store.dispatch(setLoading(false))
@@ -132,9 +136,11 @@ const admin = (store) => (next) => (action) => {
             .then((result)=> {
                 console.log(result.data)
                 store.dispatch(setAdmin())
+                store.dispatch(setMessage(result.data.succes))
             })
             .catch((error)=> {
                 console.log(error)
+                store.dispatch(setMessage(error.response.data.error))
             })
             .finally(() => {
                 store.dispatch(setLoading(false))
@@ -159,9 +165,11 @@ const admin = (store) => (next) => (action) => {
             .then((result)=> {
                 console.log(result.data)
                 store.dispatch(setAdmin())
+                store.dispatch(setMessage(result.data.succes))
             })
             .catch((error)=> {
                 console.log(error)
+                store.dispatch(setMessage(error.response.data.error))
             })
             .finally(() => {
                 store.dispatch(setLoading(false))
@@ -185,9 +193,11 @@ const admin = (store) => (next) => (action) => {
                 console.log(result.data)
                 store.dispatch(setUpdateTagInputValue('tag', ''))
                 store.dispatch(setAdmin())
+                store.dispatch(setMessage(result.data.succes))
             })
             .catch((error)=> {
                 console.log(error)
+                store.dispatch(setMessage(error.response.data.error))
             })
             .finally(() => {
                 store.dispatch(setLoading(false))
@@ -209,9 +219,11 @@ const admin = (store) => (next) => (action) => {
             .then((result)=> {
                 console.log(result.data)
                 store.dispatch(setAdmin())
+                store.dispatch(setMessage(result.data.succes))
             })
             .catch((error)=> {
                 console.log(error)
+                store.dispatch(setMessage(error.response.data.error))
             })
             .finally(() => {
                 store.dispatch(setLoading(false))
@@ -236,9 +248,11 @@ const admin = (store) => (next) => (action) => {
             .then((result)=> {
                 console.log(result.data)
                 store.dispatch(setAdmin())
+                store.dispatch(setMessage(result.data.succes))
             })
             .catch((error)=> {
                 console.log(error.response)
+                store.dispatch(setMessage(error.response.data.error))
             })
             .finally(() => {
                 store.dispatch(setLoading(false))
@@ -261,9 +275,11 @@ const admin = (store) => (next) => (action) => {
             .then((result)=> {
                 console.log(result.data)
                 store.dispatch(setAdmin())
+                store.dispatch(setMessage(result.data.succes))
             })
             .catch((error)=> {
                 console.log(error.response)
+                store.dispatch(setMessage(error.response.data.error))
             })
             .finally(() => {
                 store.dispatch(setLoading(false))

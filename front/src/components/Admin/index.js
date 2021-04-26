@@ -4,6 +4,7 @@ import Question from 'containers/Admin/Question';
 import Tag from 'containers/Admin/Tag';
 import Form from 'containers/Admin/Form';
 import User from 'containers/Admin/User';
+import Message from 'components/Admin/Message';
 
 import './styles.scss';
 
@@ -23,6 +24,7 @@ const Admin = ({setAdmin}) => {
                 <div className="admin__content-right">
                     <Form />
                 </div>
+                <Message />
             </div>
         </main>
     )

@@ -5,7 +5,11 @@ import Update from 'components/Admin/Update';
 import Delete from 'components/Admin/Delete';
 import Role from 'containers/Admin/User/Role'
 import Ban from 'containers/Admin/User/Ban'
-const Form = ({option}) => {
+
+import './styles.scss';
+import { toast } from 'react-toastify';
+
+const Form = ({option, message}) => {
     const componentOption = () => {
 
         switch (option) {
@@ -38,8 +42,12 @@ const Form = ({option}) => {
                 return <Add />;
         };
     };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        toast(`${message}`)
+    }
     return(
-        <form className="form">
+        <form className="form" onSubmit={handleSubmit}>
             {componentOption()}
         </form>
     )

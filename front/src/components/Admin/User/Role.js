@@ -6,7 +6,7 @@ const Role = ({users, userId, onSelectChange, onSubmit}) => (
             Utilisateur :
         </label>
         <select 
-        className="form-content__item" 
+        className="form-content__select" 
         name="user"
         value ={userId} 
         onChange={(e) => onSelectChange(e.target.value)}

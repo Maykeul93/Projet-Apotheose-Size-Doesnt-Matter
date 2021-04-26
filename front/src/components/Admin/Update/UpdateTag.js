@@ -1,13 +1,14 @@
 import Field from 'containers/Admin/Update/UpdateTagField';
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const UpdateQuestion = ({tags, tagId, onSelectTagChange, onSubmit}) => (
+const UpdateTag = ({tags, tagId, onSelectTagChange, onSubmit}) => (
     <React.Fragment>
         <label className="form-content__label">
             Selectionner le tag à modifier :
         </label>
         <select 
-            className="form-content__item" 
+            className="form-content__select tag" 
             name="tagId"
             value ={tagId} 
             onChange={(e) => onSelectTagChange(e.target.value)}
@@ -27,16 +28,26 @@ const UpdateQuestion = ({tags, tagId, onSelectTagChange, onSubmit}) => (
             Modifier le tag: 
         </label>
         <Field 
-        className="form-content__item"
+        className="form-content__input"
         type="text"
         name='tag'
          />
         <button 
         className="form-content__button" 
-        type="button"
+        type="submit"
         onClick={onSubmit}
         >Valider</button>
     </React.Fragment>
 );
 
-export default UpdateQuestion;
+UpdateTag.propTypes = {
+    tags: PropTypes.array.isRequired,
+    tagId: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ]).isRequired,
+    onSelectTagChange: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
+};
+
+export default UpdateTag;

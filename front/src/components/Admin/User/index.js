@@ -1,8 +1,14 @@
 import React from 'react';
+import { MdKeyboardArrowRight } from 'react-icons/md'
+import { VscAccount } from 'react-icons/vsc';
 
 const Role = ({setOption}) => (
     <div className="section">
-        <h3 className="section__title">Utilisateur</h3>
+        <h3 className="section__title">
+            <MdKeyboardArrowRight /> 
+            Utilisateur &nbsp;
+            <VscAccount />
+            </h3>
         <ul className="section__list">
             <li className="section__item">
                 <button 

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const DeleteTag = ({tags, tagId, onSelectChange, onSubmit}) => (
     <React.Fragment>
@@ -6,7 +7,7 @@ const DeleteTag = ({tags, tagId, onSelectChange, onSubmit}) => (
             Selectionner le tag à supprimer :
         </label>
         <select 
-            className="form-content__item" 
+            className="form-content__select tag" 
             name="tagId"
             value ={tagId} 
             onChange={(e) => onSelectChange(e.target.value)}
@@ -24,10 +25,20 @@ const DeleteTag = ({tags, tagId, onSelectChange, onSubmit}) => (
             </select>
         <button 
             className="form-content__button" 
-            type="button"
+            type="submit"
             onClick={onSubmit}
         >Valider</button>
     </React.Fragment>
 );
+
+DeleteTag.propTypes = {
+    tags: PropTypes.array.isRequired,
+    tagId: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ]).isRequired,
+    onSelectChange: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
+};
 
 export default DeleteTag;

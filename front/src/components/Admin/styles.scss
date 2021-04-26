@@ -1,13 +1,16 @@
 @import 'src/styles/vars.scss';
 
 .admin{
+    width: 100%;
+    color: $color-white;
     &__title{
-        font-size: 3em;
+        font-size: $h2-size*2;
         text-align: center;
+        font-family: $carbon-police;
     }
+
     &__content{
         display: flex;
-        margin: $gutter;
         justify-content: space-around;
         &-left{
             .section{
@@ -15,12 +18,34 @@
                 &__title{
                     font-size: 2em;
                 }
+                &__title svg{
+                    vertical-align: middle;
+                }
                 &__list{
-                    margin: $gutter*0.5 $gutter;
+                    margin: $gutter*0.5 $gutter*3;
                 }
                 &__item{
                     margin: $gutter*0.5 $gutter;
-                    font-size: 1.5em;
+                    font-size: $h2-size;
+                    button{
+                        padding: $gutter*0.5;
+                        background-color:$violet-color;
+                        border-radius:6px;
+                        display:inline-block;
+                        cursor:pointer;
+                        color: $color-white;
+                        font-family:Arial;
+                        font-weight:bold;
+                        text-decoration:none;
+                    }
+                    button:hover{
+                        background-color:white;
+                        color: $violet-color;
+                    }
+                    button:active {
+                        position:relative;
+                        top:1px;
+                    }
                 }
             }
         }
@@ -32,13 +57,93 @@
                 &__label{
                     margin: $gutter*0.5 0;
                 }
-                &__input{
-                    margin: $gutter*0.5 0;
-                }
-                &__button{
-                    margin: $gutter*0.5 0;
+            }
+        }
+    }
+}
+
+//Mobile
+@media screen  and (min-width:0px) and (max-width: 480px) {
+    .admin{
+        &__content{
+            display: flex;
+            justify-content: space-around;
+            &-left{
+                .section{
+                    margin: $gutter 0;
+                    &__title{
+                        font-size: 1em;
+                    }
+                    &__list{
+                        margin: 0.5em;
+                    }
+                    &__item{
+                        margin: $gutter*0.5 $gutter;
+                        font-size: 0.5em;
+                        button{
+                            padding: 0.3em;
+                        }
+                    }
                 }
             }
         }
     }
+}
+//Tablet
+@media screen  and (min-width:481px) and (max-width: 768px) {
+    .admin{
+        &__content{
+            display: flex;
+            justify-content: space-between;
+            &-left{
+                .section{
+                    margin: $gutter 0;
+                    &__title{
+                        font-size: 1.5em;
+                    }
+                    &__list{
+                        margin: 0.5em 1em;
+                    }
+                    &__item{
+                        margin: $gutter*0.5 $gutter;
+                        font-size: 0.5em;
+                        button{
+                            padding: 0.3em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+//Tablet Landscape
+@media screen  and (min-width:769px) and (max-width: 1024px) {
+    .admin{
+        &__content{
+            display: flex;
+            justify-content: space-between;
+            &-left{
+                .section{
+                    margin: $gutter 0;
+                    &__title{
+                        font-size: 1.5em;
+                    }
+                    &__list{
+                        margin: 0.5em 2em;
+                    }
+                    &__item{
+                        margin: $gutter*0.5 $gutter;
+                        font-size: 0.5em;
+                        button{
+                            padding: 0.3em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+//Laptop
+@media screen  and (min-width:1025px) and (max-width: 1600px) {
+    
 }

@@ -186,4 +186,11 @@ export const BAN_USER = 'BAN_USER';
 export const banUser = () => ({
     type: BAN_USER,
 })
+// SET MESSAGE
 
+export const SET_MESSAGE = 'SET_MESSAGE';
+
+export const setMessage = (value) => ({
+    type: SET_MESSAGE,
+    value
+})
