@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { IconContext } from 'react-icons';
+import { GiFrayedArrow } from 'react-icons/gi';
 import PropTypes from 'prop-types';
 import avatars from 'styles/images/avatars';
 import './style.scss';
@@ -30,23 +32,29 @@ function PlayerWithAvatar({ user, setAvatar }) {
         <div className="playerCard">
             <h2 className="playerCard__title">{user.pseudo}</h2>
             <div className="playerCard__avatarChoice">
-                <button
-                    type="button"
-                    onClick={previousAvatar}
-                >
-                    {/* Ajouter une image plus sympa*/}
-                    &lt;
-                </button>
+                <IconContext.Provider value={{className: "playerCard__button playerCard__button--left"}}>
+                    <button
+                        type="button"
+                        onClick={previousAvatar}
+                        className="playerCard__button"
+                    >
+                        {/* Ajouter une image plus sympa*/}
+                        <GiFrayedArrow />
+                    </button>
+                </IconContext.Provider>
                 <div className="playerCard__avatarChoice--img">
                     <img src={avatars[index].path} alt={`user's avatar : ${avatars[index].name}`}/>
                 </div>
-                <button
-                    type="button"
-                    onClick={nextAvatar}
-                >
-                    {/* Ajouter une image plus sympa*/}
-                    &gt;
-                </button>
+                <IconContext.Provider value={{className: "playerCard__button playerCard__button--right"}}>
+                    <button
+                        type="button"
+                        onClick={nextAvatar}
+                        className="playerCard__button"
+                    >
+                        {/* Ajouter une image plus sympa*/}
+                        <GiFrayedArrow />
+                    </button>
+                </IconContext.Provider>
             </div>
         </div>
     );

@@ -6,12 +6,15 @@
     flex-direction: column;
     align-items: center;
     &__title {
-        font-size: $h2-size;
+        font-size: $h2-size * 2;
+        font-family: $carbon-police;
+        color: $color-white;
+        text-shadow: 3px 3px 5px black;
     }
     &__avatarChoice {
-        border: 1px solid white;
-        height: 350px;
-        width: 300px;
+        max-height: 350px;
+        max-width: 350px;
+        min-width: 300px;
         margin-top: $gutter;
         display: flex;
         justify-content: space-between;
@@ -21,8 +24,24 @@
             align-self: center;
         }
         &--img {
-            background-color: white;
             width: 90%;
+            background-color: rgba(0, 0, 0, 0.10);
+            box-shadow: -2px 3px 50px 13px rgba(0,0,0,0.16);
+        }
+    }
+    &__button {
+        background-color: transparent;
+        border: none;
+        font-size: 1.5em;
+        color: white;
+        &--left {
+            transform: rotate(135deg)
+        }
+        &--right {
+            transform: rotate(-45deg);
+        }
+        &:hover {
+            cursor: pointer;
         }
     }
 }
