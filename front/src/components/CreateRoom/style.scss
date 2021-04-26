@@ -2,22 +2,29 @@
 
 .createRoom {
     display: flex;
-    flex-direction: column;
-    &__infos {
+    &__player {
+        flex-grow: 1;
+    }
+    &__menu {
+        flex-grow: 2;
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
+        justify-content: space-evenly;
     }
 }
 
 .rules {
-    flex-grow: 2;
     color : $color-white;
+    text-shadow: 1.5px 1.5px 1.5px black;
+    width: 70%;
+    margin: $gutter auto;
     &__h2 {
-        font-size: $h2-size;
+        font-size: $h2-size * 2;
+        font-family: $carbon-police;
     }
     &__list {
         margin-top: $gutter;
-        list-style: square;
+        list-style: none;
     }
     &__item {
         margin-top: $gutter / 2;

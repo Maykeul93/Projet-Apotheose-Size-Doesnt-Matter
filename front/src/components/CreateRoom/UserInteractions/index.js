@@ -1,6 +1,7 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
 import classname from 'classnames';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import './style.scss';
 
@@ -10,10 +11,6 @@ function UserInteractions({
     createGame,
     joinGame,
 }) {
-    const [ error, setError ] = useState(false);
-
-    const classnameError = classname('error', {'is-hidden': !error});
-
     const joinRoom = (e) => {
         e.preventDefault();
         if (inputValue) {
@@ -21,8 +18,16 @@ function UserInteractions({
         }
         else {
             // if there is no code room, displayed the error & remove it 3seconds later
-            setError(true);
-            setTimeout(() => setError(false), 3000);
+            toast.error('Vous devez entrer un code de partie avant de cliquer sur le bouton "Rejoindre"!', {
+                position: "bottom-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
+            
         }
     };
     return (
@@ -49,12 +54,17 @@ function UserInteractions({
                     onChange={(e) => setInputValue(e.target.value)}
                 />
             </form>
-            {
-                error ? (
-                <div className={classnameError}>
-                    Il faut entrer un code de partie pour rejoindre une partie!
-                </div>) : (<></>)
-            }
+            <ToastContainer
+                position="bottom-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
         </div>
     );
 }

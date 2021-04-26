@@ -1,6 +1,8 @@
 @import 'src/styles/vars.scss';
 
 .interactions {
+    width: 70%;
+    margin: $gutter auto;
     &__create {
         background: $button-create-bg;
         border: none;

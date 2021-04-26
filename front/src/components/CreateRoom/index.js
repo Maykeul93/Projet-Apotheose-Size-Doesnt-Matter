@@ -16,11 +16,13 @@ function CreateRoom({
 
     return (
         <main className="createRoom page__main">
-            <div className="createRoom__infos">
+            <div className="createRoom__player">
                 <PlayerWithAvatar />
-                <Rules />
             </div>
-            <UserInteractions />
+            <div className="createRoom__menu">
+                <Rules />
+                <UserInteractions />
+            </div>
         </main>
     );
 }
