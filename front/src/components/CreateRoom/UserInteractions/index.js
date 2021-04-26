@@ -46,10 +46,11 @@ function UserInteractions({
             });
         }
     };
+
     return (
         <div className="interactions">
             <button
-                className="interactions__create"
+                className="interactions__create interactions__button"
                 type="button"
                 onClick={createGame}
             >
@@ -57,7 +58,7 @@ function UserInteractions({
             </button>
             <form className="interactions__joinForm">
                 <button
-                    className="interactions__joinForm--join"
+                    className="interactions__joinForm--join interactions__button"
                     onClick={joinRoom}
                 >
                     Rejoindre une partie
@@ -68,6 +69,8 @@ function UserInteractions({
                     placeholder="code de la partie à rejoindre"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
+                    onFocus={(e) => e.target.placeholder = ''}
+                    onBlur={(e) => e.target.placeholder = "code de la partie à rejoindre"}
                 />
             </form>
             <ToastContainer
