@@ -8,6 +8,7 @@
         padding: $gutter 0;
         border-radius: $button-radius;
         color: $color-white;
+        text-shadow: 1.5px 1.5px 5px black;
         border: none;
         font-weight: bold;
         font-family: $h1-police;
@@ -39,6 +40,7 @@
             &::placeholder {
                 text-decoration: underline;
                 text-align: center;
+                color: $violet-color;
             }
         }
     }
