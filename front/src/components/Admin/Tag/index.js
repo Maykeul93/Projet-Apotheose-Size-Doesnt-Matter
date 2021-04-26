@@ -1,8 +1,15 @@
 import React from 'react';
+import { MdKeyboardArrowRight } from 'react-icons/md'
+import { FiAperture } from 'react-icons/fi'
 
 const Tag = ({setOption}) => (
     <div className="section">
-        <h3 className="section__title">Thèmes</h3>
+        <h3 className="section__title">
+            <MdKeyboardArrowRight /> 
+            Thèmes &nbsp;
+            <FiAperture />
+            
+            </h3>
         <ul className="section__list">
             <li className="section__item">
                 <button 

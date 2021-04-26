@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const DeleteQuestion = ({questions, questionId, onSelectChange, onSubmit}) => (
     <React.Fragment>
@@ -6,7 +7,7 @@ const DeleteQuestion = ({questions, questionId, onSelectChange, onSubmit}) => (
             Selectionner la question à supprimer :
         </label>
         <select 
-            className="form-content__item" 
+            className="form-content__select" 
             name="questionId"
             value ={questionId} 
             onChange={(e) => onSelectChange(e.target.value)}
@@ -24,10 +25,20 @@ const DeleteQuestion = ({questions, questionId, onSelectChange, onSubmit}) => (
             </select>
         <button 
         className="form-content__button" 
-        type="button"
+        type="submit"
         onClick={onSubmit}
         >Valider</button>
     </React.Fragment>
 );
+
+DeleteQuestion.propTypes = {
+    questions: PropTypes.array.isRequired,
+    questionId: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ]).isRequired,
+    onSelectChange: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
+};
 
 export default DeleteQuestion;

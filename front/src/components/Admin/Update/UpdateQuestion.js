@@ -16,7 +16,7 @@ const UpdateQuestion = ({
             Selectionner la question à modifier :
         </label>
         <select 
-            className="form-content__item" 
+            className="form-content__select" 
             name="questionId"
             value ={questionId} 
             onChange={(e) => onSelectQuestionChange(e.target.value)}
@@ -36,7 +36,7 @@ const UpdateQuestion = ({
             Modifier la question:
         </label>
         <Field 
-        className="form-content__item"
+        className="form-content__input"
         type="text"
         name="question"
         />
@@ -44,7 +44,7 @@ const UpdateQuestion = ({
             Modifier la réponse:
         </label>
         <Field 
-        className="form-content__item"
+        className="form-content__input"
         type="number"
         name="answer"
         />
@@ -52,7 +52,7 @@ const UpdateQuestion = ({
             Modifier le tag :
         </label>
         <select 
-            className="form-content__item" 
+            className="form-content__select tag" 
             name="tagId"
             value ={tagId} 
             onChange={(e) => onSelectTagChange(e.target.value)}
@@ -70,7 +70,7 @@ const UpdateQuestion = ({
             </select>
         <button 
         className="form-content__button" 
-        type="button"
+        type="submit"
         onClick={onSubmit}
         >Valider</button>
     </React.Fragment>

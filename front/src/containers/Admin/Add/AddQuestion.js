@@ -5,6 +5,7 @@ import { addQuestion, setAddQuestionSelectValue } from 'actions/admin';
 const mapStateToProps = (state) => ({
   tags: state.admin.tags,
   tagId: state.admin.addQuestion.tagId,
+  message: state.admin.message,
 });
 
 const mapDispatchToProps = (dispatch) => ({

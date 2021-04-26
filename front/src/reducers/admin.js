@@ -6,6 +6,7 @@ import {
     SET_DELETE_QUESTION_SELECT_QUESTION_VALUE, 
     SET_DELETE_TAG_SELECT_TAG_VALUE, 
     SET_LOADING, 
+    SET_MESSAGE, 
     SET_OPTION, 
     SET_QUESTIONS, 
     SET_ROLE_SELECT_VALUE, 
@@ -52,7 +53,8 @@ const initialState = {
     },
     ban:{
         userId: 1,
-    }
+    },
+    message:'',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -188,6 +190,13 @@ const reducer = (state = initialState, action = {}) => {
                 ...state.user,
                 userId: action.value,
             }
+        }
+        // SET_MESSAGE
+
+        case SET_MESSAGE: 
+        return {
+            ...state,
+            message: action.value
         }
         default:
             return state;
