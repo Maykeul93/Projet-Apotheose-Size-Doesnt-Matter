@@ -8,7 +8,7 @@ import Form from './Form';
 const Chat = ({ messages, chatSendMessage, userId }) => {
     return (
 
-        <div className=" chat room__right--tchat">
+        <div className="chat">
             <Messages
                 messages={messages}
                 userId={userId}

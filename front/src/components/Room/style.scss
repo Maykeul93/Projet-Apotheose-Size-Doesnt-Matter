@@ -6,8 +6,10 @@
     color: $color-white;
     padding: $gutter;
     &__left {
+        border: 1px solid white;
         flex-grow: 1;
         &--launch {
+            border: 1px white solid;
             margin-top: $gutter * 2;
             height: 10vh;
             display: flex;
@@ -18,12 +20,13 @@
                 width: 50%;
                 border: none;
                 border-radius: $button-radius;
-                padding: $gutter / 2;
+                margin-top: $gutter;
                 font-weight: bold;
             }
         }
     }
     &__right {
+        border: 1px solid white;
         flex-grow: 3;
         display: flex;
         flex-direction: column;
@@ -31,12 +34,30 @@
         &--playersList {
             display: flex;
             justify-content: space-evenly;
+            border: 1px solid white;
         }
-        &--tchat {
-            //border: 1px solid $color-white;
-            height: 15vh;
-            box-shadow: 1px 1px 40px rgba(0, 0, 0, 0.6);
-            border-radius: 13px;
+        &--chat {
+            border: 1px solid $color-white;
+
         }
     }
+}
+
+
+// Media Queries
+
+//Mobile
+@media screen  and (min-width:0px) and (max-width: 480px) {
+}
+//Tablet
+@media screen  and (min-width:481px) and (max-width: 768px) {
+}
+//Tablet Landscape
+@media screen  and (min-width:769px) and (max-width: 1024px) {
+}
+//Laptop
+@media screen  and (min-width:1025px) and (max-width: 1600px) {
+}
+//Desktop
+@media screen  and (min-width:1601px) {
 }
