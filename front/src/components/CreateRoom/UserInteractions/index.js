@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { ToastContainer, toast } from 'react-toastify';
+import useWidthDimension from 'customHooks/screenSize';
 import 'react-toastify/dist/ReactToastify.css';
 
 import './style.scss';
@@ -13,6 +14,8 @@ function UserInteractions({
     resetRoomError,
     roomError,
 }) {
+    const screenWidth = useWidthDimension();
+
     useEffect(() => {
         if (roomError) {
             toast.error(roomError, {
@@ -56,6 +59,13 @@ function UserInteractions({
             >
                 Créer une partie
             </button>
+            {
+                screenWidth < 769 && (
+                    <>
+                        <h3 className="interactions__or">OU</h3>
+                    </>
+                )
+            }
             <form className="interactions__joinForm">
                 <button
                     className="interactions__joinForm--join interactions__button"

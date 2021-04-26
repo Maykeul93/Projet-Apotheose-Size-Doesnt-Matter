@@ -2,6 +2,7 @@
 
 .createRoom {
     display: flex;
+    position: relative;
     &__player {
         flex-grow: 1;
     }
@@ -11,11 +12,37 @@
         flex-direction: column;
         justify-content: space-evenly;
     }
+    &__rulesIcon {
+        &--button {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            text-shadow: $shadow-letters;
+            background-color: transparent;
+            border: none;
+            color: $color-white;
+            transition: 0.2s text-decoration;
+            &:hover {
+                cursor: pointer;
+                text-decoration: underline;
+                color: $color-white;
+            }
+            & h2 {
+                font-family: $h1-police;
+                font-size: $h2-size;
+            }
+        }
+        &--icon {
+            width: 50px;
+        }
+    }
 }
 
 .rules {
     color : $color-white;
-    text-shadow: 1.5px 1.5px 1.5px black;
+    text-shadow: $shadow-letters;
     width: 70%;
     margin: $gutter auto;
     &__h2 {
@@ -60,14 +87,6 @@
 }
 //Tablet Landscape
 @media screen  and (min-width:769px) and (max-width: 900px) {
-    .createRoom {
-        &__player {
-
-        }
-        &__menu {
-            
-        }
-    }
 }
 //Laptop
 @media screen  and (min-width:901px) and (max-width: 1377px) {

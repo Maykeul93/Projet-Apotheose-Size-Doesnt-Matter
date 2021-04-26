@@ -1,4 +1,5 @@
 import { HiOutlineInformationCircle } from 'react-icons/hi';
+import { IconContext } from 'react-icons';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -34,12 +35,20 @@ function CreateRoom({
                         <div className="createRoom__menu">
                             <UserInteractions />
                         </div>
-                        <button
-                            className="createRoom__rulesIcon"
-                            type="button"
-                        >
-                            <HiOutlineInformationCircle />
-                        </button>
+                        <div className="createRoom__rulesIcon">
+                            <button
+                                className="createRoom__rulesIcon--button"
+                                type="button"
+                            >
+                                <IconContext.Provider
+                                    value={{className: "createRoom__rulesIcon--icon"}}
+                                >
+                                    <HiOutlineInformationCircle size="25" />
+                                </IconContext.Provider>
+                                <h2>Règles du jeu</h2>
+                            </button>
+                        </div>
+                        
                     </>
                 )
             }
