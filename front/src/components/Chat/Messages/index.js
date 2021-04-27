@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import uniqid from 'uniqid';
 // import module classnames
@@ -7,8 +7,16 @@ import classnames from 'classnames';
 import './styles.scss';
 
 const Messages = ({ messages, userId }) => {
+    const messagesRef = useRef();
+
+    useEffect(() => {
+        messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
+    }, [messages]);
     return(
-        <div className="chat__messages">
+        <div
+            className="chat__messages"
+            ref={messagesRef}
+        >
             {
                 messages && messages.map((message)=> (
                     <div

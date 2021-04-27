@@ -7,7 +7,7 @@
     padding: $gutter;
     &__left {
         border: 1px solid white;
-        flex-grow: 1;
+        width: 33%;
         &--button {
             width: 50%;
             border: none;
@@ -68,7 +68,7 @@
     }
     &__right {
         border: 1px solid white;
-        flex-grow: 3;
+        width: 66%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
