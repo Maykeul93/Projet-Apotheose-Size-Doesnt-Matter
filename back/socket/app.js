@@ -62,7 +62,7 @@ module.exports = {
     });
 
     // Sending five random questions to the room
-    socket.on('front_launch_game', async ({ id, room }) => {
+    socket.on('front_launch_game', async ({ allPlayers, room }) => {
       const idGame = await gameController.checkRoom(room);
       const insert = await gameController.insertPlayer(idGame, room); 
       if (idGame) {
