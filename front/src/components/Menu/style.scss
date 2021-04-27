@@ -3,6 +3,7 @@
 .menu {
     position: relative;
     
+    
     &__icon {
         cursor: pointer;
         font-size: 1.5rem;
@@ -25,12 +26,61 @@
     &__option {
         margin-top: $gutter/2;
         color: rgb(103, 33, 121);
+        
+        
     }
     &__option:hover {
         text-decoration: underline;
         color: rgb(34, 34, 167);
     }
-    
+    &__option-deco{
+        background-color: red;
+        padding: 0.5rem;
+        
+        border: transparent;
+        margin-top: 0.5rem;
+        font-weight: bold;
+        width: max-content;
+    }
+    &__option-logout{
+        
+        position: absolute;
+        top: 118px;
+        right: 140px;
+    }
+    &__option-play{
+        position: absolute;
+        top: 86px;
+        right: 140px;
+    }
+    &__option-admin{
+        position: absolute;
+        top: 60px;
+        right: 140px;
+    }
+    &__option-profil{
+        position: absolute;
+        top: 35px;
+        right: 140px;
+    }
+    &__icon-menu{
+        position: absolute;
+        bottom: -15px;
+        right: 50px;
+        
+    }
+    &__icon-menu:hover{
+        animation: rotation 1s infinite linear;
+        transform:rotate(360deg)
+    }
+    @keyframes rotation {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(359deg);
+        }
+      }
 }
 
 .is-active {
@@ -39,7 +89,9 @@
 }
 
 .is-displayed {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
 }
 
 @keyframes slidein {
