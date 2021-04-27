@@ -21,14 +21,19 @@ module.exports = {
         return result.rows[0].id; 
     }, 
 
+    async insertAvatar (avatar, idUser) {
+        const result = await client.query(`UPDATE "user" SET avatar=$1 WHERE id=$2`, [avatar, idUser]); 
+        return result.rows; 
+    },
+
     async playerPseudo (id) {
-        const result = await client.query(`SELECT "id", "pseudo" FROM "user" WHERE "id"=$1`, [id]); 
-        return result.rows[0]; 
+        const result = await client.query(`SELECT "id", "pseudo", "avatar" FROM "user" WHERE id=$1`,[id]); 
+        return result.rows; 
     },
 
     async getAllPlayersInOneGame (gameId) {
         // Pour les avatar ajouter u.avatar dans le SELECT
-        const result = await client.query(`SELECT u.id, u.pseudo FROM "user" u JOIN "user_play_game" upg ON u.id = upg.user_id JOIN game ON upg.game_id = game.id WHERE game.id = $1`, [gameId]);
+        const result = await client.query(`SELECT u.id, u.pseudo, u.avatar FROM "user" u JOIN "user_play_game" upg ON u.id = upg.user_id JOIN game ON upg.game_id = game.id WHERE game.id = $1`, [gameId]);
         return result.rows; 
     }, 
 

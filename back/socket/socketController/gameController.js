@@ -10,11 +10,22 @@ module.exports = {
     }
   },
 
+  async updateAvatar (idUser, avatarUser) {
+    // update avatar of player's selection 
+    try {
+      const updatePlayer = await game.insertAvatar(avatarUser, idUser);
+      const creator = await game.playerPseudo(idUser);
+      return creator[0];  
+    } catch (error) {
+      return error; 
+    }
+  },
+
   async gameRecRoom (socket, roomFront, idUser)  { 
     try {
       // Insert a game into the database & create room property
         await game.recGame(roomFront);
-        const { room, id } = await game.getIdGame(roomFront);
+        const { room, id } = await game.getIdGame(roomFront);  
       // bound a user with a game in database
         const isBounded = await this.boundGameOnUser(id, idUser);
         if (isBounded) {
@@ -33,6 +44,7 @@ module.exports = {
       }); 
     }
   },
+
   async checkRoom(room) {
     try {
       const idGame = await game.roomIsExist(room);
