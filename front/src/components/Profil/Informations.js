@@ -1,15 +1,22 @@
-import React, { useEffect } from 'react';
-import {FaPlus} from 'react-icons/fa';
-import Field from 'containers/Profil/Field';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+
+import Field from 'containers/Profil/Field';
 import { setProfilError, setProfilSuccess } from 'actions/profil';
+//Icons import 
+import {FaPlus} from 'react-icons/fa';
+import { BiEdit } from 'react-icons/bi'
+import { ImCross } from 'react-icons/im'
 
 import { ToastContainer, toast } from 'react-toastify';
-
 import 'react-toastify/dist/ReactToastify.css';
-import { useDispatch } from 'react-redux';
+
 const Informations = ({avatar, pseudo, email, onSubmit, success, error }) => {
-    const dispatch = useDispatch()
+    const [editPseudo, setEditPseudo] = useState(false);
+    const [editEmail, setEditEmail] = useState(false);
+
+    const dispatch = useDispatch() 
     useEffect(() => {
         if(success.length > 0){
             toast.success(success)
@@ -31,23 +38,48 @@ const Informations = ({avatar, pseudo, email, onSubmit, success, error }) => {
                 <button type="button" className="profil__add-avatar"><FaPlus size="35"/></button>
             </div>
             <form className="profil__form" onSubmit={handleSubmit}>
-                
-                <label>{ pseudo }</label>
-               
-                <Field 
-                    className="profil__form-pseudo"
-                    type="text" 
-                    placeholder="Nouveau pseudo"
-                    name="pseudo"
-                />
-                
-                <label>{ email }</label>
-                <Field 
-                    className="profil__form-email"
-                    type="email" 
-                    placeholder="Nouvelle adresse email"
-                    name="email"
+                <div className="profil__edit">
+                    { !editPseudo ? (
+                        <label>{ pseudo }</label>
+                        ) : (
+                            <Field 
+                                className="profil__form-pseudo"
+                                type="text" 
+                                placeholder="Nouveau pseudo"
+                                name="pseudo"
+                            />
+                        )
+                    }
+                    <BiEdit 
+                        color='white'
+                        onClick={() => setEditPseudo(true)}
                     />
+                    <ImCross 
+                        color='red'
+                        onClick={() => setEditPseudo(false)}
+                    />
+                </div>
+                <div className="profil__edit">
+                    { !editEmail ? (
+                        <label>{ email }</label>
+                        ) : (
+                            <Field 
+                                className="profil__form-email"
+                                type="email" 
+                                placeholder="Nouvelle adresse email"
+                                name="email"
+                            />
+                        )
+                    }
+                    <BiEdit 
+                        color='white'
+                        onClick={() => setEditEmail(true)}
+                    />
+                    <ImCross 
+                        color='red'
+                        onClick={() => setEditEmail(false)}
+                    />
+                </div>
                 <label>Mot de passe :</label>
                 <Field 
                     className="profil__form-oldpassword"
@@ -68,8 +100,8 @@ const Informations = ({avatar, pseudo, email, onSubmit, success, error }) => {
                     name="validPassword"
                     />
                 <button type="submit" className="profil__form-valid" >Valider</button>
-            </form>
             <ToastContainer position="bottom-center" />
+            </form>
         </div>
     )
 };
