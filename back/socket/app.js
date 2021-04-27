@@ -54,6 +54,13 @@ module.exports = {
       //ajouter avatar pour plus tard
     });
 
+    socket.on('front_user_change_avatar', ({ id: userId, avatar, room}) => {
+      io.to(room).emit('server_user_change_avatar', {
+        userId,
+        avatar,
+      });
+    });
+
     // Sending five random questions to the room
     socket.on('front_launch_game', async ({ id, room }) => {
       const idGame = await gameController.checkRoom(room);
