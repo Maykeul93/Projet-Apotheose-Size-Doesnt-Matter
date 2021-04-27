@@ -38,7 +38,7 @@ module.exports = {
         const creator = await gameController.updateAvatar(id, avatar);
         await gameController.boundGameOnUser(idGame, id);
         //renvoyer l'avatar dans la fonction ci dessous
-        const players = await gameController.getAllPlayers(idGame);
+        const players = await gameController.getAllPlayers(idGame); 
         socket.join(room);
         io.to(room).emit('server_join_game', {
           room,
@@ -57,6 +57,7 @@ module.exports = {
     // Sending five random questions to the room
     socket.on('front_launch_game', async ({ id, room }) => {
       const idGame = await gameController.checkRoom(room);
+      const insert = await gameController.insertPlayer(idGame, room); 
       if (idGame) {
         const questions = await gameController.sendRandomQuestion(); 
         io.to(room).emit('server_launch_game', {

@@ -70,6 +70,20 @@ module.exports = {
       return false; 
     }
   }, 
+
+  async insertPlayer (idGame, room) {
+    try{
+      const allPlayer = await this.getAllPlayers(idGame, room); 
+      console.log(allPlayer.length); 
+      const numberPlayer = allPlayer.length; 
+      const insertData = await game.insertNumberPlayer(numberPlayer, room); 
+      console.log("voilaaa:" + insertData); 
+      return true; 
+    }catch (error) {
+      return error; 
+    }
+  }, 
+
   async insertScoreGame (idGame, globalScore) {
     try { 
       for (let element of globalScore) {
