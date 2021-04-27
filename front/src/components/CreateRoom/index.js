@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { HiOutlineInformationCircle } from 'react-icons/hi';
 import { IconContext } from 'react-icons';
 import { Redirect } from 'react-router-dom';
@@ -13,8 +14,16 @@ import './style.scss';
 
 function CreateRoom({
     room,
+    setSocket,
+    socket,
 }) {
     const screenWidth = useWidthDimension();
+
+    useEffect(() => {
+        if (!socket) {
+            setSocket();
+        }
+    }, []);
 
     if (room) {
         const path = `/room/${room}`
@@ -82,6 +91,8 @@ function CreateRoom({
 
 CreateRoom.propTypes = {
     room: PropTypes.string.isRequired,
+    setSocket: PropTypes.func.isRequired,
+    socket: PropTypes.object.isRequired,
 };
 
 export default CreateRoom;
