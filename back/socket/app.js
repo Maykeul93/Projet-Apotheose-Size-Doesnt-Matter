@@ -27,7 +27,7 @@ module.exports = {
     });
 
     //Sending to the room all players (id and pseudo)
-    socket.on('front_join_game', async ({ id, room }) => {
+    socket.on('front_join_game', async ({ id, room, avatar }) => {
       // Check in the database if code Room exists
       //! Gestion d'erreur a revoir
       const idGame = await gameController.checkRoom(room);
