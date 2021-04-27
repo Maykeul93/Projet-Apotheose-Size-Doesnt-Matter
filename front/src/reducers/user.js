@@ -50,7 +50,7 @@ const reducer = (state = initialState, action = {}) => {
         case SET_DISPLAYED :
             return {
                 ...state,
-                isDisplayed: !state.isDisplayed
+                isDisplayed: action.value ? action.value : !state.isDisplayed,
             };
         case SET_USER :
             return {

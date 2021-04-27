@@ -1,11 +1,21 @@
-import React from 'react';
+import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 
 import './styles.scss';
 import Field from 'containers/SignUp/Field';
 
-const SignUp = ({ loading, onSubmit, isRegistered }) => {
+const SignUp = ({
+    loading,
+    onSubmit,
+    isRegistered,
+    setConnexionDisplayed,
+}) => {
+
+    useEffect(() => {
+        setConnexionDisplayed(false);
+    }, []);
+
     const handleSubmit = (e) => {
         e.preventDefault();
         onSubmit()
@@ -71,6 +81,9 @@ const SignUp = ({ loading, onSubmit, isRegistered }) => {
 
 SignUp.propTypes = {
     loading: PropTypes.bool,
+    setConnexionDisplayed: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
+    isRegistered: PropTypes.bool.isRequired,
 };
 
 SignUp.defaultProps = {
