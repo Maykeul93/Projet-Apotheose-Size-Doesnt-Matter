@@ -23,11 +23,12 @@
             background-color: transparent;
             border: none;
             color: $color-white;
-            transition: 0.2s text-decoration;
+            transition: 0.2s text-decoration scale;
             &:hover {
                 cursor: pointer;
                 text-decoration: underline;
                 color: $color-white;
+                transform: scale(1.2);
             }
             & h2 {
                 font-family: $h1-police;
