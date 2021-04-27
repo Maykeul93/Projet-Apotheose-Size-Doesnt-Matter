@@ -28,6 +28,7 @@ const logger = (store) => (next) => (action) => {
             .finally(() => {
                 store.dispatch(setLoadingState(false));
             });
+            //! Ajouter un .catch pour gérer les erreurs de connexion!
             return next(action);
         }
         default:
