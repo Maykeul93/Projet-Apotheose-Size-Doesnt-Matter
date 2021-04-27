@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { IconContext } from 'react-icons';
 import { GiFrayedArrow } from 'react-icons/gi';
 import PropTypes from 'prop-types';
@@ -11,10 +12,13 @@ import { findIndexOfUserAvatar } from 'selectors/gameSelectors';
 function PlayerWithAvatar({
     user,
     setAvatar,
-    canChoose,
+    sendAvatarToServ,
 }) {
-    const [ index, setIndex ] = useState(0);
+    const location = useHistory().location.pathname;
+    const page = location.split('/')[1];
 
+    console.log(page);
+    const [ index, setIndex ] = useState(0);
     useEffect(() => {
         const userAvatarIndex = findIndexOfUserAvatar(user, avatars);
         setIndex( userAvatarIndex !== -1 ? userAvatarIndex : 0);
@@ -24,12 +28,18 @@ function PlayerWithAvatar({
         const newIndex = index === 0 ? avatars.length - 1 : index - 1;
         setIndex(newIndex);
         setAvatar(avatars[newIndex].name);
+        if (page === 'room'){
+            sendAvatarToServ(avatars[newIndex].name);
+        }
     };
 
     const nextAvatar = () => {
         const newIndex = index === avatars.length - 1 ? 0 : index + 1;
         setIndex(newIndex);
         setAvatar(avatars[newIndex].name);
+        if (page === 'room') {
+            sendAvatarToServ(avatars[newIndex].name);
+        }
     };
 
     return (
@@ -67,11 +77,7 @@ function PlayerWithAvatar({
 PlayerWithAvatar.propTypes = {
     user: PropTypes.object.isRequired,
     setAvatar: PropTypes.func.isRequired,
-    canChoose: PropTypes.bool,
+    sendAvatarToServ: PropTypes.func.isRequired,
 };
-
-PlayerWithAvatar.defaultProps = {
-    canChoose: true,
-}
 
 export default PlayerWithAvatar;

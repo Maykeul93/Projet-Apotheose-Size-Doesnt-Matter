@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { FaCopy } from 'react-icons/fa';
@@ -10,6 +9,8 @@ import Header from 'containers/Header';
 import PlayerWithAvatar from 'containers/PlayerWithAvatar';
 import Chat from 'containers/Chat';
 import LeaveGame from 'containers/Game/LeaveGame';
+import PlayerCard from './PlayerCard';
+
 
 import './style.scss';
 
@@ -54,6 +55,14 @@ function Room({
                         >
                             Lancer la partie
                         </button>
+                        <div className="leaveButton__container room__left--button">
+                            <LeaveGame
+                                buttonContent={"Quitter le salon"}
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div className="room__right">
                         <div className="roomCode">
                             <h3 className="roomCode__content">
                                 Code de la partie:
@@ -82,28 +91,13 @@ function Room({
                                 pauseOnHover
                             />
                         </div>
-                        <div className="leaveButton__container room__left--button">
-                            <LeaveGame
-                                buttonContent={"Quitter le salon"}
-                            />
-                        </div>
-                    </div>
-                </div>
-                <div className="room__right">
                     <div className="room__right--playersList">
                         {
-                            otherPlayers.map(({ id, pseudo }) => (
-                                <div
-                                    key={id}
-                                    className="room__playerCard"
-                                >
-                                    <h2 className="room__playerCard--pseudo">{pseudo}</h2>
-                                    <img
-                                        src=""
-                                        alt=""
-                                        className="room__playerCard--img"
-                                    />
-                                </div>
+                            otherPlayers.map((player) => (
+                                <PlayerCard
+                                    key={player.id}
+                                    player={player}
+                                />
                             ))
                         }
                     </div>
