@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Add from 'components/Admin/Add'
 import Update from 'components/Admin/Update';
@@ -8,8 +8,20 @@ import Ban from 'containers/Admin/User/Ban'
 
 import './styles.scss';
 import { toast } from 'react-toastify';
+import { setError, setMessage } from 'actions/admin';
+import { useDispatch } from 'react-redux';
 
-const Form = ({option, message}) => {
+const Form = ({option, message, error }) => {
+    const dispatch = useDispatch()
+    useEffect(() => {
+        if(message.length > 0){
+            toast.success(message)
+            dispatch(setMessage(''))
+        }else if (error.length > 0){
+            toast.error(error)
+            dispatch(setError(''))
+        }
+    },[message, error, dispatch])
     const componentOption = () => {
 
         switch (option) {
@@ -44,7 +56,6 @@ const Form = ({option, message}) => {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        toast(`${message}`)
     }
     return(
         <form className="form" onSubmit={handleSubmit}>

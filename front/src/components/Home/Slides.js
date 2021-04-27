@@ -5,14 +5,14 @@ import images from 'styles/images/homeCarousel'
 
 
 const Slides = () => (
+    <div className='containerSlide' >
         <Carousel 
-        width={640}
         autoPlay
         interval='3000'
         infiniteLoop
         showStatus={false}
         showThumbs={false}
-         >
+        >
             {
                 images.map((image)=>(
                     <div className="each-slide">
@@ -24,6 +24,7 @@ const Slides = () => (
                 ))
             }
         </Carousel>
+    </div>
 );
 
 export default Slides;

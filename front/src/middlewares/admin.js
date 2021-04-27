@@ -17,6 +17,7 @@ import {
     BAN_USER,
     setAdmin,
     setMessage,
+    setError,
  } from "actions/admin";
 import api from "api";
 const admin = (store) => (next) => (action) => {
@@ -84,7 +85,7 @@ const admin = (store) => (next) => (action) => {
             })
             .catch((error)=> {
                 console.log(error.response.data.error)
-                store.dispatch(setMessage(error.response.data.error))
+                store.dispatch(setError(error.response.data.error))
             })
             .finally(() => {
                 store.dispatch(setLoading(false))
@@ -115,7 +116,7 @@ const admin = (store) => (next) => (action) => {
             })
             .catch((error)=> {
                 console.log(error)
-                store.dispatch(setMessage(error.response.data.error))
+                store.dispatch(setError(error.response.data.error))
             })
             .finally(() => {
                 store.dispatch(setLoading(false))
@@ -140,7 +141,7 @@ const admin = (store) => (next) => (action) => {
             })
             .catch((error)=> {
                 console.log(error)
-                store.dispatch(setMessage(error.response.data.error))
+                store.dispatch(setError(error.response.data.error))
             })
             .finally(() => {
                 store.dispatch(setLoading(false))
@@ -169,7 +170,7 @@ const admin = (store) => (next) => (action) => {
             })
             .catch((error)=> {
                 console.log(error)
-                store.dispatch(setMessage(error.response.data.error))
+                store.dispatch(setError(error.response.data.error))
             })
             .finally(() => {
                 store.dispatch(setLoading(false))
@@ -197,7 +198,7 @@ const admin = (store) => (next) => (action) => {
             })
             .catch((error)=> {
                 console.log(error)
-                store.dispatch(setMessage(error.response.data.error))
+                store.dispatch(setError(error.response.data.error))
             })
             .finally(() => {
                 store.dispatch(setLoading(false))
@@ -223,7 +224,7 @@ const admin = (store) => (next) => (action) => {
             })
             .catch((error)=> {
                 console.log(error)
-                store.dispatch(setMessage(error.response.data.error))
+                store.dispatch(setError(error.response.data.error))
             })
             .finally(() => {
                 store.dispatch(setLoading(false))
@@ -252,7 +253,7 @@ const admin = (store) => (next) => (action) => {
             })
             .catch((error)=> {
                 console.log(error.response)
-                store.dispatch(setMessage(error.response.data.error))
+                store.dispatch(setError(error.response.data.error))
             })
             .finally(() => {
                 store.dispatch(setLoading(false))
@@ -279,7 +280,7 @@ const admin = (store) => (next) => (action) => {
             })
             .catch((error)=> {
                 console.log(error.response)
-                store.dispatch(setMessage(error.response.data.error))
+                store.dispatch(setError(error.response.data.error))
             })
             .finally(() => {
                 store.dispatch(setLoading(false))
