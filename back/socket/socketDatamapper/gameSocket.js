@@ -1,4 +1,5 @@
 const client = require ('../../dataMapper/client');
+const { insertNumberPlayer } = require('../socketController/gameController');
 
 module.exports = {
     async recGame (room) {
@@ -44,6 +45,11 @@ module.exports = {
 
     async insertHistory (userID, gameID, score, position, exactAnswer) {
         const result = await client.query(`UPDATE  "user_play_game" SET "score"=$1, "position"=$2, "exact_answer"=$3 WHERE "user_id" = $4  AND "game_id"=$5`, [score, position, exactAnswer, userID, gameID]); 
+        return result.rows; 
+    }, 
+
+    async insertNumberPlayer (numberPlayer, room) {
+        const result = await client.query(`UPDATE "game" SET "number_player"=$1 WHERE "room"=$2`, [numberPlayer, room]); 
         return result.rows; 
     }
 }
