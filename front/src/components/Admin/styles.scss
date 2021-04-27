@@ -3,6 +3,8 @@
 .admin{
     width: 100%;
     color: $color-white;
+    font-family: $carbon-police;
+    text-shadow: $shadow-letters;
     &__title{
         font-size: $h2-size*2;
         text-align: center;
