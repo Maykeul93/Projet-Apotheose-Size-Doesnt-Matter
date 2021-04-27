@@ -80,7 +80,7 @@
         }
         &--chat {
             border: 1px solid $color-white;
-
+            padding: $gutter;
         }
     }
     &__playerCard {

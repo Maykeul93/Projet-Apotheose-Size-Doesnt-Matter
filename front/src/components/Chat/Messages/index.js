@@ -11,15 +11,13 @@ const Messages = ({ messages, userId }) => {
         <div className="chat__messages">
             {
                 messages && messages.map((message)=> (
-                    //TODO checker l'id du message, si id === userId aors on ajoute une classe pour afficher le message à droite ou dans une autre couleur
-                    // classname pour attribuer la classe 'ownMessage'
-                    // classnames('message', { ownMessage: id === userId })
                     <div
                         className={classnames('message', {'ownMessage': message.id === userId })}
                         key={uniqid()}
                     >
                         <p className="message__author">{message.pseudo + ' :'}</p>
                         <p className="message__content">{message.message}</p>
+                        <div className="message__triangle" />
                     </div>
                 ))
             }
