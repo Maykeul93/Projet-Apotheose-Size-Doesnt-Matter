@@ -12,6 +12,7 @@ import {
     resetRoom,
     chatReceiveMessage,
     setRoomError,
+    setOtherPlayerAvatar,
 } from 'actions/game';
 
 import {
@@ -64,7 +65,12 @@ const gameMiddleware = (store) => (next) => (action) => {
             });
 
             socket.on('server_user_change_avatar', ({ userId, avatar }) => {
-
+                if (userId !== id) {
+                    store.dispatch(setOtherPlayerAvatar(userId, avatar));
+                }
+                else {
+                    next(action);
+                }
             });
 
             socket.on('server_launch_game', ({ idGame, questions }) => {
@@ -128,10 +134,6 @@ const gameMiddleware = (store) => (next) => (action) => {
                 id,
                 room: codeRoomInput,
                 avatar,
-            });
-           
-            socket.on('server_join_game_error', ({ error }) => {
-                //! dispatch de l'erreur à placer dans les ecouteurs socket
             });
             break;
         }
