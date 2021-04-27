@@ -1,10 +1,11 @@
 import { setLogout } from 'actions/user';
-import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './style.scss';
 
 function Menu() {
+    let history = useHistory();
     const dispatch = useDispatch()
     const toggleMenu = () => {
         console.log('j\'affiche le menu');
@@ -16,7 +17,8 @@ function Menu() {
 
     const handleLogOut = () => {
         localStorage.removeItem('token');
-        dispatch(setLogout())
+        dispatch(setLogout());
+        history.push('/');
     };
     
     return (
