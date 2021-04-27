@@ -6,8 +6,11 @@
     align-items: center;
     
     
-    padding: 0 1rem 0rem 1rem;
     
+    padding: 0 1rem 0rem 1rem;
+    &__main{
+        width: 100%;
+    }
     
     &__historique-first{
         color: white;
@@ -87,9 +90,20 @@
             margin-bottom: 2rem; 
         }
     }
+
+    &__information{
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
     &__avatar-content{
+        display: flex;
+        flex-direction: column;
+        position: relative;
         span{
             cursor: pointer;
+            
         }
     }
     &__avatar{
@@ -100,6 +114,7 @@
         padding: 1rem;
         margin-top: 4rem;
         margin-left: 2rem;
+        
         
     }
 
@@ -142,15 +157,14 @@
         }
         
         
+        
         &-valid{
             background-color: rgb(26, 174, 159);
             border: 1px solid transparent;
             border-radius: 5px;
             padding: 0.5rem;
             font-weight: bold;
-            position: relative;
-            bottom: 40px;
-            left: 225px;
+            
             padding-right: 50px;
             padding-left: 50px;
             
@@ -161,9 +175,9 @@
             border-radius: 5px;
             padding: 0.5rem;
             font-weight: bold;
-            position: relative;
-            bottom: 630px;
-            right:670px;
+            margin-top: 3rem;
+            margin-left: 1rem;
+           
             
         }
 
@@ -212,16 +226,63 @@
     &__add-avatar{
         color: rgb(247, 195, 36);
         position: absolute;
-        top: 320px;
+        top: 40px;
+        left: 150px;
+        border: none;
+        background-color: transparent;
+        transition: .2s scale;
+        &:hover{
+            cursor:pointer ;
+            transform: scale(1.2);
+        }
     }
 }
 
 
 
 //Mobile
+@media screen  and (min-width:0px) and (max-width: 549px) {
+    .profil{
+
+        &__onglet-content{
+            display: flex;
+            width: 100%;
+        }
+        &__form-delete {
+            background-color: red;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            padding: 0.5rem;
+            font-weight: bold;
+            margin-top: 3rem;
+            margin-left: 1rem;
+            position: absolute;
+            bottom: 225px;
+            left: 54px;
+        }
+
+        &__avatar{
+            border-radius: 100px;
+            width: 110px;
+            border: 1px solid #f7c324;
+            padding: 1rem;
+            margin-top: 4rem;
+            margin-left: 5rem;
+        }
+        
+        &__information{
+            width: 85%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+    }
+}
 @media screen  and (min-width:0px) and (max-width: 420px) {
     .profil{
         
+
+       
 
         &__historique-first{
             color: black;
@@ -278,7 +339,7 @@
 
         &__onglet-content{
             display: flex;
-            width: 100%;
+            width: 88%;
             .profil__onglet{
                 cursor: pointer;
                 flex-grow: 1;
