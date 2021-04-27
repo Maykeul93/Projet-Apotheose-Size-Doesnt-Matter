@@ -5,18 +5,20 @@ const gameController = require('./socketController/gameController');
 module.exports = {
   startGame (io, socket) {
     console.log('a user connected :', socket.id); 
-    socket.on('front_create_game', async (idUser) =>  {
-      
-      
+    socket.on('front_create_game', async ({'id':idUser, 'avatar':avatarUser}) =>  {
+      //Update the player'avatar by his selection in the room
+      const creator = await gameController.updateAvatar(idUser, avatarUser); 
+      //Create a room number random
       const room = uniqid();
       socket.join(room);
       // Insert the romm's number to the table game (room)
-      const idGame = await gameController.gameRecRoom(socket, room, idUser);
+      const idGame = await gameController.gameRecRoom(socket, room, idUser, avatarUser);
       if (idGame) {
+        //renvoyer l'avatar 
         socket.emit('server_create_game', {
           idUser,
           room,
-          
+          creator
         });
       }
       else {
@@ -32,15 +34,16 @@ module.exports = {
       //! Gestion d'erreur a revoir
       const idGame = await gameController.checkRoom(room);
       if (idGame) {
+        //mettre l'avatar du user aussi 
+        const creator = await gameController.updateAvatar(id, avatar);
         await gameController.boundGameOnUser(idGame, id);
+        //renvoyer l'avatar dans la fonction ci dessous
         const players = await gameController.getAllPlayers(idGame);
         socket.join(room);
-        
         io.to(room).emit('server_join_game', {
           room,
           idGame,
-          players,
-          
+          players
         });
       }
       else {
@@ -56,7 +59,10 @@ module.exports = {
       const idGame = await gameController.checkRoom(room);
       if (idGame) {
         const questions = await gameController.sendRandomQuestion(); 
-        io.to(room).emit('server_launch_game', {questions, idGame});
+        io.to(room).emit('server_launch_game', {
+          questions, 
+          idGame
+        });
       } else {
         socket.emit('server_join_game_error', {
           error: 'Cette partie n\'existe pas!!',

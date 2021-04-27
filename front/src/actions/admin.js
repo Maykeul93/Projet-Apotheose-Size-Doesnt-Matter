@@ -194,3 +194,11 @@ export const setMessage = (value) => ({
     type: SET_MESSAGE,
     value
 })
+
+// SET ERROR MESSAGE
+export const SET_ERROR = 'SET_ERROR';
+
+export const setError = (value) => ({
+    type: SET_ERROR,
+    value
+})

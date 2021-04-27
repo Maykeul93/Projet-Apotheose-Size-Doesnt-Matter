@@ -15,18 +15,19 @@ const Home = ({isLogged, onDisplayChange, isRegistered}) => {
                 )
             }
             <h2 className="home__title" >Bienvenue !</h2>
-            <p className="home__description">
-                <span>Size Doesn't Matter</span> est un jeu multijoueur en ligne.<br />
-                <br></br>
-                Il s'agit d'un quizz ou vous et vos amis auront a repondre a differentes question,
-                plus votre reponse est proche de la reponse exact plus vous gagnez de point.<br />
-                <br></br>
-                <br></br>
-                Vous etes pret? <br /> 
-                <br></br>
-                Inscrivez vous, invitez vos amis et <span>Jouez</span> !
-            </p>
-            <Slides />
+            <div className="home__content">
+                <p className="home__description">
+                    <span>Size Doesn't Matter</span> est un jeu multijoueur en ligne.<br />
+                    <br></br>
+                    Il s'agit d'un quizz ou vous et vos amis auront a repondre a differentes question,
+                    plus votre reponse est proche de la reponse exact plus vous gagnez de point.<br />
+                    <br></br>
+                    Vous etes pret? <br /> 
+                    <br></br>
+                    Inscrivez vous, invitez vos amis et <span>Jouez</span> !
+                </p>
+                <Slides />
+            </div>
             {
                 isLogged ? (
                 <Link to='/page/createRoom'>
