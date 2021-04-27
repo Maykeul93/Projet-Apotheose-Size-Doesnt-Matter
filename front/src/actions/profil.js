@@ -19,10 +19,17 @@ export const submitProfil = () => ({
     type: SUBMIT_PROFIL,
   });
 
-export const SET_MESSAGE = 'SET_MESSAGE';
+export const SET_PROFIL_SUCCESS = 'SET_PROFIL_SUCCESS';
 
-export const setMessage = (value) => ({
-    type: SET_MESSAGE,
+export const setProfilSuccess = (value) => ({
+    type: SET_PROFIL_SUCCESS,
+    value
+  });
+
+export const SET_PROFIL_ERROR = 'SET_PROFIL_ERROR';
+
+export const setProfilError = (value) => ({
+    type: SET_PROFIL_ERROR,
     value
   });
 

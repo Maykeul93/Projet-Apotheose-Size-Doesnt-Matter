@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {FaPlus} from 'react-icons/fa';
 import Field from 'containers/Profil/Field';
 import PropTypes from 'prop-types';
+import { setProfilError, setProfilSuccess } from 'actions/profil';
 
-const Informations = ({avatar, pseudo, email, onSubmit, message }) => {
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
+import { useDispatch } from 'react-redux';
+const Informations = ({avatar, pseudo, email, onSubmit, success, error }) => {
+    const dispatch = useDispatch()
+    useEffect(() => {
+        if(success.length > 0){
+            toast.success(success)
+            dispatch(setProfilSuccess(''))
+        }else if (error.length > 0){
+            toast.error(error)
+            dispatch(setProfilError(''))
+        }
+    },[success, error, dispatch])
     const handleSubmit = (e) => {
         e.preventDefault();
         onSubmit();
@@ -11,7 +26,7 @@ const Informations = ({avatar, pseudo, email, onSubmit, message }) => {
     return(
         <div className="profil__information">
             <div className="profil__avatar-content">
-                <img className="profil__avatar" src={avatar} alt="avatar"/>
+                <img className="profil__avatar" src={avatar} alt={avatar}/>
                 <button type="button" className="profil__form-delete">Supprimer mon compte</button>
                 <button type="button" className="profil__add-avatar"><FaPlus size="35"/></button>
             </div>
@@ -54,12 +69,7 @@ const Informations = ({avatar, pseudo, email, onSubmit, message }) => {
                     />
                 <button type="submit" className="profil__form-valid" >Valider</button>
             </form>
-            {
-                message.length > 0  && (
-                    <p>{message}</p>
-                )
-            }
-           
+            <ToastContainer position="bottom-center" />
         </div>
     )
 };
