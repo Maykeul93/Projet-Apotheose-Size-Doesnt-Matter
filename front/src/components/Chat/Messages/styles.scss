@@ -3,14 +3,16 @@
 
 .chat__messages{
     height: 150px;
+    max-height: 200px;
     padding: $gutter;
     overflow-y: auto;
     border-radius: 8px 8px 0 0;
-    background: #cc2b5e;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #753a88, #cc2b5e);  /* Chrome 10-25, Safari 5.1-6 */
+    background: #cc2b5e;
+    background: -webkit-linear-gradient(to right, #753a88, #cc2b5e);
     background: linear-gradient(to right, #753a88, #cc2b5e);
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     
     .message{
         display: inline-block;
@@ -22,6 +24,7 @@
         padding: $gutter / 2;
         min-width: 100px;
         max-width: 100%;
+        width: fit-content;
         border-radius: $button-radius * 4;
         &__author {
             font-family: $h1-police;
@@ -48,6 +51,16 @@
         }
     }
     
+    .ownMessage {
+        align-self: flex-end;
+        transform: scaleX(-1);
+        & .message__author {
+            transform: scaleX(-1);
+        }
+        & .message__content {
+            transform: scaleX(-1);
+        }
+    }
 }
 
 div.chat__messages::-webkit-scrollbar {
