@@ -1,0 +1,16 @@
+@import 'src/styles/vars.scss';
+
+.room__playerCard {
+    width: 20%;
+    text-align: center;
+    margin: 0 $gutter;
+    &--img {
+        width: 100%;
+        max-width: 150px;
+    }
+    &--pseudo {
+        font-family: $carbon-police;
+        font-size: $h2-size * 1.5;
+        text-shadow: $shadow-letters;
+    }
+}

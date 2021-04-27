@@ -1,25 +1,27 @@
 @import 'src/styles/vars.scss';
 
-.chat__form{
+.chatForm{
     display: flex;
-    .input{
+    &__input {
         flex: 1;
-        padding: 0.5rem;
-        
-        border-color: transparent;
+        border: none;
+        padding: $gutter * 0.75;
+        border-bottom-left-radius: 8px;
+        &::placeholder {
+            color: $violet-color;
+            text-decoration: underline;
+        }
     }
-}
-
-.submit{
-     
-    border-color: transparent;
-    background-color: black;
-    color: white;
-    font-weight: bold;
-    
-}
-.submit:hover{
-    transition-duration: 0.5s;
-    background-color: rgb(21, 255, 0);
+    &__submit {
+        border: none;
+        border-bottom-right-radius: 8px;
+        background-color: $violet-color;
+        min-width: 80px;
+        &:hover {
+            transition-duration: 0.5s;
+            background-color: rgb(157, 88, 163);
+            transform: scale(1.1);
+        }
+    }
 }
 

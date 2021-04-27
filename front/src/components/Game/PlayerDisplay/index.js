@@ -12,7 +12,7 @@ import './styles.scss';
 
 function PlayerDisplay({ player, exactAnswer }) {
     const index = findIndexOfUserAvatar(player, avatars);
-    console.log(index);
+
     const answer = transformExactAnswerIntoExploitableAnswer(player.answer);
     const styleSpan = getPercentOfProgressBar(answer, exactAnswer);
 

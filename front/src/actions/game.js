@@ -10,6 +10,8 @@ export const CHAT_SEND_MESSAGE = 'CHAT_SEND_MESSAGE';
 export const CHAT_RECEIVE_MESSAGE = 'CHAT_RECEIVE_MESSAGE';
 export const SET_ROOM_ERROR = 'SET_ROOM_ERROR';
 export const RESET_ROOM_ERROR = 'RESET_ROOM_ERROR';
+export const SEND_AVATAR_TO_SERV = 'SEND_AVATAR_TO_SERV';
+export const SET_OTHER_PLAYER_AVATAR = 'SET_OTHER_PLAYER_AVATAR';
 
 export const setCodeRoomInput = (value) => ({
     type: SET_CODE_ROOM_INPUT,
@@ -64,4 +66,15 @@ export const setRoomError = (error) => ({
 
 export const resetRoomError = () => ({
     type: RESET_ROOM_ERROR,
+});
+
+export const sendAvatarToServ = (avatar) => ({
+    type: SEND_AVATAR_TO_SERV,
+    avatar,
+});
+
+export const setOtherPlayerAvatar = (id, avatar) => ({
+    type: SET_OTHER_PLAYER_AVATAR,
+    id,
+    avatar,
 });

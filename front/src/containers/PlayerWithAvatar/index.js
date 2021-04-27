@@ -4,6 +4,10 @@ import {
     setUserAvatar,
 } from 'actions/user';
 
+import {
+    sendAvatarToServ,
+} from 'actions/game';
+
 const mapStateToProps = (state) => ({
     user: {
         pseudo: state.user.pseudo,
@@ -15,6 +19,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchStateToProps = (dispatch) => ({
     setAvatar: (avatar) => {
         dispatch(setUserAvatar(avatar));
+    },
+    sendAvatarToServ: (avatar) => {
+        dispatch(sendAvatarToServ(avatar));
     },
 });
 

@@ -8,7 +8,9 @@
     color: $color-white;
     &__logo {
         max-width: 80px;
-        max-height: 10px;
+        height: 80px;
+        background: rgba(255, 255, 255, 0.076);
+        border-radius: 50%;
         display: flex;
         align-items: center;
         color: $color-white;
@@ -116,6 +118,7 @@
 @media screen and (max-width: 1400px) {
     .header {
         &__logo {
+            height: 70px;
             & img {
                 padding-bottom: $gutter; 
                 margin-top: $gutter;
@@ -145,7 +148,7 @@
     .header {
         &__logo {
             max-width: 70px;
-            max-height: 10px;
+            height: 50px;
             & img {
                 margin-top: 0.5rem;
             }
@@ -181,6 +184,9 @@
 
 @media screen and (max-width: 822px) {
     .header {
+        &__logo {
+            height: 45px;
+        }
         &__title {
             font-size: $h1-size * 1.4;
         }

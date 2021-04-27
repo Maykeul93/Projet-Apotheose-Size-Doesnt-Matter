@@ -5,12 +5,14 @@ import {
     JOIN_NEW_GAME,
     SET_LAUNCH_GAME,
     CHAT_SEND_MESSAGE,
+    SEND_AVATAR_TO_SERV,
     stockRoomIntoState,
     launchNewGame,
     setOtherPlayers,
     resetRoom,
     chatReceiveMessage,
     setRoomError,
+    setOtherPlayerAvatar,
 } from 'actions/game';
 
 import {
@@ -40,7 +42,6 @@ const gameMiddleware = (store) => (next) => (action) => {
             store.dispatch(setSocket(socket));
 
             socket.on('server_chat_send_message', (message) => {
-                console.log(message);
                 store.dispatch(chatReceiveMessage(message));
             });
 
@@ -60,6 +61,15 @@ const gameMiddleware = (store) => (next) => (action) => {
 
             socket.on('server_join_game_error', ({ error }) => {
                 store.dispatch(setRoomError(error));
+            });
+
+            socket.on('server_user_change_avatar', ({ userId, avatar }) => {
+                if (userId !== id) {
+                    store.dispatch(setOtherPlayerAvatar(userId, avatar));
+                }
+                else {
+                    next(action);
+                }
             });
 
             socket.on('server_launch_game', ({ idGame, questions }) => {
@@ -124,17 +134,28 @@ const gameMiddleware = (store) => (next) => (action) => {
                 room: codeRoomInput,
                 avatar,
             });
-           
-            socket.on('server_join_game_error', ({ error }) => {
-                //! dispatch de l'erreur à placer dans les ecouteurs socket
+            break;
+        }
+        case SEND_AVATAR_TO_SERV: {
+            const { socket, id, avatar } = store.getState().user;
+            const { room } = store.getState().room;
+            socket.emit('front_user_change_avatar', {
+                id,
+                avatar,
+                room,
             });
             break;
         }
         case SET_LAUNCH_GAME: {
-            const { socket, id } = store.getState().user;
+            const { socket, id, pseudo, avatar } = store.getState().user;
+            const { players } = store.getState().game;
             const { room } = store.getState().room;
+
+            const allPlayers = [...players, {id, pseudo, avatar}];
+            console.log(allPlayers);
+            // Send allPlayers to Back
             socket.emit('front_launch_game', {
-                id,
+                allPlayers,
                 room,
             });
             break;
