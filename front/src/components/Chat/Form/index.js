@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { RiSendPlaneFill } from 'react-icons/ri';
 import PropTypes from 'prop-types';
 import './styles.scss';
 
@@ -12,19 +13,27 @@ const Form = ({onSubmit}) => {
     }
     return(
         <form 
-        className="chat__form"
+        className="chatForm"
         onSubmit={handleSubmit}
         >
             <input 
-            className="input" 
-            type="text" 
+            className="chatForm__input" 
+            type="text"
+            placeholder="Mon message..."
+            onFocus={(e) => e.target.placeholder = ''}
+            onBlur={(e) => e.target.placeholder = 'Mon message...'}
             onChange={(e)=> setInputValue(e.target.value)}
             value={inputValue}
             />
             <button 
-            className="submit"
+            className="chatForm__submit"
             type="submit" 
-            >Envoyer</button>
+            >
+                <RiSendPlaneFill
+                    size="25"
+                    color="white"
+                />
+            </button>
         </form>
     )
 };

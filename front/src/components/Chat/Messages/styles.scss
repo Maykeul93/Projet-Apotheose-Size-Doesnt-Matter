@@ -3,37 +3,66 @@
 
 .chat__messages{
     height: 150px;
-    padding: $gutter*0.5;
-    overflow: auto;
-    background-color: #4158D0;
-    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
-
-    
-    
+    max-height: 200px;
+    padding: $gutter;
+    overflow-y: auto;
+    border-radius: 8px 8px 0 0;
+    background: #cc2b5e;
+    background: -webkit-linear-gradient(to right, #753a88, #cc2b5e);
+    background: linear-gradient(to right, #753a88, #cc2b5e);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     
     .message{
-        text-align: left;
-        border-bottom: 1px solid black;
-        
-        border-radius: 24px;
-        display: flex;
-        margin-top: 0.5rem;
+        display: inline-block;
+        position: relative;
+        flex-direction: column;
+        margin-top: $gutter * 2;
+        background-color: #faf6fa;
+        color: black;
+        padding: $gutter / 2;
+        min-width: 100px;
+        max-width: 100%;
+        width: fit-content;
+        border-radius: $button-radius * 4;
         &__author {
-            padding: 0.6em 0.6em 0.2em 0;
-            margin-left: 1.5rem;
-            font-weight: bold;
-            color: black;
+            font-family: $h1-police;
+            font-size: $h2-size;
+            text-shadow: $shadow-letters;
         }
         &__content{
-            font-style: italic;
-            padding-top: 0.6rem;
-            
-            color: white ;
+            display: inline-block;
+            font-family: $vanilla-police;
+            margin-left: $gutter;
+            margin-top: $gutter / 2;
+            word-wrap: break-word;
+            max-width: 98%;
+        }
+        &__triangle{
+            display : inline-block;
+            height : 0;
+            width : 0;
+            border-top : 15px solid #faf6fa;
+            border-right : 15px solid transparent;
+            position: absolute;
+            bottom: -14px;
+            left: 20px;
         }
     }
     
+    .ownMessage {
+        align-self: flex-end;
+        transform: scaleX(-1);
+        & .message__author {
+            transform: scaleX(-1);
+        }
+        & .message__content {
+            transform: scaleX(-1);
+        }
+    }
 }
 
 div.chat__messages::-webkit-scrollbar {
     opacity: 0;
-  }
+}

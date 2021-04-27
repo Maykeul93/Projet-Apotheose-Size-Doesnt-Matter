@@ -9,7 +9,31 @@
 }
 
 .game__main {
-    border: 1px solid $color-white;
-    margin: $gutter;
+    margin: $gutter auto;
     height: 80vh;
+    width: 80%;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px black;
+}
+
+//Mobile
+@media screen  and (min-width:0px) and (max-width: 480px) {
+}
+//Tablet
+@media screen  and (min-width:481px) and (max-width: 768px) {
+    .game__main {
+        width: 95%;
+    }
+}
+//Tablet Landscape
+@media screen  and (min-width:769px) and (max-width: 1024px) {
+    .game__main {
+        width: 90%;
+    }
+}
+//Laptop
+@media screen  and (min-width:1025px) and (max-width: 1600px) {
+}
+//Desktop
+@media screen  and (min-width:1601px) {
 }
