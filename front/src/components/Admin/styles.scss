@@ -19,12 +19,14 @@
                 margin: $gutter 0;
                 &__title{
                     font-size: 2em;
+                    cursor: pointer;
                 }
                 &__title svg{
                     vertical-align: middle;
                 }
                 &__list{
                     margin: $gutter*0.5 $gutter*3;
+                    display: none;
                 }
                 &__item{
                     margin: $gutter*0.5 $gutter;
@@ -64,6 +66,9 @@
     }
 }
 
+.isDisplayed{
+    display: block !important;
+}
 //Mobile
 @media screen  and (min-width:0px) and (max-width: 480px) {
     .admin{
