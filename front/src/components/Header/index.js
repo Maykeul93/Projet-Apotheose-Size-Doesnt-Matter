@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import Menu from 'components/Menu';
+import Menu from 'containers/Menu';
 import Connexion from 'containers/Header/Connexion';
 import logo from 'styles/images/logo/logo.png'
 import './style.scss';

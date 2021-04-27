@@ -4,10 +4,11 @@ import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './style.scss';
 
-function Menu() {
+function Menu({role}) {
     let history = useHistory();
     const dispatch = useDispatch()
     const toggleMenu = () => {
+        console.log(role)
         console.log('j\'affiche le menu');
         // Comportement à modifier une fois redux et les states implémentés
         // Display menu since user click a first time on menu
@@ -35,11 +36,14 @@ function Menu() {
                         Mon profil
                     </Link>
                 </li>
-                <li className="menu__option">
-                    <Link to="/page/admin">
-                        Admin
-                    </Link>
-                </li>
+                {
+                    role === 'admin' &&
+                    <li className="menu__option">
+                        <Link to="/page/admin">
+                            Admin
+                        </Link>
+                    </li>
+                }
                 <li className="menu__option">
                     <Link to="/page/createRoom">
                         Jouer

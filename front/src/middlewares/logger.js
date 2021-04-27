@@ -20,9 +20,9 @@ const logger = (store) => (next) => (action) => {
                 password,
             })
             .then((result) => result.data)
-            .then(({id, email, pseudo, avatar, token}) => {
+            .then(({id, email, pseudo, avatar, token, role}) => {
                 localStorage.setItem('token', token);
-                store.dispatch(setUser(id, email, pseudo, avatar));
+                store.dispatch(setUser(id, email, pseudo, avatar, role));
                 store.dispatch(setLogged(true));
                 store.dispatch(socketConnection());
                 store.dispatch(setDisplayed(false));
