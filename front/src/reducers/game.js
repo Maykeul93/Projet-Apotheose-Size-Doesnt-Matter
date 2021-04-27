@@ -14,6 +14,7 @@ import {
 import {
     SET_OTHER_PLAYERS,
     CHAT_RECEIVE_MESSAGE,
+    SET_OTHER_PLAYER_AVATAR,
 } from 'actions/game';
 
 import { transformExactAnswerIntoExploitableAnswer } from 'selectors/gameSelectors';
@@ -38,6 +39,23 @@ const reducer = (state = initialState, action = {}) => {
                 ...state,
                 players: action.players,
             };
+        case SET_OTHER_PLAYER_AVATAR: {
+            const updateAvatar = state.players.map((player) => {
+                if (player.id === action.id){
+                    return {
+                        ...player,
+                        avatar: action.avatar,
+                    }
+                }
+                else {
+                    return player;
+                }
+            });
+            return {
+                ...state,
+                players: updateAvatar,
+            }
+        }
         case CHAT_RECEIVE_MESSAGE:
             return {
                 ...state,

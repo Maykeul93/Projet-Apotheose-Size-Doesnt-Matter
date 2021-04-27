@@ -23,6 +23,7 @@ const initialState = {
     isDisplayed: false,
     socket: null,
     avatar: '',
+    role:'',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -59,6 +60,7 @@ const reducer = (state = initialState, action = {}) => {
                 email: action.email,
                 pseudo: action.pseudo,
                 avatar: action.avatar,
+                role: action.role,
             };
         case SET_SOCKET:
             return {

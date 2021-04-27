@@ -5,6 +5,7 @@ import lucciano from './lucciano.png';
 import maxi from './maxi.png';
 import sebounay from './sebounay.png';
 import toms from './toms.png';
+import baptou from './baptou.png';
 
 const avatars = [
     {
@@ -35,6 +36,10 @@ const avatars = [
         name: "Toms",
         path: toms,
     },
+    {
+        name: "Baptou",
+        path: baptou,
+    }
 ];
 
 export default avatars;

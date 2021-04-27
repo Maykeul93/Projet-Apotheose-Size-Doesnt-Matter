@@ -17,7 +17,7 @@ function App() {
     const {id, pseudo, email, avatar, role} = decodedUser;
     console.log(decodedUser)
     dispatch(setLogged(true))
-    dispatch(setUser(id, email, pseudo))
+    dispatch(setUser(id, email, pseudo, avatar, role))
   }
   return (
     <div className="app">
