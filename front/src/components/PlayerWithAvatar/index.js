@@ -17,7 +17,6 @@ function PlayerWithAvatar({
     const location = useHistory().location.pathname;
     const page = location.split('/')[1];
 
-    console.log(page);
     const [ index, setIndex ] = useState(0);
     useEffect(() => {
         const userAvatarIndex = findIndexOfUserAvatar(user, avatars);

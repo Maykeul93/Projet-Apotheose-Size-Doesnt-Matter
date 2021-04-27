@@ -42,7 +42,6 @@ const gameMiddleware = (store) => (next) => (action) => {
             store.dispatch(setSocket(socket));
 
             socket.on('server_chat_send_message', (message) => {
-                console.log(message);
                 store.dispatch(chatReceiveMessage(message));
             });
 
