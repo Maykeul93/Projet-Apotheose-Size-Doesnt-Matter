@@ -1,4 +1,5 @@
 import React from 'react';
+import {FaPlus} from 'react-icons/fa';
 import Field from 'containers/Profil/Field';
 import PropTypes from 'prop-types';
 
@@ -8,19 +9,23 @@ const Informations = ({avatar, pseudo, email, onSubmit, message }) => {
         onSubmit();
     }
     return(
-        <div className="profil profil__information">
+        <div className="profil__information">
             <div className="profil__avatar-content">
                 <img className="profil__avatar" src={avatar} alt="avatar"/>
-                <span className="profil__add-avatar">+</span>
+                <button type="button" className="profil__form-delete">Supprimer mon compte</button>
+                <button type="button" className="profil__add-avatar"><FaPlus size="35"/></button>
             </div>
             <form className="profil__form" onSubmit={handleSubmit}>
+                
                 <label>{ pseudo }</label>
+               
                 <Field 
                     className="profil__form-pseudo"
                     type="text" 
                     placeholder="Nouveau pseudo"
                     name="pseudo"
                 />
+                
                 <label>{ email }</label>
                 <Field 
                     className="profil__form-email"
@@ -54,7 +59,7 @@ const Informations = ({avatar, pseudo, email, onSubmit, message }) => {
                     <p>{message}</p>
                 )
             }
-            <button type="button" className="profil__form-delete">Supprimer mon compte</button>
+           
         </div>
     )
 };

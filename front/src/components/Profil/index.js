@@ -20,7 +20,7 @@ const Profil = ({pseudo, email}) => {
                     onClick={() => setOnglet('historique')}
                 >Historique</span>
             </div>
-
+            <div className="profil__main">
             {
                 onglet ==="informations" && (
                     <Informations 
@@ -33,6 +33,7 @@ const Profil = ({pseudo, email}) => {
                     <Historique avatar={avatar}/>
                 )
             }
+            </div>
         </div>
     )
 };
