@@ -10,7 +10,7 @@ module.exports = {
         return result.rows;
     },
     async getAllQuestions() {
-        const result = await client.query(`SELECT question_id, content, answer, name AS tag from question JOIN tag_categorize_question ON question.id = question_id JOIN tag ON tag_id = tag.id`)
+        const result = await client.query(`SELECT question_id, content, answer, name AS tag from question JOIN tag_categorize_question ON question.id = question_id JOIN tag ON tag_id = tag.id ORDER BY question_id ASC`)
         return result.rows;
     },
     async getQuestionById(id) {
