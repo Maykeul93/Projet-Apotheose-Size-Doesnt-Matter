@@ -8,7 +8,7 @@ import { CgProfile } from 'react-icons/cg';
 import { GiSnakeSpiral } from 'react-icons/gi';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import './style.scss';
 
 function Menu() {
