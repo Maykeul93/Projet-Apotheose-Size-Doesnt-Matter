@@ -54,11 +54,14 @@
             &__label{
                 font-size: 1em ;
             }
+            &__input{
+                width: 200px;
+            }
             &__select{
-                width: 100px;
+                width: 200px;
             }
             .tag{
-                width: 100px;
+                width: 200px;
             }
         }
     }
@@ -68,10 +71,10 @@
     .form{
         &-content{
             &__input{
-                width: 200px;
+                width: 250px;
             }
             &__select{
-                width: 200px;
+                width: 250px;
             }
         }
     }
