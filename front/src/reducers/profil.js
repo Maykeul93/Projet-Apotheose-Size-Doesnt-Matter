@@ -1,4 +1,4 @@
-import { SET_LOADING, SET_PROFIL_INPUT_VALUE, SET_MESSAGE, RESET_INPUT } from "actions/profil";
+import { SET_LOADING, SET_PROFIL_INPUT_VALUE, RESET_INPUT, SET_PROFIL_SUCCESS, SET_PROFIL_ERROR } from "actions/profil";
 
 const initialState = {
     email: undefined,
@@ -7,7 +7,8 @@ const initialState = {
     newPassword: undefined,
     validPassword: undefined,
     loading: false,
-    message:'',
+    success:'',
+    error: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -31,10 +32,15 @@ const reducer = (state = initialState, action = {}) => {
                 ...state,
                 loading: action.value
             };
-        case SET_MESSAGE :
+        case SET_PROFIL_SUCCESS :
             return {
                 ...state,
-                message: action.value
+                success: action.value
+            };
+        case SET_PROFIL_ERROR :
+            return {
+                ...state,
+                error: action.value
             };
         default:
             return state;

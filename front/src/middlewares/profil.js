@@ -1,4 +1,4 @@
-import { setLoading, SUBMIT_PROFIL, setMessage, resetInput } from 'actions/profil';
+import { setLoading, SUBMIT_PROFIL, setProfilSuccess, resetInput, setProfilError } from 'actions/profil';
 import { setUser } from 'actions/user';
 import api from 'api';
 
@@ -34,14 +34,14 @@ const Profil = (store) => (next) => (action) => {
                 return {infoUser, message}
             })
             .then(({infoUser, message} )=> {
-                console.log(message);
-                store.dispatch(setMessage(message));
-                store.dispatch(setUser(infoUser.id,infoUser.email, infoUser.pseudo));
+                console.log(message, store.getState().user.role);
+                store.dispatch(setProfilSuccess(message));
+                store.dispatch(setUser(infoUser.id,infoUser.email, infoUser.pseudo, infoUser.avatar, store.getState().user.role));
                 store.dispatch(resetInput());
             })
             .catch((error)=> {
-                console.log(error);
-                store.dispatch(setMessage({error}));
+                console.log(error.response.data.error)
+                store.dispatch(setProfilError(error.response.data.error));
                 store.dispatch(resetInput());
             })
             .finally(() => {

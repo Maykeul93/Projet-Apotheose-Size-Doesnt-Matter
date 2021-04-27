@@ -37,12 +37,13 @@ export const setDisplayed = (value = null) => ({
   value,
 });
 
-export const setUser = (id, email, pseudo, avatar) => ({
+export const setUser = (id, email, pseudo, avatar, role) => ({
   type: SET_USER,
   id,
   email,
   pseudo,
   avatar,
+  role,
 });
 
 export const setLogout = () => ({

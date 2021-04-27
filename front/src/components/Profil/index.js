@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import avatar from './avatar.png';
 import './styles.scss';
+
 import Informations from 'containers/Profil/Informations';
 import Historique from './Historique';
-
-const Profil = ({pseudo, email}) => {
+import avatars from 'styles/images/avatars'
+const Profil = ({avatar}) => {
     const [onglet, setOnglet] = useState("informations")
+    const myAvatar = avatars.find((avatarName) => avatarName.name.toLowerCase() === avatar.toLowerCase())
     return(
         <div className="profil page__main">
             <div className="profil__onglet-content">
@@ -24,13 +25,13 @@ const Profil = ({pseudo, email}) => {
             {
                 onglet ==="informations" && (
                     <Informations 
-                        avatar={avatar}
+                        avatar={myAvatar.path}
                     />
                 )
             }
             {
                 onglet ==="historique" && (
-                    <Historique avatar={avatar}/>
+                    <Historique avatar={myAvatar.path}/>
                 )
             }
             </div>

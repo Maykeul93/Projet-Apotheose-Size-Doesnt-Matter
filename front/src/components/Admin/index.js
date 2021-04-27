@@ -7,8 +7,14 @@ import User from 'containers/Admin/User';
 import Message from 'components/Admin/Message';
 
 import './styles.scss';
+import { useHistory } from "react-router-dom";
 
-const Admin = ({setAdmin}) => {
+const Admin = ({setAdmin, role}) => {
+    const history = useHistory();
+    console.log(role)
+    if(role !== 'admin'){
+        history.push('/')
+    }
     useEffect(()=>{
         setAdmin()
     },[setAdmin])

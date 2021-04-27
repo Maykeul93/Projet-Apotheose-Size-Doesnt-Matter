@@ -3,7 +3,8 @@ import Admin from 'components/Admin';
 import { setAdmin } from 'actions/admin';
 
 const mapStateToProps = (state) => ({
-  questions: state.admin.questions
+  questions: state.admin.questions,
+  role: state.user.role
 });
 
 const mapDispatchToProps = (dispatch) => ({
