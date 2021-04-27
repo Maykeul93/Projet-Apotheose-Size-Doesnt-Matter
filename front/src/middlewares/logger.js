@@ -5,6 +5,7 @@ import {
     setLoadingState,
     setLogged,
     setUser,
+    setDisplayed,
 } from 'actions/user';
 
 import { socketConnection } from 'actions/socket';
@@ -24,10 +25,12 @@ const logger = (store) => (next) => (action) => {
                 store.dispatch(setUser(id, email, pseudo, avatar));
                 store.dispatch(setLogged(true));
                 store.dispatch(socketConnection());
+                store.dispatch(setDisplayed(false));
             })
             .finally(() => {
                 store.dispatch(setLoadingState(false));
             });
+            //! Ajouter un .catch pour gérer les erreurs de connexion!
             return next(action);
         }
         default:
