@@ -7,12 +7,14 @@
     overflow: auto;
     margin-left: 2rem;
     &__pictures {
-        width: 5%;
+        width: 20%;
+        margin-bottom: $gutter;
     }
     &__name {
-        font-size: $h2-size;
+        font-size: $h2-size * 1.2;
         color: white;
         font-family: $h1-police; 
+        font-weight: bold;
     }
     &__type {
         font-family: $carbon-police;
@@ -21,6 +23,7 @@
     &__description {
         color: white;
         margin: $gutter;
+        font-size: 1.5rem;
     }
 }
 
@@ -32,9 +35,26 @@
     margin-bottom: 1rem;
 }
 
-.flexRight {
-    display: flex;
-}
+// .imgright {
+//     margin-right: 0;
+// }
+
+// .right {
+//     text-align: end;
+// }
+// .flex-container{
+//     background-color: rgba(255, 255, 255, 0.241);
+//     display: block;
+//     width: 300px;
+// }
+
+// .right {
+//     display: flex;
+//     flex-direction: column;
+//     flex-wrap: wrap;
+//     justify-content: center;
+//     align-self: center;
+// }
 /* Scrollbar styles */
 
 ::-webkit-scrollbar {
