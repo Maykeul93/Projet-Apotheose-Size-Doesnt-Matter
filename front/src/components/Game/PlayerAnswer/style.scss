@@ -2,5 +2,35 @@
 
 .answer {
     flex-grow: 1;
-    margin-top: $gutter;
+    margin: $gutter;
+    &__input {
+        font-family: $h1-police;
+        padding: $gutter / 2;
+        border-radius: $button-radius;
+        text-shadow: $shadow-letters;
+        border: none;
+        box-shadow: 2px 2px 8px black;
+        &::placeholder {
+            text-shadow: $shadow-letters;
+            font-weight: bold;
+        }
+        transition: .2s scale;
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+    &__submit {
+        padding: $gutter / 2;
+        margin-left: $gutter;
+        border: none;
+        border-radius: $button-radius;
+        color: white;
+        font-family: $h1-police;
+        text-shadow: $shadow-letters;
+        box-shadow: $shadow-letters;
+        transition: .2s scale;
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
 }

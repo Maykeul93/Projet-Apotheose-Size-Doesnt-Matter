@@ -1,11 +1,16 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import avatars from 'styles/images/avatars';
 import './style.scss';
+
+import { findIndexOfUserAvatar } from 'selectors/gameSelectors';
 
 function PlayerAnswer({
     isRound,
     sendResponse,
+    user,
 }) {
+    const index = findIndexOfUserAvatar(user, avatars);
     const [ inputValue, changeInputValue ] = useState('');
     const handleSubmitAnswer = (e) => {
         e.preventDefault();
@@ -27,10 +32,16 @@ function PlayerAnswer({
                         placeholder="Votre réponse.."
                         value={inputValue}
                         onChange={(e) => changeInputValue(e.target.value)}
+                        style={{
+                            color: avatars[index].color,
+                            placeholder: avatars[index].color,
+                            borderBottom: avatars[index].color,
+                        }}
                     />
                     <button
                         className="answer__submit"
                         type="submit"
+                        style={{backgroundColor: avatars[index].color}}
                     >
                         Valider
                     </button>
@@ -44,6 +55,7 @@ function PlayerAnswer({
 PlayerAnswer.propTypes = {
     isRound: PropTypes.bool.isRequired,
     sendResponse: PropTypes.func.isRequired,
+    user: PropTypes.object.isRequired,
 };
 
 export default PlayerAnswer;

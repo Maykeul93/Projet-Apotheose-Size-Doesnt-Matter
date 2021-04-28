@@ -1,17 +1,26 @@
 @import 'src/styles/vars.scss';
 
-.timmer {
+.timer {
     position: absolute;
     width: 100px;
     height: 100px;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     border-radius: 50%;
-    top: -20px;
-    left: -20px;
+    top: -30px;
+    left: -70px;
     display: flex;
     justify-content: center;
     align-items: center;
     &__value {
         display: inline-block;
+        font-family: $carbon-police;
+        font-size: $h1-size;
+        text-shadow: 2px 2px black;
+    }
+    &__urgent {
+        transform: scale(1.8);
+    }
+    &__dangerous {
+        transform: scale(2.5);
     }
 }
