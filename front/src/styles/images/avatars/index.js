@@ -21,7 +21,7 @@ const avatars = [
     {
         name: "Jimmo",
         path: jimmo,
-        color: "#FE3535",
+        color: "#E1262C",
     },
     {
         name: "Lucciano",
