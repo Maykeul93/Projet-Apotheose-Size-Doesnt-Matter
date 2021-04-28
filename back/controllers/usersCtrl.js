@@ -137,10 +137,20 @@ module.exports = {
   },
 
   async getHistory (req, res){
-    const userId = req.params.id
+    const userId = req.params.id; 
     try {
-      const history =  await userDataMapper.getHistory(userId);
-      res.send({history});
+      const gameNumber = await userDataMapper.gameCount(userId); 
+      const lastGame = await userDataMapper.lastGameDate(userId); 
+      const first = await userDataMapper.firstPlace(userId); 
+      const second = await userDataMapper.secondPlace(userId); 
+      const third = await userDataMapper.thirdPlace(userId); 
+      const exactAnswer = await userDataMapper.exactAnswerCount(userId); 
+      res.status(201).json({'numberOfGame': gameNumber, 
+      'lastGamePlayed': lastGame.toLocaleDateString(), 
+      'firstPlace': first, 
+      'secondPlace': second, 
+      'thirdPlace': third,
+      'exactAnswer': exactAnswer}); 
     } catch (error){
       res.status(500).send(error);
     }

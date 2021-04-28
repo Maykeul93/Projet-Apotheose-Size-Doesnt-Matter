@@ -61,7 +61,37 @@ module.exports = {
         const result = await client.query(`SELECT user_id, room, score, position, date FROM user_play_game JOIN game ON user_id = game_id WHERE id = $1 `, [userId])
         return result.rows;
     },
-    // Update avatar user (default avatar : 'Alexou')
+
+    async gameCount (userId) {
+        const result = await client.query(`SELECT COUNT(game_id) FROM "user_play_game" WHERE "user_id"=$1`, [userId]); 
+        return result.rows[0].count; 
+    }, 
+
+    async lastGameDate (userId) {
+        const result = await client.query(`SELECT "date" FROM  "user_play_game" WHERE "user_id"=$1 ORDER BY "date" DESC LIMIT 1`, [userId]); 
+        return result.rows[0].date; 
+    }, 
+
+    async firstPlace (userId) {
+        const result = await client.query(`SELECT COUNT(position) FROM "user_play_game" WHERE "user_id"=$1 AND position=1`, [userId]); 
+        return result.rows[0].count; 
+    }, 
+
+    async secondPlace (userId) {
+        const result = await client.query(`SELECT COUNT(position) FROM "user_play_game" WHERE "user_id"=$1 AND position=2`, [userId]); 
+        return result.rows[0].count; 
+    }, 
+
+    async thirdPlace (userId) {
+        const result = await client.query(`SELECT COUNT(position) FROM "user_play_game" WHERE "user_id"=$1 AND position=3`, [userId]); 
+        return result.rows[0].count; 
+    },
+
+    async exactAnswerCount (userId) {
+        const result = await client.query(`SELECT SUM(exact_answer) FROM "user_play_game" WHERE "user_id"=$1 AND exact_answer>0`, [userId]); 
+        return result.rows[0].sum; 
+    }, 
+
     async updateAvatar (avatar, userId){
         const result = await client.query(`UPDATE "user" SET avatar = '$1' WHERE id = $2`, [avatar, userId])
         return result.rows;
