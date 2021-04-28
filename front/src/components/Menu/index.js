@@ -6,6 +6,7 @@ import { BsPlayFill } from 'react-icons/bs';
 import { IoIosStar } from 'react-icons/io';
 import { CgProfile } from 'react-icons/cg';
 import { GiSnakeSpiral } from 'react-icons/gi';
+import { GiHouse } from 'react-icons/gi';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Link} from 'react-router-dom';
@@ -44,49 +45,56 @@ function Menu({role}) {
             <ul
                 className="menu__options"
             >
+                <li className="menu__option" >
+                    <IconContext.Provider 
+                    value={{className:"menu__option--homeIcon"}}
+                    >
+                        <GiHouse size="20" color="black"/>
+                    </IconContext.Provider> 
+                    <Link to="/" style={{ textDecoration: 'none', padding:'0.5rem' }}>
+                       <div className="menu__option--home">Acceuil</div> 
+                    </Link>
+                </li>
+
                 <li className="menu__option">
                     <IconContext.Provider 
-                    value={{className:"menu__option-profil"}}
+                    value={{className:"menu__option--profilIcon"}}
                     >
                         <CgProfile size="20" color="black"/>
                     </IconContext.Provider> 
-                    <Link to="/page/profil">
-                        Mon profil
+                    <Link to="/page/profil" style={{ textDecoration: 'none', padding:'0.5rem' }} >
+                        <div className="menu__option--profil">Mon profil</div>
                     </Link>
                 </li>
                 {
                     role === 'admin' &&
                     <li className="menu__option">
                     <IconContext.Provider 
-                    value={{className:"menu__option-admin"}}
+                    value={{className:"menu__option--adminIcon"}}
                     >
                         <IoIosStar size="20" color="black"/>
                     </IconContext.Provider> 
-                    <Link to="/page/admin">
-                        Admin
+                    <Link to="/page/admin" style={{ textDecoration: 'none', padding:'0.5rem' }}>
+                        <div className="menu__option--admin">Admin</div>
                     </Link>
                 </li>
                 }
                 <li className="menu__option">
                     <IconContext.Provider 
-                    value={{className:"menu__option-play"}}
+                    value={{className:"menu__option--playIcon"}}
                     >
                         <BsPlayFill size="20" color="black"/>
                     </IconContext.Provider> 
-                    <Link to="/page/createRoom">
-                        Jouer
+                    <Link to="/page/createRoom" style={{ textDecoration: 'none', padding:'0.5rem' }}>
+                       <div className="menu__option--play">Jouer</div> 
                     </Link>
                 </li>
                 <li 
                 className=""
                 onClick={handleLogOut}
                 >
-                    <IconContext.Provider 
-                    value={{className:"menu__option-logout"}}
-                    >
-                        <MdExitToApp size="20" color="black"/>
-                    </IconContext.Provider> 
-                   <div className="menu__option-deco">Se déconnecter</div> 
+                   
+                   <div className="menu__option-deco">Se deconnecter</div> 
                 </li>
             </ul>
         </div>
