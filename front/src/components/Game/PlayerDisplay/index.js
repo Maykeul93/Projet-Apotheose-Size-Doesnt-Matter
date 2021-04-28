@@ -15,6 +15,7 @@ function PlayerDisplay({ player, exactAnswer }) {
 
     const answer = transformExactAnswerIntoExploitableAnswer(player.answer);
     const styleSpan = getPercentOfProgressBar(answer, exactAnswer);
+    styleSpan.backgroundColor = avatars[index].color;
 
     //TODO Add verification to compare pseudo with pseudo user of the state
     //TODO  If is equal, add special css to display progress bar bigger 
