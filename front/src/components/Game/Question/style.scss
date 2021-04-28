@@ -1,6 +1,18 @@
 @import 'src/styles/vars.scss';
 
 .question {
-    font-size: $h2-size;
+    font-size: $h2-size * 1.2;
+    font-family: $carbon-police;
     height: 100%;
+    color: white;
+    text-shadow: $shadow-letters;
+    text-align: center;
+    & span {
+        display: inline-block;
+    }
+    &__answer {
+        margin-left: $gutter;
+        font-size: $h2-size * 1.5;
+        text-shadow: 3px 3px 3px black;
+    }
 }
