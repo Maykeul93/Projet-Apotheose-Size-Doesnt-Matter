@@ -7,6 +7,7 @@ import CreateRoom from 'containers/CreateRoom';
 import SignUp from 'containers/SignUp';
 import Profil from 'containers/Profil';
 import Admin from 'containers/Admin';
+import AboutUs from 'components/AboutUs';
 
 //Import Home component
 import Home from 'containers/Home';
@@ -24,7 +25,7 @@ function Page() {
         profil: <Profil />,
         admin: <Admin />,
         createRoom: <CreateRoom />,
-        aboutUs: 'AboutUs Component',
+        aboutUs: <AboutUs />,
         error: 'Error Component',
     };
 
