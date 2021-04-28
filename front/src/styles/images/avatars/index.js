@@ -16,37 +16,37 @@ const avatars = [
     {
         name: "Briana",
         path: briana,
-        color: "#67B231",
+        color: "#529B29",
     },
     {
         name: "Jimmo",
         path: jimmo,
-        color: "#FE3535",
+        color: "#E1262C",
     },
     {
         name: "Lucciano",
         path: lucciano,
-        color: "#9833FD",
+        color: "#4A1879",
     },
     {
         name: "Maxi",
         path: maxi,
-        color: "#FFF100",
+        color: "#FDEE02",
     },
     {
         name: "Sebounay",
         path: sebounay,
-        color: "#F986C7",
+        color: "#E377BB",
     },
     {
         name: "Toms",
         path: toms,
-        color: "#979797",
+        color: "#292929",
     },
     {
         name: "Baptou",
         path: baptou,
-        color: "#2C61E5",
+        color: "#2851C0",
     }
 ];
 

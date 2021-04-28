@@ -5,6 +5,9 @@ import { sendScoreToDB } from 'actions/gameInterface';
 const mapStateToProps = (state) => ({
     round: state.game.round,
     numberOfRounds: state.game.questions.length,
+    userAvatar: {
+        avatar: state.user.avatar,
+    }
 });
 
 const mapDispatchStateToProps = (dispatch) => ({

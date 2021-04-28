@@ -6,6 +6,9 @@ import {
 
 const mapStateToProps = (state) => ({
     isRound: state.game.isRound,
+    user: {
+        avatar: state.user.avatar,
+    }
 });
 
 const mapDispatchStateToProps = (dispatch) => ({

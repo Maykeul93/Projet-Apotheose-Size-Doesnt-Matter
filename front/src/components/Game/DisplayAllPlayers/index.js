@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import PlayerDisplay from './../PlayerDisplay';
+import PlayerDisplay from 'containers/Game/PlayerDisplay';
 
 import './style.scss';
 

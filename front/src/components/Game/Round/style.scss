@@ -11,7 +11,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: $carbon-police;
+    text-shadow: 2px 2px 1px black;
     &__value {
-        display: inline-block;
+        font-size: $h1-size * 1.5;
+        margin-right: $gutter / 2;
+    }
+    &__separator {
+        color: black;
+        font-size: $h1-size / 2;
+        text-shadow: none;
+        margin-right: $gutter / 2;
+    }
+    &__total {
+        font-size: $h1-size;
     }
 }
