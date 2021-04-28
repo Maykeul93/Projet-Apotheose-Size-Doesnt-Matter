@@ -5,31 +5,45 @@
     justify-content: space-between;
     box-sizing: border-box;
     &__left {
-        flex-grow: 10;
+        width: 85%;
         padding: $gutter;
         display: block;
         max-height: 90%;
     }
     &__right {
-        flex-grow: 1;
+        width: 15%;
     }
     &__interface {
         border: 1px solid $color-white;
         position: relative;
-        padding: $gutter;
+        // padding: $gutter;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         align-items: center;
-        max-height: 70%;
+        height: 72%;
+        &--header {
+            border: 1px solid white;
+            width: 100%;
+            height:10%;
+        }
+        &--main {
+            border: 1px solid white;
+            width: 100%;
+            height: 80%;
+        }
+        &--footer {
+            border: 1px solid white;
+            width: 100%;
+            height: 10%;
+        }
     }
     &__bottom {
         border: 1px solid $color-white;
         margin-top: $gutter;
         display: flex;
-        height: 25%;
+        height: 30%;
         position: relative;
-        bottom: -20px;
+        bottom: 0px;
     }
     &__tchat {
         width: 80%;

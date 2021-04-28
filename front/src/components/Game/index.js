@@ -34,12 +34,18 @@ function Game({
                         {
                             !isOver ? (
                                 <>
-                                    <Timer isRanked={isRanked} setIsRanked={setIsRanked} />
-                                    <Question />
-                                    <DisplayAllPlayers />
-                                    <PlayerAnswer />
-                                    {/* Round Component set game is over at the end of the questions*/}
-                                    <Round />
+                                    <div className="game__interface--header">
+                                        <Timer isRanked={isRanked} setIsRanked={setIsRanked} />
+                                        <Question />
+                                    </div>
+                                    <div className="game__interface--main">
+                                        <DisplayAllPlayers />
+                                    </div>
+                                    <div className="game__interface--footer">
+                                        <PlayerAnswer />
+                                        {/* Round Component set game is over at the end of the questions*/}
+                                        <Round />
+                                    </div>
                                 </>
                             ) : (
                                 <h1>Game is Over</h1>
