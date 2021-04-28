@@ -88,6 +88,8 @@
             font-weight: bold;
             color: white;
             margin-bottom: 2rem; 
+            font-family: 'Vanilla';
+            letter-spacing: 2px;
         }
     }
 
@@ -101,6 +103,7 @@
         display: flex;
         flex-direction: column;
         position: relative;
+        bottom: 33px;
         span{
             cursor: pointer;
             
@@ -113,7 +116,7 @@
         border: 1px solid rgb(247, 195, 36);
         padding: 1rem;
         margin-top: 4rem;
-        margin-left: 2rem;
+        margin-left: 3.7rem;
         
         
     }
@@ -122,19 +125,16 @@
 
         border-radius:90px;
         width:140px;
-        
+        position: relative;
         border: 1px solid rgb(247, 195, 36);
         padding: 1rem;
         margin-top: 4rem;
         margin-left: 2rem;
         margin-top: 6rem;
+        top: 33px;
     }
 
-    &__add-avatar{
-        position: absolute;
-        font-size: 3em;
-        
-    }
+    
     &__form{
         display: flex;
         flex-direction: column;
@@ -147,8 +147,9 @@
             text-align: center;
             font-weight: bold;
             color: white;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: 'Vanilla';
             font-size: 25px;
+            letter-spacing: 2px;
             
             
         }
@@ -165,21 +166,57 @@
             border-radius: 5px;
             padding: 0.5rem;
             font-weight: bold;
-            
             padding-right: 50px;
             padding-left: 50px;
+            transition: all 0.1s;
+            box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+            -webkit-transition: all 0.1s;
+            font-size: 15px;
+            font-family: 'Vanilla';
+            letter-spacing: 2px;
+        }
+
+        &-valid:hover{
+
+            transform: scale(1.2);
             
         }
+
+        &-valid:active{
+
+            transform: translate(0px,5px);
+            -webkit-transform: translate(0px,5px);
+            box-shadow: none;
+            border-bottom: 1px solid;
+        }
+
         &-delete{
-            background-color: red;
+            background-color: #BF3765;
             border: 1px solid transparent;
             border-radius: 5px;
-            padding: 0.5rem;
+            padding: 0.6rem;
             font-weight: bold;
             margin-top: 3rem;
             margin-left: 1rem;
-           
+            transition: all 0.1s;
+            box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+            -webkit-transition: all 0.1s;
             
+            font-family: 'Vanilla';
+            letter-spacing: 2px;
+            
+        }
+        &-delete:hover{
+            background-color: red;
+            transform: scale(1.2);
+        }
+
+        &-delete:active{
+            
+            transform: translate(0px,5px);
+            -webkit-transform: translate(0px,5px);
+            box-shadow: none;
+            border-bottom: 1px solid;
         }
 
         &-pseudo{
@@ -243,8 +280,8 @@
     &__add-avatar{
         color: rgb(247, 195, 36);
         position: absolute;
-        top: 40px;
-        left: 150px;
+        top: 53px;
+        left: 178px;
         border: none;
         background-color: transparent;
         transition: .2s scale;
