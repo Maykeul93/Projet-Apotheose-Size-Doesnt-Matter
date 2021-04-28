@@ -3,33 +3,37 @@
 .game {
     display: flex;
     justify-content: space-between;
+    box-sizing: border-box;
     &__left {
         flex-grow: 10;
         padding: $gutter;
-        display: flex;
-        flex-direction: column;
+        display: block;
+        max-height: 90%;
     }
     &__right {
         flex-grow: 1;
     }
     &__interface {
         border: 1px solid $color-white;
-        flex-grow: 20;
+        position: relative;
         padding: $gutter;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        position: relative;
+        max-height: 70%;
     }
     &__bottom {
         border: 1px solid $color-white;
-        flex-grow: 1;
         margin-top: $gutter;
         display: flex;
+        height: 25%;
+        position: relative;
+        bottom: -20px;
     }
     &__tchat {
-        width: 100%;
+        width: 80%;
+        height: 100%;
         border: 1px solid white;
         align-self: flex-end;
     }
@@ -37,5 +41,6 @@
         position: absolute;
         bottom: 10px;
         right: 10px;
+        box-shadow: $shadow-letters;
     }
 }
