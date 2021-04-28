@@ -1,1 +1,55 @@
 @import 'src/styles/vars.scss';
+
+.aboutUs {
+    // background-color: white;
+    width: 92%;
+    height: 90%;
+    overflow: auto;
+    margin-left: 2rem;
+    &__pictures {
+        width: 5%;
+    }
+    &__name {
+        font-size: $h2-size;
+        color: white;
+        font-family: $h1-police; 
+    }
+    &__type {
+        font-family: $carbon-police;
+        font-size: 1.5rem;
+    }
+    &__description {
+        color: white;
+        margin: $gutter;
+    }
+}
+
+.title {
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    font-family: $carbon-police;
+    margin-bottom: 1rem;
+}
+
+.flexRight {
+    display: flex;
+}
+/* Scrollbar styles */
+
+::-webkit-scrollbar {
+    width: 1rem;
+    height: 0.2px; 
+}
+    
+::-webkit-scrollbar-thumb {
+    background: #9d1058; 
+    border-radius: 10px;
+    
+}
+    
+::-webkit-scrollbar-thumb:hover {
+    background: #7b0c45;  
+}
+    
+

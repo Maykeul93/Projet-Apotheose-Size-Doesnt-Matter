@@ -79,10 +79,12 @@ module.exports = {
   
   async updateUser (req, res){
     const { pseudo, email, password, avatar, newPassword, newPassword2 } = req.body;
+    
     const { id } = req.params;
     const user = await userDataMapper.recupUserById(id); 
     const checkMail = await userDataMapper.checkMail(email);
-    
+    console.log(user[0].id); 
+    console.log(avatar); 
     try {
       if (email){
         if (checkMail.length === 0 ){

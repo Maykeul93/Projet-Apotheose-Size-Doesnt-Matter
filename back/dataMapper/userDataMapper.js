@@ -93,7 +93,7 @@ module.exports = {
     }, 
 
     async updateAvatar (avatar, userId){
-        const result = await client.query(`UPDATE "user" SET avatar = '$1' WHERE id = $2`, [avatar, userId])
+        const result = await client.query(`UPDATE "user" SET avatar = $1 WHERE id = $2`, [avatar, userId])
         return result.rows;
     },
 }
