@@ -54,3 +54,22 @@ export const setUserAvatar = (avatar) => ({
   type: SET_USER_AVATAR,
   avatar,
 });
+
+export const DELETE_ACCOUNT = 'DELETE_ACCOUNT';
+
+export const deleteAccount = () => ({
+  type: DELETE_ACCOUNT
+})
+
+export const RESET_STATE = 'RESET_STATE';
+
+export const resetState = () => ({
+  type: "RESET_STATE"
+})
+
+export const SET_USER_HISTORY = 'SET_USER_HISTORY';
+
+export const setUserHistory = (value) => ({
+  type: "SET_USER_HISTORY",
+  value
+})

@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 import Informations from 'containers/Profil/Informations';
-import Historique from './Historique';
+import Historique from 'containers/Profil/Historique';
 import avatars from 'styles/images/avatars'
-const Profil = ({avatar}) => {
+const Profil = ({avatar, requestHistory}) => {
     const [onglet, setOnglet] = useState("informations")
     const myAvatar = avatars.find((avatarName) => avatarName.name.toLowerCase() === avatar.toLowerCase())
     return(
@@ -18,13 +18,17 @@ const Profil = ({avatar}) => {
                 >Informations</span>
                 <span 
                     className="profil__onglet"
-                    onClick={() => setOnglet('historique')}
+                    onClick={() => {
+                        requestHistory()
+                        setOnglet('historique')
+                    }}
                 >Historique</span>
             </div>
             <div className="profil__main">
             {
                 onglet ==="informations" && (
                     <Informations 
+                        avatars={avatars}
                         avatar={myAvatar.path}
                     />
                 )

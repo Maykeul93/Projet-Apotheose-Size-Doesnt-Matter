@@ -441,3 +441,144 @@
 @media screen and  (max-width: 1600px) {
     
 }
+
+.deleteModel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  
+    border: 1px solid #ccc;
+    background: #fff;
+    overflow: auto;
+    border-radius: 4px;
+    outline: none;
+    padding: 20px;
+    h1{
+        font-size: 1.5em;
+        margin: 1em
+    }
+    p{
+        text-align: center;
+        margin-bottom: 1em;
+        color: red;
+    }
+    .buttons{
+        display: flex;
+        justify-content: space-around;
+        .validButton{
+            background-color: red;
+            color: white;
+            border: none;
+            font-weight: bold;
+            padding: $gutter*.5;
+            border-radius: 5px;
+            transition: transform 0.2;
+        }
+        .cancelButton{
+            background-color: green;
+            color: white;
+            border: none;
+            font-weight: bold;
+            padding: $gutter*.5;
+            border-radius: 5px;
+            transition: transform 0.2;
+        }
+        .validButton:hover{
+            transform: scale(1.3);
+        }
+        .cancelButton:hover{
+            transform: scale(1.3);
+        }
+    }
+  }
+  
+  .deleteOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+
+.avatarModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  
+    border: 1px solid #ccc;
+    background: #ccc;
+    overflow: auto;
+    border-radius: 4px;
+    outline: none;
+    padding: 20px;
+    h1{
+        text-align: center;
+        font-size: 1.5em;
+        margin: 1em
+    }
+    p{
+        text-align: center;
+        margin-bottom: 1em;
+        color: red;
+    }
+    .avatars{
+        display: flex;
+        margin: $gutter 0;
+        .avatar{
+            width: 100px;
+            transition: transform 0.2s;
+            cursor: pointer;
+            
+        }
+        .avatar:hover{
+            transform: scale(1.3)
+        }
+    }
+    .selectedAvatar{
+        margin: auto;
+        width: 100px;
+        transition: transform 0.2s;
+        cursor: pointer;
+        
+    }
+    .buttons{
+        display: flex;
+        justify-content: space-around;
+        .validButton{
+            background-color: green;
+            color: white;
+            border: none;
+            font-weight: bold;
+            padding: $gutter*.5;
+            border-radius: 5px;
+            transition: transform 0.2;
+        }
+        .cancelButton{
+            background-color: gray;
+            color: white;
+            border: none;
+            font-weight: bold;
+            padding: $gutter*.5;
+            border-radius: 5px;
+            transition: transform 0.2;
+        }
+        .validButton:hover{
+            transform: scale(1.3);
+        }
+        .cancelButton:hover{
+            transform: scale(1.3);
+        }
+    }
+  }
+  
+  .avatarOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+  }

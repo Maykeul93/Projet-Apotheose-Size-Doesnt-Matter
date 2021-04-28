@@ -7,6 +7,8 @@ import {
         SET_USER,
         SET_LOGOUT,
         SET_USER_AVATAR,
+        RESET_STATE,
+        SET_USER_HISTORY,
     } from 'actions/user';
 
     import {
@@ -24,6 +26,7 @@ const initialState = {
     socket: null,
     avatar: '',
     role:'',
+    history:{}
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -79,6 +82,13 @@ const reducer = (state = initialState, action = {}) => {
                 email: '',
                 pseudo: '',
                 isLogged: false
+            }
+        case RESET_STATE:
+            return initialState
+        case SET_USER_HISTORY:
+            return {
+                ...state,
+                history : action.value
             }
         default:
             return state;
