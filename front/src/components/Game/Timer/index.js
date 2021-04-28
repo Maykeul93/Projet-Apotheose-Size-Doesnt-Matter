@@ -1,10 +1,15 @@
 import { useState, useEffect } from 'react';
+import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import avatars from 'styles/images/avatars';
 import './style.scss';
 
-import { findIndexOfUserAvatar } from 'selectors/gameSelectors';
+import {
+    findIndexOfUserAvatar,
+    timerPercent,
+} from 'selectors/gameSelectors';
 
 function Timmer({
     isRound,
@@ -16,6 +21,8 @@ function Timmer({
     userAvatar,
 }) {
     const [seconds, setSeconds] = useState(isRound ? 30 : 15);
+    const [secondMax, setSecondMax] = useState(isRound? 30 : 15);
+
     const index = findIndexOfUserAvatar(userAvatar, avatars);
 
     useEffect(() => {
@@ -39,22 +46,38 @@ function Timmer({
 
     useEffect(() => {
         setSeconds(isRound ? 30 : 15);
+        setSecondMax(isRound ? 30 : 15);
     }, [isRound]);
 
     return (
         <div className="timer">
-            <span
-                className={
-                    classnames(
-                        "timer__value",
-                        {
-                            "timer__urgent": seconds < 5 && seconds > 2,
-                            "timer__dangerous": seconds <= 2, 
-                        }
-                    )
-                }
-                style={{color: avatars[index].color}}
-            >{seconds}</span>
+            <CircularProgressbarWithChildren
+                value={timerPercent(seconds, secondMax)}
+                styles={{
+                    path: {
+                        stroke: avatars[index].color,
+                    },
+                    trail: {
+                        // Trail color
+                        stroke: '#fff',
+                      },
+                }}
+            >
+                <span
+                    className={
+                        classnames(
+                            "timer__value",
+                            {
+                                "timer__urgent": seconds < 5 && seconds > 2,
+                                "timer__dangerous": seconds <= 2, 
+                            }
+                        )
+                    }
+                    style={{color: avatars[index].color}}
+                >
+                    {seconds}
+                </span>
+            </CircularProgressbarWithChildren>
         </div>
     );
 }

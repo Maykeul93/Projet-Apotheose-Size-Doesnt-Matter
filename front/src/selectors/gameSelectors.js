@@ -107,3 +107,9 @@ export const findIndexOfUserAvatar = (user, avatars) => {
     const index = avatars.findIndex((avatar) => avatar.name === user.avatar);
     return (index !== -1 ? index : 0);
 }
+
+export const timerPercent = (seconds, secondMax) => {
+    return (
+        Math.round((seconds * 100) / secondMax)
+    );
+}
