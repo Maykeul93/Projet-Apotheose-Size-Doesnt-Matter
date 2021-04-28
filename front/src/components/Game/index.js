@@ -34,12 +34,18 @@ function Game({
                         {
                             !isOver ? (
                                 <>
-                                    <Timer isRanked={isRanked} setIsRanked={setIsRanked} />
-                                    <Question />
-                                    <DisplayAllPlayers />
-                                    <PlayerAnswer />
-                                    {/* Round Component set game is over at the end of the questions*/}
-                                    <Round />
+                                    <div className="game__interface--header">
+                                        <Timer isRanked={isRanked} setIsRanked={setIsRanked} />
+                                        <Question />
+                                    </div>
+                                    <div className="game__interface--main">
+                                        <DisplayAllPlayers />
+                                    </div>
+                                    <div className="game__interface--footer">
+                                        <PlayerAnswer />
+                                        {/* Round Component set game is over at the end of the questions*/}
+                                        <Round />
+                                    </div>
                                 </>
                             ) : (
                                 <h1>Game is Over</h1>
@@ -51,12 +57,16 @@ function Game({
                         <div className="game__tchat">
                             <Chat />
                         </div>
-                        <LeaveGame
-                            buttonContent={"Quitter la partie"}
-                        />
+                        <div className="game__leaveGame">
+                            <LeaveGame
+                                buttonContent={"Quitter la partie"}
+                            />
+                        </div>
                     </div>
                 </div>
-                <Ranking setIsRanked={setIsRanked}/>
+                <div className="game__right">
+                    <Ranking setIsRanked={setIsRanked}/>
+                </div>
             </div>
         </>
     );

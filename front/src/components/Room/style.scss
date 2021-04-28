@@ -50,6 +50,7 @@
         & .roomCode {
             position: relative;
             margin-top: $gutter * 2;
+            flex-grow: 1;
             display: flex;
             align-items: baseline;
             width: 50%;
@@ -71,7 +72,7 @@
             &__button {
                 position: absolute;
                 top: -30px;
-                right: -35px;
+                right: -45px;
                 background-color: transparent;
                 box-shadow: $shadow-letters;
                 width: 50px;
@@ -85,9 +86,11 @@
             display: flex;
             justify-content: space-evenly;
             flex-wrap: wrap;
+            min-height: 60%;
         }
         &--chat {
-            padding: $gutter;
+            min-height: 30%;
+            //padding: $gutter;
         }
     }
 }
