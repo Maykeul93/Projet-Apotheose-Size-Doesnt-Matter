@@ -51,12 +51,16 @@ function Game({
                         <div className="game__tchat">
                             <Chat />
                         </div>
-                        <LeaveGame
-                            buttonContent={"Quitter la partie"}
-                        />
+                        <div className="game__leaveGame">
+                            <LeaveGame
+                                buttonContent={"Quitter la partie"}
+                            />
+                        </div>
                     </div>
                 </div>
-                <Ranking setIsRanked={setIsRanked}/>
+                <div className="game__right">
+                    <Ranking setIsRanked={setIsRanked}/>
+                </div>
             </div>
         </>
     );

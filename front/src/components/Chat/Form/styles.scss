@@ -2,6 +2,7 @@
 
 .chatForm{
     display: flex;
+    max-height: 50px;
     &__input {
         flex: 1;
         border: none;
