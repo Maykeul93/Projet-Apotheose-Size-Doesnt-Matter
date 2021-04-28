@@ -1,4 +1,4 @@
-import { SET_LOADING, SET_PROFIL_INPUT_VALUE, RESET_INPUT, SET_PROFIL_SUCCESS, SET_PROFIL_ERROR } from "actions/profil";
+import { SET_LOADING, SET_PROFIL_INPUT_VALUE, RESET_INPUT, SET_PROFIL_SUCCESS, SET_PROFIL_ERROR, SET_AVATAR_CHANGE } from "actions/profil";
 
 const initialState = {
     email: undefined,
@@ -6,6 +6,7 @@ const initialState = {
     oldPassword: undefined,
     newPassword: undefined,
     validPassword: undefined,
+    avatar: undefined,
     loading: false,
     success:'',
     error: '',
@@ -41,6 +42,11 @@ const reducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 error: action.value
+            };
+        case SET_AVATAR_CHANGE :
+            return {
+                ...state,
+                avatar: action.value
             };
         default:
             return state;

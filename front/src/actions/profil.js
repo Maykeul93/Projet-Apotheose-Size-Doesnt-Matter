@@ -38,3 +38,16 @@ export const RESET_INPUT = 'RESET_INPUT';
 export const resetInput = () => ({
     type: RESET_INPUT,
   });
+
+export const SET_AVATAR_CHANGE = 'SET_AVATAR_CHANGE';
+
+export const setAvatarChange = (value) => ({
+    type: SET_AVATAR_CHANGE,
+    value
+  });
+  
+export const REQUEST_HISTORY = 'REQUEST_HISTORY';
+
+export const requestHistory = () => ({
+    type: REQUEST_HISTORY,
+  });
