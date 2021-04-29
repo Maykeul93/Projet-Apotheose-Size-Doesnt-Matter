@@ -22,7 +22,7 @@ export const validateUserAnswer = (value) => ({
     value,
 });
 
-export const leaveGame = (page = null) => ({
+export const leaveGame = (page) => ({
     type: LEAVE_GAME,
     page,
 });

@@ -6,8 +6,8 @@ import { leaveGame } from 'actions/gameInterface';
 const mapStateToProps = (state) => ({});
 
 const mapDispatchStateToProps = (dispatch) => ({
-    leaveGame: () => {
-        dispatch(leaveGame());
+    leaveGame: (page=null) => {
+        dispatch(leaveGame(page));
     },
 });
 
