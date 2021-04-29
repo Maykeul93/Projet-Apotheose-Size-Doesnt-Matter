@@ -21,6 +21,14 @@ export const submitRegistered = () => ({
 
 export const SET_REGISTERED = 'SET_REGISTERED';
 
-export const setRegistered = () => ({
+export const setRegistered = (value) => ({
     type: SET_REGISTERED,
+    value
+});
+
+export const SET_SIGN_UP_ERROR = 'SET_SIGN_UP_ERROR';
+
+export const setSignUpError = (value) => ({
+    type: SET_SIGN_UP_ERROR,
+    value
 });

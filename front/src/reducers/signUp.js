@@ -1,6 +1,7 @@
 import { 
         SET_LOADING,
         SET_REGISTERED, 
+        SET_SIGN_UP_ERROR, 
         SET_SIGN_UP_INPUT_VALUE } from "actions/signUp";
 
 const initialState = {
@@ -10,6 +11,7 @@ const initialState = {
     validPassword: '',
     isRegistered: false,
     loading: false,
+    error: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -27,7 +29,12 @@ const reducer = (state = initialState, action = {}) => {
         case SET_REGISTERED :
             return {
                 ...state,
-                isRegistered: !state.isRegistered,
+                isRegistered: action.value,
+            };
+        case SET_SIGN_UP_ERROR :
+            return {
+                ...state,
+                error: action.value,
             };
         default:
             return state;
