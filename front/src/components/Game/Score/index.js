@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+
 import avatars from 'styles/images/avatars';
 import './styles.scss';
 
@@ -20,7 +21,11 @@ function Score({
         }>
             {
                 isOver && (
-                    <div className="score__avatar">
+                    <div className={
+                        classnames("score__avatar", {
+                            "score__ownAvatar": player.id === userId,
+                        })
+                    }>
                         <img src={avatars[index].path} alt={`${avatars[index].name}`}/>
                     </div>
                 )
