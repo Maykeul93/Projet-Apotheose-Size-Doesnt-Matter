@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import Score from './../Score';
 import './style.scss';
 
@@ -17,6 +18,7 @@ function Ranking({
     setIsRanked,
     score,
     setScore,
+    isOver,
 }) {
     useEffect(() => {
         setScore([player, ...otherPlayers].map((player) => ({
@@ -41,12 +43,19 @@ function Ranking({
     return (
         <div className="ranking">
             <h2 className="ranking__title">Score</h2>
-            <div className="ranking__list">
+            <div className={
+                classnames({
+                    "ranking__list": !isOver,
+                    "ranking__list--isOver": isOver,
+                })
+            }>
                 {
                     score.map((player) => (
                         <Score
                             key={player.id}
                             player={player}
+                            isOver={isOver}
+                            userId={player.id}
                         />
                     ))
                 }
@@ -64,6 +73,7 @@ Ranking.propTypes = {
     setIsRanked: PropTypes.func.isRequired,
     score: PropTypes.array.isRequired,
     setScore: PropTypes.func.isRequired,
+    isOver: PropTypes.bool.isRequired,
 };
 
 export default Ranking;

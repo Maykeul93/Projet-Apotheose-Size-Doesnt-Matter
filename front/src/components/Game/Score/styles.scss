@@ -3,6 +3,10 @@
 .score {
     min-height: 7vh;
     padding: $gutter / 2;
+    width: 10%;
+    & span {
+        display: inline-block;
+    }
     &__pseudo {
         display: inline-block;
         padding: $gutter / 2;
@@ -12,11 +16,35 @@
         color: white;
         text-shadow: $shadow-letters;
         font-family: $h1-police;
+        margin-top: $gutter;
     }
     &__points {
         margin-top: $gutter;
         font-family: $carbon-police;
         font-size: $h2-size;
         text-shadow: 2px 2px 3px white;
+        display: flex;
+        flex-direction: column;
+    }
+    &__avatar {
+        width: 70%;
+        margin: 0 auto;
+    }
+    &__user {
+        width: 15%;
+    }
+    &__exactAnswers {
+        margin-top: $gutter;
+        font-family: $carbon-police;
+        font-size: $h2-size;
+        text-shadow: 2px 2px 3px white;
+        display: flex;
+        flex-direction: column;
+    }
+    &__desc {
+        font-size: 1rem;
+    }
+    &__result {
+        font-size: $h2-size * 1.2;
     }
 }

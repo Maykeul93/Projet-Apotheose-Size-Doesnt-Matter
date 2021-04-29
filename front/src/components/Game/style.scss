@@ -12,12 +12,18 @@
     }
     &__right {
         width: 15%;
+        &--isOver {
+            position: absolute;
+            right: 0;
+            animation-duration: 2s;
+            animation-name: displayScore;
+            width: 100%;
+        }
     }
     &__interface {
-        border: 4px double $color-white;
         border-radius: 15px;
+        box-shadow: $shadow-letters;
         position: relative;
-        // padding: $gutter;
         display: flex;
         flex-direction: column;
         height: 72%;
@@ -35,6 +41,11 @@
         &--footer {
             width: 100%;
             height: 10%;
+        }
+        &--isOver {
+            animation-duration: 2s;
+            animation-name: removeGame;
+            width: 0%;
         }
     }
     &__bottom {
@@ -54,5 +65,25 @@
         bottom: 10px;
         right: 10px;
         box-shadow: $shadow-letters;
+    }
+}
+
+@keyframes displayScore {
+    from {
+        width: 15%;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes removeGame {
+    from {
+        width: 100%;
+    }
+
+    to {
+        width: 0%;
     }
 }
