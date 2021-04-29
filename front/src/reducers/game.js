@@ -9,6 +9,7 @@ import {
     SET_IS_ROUND,
     SET_GAME_IS_OVER,
     SET_SCORE,
+    SET_OTHER_PLAYER_READY,
 } from 'actions/gameInterface';
 
 import {
@@ -54,6 +55,23 @@ const reducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 players: updateAvatar,
+            }
+        }
+        case SET_OTHER_PLAYER_READY: {
+            const updateIsReady = state.players.map((player) => {
+                if (player.id === action.id){
+                    return {
+                        ...player,
+                        isReady: action.isReady,
+                    }
+                }
+                else {
+                    return player;
+                }
+            });
+            return {
+                ...state,
+                players: updateIsReady,
             }
         }
         case CHAT_RECEIVE_MESSAGE:
