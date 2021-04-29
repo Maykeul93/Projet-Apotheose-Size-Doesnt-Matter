@@ -67,9 +67,9 @@ module.exports = {
         return result.rows[0].count; 
     }, 
 
-    async lastGameDate (userId) {
-        const result = await client.query(`SELECT "date" FROM  "user_play_game" WHERE "user_id"=$1 ORDER BY "date" DESC LIMIT 1`, [userId]); 
-        return result.rows[0].date; 
+    async lastGameDate (userId) { 
+        const result = await client.query(`SELECT to_char("date", 'DD/MM/YYYY HH24:MI:SS') FROM "user_play_game" WHERE "user_id"=$1 ORDER BY "date" DESC LIMIT 1`, [userId]);  
+        return result.rows[0].to_char; 
     }, 
 
     async firstPlace (userId) {
