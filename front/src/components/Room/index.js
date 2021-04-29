@@ -6,6 +6,8 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import classnames from 'classnames';
+import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 import Header from 'containers/Header';
 import PlayerWithAvatar from 'containers/PlayerWithAvatar';
@@ -13,8 +15,9 @@ import Chat from 'containers/Chat';
 import LeaveGame from 'containers/Game/LeaveGame';
 import PlayerCard from './PlayerCard';
 
-
 import './style.scss';
+
+import { timerPercent } from 'selectors/gameSelectors';
 
 function Room({
     otherPlayers,
@@ -83,7 +86,7 @@ function Room({
                                     type="button"
                                     onClick={sendIsReady}
                                 >
-                                    {isReady ? 'Pas prêt' : 'Prêt'}
+                                    {isReady ? 'Pas tout de suite!' : 'On y va!'}
                                 </button>
                             )
                         }
@@ -97,11 +100,26 @@ function Room({
                 </div>
                 <div className="room__right">
                     <div className="room__right--header">
-                        <div className="room__right--readyCounter">
-                            <span>{playersReady}</span>
-                            <span>/</span>
-                            <span>{playersNumber}</span>
-                        </div>
+                            <div className={
+                                        classnames("room__right--readyCounter", {"room__right--notreadyCounter": playersReady !== playersNumber})
+                                    }>
+                                <CircularProgressbarWithChildren
+                                    value={timerPercent(playersReady, playersNumber)}
+                                    styles={{
+                                        path: {
+                                            stroke: "rgb(0, 158, 13)",
+                                        },
+                                        trail: {
+                                            // Trail color
+                                            stroke: '#fff',
+                                        },
+                                    }}
+                                >
+                                    <span className="isReady__count">{playersReady}</span>
+                                    <span className="isReady__sep">--</span>
+                                    <span className="isReady__total">{playersNumber}</span>
+                                </CircularProgressbarWithChildren>
+                            </div>
                         <div className="roomCode">
                             <h3 className="roomCode__content">
                                 Code de la partie:

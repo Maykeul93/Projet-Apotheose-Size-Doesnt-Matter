@@ -10,6 +10,7 @@
     top: -30px;
     left: -70px;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     &__value {
