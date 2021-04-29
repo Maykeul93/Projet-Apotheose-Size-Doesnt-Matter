@@ -35,21 +35,25 @@ module.exports = {
       const idGame = await gameController.checkRoom(room);
       if (idGame) {
         //mettre l'avatar du user aussi 
-        const creator = await gameController.updateAvatar(id, avatar);
+        await gameController.updateAvatar(id, avatar);
         await gameController.boundGameOnUser(idGame, id);
         //renvoyer l'avatar dans la fonction ci dessous
         const players = await gameController.getAllPlayers(idGame); 
         if (players.length > 5) {
+          await gameController.deletePlayer(idGame, id, room); 
           return socket.emit('server_join_game_error', {
             error: 'Le nombre maximal de joueur dans une partie est atteint',
           });
         }
         console.log(players.length); 
+        const creator = players[0].id; 
+        console.log(creator);
         socket.join(room);
         io.to(room).emit('server_join_game', {
           room,
           idGame,
-          players
+          players, 
+          creator
         });
       }
       else {
@@ -57,8 +61,14 @@ module.exports = {
           error: 'Cette partie n\'existe pas!!',
         });
       }
-      //ajouter avatar pour plus tard
     });
+
+    socket.on('front_send_is_ready', ({id:userId, room, isReady}) => {
+      io.to(room).emit('server_send_is_ready', {
+        userId, 
+        isReady
+      })
+    }); 
 
     socket.on('front_user_change_avatar', ({ id: userId, avatar, room}) => {
       io.to(room).emit('server_user_change_avatar', {
@@ -92,7 +102,11 @@ module.exports = {
     });
 
     //Sendind the id for the player who clicked to the button 'quit the game'
-    socket.on('front_leave_game', ({ id, room }) => {
+    socket.on('front_leave_game', async ({ id, room, page }) => {
+      const idGame = await gameController.checkRoom(room);
+      if (page === "room") {
+        await gameController.deletePlayer(idGame, id, room); 
+      }
       io.to(room).emit('server_leave_game', {
         id
       });

@@ -74,7 +74,6 @@ module.exports = {
   async insertPlayer (idGame, room) {
     try{
       const allPlayer = await this.getAllPlayers(idGame, room); 
-      console.log(allPlayer.length); 
       const numberPlayer = allPlayer.length; 
       const insertData = await game.insertNumberPlayer(numberPlayer, room); 
       return true; 
@@ -94,6 +93,17 @@ module.exports = {
       }
     }catch (error) {
       return false; 
+    }
+  },
+
+  async deletePlayer (idGame, id, room) {
+    try { 
+      const deleteP = await game.leavePlayerGame(idGame, id);  
+      const allPlayer = await this.getAllPlayers(idGame, room); 
+      console.log(allPlayer); 
+      return true; 
+    } catch (error) {
+      return error; 
     }
   }
 }
