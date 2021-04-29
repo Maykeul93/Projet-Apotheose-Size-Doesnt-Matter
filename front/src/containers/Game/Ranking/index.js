@@ -8,6 +8,7 @@ const mapStateToProps = (state) => ({
         id: state.user.id,
         pseudo: state.user.pseudo,
         answer: state.game.userAnswerValidate,
+        avatar: state.user.avatar,
     },
     otherPlayers: state.game.players,
     exactAnswer: state.game.exactAnswer,

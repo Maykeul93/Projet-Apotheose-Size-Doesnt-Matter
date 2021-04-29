@@ -4,7 +4,8 @@
     flex-grow: 1;
     margin: $gutter;
     &__input {
-        font-family: $h1-police;
+        width: 30%;
+        font-family: $carbon-police;
         padding: $gutter / 2;
         border-radius: $button-radius;
         text-shadow: $shadow-letters;

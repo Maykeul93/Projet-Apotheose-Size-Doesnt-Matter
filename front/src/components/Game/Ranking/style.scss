@@ -4,11 +4,16 @@
     flex-grow: 1;
     padding: $gutter 0; 
     margin: $gutter;
-    border: 1px solid $color-white;
     text-align: center;
-
+    border-radius: 15px;
+    box-shadow: $shadow-letters;
+    z-index: 5;
     &__title {
         font-size: $h2-size;
+        font-family: $h1-police;
+        color: white;
+        text-shadow: $shadow-letters;
+        padding-bottom: $gutter;
     }
 
     &__list {
@@ -17,5 +22,6 @@
         flex-direction: column;
         justify-content: space-evenly;
         overflow-y: auto;
+        max-height: 90%;
     }
 }

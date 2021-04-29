@@ -40,7 +40,7 @@ function Ranking({
     }, [isRound]);
     return (
         <div className="ranking">
-            <h2 className="ranking__title">Ranking</h2>
+            <h2 className="ranking__title">Score</h2>
             <div className="ranking__list">
                 {
                     score.map((player) => (

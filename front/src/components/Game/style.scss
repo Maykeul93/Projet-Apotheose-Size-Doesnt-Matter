@@ -21,6 +21,7 @@
         display: flex;
         flex-direction: column;
         height: 72%;
+        z-index: 1;
         &--header {
             width: 90%;
             height:10%;

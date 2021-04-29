@@ -4,13 +4,19 @@
     min-height: 7vh;
     padding: $gutter / 2;
     &__pseudo {
-        background: $color-white;
         display: inline-block;
         padding: $gutter / 2;
         border-radius: 5px;
         font-weight: bold;
+        box-shadow: $shadow-letters;
+        color: white;
+        text-shadow: $shadow-letters;
+        font-family: $h1-police;
     }
     &__points {
-        margin-top: $gutter / 2;
+        margin-top: $gutter;
+        font-family: $carbon-police;
+        font-size: $h2-size;
+        text-shadow: 2px 2px 3px white;
     }
 }
