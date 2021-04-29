@@ -3,14 +3,71 @@
 .score {
     min-height: 7vh;
     padding: $gutter / 2;
+    width: 10%;
+    & span {
+        display: inline-block;
+    }
     &__pseudo {
-        background: $color-white;
         display: inline-block;
         padding: $gutter / 2;
         border-radius: 5px;
         font-weight: bold;
-    }
-    &__points {
+        box-shadow: $shadow-letters;
+        color: white;
+        text-shadow: $shadow-letters;
+        font-family: $h1-police;
         margin-top: $gutter / 2;
     }
+    &__points {
+        margin-top: $gutter;
+        font-family: $carbon-police;
+        font-size: $h2-size;
+        text-shadow: 2px 2px 3px white;
+        display: flex;
+        flex-direction: column;
+    }
+    &__avatar {
+        width: 70%;
+        margin: 0 auto;
+    }
+    &__ownAvatar {
+        animation: isDancing 2.5s infinite;
+    }
+    &__user {
+        width: 15%;
+    }
+    &__exactAnswers {
+        margin-top: $gutter;
+        font-family: $carbon-police;
+        font-size: $h2-size;
+        text-shadow: 2px 2px 3px white;
+        display: flex;
+        flex-direction: column;
+    }
+    &__desc {
+        font-size: 1rem;
+    }
+    &__result {
+        font-size: $h2-size * 1.2;
+    }
+}
+
+@keyframes isDancing {
+    0% { transform: rotate(0deg); }
+    5% { transform: rotate(5deg); }
+    10% { transform: rotate(-5deg); }
+    15% { transform: rotate(5deg); }
+    20% { transform: rotate(-5deg); }
+    25% { transform: rotate(5deg); }
+    30% {transform: rotate(-5deg); }
+    35% { transform: rotate(5deg); }
+    40% {transform: rotate(-5deg); }
+    45% {transform: rotate(0deg);}
+    65% {transform: rotate(5deg);}
+    70% {transform: rotate(-5deg);}
+    75% {transform: rotate(5deg);}
+    80% { transform: rotate(-5deg); }
+   85% { transform: rotate(5deg); }
+   95% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
 }

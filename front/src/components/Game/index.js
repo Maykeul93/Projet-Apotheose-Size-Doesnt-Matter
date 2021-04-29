@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 import Header from 'containers/Header';
 import PlayerAnswer from 'containers/Game/PlayerAnswer';
@@ -29,10 +30,12 @@ function Game({
             <Header />
             <div className="game game__main">
                 <div className="game__left">
-                    <div className="game__interface">
+                    <div className={classnames("game__interface", {
+                        "game__interface--isOver": isOver,
+                    })}>
                         {/* Insertion composant pour afficher des messages Par dessus interface de jeu */}
                         {
-                            !isOver ? (
+                            !isOver && (
                                 <>
                                     <div className="game__interface--header">
                                         <Timer isRanked={isRanked} setIsRanked={setIsRanked} />
@@ -47,8 +50,6 @@ function Game({
                                         <Round />
                                     </div>
                                 </>
-                            ) : (
-                                <h1>Game is Over</h1>
                             )
                         }
                         
@@ -64,8 +65,15 @@ function Game({
                         </div>
                     </div>
                 </div>
-                <div className="game__right">
-                    <Ranking setIsRanked={setIsRanked}/>
+                <div className={
+                    classnames("game__right", {
+                        "game__right--isOver": isOver,
+                    })
+                }>
+                    <Ranking
+                        setIsRanked={setIsRanked}
+                        isOver={isOver}
+                    />
                 </div>
             </div>
         </>
