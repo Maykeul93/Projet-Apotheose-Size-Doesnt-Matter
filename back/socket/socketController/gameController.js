@@ -77,7 +77,6 @@ module.exports = {
       console.log(allPlayer.length); 
       const numberPlayer = allPlayer.length; 
       const insertData = await game.insertNumberPlayer(numberPlayer, room); 
-      console.log("voilaaa:" + insertData); 
       return true; 
     }catch (error) {
       return error; 
