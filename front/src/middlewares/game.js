@@ -46,7 +46,7 @@ const gameMiddleware = (store) => (next) => (action) => {
             });
 
             socket.on('server_create_game', (data) => {  
-                store.dispatch(stockRoomIntoState(data.room));
+                store.dispatch(stockRoomIntoState(data.room, true));
             });
 
             socket.on('server_create_game_error', ({ error }) => {

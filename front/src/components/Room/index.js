@@ -19,6 +19,7 @@ function Room({
     room,
     launchGame,
     isLaunch,
+    isCreator,
 }) {
 
     if(!room) {
@@ -115,6 +116,7 @@ Room.propTypes = {
     room: PropTypes.string.isRequired,
     launchGame: PropTypes.func.isRequired,
     isLaunch: PropTypes.bool.isRequired,
+    isCreator: PropTypes.bool.isRequired,
 };
 
 export default Room;
