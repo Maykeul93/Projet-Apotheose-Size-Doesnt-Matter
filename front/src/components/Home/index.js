@@ -1,19 +1,27 @@
 //Import images from carousel
 import { Link } from 'react-router-dom';
 import Slides from './Slides';
-
+import { ToastContainer, toast } from 'react-toastify';
 // Import styles 
 import './styles.scss';
+import { useEffect } from 'react';
 
 //Create Home component
-const Home = ({isLogged, onDisplayChange, isRegistered}) => {
+const Home = ({isLogged, onDisplayChange, isRegistered, setRegistered}) => {
+    console.log(isRegistered)
+    useEffect(()=> {
+        if(isRegistered){
+            console.log("go")
+            toast.success("Inscription réussi")
+            setRegistered(false)
+        }
+    })
+    const handleConnect = () => {
+        onDisplayChange();
+        toast.error("Veuillez vous connectez")
+    }
     return(
         <main className="home page__main">
-            {
-                isRegistered && (
-                    <p>Inscription Réussi</p>
-                )
-            }
             <h2 className="home__title" >Bienvenue !</h2>
             <div className="home__content">
                 <p className="home__description">
@@ -27,6 +35,7 @@ const Home = ({isLogged, onDisplayChange, isRegistered}) => {
                     Inscrivez vous, invitez vos amis et <span>Jouez</span> !
                 </p>
                 <Slides />
+                <ToastContainer position="top-center"/>
             </div>
             {
                 isLogged ? (
@@ -40,7 +49,7 @@ const Home = ({isLogged, onDisplayChange, isRegistered}) => {
                     <button 
                         className="home__play-button" 
                         type="button"
-                        onClick={onDisplayChange}
+                        onClick={handleConnect}
                     > Jouer</button>
                 )
             }

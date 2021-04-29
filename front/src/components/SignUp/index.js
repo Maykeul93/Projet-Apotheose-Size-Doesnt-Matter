@@ -4,26 +4,40 @@ import { Redirect } from 'react-router-dom';
 
 import './styles.scss';
 import Field from 'containers/SignUp/Field';
-
+import { ToastContainer, toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
+import { setSignUpError } from 'actions/signUp';
 const SignUp = ({
     loading,
     onSubmit,
     isRegistered,
     setConnexionDisplayed,
+    error
 }) => {
 
+    const dispatch = useDispatch()
+    console.log(error)
+    useEffect(() => {
+        if(error.length > 0){
+            toast.error(error)
+            dispatch(setSignUpError(''))
+        }
+    },[error, dispatch])
+    
     useEffect(() => {
         setConnexionDisplayed(false);
-    }, []);
-
+    }, [setConnexionDisplayed]);
+    
+    if (isRegistered){
+        return <Redirect to="/" />
+    }
+    
     const handleSubmit = (e) => {
         e.preventDefault();
         onSubmit()
     };
 
-    if (isRegistered){
-        return <Redirect to="/" />
-    }
+
 
     return(
         <main className="signup page__main">
@@ -74,6 +88,7 @@ const SignUp = ({
                         </button>
                     )
                 }
+                <ToastContainer position="bottom-center" />
             </form>
         </main>
     )

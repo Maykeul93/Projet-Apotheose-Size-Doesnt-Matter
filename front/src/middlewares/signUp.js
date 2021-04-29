@@ -1,4 +1,4 @@
-import { setLoading, setRegistered, SUBMIT_REGISTERED } from 'actions/signUp';
+import { setLoading, setRegistered, setSignUpError, SUBMIT_REGISTERED } from 'actions/signUp';
 import api from 'api';
 
 const signUp = (store) => (next) => (action) => {
@@ -16,7 +16,10 @@ const signUp = (store) => (next) => (action) => {
                 store.dispatch(setRegistered(true))
             })
             .catch((error)=> {
-                console.log(error)
+                console.log(error.response)
+                if(error.response.data.error){
+                    store.dispatch(setSignUpError(error.response.data.error))
+                }
             })
             .finally(() => {
                 store.dispatch(setLoading(false))

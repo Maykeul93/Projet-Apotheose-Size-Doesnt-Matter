@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import './styles.scss';
 
@@ -8,18 +9,24 @@ import Historique from 'containers/Profil/Historique';
 import avatars from 'styles/images/avatars'
 const Profil = ({avatar, requestHistory}) => {
     const [onglet, setOnglet] = useState("informations")
+    const [activeOnglet, setactiveOnglet] = useState(true)
+
     const myAvatar = avatars.find((avatarName) => avatarName.name.toLowerCase() === avatar.toLowerCase())
     return(
         <div className="profil page__main">
             <div className="profil__onglet-content">
                 <span 
-                    className="profil__onglet"
-                    onClick={() => setOnglet('informations')}
+                    className={classNames("profil__onglet", {"active": activeOnglet})}
+                    onClick={() => {
+                        setOnglet('informations')
+                        setactiveOnglet(true)
+                    }}
                 >Informations</span>
                 <span 
-                    className="profil__onglet"
+                    className={classNames("profil__onglet", {"active": !activeOnglet})}
                     onClick={() => {
                         requestHistory()
+                        setactiveOnglet(false)
                         setOnglet('historique')
                     }}
                 >Historique</span>
