@@ -42,6 +42,12 @@
                 background-color: rgb(0, 158, 13);
                 color: white;
             }
+            & .isNotReady {
+                padding: $gutter;
+                font-size: $h2-size;
+                background-color: rgb(170, 6, 6);
+                color: white;
+            }
             & .leaveButton__container {
                 width: 50%;
             }
@@ -77,7 +83,7 @@
             &__button {
                 position: absolute;
                 top: -30px;
-                right: -45px;
+                left: -70px;
                 background-color: transparent;
                 box-shadow: $shadow-letters;
                 width: 50px;
@@ -89,7 +95,7 @@
         }
         &--playersList {
             display: flex;
-            justify-content: space-evenly;
+            align-items: baseline;
             flex-wrap: wrap;
             min-height: 60%;
         }

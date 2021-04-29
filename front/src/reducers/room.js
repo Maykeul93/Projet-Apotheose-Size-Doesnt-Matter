@@ -28,7 +28,6 @@ const reducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 room: action.roomCode,
-                isReady: action.isCreator ? true : false,
                 isCreator: action.isCreator,
             };
         case SET_IS_READY:

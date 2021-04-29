@@ -62,7 +62,18 @@ const gameMiddleware = (store) => (next) => (action) => {
                     store.dispatch(stockRoomIntoState(data.room));
                 }
                 const otherPlayers = data.players.filter((player) => player.id !== id);
-                store.dispatch(setOtherPlayers(otherPlayers));
+                const updateCreatorPlayer = otherPlayers.map((player) => {
+                    if(player.id === data.creator){
+                        return {
+                            ...player,
+                            isCreator: true,
+                        }
+                    }
+                    else {
+                        return player;
+                    }
+                });
+                store.dispatch(setOtherPlayers(updateCreatorPlayer));
             });
 
             socket.on('server_join_game_error', ({ error }) => {
