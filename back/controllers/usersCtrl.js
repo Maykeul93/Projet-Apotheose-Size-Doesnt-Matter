@@ -148,7 +148,7 @@ module.exports = {
       const third = await userDataMapper.thirdPlace(userId); 
       const exactAnswer = await userDataMapper.exactAnswerCount(userId); 
       res.status(201).json({'numberOfGame': gameNumber, 
-      'lastGamePlayed': lastGame.toLocaleDateString(), 
+      'lastGamePlayed': lastGame, 
       'firstPlace': first, 
       'secondPlace': second, 
       'thirdPlace': third,
