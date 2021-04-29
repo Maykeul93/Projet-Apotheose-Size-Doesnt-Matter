@@ -8,6 +8,7 @@ import SignUp from 'containers/SignUp';
 import Profil from 'containers/Profil';
 import Admin from 'containers/Admin';
 import AboutUs from 'components/AboutUs';
+import Error from 'components/Error';
 
 //Import Home component
 import Home from 'containers/Home';
@@ -26,7 +27,7 @@ function Page() {
         admin: <Admin />,
         createRoom: <CreateRoom />,
         aboutUs: <AboutUs />,
-        error: 'Error Component',
+        error: <Error />,
     };
 
     // Error gestion in case of road asked isn't exist

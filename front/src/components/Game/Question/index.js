@@ -22,7 +22,7 @@ function Question({
                 {
                     round > 0 && (
                         <h2 className="question">
-                            La bonne réponse était : 
+                            <span>La bonne réponse était : </span>
                             <span className="question__answer">{questions[index].answer}</span>
                         </h2>
                     )

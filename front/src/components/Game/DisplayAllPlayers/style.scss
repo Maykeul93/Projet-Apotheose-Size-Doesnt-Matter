@@ -2,9 +2,9 @@
 
 .players {
     margin-top: $gutter;
+    border-bottom: 1px solid white;
     display: flex;
     justify-content: space-evenly;
-    border: 1px solid white;
     flex-grow: 4;
     width: 100%;
     height: 100%;
