@@ -51,5 +51,10 @@ module.exports = {
     async insertNumberPlayer (numberPlayer, room) {
         const result = await client.query(`UPDATE "game" SET "number_player"=$1 WHERE "room"=$2`, [numberPlayer, room]); 
         return result.rows; 
+    }, 
+
+    async leavePlayerGame (gameId, userId) {
+        const result = await client.query(`DELETE FROM "user_play_game" WHERE game_id=$1 AND user_id=$2`, [gameId, userId]); 
+        return result.rows; 
     }
 }
