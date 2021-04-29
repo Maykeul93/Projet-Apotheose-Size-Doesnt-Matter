@@ -1,0 +1,51 @@
+.main{
+    position: relative;
+    &__image{
+
+        height: 80vh;
+        display: flex;
+        width: 80%;
+        margin: 0 auto;
+        justify-content: center;
+        flex-direction: column;
+        
+    }
+    
+}
+.image{
+    align-self: center;
+    width: 40vh;
+}
+
+.error{
+    font-size: 40px;
+    text-align: center;
+    font-family: 'AirmoleShaded';
+    margin-right: 2rem;
+}
+.button{
+    background-color: rgb(41, 127, 20);
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 0.5rem;
+    font-weight: bold;
+    padding-right: 50px;
+    padding-left: 50px;
+    transition: all 0.1s;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+    -webkit-transition: all 0.1s;
+    font-size: 15px;
+    font-family: 'Vanilla';
+    letter-spacing: 2px;
+    width: 30%;
+    align-self: center;
+    margin-top: 2rem;
+    
+}
+button:active{
+
+    transform: translate(0px,5px);
+    -webkit-transform: translate(0px,5px);
+    box-shadow: none;
+    border-bottom: 1px solid;
+}

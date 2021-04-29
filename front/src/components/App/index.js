@@ -3,6 +3,8 @@ import { Switch, Route } from 'react-router-dom';
 import Page from 'components/Page';
 import Room from 'containers/Room';
 import Game from 'containers/Game';
+import Error from 'components/Error';
+
 import './style.scss';
 
 import jwt_decode from "jwt-decode";
@@ -38,7 +40,7 @@ function App() {
         </Route>
         <Route>
           {/* Error gestion */}
-          <div>Error</div>
+          <Error />
         </Route>
       </Switch>
     </div>

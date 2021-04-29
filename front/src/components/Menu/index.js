@@ -52,7 +52,7 @@ function Menu({role}) {
                         <GiHouse size="20" color="black"/>
                     </IconContext.Provider> 
                     <Link to="/" style={{ textDecoration: 'none', padding:'0.5rem' }}>
-                       <div className="menu__option--home">Acceuil</div> 
+                       <div className="menu__option--home">Accueil</div> 
                     </Link>
                 </li>
 
