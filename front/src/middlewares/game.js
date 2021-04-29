@@ -6,6 +6,7 @@ import {
     SET_LAUNCH_GAME,
     CHAT_SEND_MESSAGE,
     SEND_AVATAR_TO_SERV,
+    SEND_IS_READY,
     stockRoomIntoState,
     launchNewGame,
     setOtherPlayers,
@@ -13,6 +14,7 @@ import {
     chatReceiveMessage,
     setRoomError,
     setOtherPlayerAvatar,
+    setIsReady,
 } from 'actions/game';
 
 import {
@@ -25,6 +27,7 @@ import {
     resetGameState,
     setPlayerLeaveGame,
     setGameIsOver,
+    setOtherPlayerReady,
 } from 'actions/gameInterface';
 
 import {
@@ -69,6 +72,15 @@ const gameMiddleware = (store) => (next) => (action) => {
                 }
                 else {
                     next(action);
+                }
+            });
+
+            socket.on('server_send_is_ready', ({ userId, isReady }) => {
+                if (userId === id){
+                    store.dispatch(setIsReady(isReady));
+                }
+                else {
+                    store.dispatch(setOtherPlayerReady(userId, isReady));
                 }
             });
 
@@ -143,6 +155,16 @@ const gameMiddleware = (store) => (next) => (action) => {
                 id,
                 avatar,
                 room,
+            });
+            break;
+        }
+        case SEND_IS_READY: {
+            const { socket, id } = store.getState().user;
+            const { room, isReady } = store.getState().room;
+            socket.emit('front_send_is_ready', {
+                id,
+                room,
+                isReady: !isReady,
             });
             break;
         }
