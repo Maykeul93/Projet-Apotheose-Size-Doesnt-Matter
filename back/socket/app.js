@@ -39,6 +39,12 @@ module.exports = {
         await gameController.boundGameOnUser(idGame, id);
         //renvoyer l'avatar dans la fonction ci dessous
         const players = await gameController.getAllPlayers(idGame); 
+        if (players.length > 5) {
+          return socket.emit('server_join_game_error', {
+            error: 'Le nombre maximal de joueur dans une partie est atteint',
+          });
+        }
+        console.log(players.length); 
         socket.join(room);
         io.to(room).emit('server_join_game', {
           room,
