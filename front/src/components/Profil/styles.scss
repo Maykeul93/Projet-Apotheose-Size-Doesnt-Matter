@@ -49,7 +49,7 @@
         font-size: 25px;
         margin-top: 0.5rem;
         position: relative;
-        right: 225px;
+        right: 300px;
         bottom: 165px;
     }
 
@@ -91,7 +91,10 @@
             font-family: 'Vanilla';
             letter-spacing: 2px;
         }
-        
+        .active{
+            background-color: $color-white;
+            color: $violet-color;
+        }
     }
 
     &__information{
@@ -487,17 +490,21 @@
     transform: translate(-50%, -50%);
   
     border: 1px solid #ccc;
-    background: #fff;
+    background: #ccc;
     overflow: auto;
     border-radius: 4px;
     outline: none;
     padding: 20px;
     h1{
-        font-size: 1.5em;
-        margin: 1em
+        text-align: center;
+        font-size: $h2-size;
+        margin: $gutter;
+        font-family: $vanilla-police;
     }
     p{
         text-align: center;
+        font-size: $h2-size;
+        font-weight: bold;
         margin-bottom: 1em;
         color: red;
     }
@@ -509,7 +516,8 @@
             color: white;
             border: none;
             font-weight: bold;
-            padding: $gutter*.5;
+            padding: $gutter;
+            font-size: $p-size;
             border-radius: 5px;
             transition: transform 0.2;
         }
@@ -518,7 +526,8 @@
             color: white;
             border: none;
             font-weight: bold;
-            padding: $gutter*.5;
+            font-size: $p-size;
+            padding: $gutter;
             border-radius: 5px;
             transition: transform 0.2;
         }
@@ -554,17 +563,20 @@
     padding: 20px;
     h1{
         text-align: center;
-        font-size: 1.5em;
-        margin: 1em
+        font-size: $h1-size;
+        margin: $gutter;
+        font-family: $h1-police;
     }
     p{
         text-align: center;
-        margin-bottom: 1em;
-        color: red;
+        font-size: $h2-size;
+        margin-bottom: $gutter;
+        color: green;
+        font-family: $vanilla-police;
     }
     .avatars{
         display: flex;
-        margin: $gutter 0;
+        margin: $gutter*2 0;
         .avatar{
             width: 100px;
             transition: transform 0.2s;
@@ -576,11 +588,15 @@
         }
     }
     .selectedAvatar{
-        margin: auto;
-        width: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         transition: transform 0.2s;
         cursor: pointer;
         
+    }
+    .selectedAvatar img{
+        width: 100px;
     }
     .buttons{
         display: flex;
@@ -589,8 +605,9 @@
             background-color: green;
             color: white;
             border: none;
+            font-size: $h2-size;
             font-weight: bold;
-            padding: $gutter*.5;
+            padding: $gutter*1;
             border-radius: 5px;
             transition: transform 0.2;
         }
@@ -598,6 +615,7 @@
             background-color: gray;
             color: white;
             border: none;
+            font-size: $h2-size;
             font-weight: bold;
             padding: $gutter*.5;
             border-radius: 5px;

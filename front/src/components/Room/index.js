@@ -19,6 +19,8 @@ function Room({
     room,
     launchGame,
     isLaunch,
+    isCreator,
+    sendIsReady,
 }) {
 
     if(!room) {
@@ -47,14 +49,26 @@ function Room({
                 <div className="room__left">
                     <PlayerWithAvatar />
                     <div className="room__left--launch">
-                        {/* Need to implement a verification to authorize only the game master to launch game*/}
-                        <button
-                            className="launchGame room__left--button"
-                            type="button"
-                            onClick={launchGame}
-                        >
-                            Lancer la partie
-                        </button>
+                        {
+                            isCreator ? (
+                                <button
+                                    className="launchGame room__left--button"
+                                    type="button"
+                                    onClick={launchGame}
+                                >
+                                    Lancer la partie
+                                </button>
+                            ) : (
+                                <button
+                                    className="isReady room__left--button"
+                                    type="button"
+                                    onClick={sendIsReady}
+                                >
+                                    Prêt
+                                </button>
+                            )
+                        }
+                        
                         <div className="leaveButton__container room__left--button">
                             <LeaveGame
                                 buttonContent={"Quitter le salon"}
@@ -115,6 +129,8 @@ Room.propTypes = {
     room: PropTypes.string.isRequired,
     launchGame: PropTypes.func.isRequired,
     isLaunch: PropTypes.bool.isRequired,
+    isCreator: PropTypes.bool.isRequired,
+    sendIsReady: PropTypes.func.isRequired,
 };
 
 export default Room;

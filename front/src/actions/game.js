@@ -12,6 +12,8 @@ export const SET_ROOM_ERROR = 'SET_ROOM_ERROR';
 export const RESET_ROOM_ERROR = 'RESET_ROOM_ERROR';
 export const SEND_AVATAR_TO_SERV = 'SEND_AVATAR_TO_SERV';
 export const SET_OTHER_PLAYER_AVATAR = 'SET_OTHER_PLAYER_AVATAR';
+export const SET_IS_READY = 'SET_IS_READY';
+export const SEND_IS_READY = 'SEND_IS_READY';
 
 export const setCodeRoomInput = (value) => ({
     type: SET_CODE_ROOM_INPUT,
@@ -27,9 +29,10 @@ export const joinNewGame = (roomCode) => ({
     roomCode,
 });
 
-export const stockRoomIntoState = (roomCode) => ({
+export const stockRoomIntoState = (roomCode, isCreator = false) => ({
     type: STOCK_ROOM,
     roomCode,
+    isCreator,
 });
 
 export const resetRoom = () => ({
@@ -77,4 +80,13 @@ export const setOtherPlayerAvatar = (id, avatar) => ({
     type: SET_OTHER_PLAYER_AVATAR,
     id,
     avatar,
+});
+
+export const setIsReady = (isReady) => ({
+    type: SET_IS_READY,
+    isReady,
+});
+
+export const sendIsReady = () => ({
+    type: SEND_IS_READY,
 });

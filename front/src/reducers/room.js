@@ -5,6 +5,7 @@ import {
     RESET_ROOM,
     SET_ROOM_ERROR,
     RESET_ROOM_ERROR,
+    SET_IS_READY,
 } from 'actions/game';
 
 const initialState = {
@@ -12,6 +13,8 @@ const initialState = {
     codeRoomInput: '',
     isLaunch: false,
     error: null,
+    isCreator: false,
+    isReady: false,
 }
 
 const reducer = (state = initialState, action = {}) => {
@@ -25,7 +28,13 @@ const reducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 room: action.roomCode,
+                isCreator: action.isCreator,
             };
+        case SET_IS_READY:
+            return {
+                ...state,
+                isReady: action.isReady,
+            }
         case LAUNCH_GAME:
             return {
                 ...state,

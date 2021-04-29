@@ -4,9 +4,10 @@ import './style.scss';
 
 function LeaveGame({ leaveGame, buttonContent }) {
     let history = useHistory();
+    const page = history.location.pathname.split('/')[1];
     const handleClick = () => {
         history.push('/page/createRoom');
-        leaveGame();
+        leaveGame(page);
     };
 
     return (

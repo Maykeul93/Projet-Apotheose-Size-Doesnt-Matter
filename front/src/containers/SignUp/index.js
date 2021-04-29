@@ -6,6 +6,7 @@ import { setDisplayed } from 'actions/user';
 const mapStateToProps = (state) => ({
   loading: state.signUp.loading,
   isRegistered : state.signUp.isRegistered,
+  error: state.signUp.error
 });
 
 const mapDispatchToProps = (dispatch) => ({

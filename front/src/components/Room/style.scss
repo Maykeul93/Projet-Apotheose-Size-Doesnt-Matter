@@ -17,6 +17,8 @@
             margin-top: $gutter;
             font-weight: bold;
             box-shadow: $shadow-letters;
+            text-shadow: $shadow-letters;
+            font-family: $h1-police;
             &:hover {
                 transition-duration: .2s;
                 transform: scale(1.2);
@@ -31,11 +33,14 @@
             justify-content: space-evenly;
             align-items: center;
             & .launchGame {
-                padding: $gutter;
-                font-family: $h1-police;
+                padding: $gutter;  
                 font-size: $h2-size;
-                min-width: 150px;
-                max-width: 250px;
+            }
+            & .isReady {
+                padding: $gutter;
+                font-size: $h2-size;
+                background-color: rgb(0, 158, 13);
+                color: white;
             }
             & .leaveButton__container {
                 width: 50%;
