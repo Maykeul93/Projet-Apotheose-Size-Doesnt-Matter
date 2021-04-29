@@ -1,9 +1,13 @@
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { FaCopy } from 'react-icons/fa';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import classnames from 'classnames';
+import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 import Header from 'containers/Header';
 import PlayerWithAvatar from 'containers/PlayerWithAvatar';
@@ -11,8 +15,9 @@ import Chat from 'containers/Chat';
 import LeaveGame from 'containers/Game/LeaveGame';
 import PlayerCard from './PlayerCard';
 
-
 import './style.scss';
+
+import { timerPercent } from 'selectors/gameSelectors';
 
 function Room({
     otherPlayers,
@@ -20,8 +25,18 @@ function Room({
     launchGame,
     isLaunch,
     isCreator,
+    isReady,
     sendIsReady,
 }) {
+    const [playersReady, setPlayersReady] = useState(0);
+    const [playersNumber, setPlayersNumber] = useState(0);
+
+    useEffect(() => {
+        console.log('je passe dans useEffect')
+        const numberReady = otherPlayers.filter((player) => player.isReady).length;
+        setPlayersReady(numberReady + (isReady ? 1 : 0));
+        setPlayersNumber(otherPlayers.length + 1);
+    }, [otherPlayers, isReady]);
 
     if(!room) {
         return <Redirect to="/page/createRoom" />
@@ -50,7 +65,7 @@ function Room({
                     <PlayerWithAvatar />
                     <div className="room__left--launch">
                         {
-                            isCreator ? (
+                            isCreator && playersNumber === playersReady ? (
                                 <button
                                     className="launchGame room__left--button"
                                     type="button"
@@ -60,11 +75,18 @@ function Room({
                                 </button>
                             ) : (
                                 <button
-                                    className="isReady room__left--button"
+                                    className={
+                                        classnames(
+                                            "room__left--button", {
+                                                "isNotReady": isReady,
+                                                "isReady": !isReady,
+                                            }
+                                        )
+                                    }
                                     type="button"
                                     onClick={sendIsReady}
                                 >
-                                    Prêt
+                                    {isReady ? 'Pas tout de suite!' : 'On y va!'}
                                 </button>
                             )
                         }
@@ -77,6 +99,27 @@ function Room({
                     </div>
                 </div>
                 <div className="room__right">
+                    <div className="room__right--header">
+                            <div className={
+                                        classnames("room__right--readyCounter", {"room__right--notreadyCounter": playersReady !== playersNumber})
+                                    }>
+                                <CircularProgressbarWithChildren
+                                    value={timerPercent(playersReady, playersNumber)}
+                                    styles={{
+                                        path: {
+                                            stroke: "rgb(0, 158, 13)",
+                                        },
+                                        trail: {
+                                            // Trail color
+                                            stroke: '#fff',
+                                        },
+                                    }}
+                                >
+                                    <span className="isReady__count">{playersReady}</span>
+                                    <span className="isReady__sep">--</span>
+                                    <span className="isReady__total">{playersNumber}</span>
+                                </CircularProgressbarWithChildren>
+                            </div>
                         <div className="roomCode">
                             <h3 className="roomCode__content">
                                 Code de la partie:
@@ -105,6 +148,7 @@ function Room({
                                 pauseOnHover
                             />
                         </div>
+                    </div>
                     <div className="room__right--playersList">
                         {
                             otherPlayers.map((player) => (
@@ -131,6 +175,7 @@ Room.propTypes = {
     isLaunch: PropTypes.bool.isRequired,
     isCreator: PropTypes.bool.isRequired,
     sendIsReady: PropTypes.func.isRequired,
+    isReady: PropTypes.bool.isRequired,
 };
 
 export default Room;

@@ -3,7 +3,10 @@
 .room__playerCard {
     width: 20%;
     text-align: center;
-    margin: 0 $gutter;
+    margin: 0 $gutter $gutter;
+    border-radius: 15px;
+    border: 1px solid black;
+    position: relative;
     &--img {
         width: 100%;
         max-width: 150px;
@@ -12,5 +15,15 @@
         font-family: $carbon-police;
         font-size: $h2-size * 1.5;
         text-shadow: $shadow-letters;
+    }
+    &--crown {
+        position: absolute;
+        top: -28px;
+        left: 42%;
+    }
+    &--checkIcon {
+        position: absolute;
+        bottom: -10px;
+        right: -10px;
     }
 }

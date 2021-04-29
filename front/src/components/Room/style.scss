@@ -42,6 +42,12 @@
                 background-color: rgb(0, 158, 13);
                 color: white;
             }
+            & .isNotReady {
+                padding: $gutter;
+                font-size: $h2-size;
+                background-color: rgb(170, 6, 6);
+                color: white;
+            }
             & .leaveButton__container {
                 width: 50%;
             }
@@ -52,6 +58,40 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        &--header {
+            position: relative;
+        }
+        &--readyCounter {
+            position: absolute;
+            right: 30px;
+            background-color: white;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            box-shadow: 0px 0px 10px white;
+            color:rgb(0, 158, 13);
+            display: flex;
+            //justify-content: center;
+            //align-items: center;
+            font-family: $vanilla-police;
+            font-size: $h2-size;
+            & span {
+                display: inline-block;
+                text-shadow: 2px 2px 2px black;
+            }
+            & .isReady__count {
+                font-size: 2rem;
+            }
+            & .isReady__sep {
+                font-size: 0.8rem;
+            }
+            & .isReady__total {
+                font-size: 2.5rem;
+            }
+        }
+        &--notReadyCounter {
+            color:rgb(170, 6, 6);
+        }
         & .roomCode {
             position: relative;
             margin-top: $gutter * 2;
@@ -77,7 +117,7 @@
             &__button {
                 position: absolute;
                 top: -30px;
-                right: -45px;
+                left: -70px;
                 background-color: transparent;
                 box-shadow: $shadow-letters;
                 width: 50px;
@@ -89,7 +129,7 @@
         }
         &--playersList {
             display: flex;
-            justify-content: space-evenly;
+            align-items: baseline;
             flex-wrap: wrap;
             min-height: 60%;
         }

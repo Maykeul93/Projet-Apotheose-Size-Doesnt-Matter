@@ -10,6 +10,7 @@ const mapStateToProps = (state) => ({
     room: state.room.room,
     isLaunch: state.room.isLaunch,
     isCreator: state.room.isCreator,
+    isReady: state.room.isReady,
 });
 
 const mapDispatchStateToProps = (dispatch) => ({
