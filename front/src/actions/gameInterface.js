@@ -22,8 +22,9 @@ export const validateUserAnswer = (value) => ({
     value,
 });
 
-export const leaveGame = () => ({
+export const leaveGame = (page = null) => ({
     type: LEAVE_GAME,
+    page,
 });
 
 export const setOtherPlayerAnswer = (id, answer) => ({

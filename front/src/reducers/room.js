@@ -12,6 +12,7 @@ const initialState = {
     codeRoomInput: '',
     isLaunch: false,
     error: null,
+    isCreator: false,
 }
 
 const reducer = (state = initialState, action = {}) => {
@@ -25,6 +26,7 @@ const reducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 room: action.roomCode,
+                isCreator: action.isCreator,
             };
         case LAUNCH_GAME:
             return {

@@ -27,9 +27,10 @@ export const joinNewGame = (roomCode) => ({
     roomCode,
 });
 
-export const stockRoomIntoState = (roomCode) => ({
+export const stockRoomIntoState = (roomCode, isCreator = false) => ({
     type: STOCK_ROOM,
     roomCode,
+    isCreator,
 });
 
 export const resetRoom = () => ({
