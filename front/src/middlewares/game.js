@@ -187,6 +187,7 @@ const gameMiddleware = (store) => (next) => (action) => {
             socket.emit('front_leave_game', {
                 id,
                 room,
+                page: action.page,
             });
             break;
         }
