@@ -41,6 +41,12 @@ function Game({
             setNewMessage(true);
         }
     }, [messages]);
+
+    useEffect(() => {
+        if(isOver) {
+            setDisplayChat(true);
+        }
+    }, [isOver]);
     // When the user leaves the game, reset the state 'isLaunch' & redirect to the page of creation Room
     if (!isLaunch){
         return (<Redirect to="/page/createRoom" />);

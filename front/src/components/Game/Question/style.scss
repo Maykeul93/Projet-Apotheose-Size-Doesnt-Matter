@@ -8,6 +8,7 @@
     text-shadow: $shadow-letters;
     text-align: center;
     margin-top: $gutter;
+    z-index: 5;
     & span {
         display: inline-block;
     }
@@ -21,9 +22,9 @@
 //Mobile
 @media screen  and (min-width:0px) and (max-width: 480px) {
     .question {
-        font-size: $h2-size;
+        font-size: 1em;
         &__answer {
-            font-size: $h2-size;
+            font-size: 1em;
         }
     }
 }
