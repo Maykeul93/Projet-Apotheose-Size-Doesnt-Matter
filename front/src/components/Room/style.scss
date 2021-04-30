@@ -32,7 +32,6 @@
             flex-direction: column;
             justify-content: space-evenly;
             align-items: center;
-            border: 1px solid white;
             height: 30%;
             & .launchGame {
                 padding: $gutter;  
@@ -132,11 +131,9 @@
             align-items: center;
             overflow-x: auto;
             min-height: 60%;
-            border: 1px solid white;
         }
         &--chat {
             min-height: 30%;
-            border: 1px solid rgb(192, 2, 2);
             position: relative;
             //padding: $gutter;
         }
@@ -203,7 +200,6 @@
         &__left {
             flex-direction: row;
             flex-grow: .5;
-            border: 1px solid white;
             width: 100%;
             &--button {
                 width: 70%;
@@ -215,6 +211,12 @@
                 & .leaveButton__container {
                     width: 70%;
                 }
+                & .isReady {
+                    font-size: 1em;
+                }
+                & .isNotReady {
+                    font-size: 1em;
+                }
             }
             & .launchGame {
                 font-size: $h2-size / 1.8;
@@ -222,7 +224,6 @@
         }
         &__right {
             position: static;
-            border: 1px solid rgb(182, 1, 1);
             flex-grow: 3;
             width: 100%;
             justify-content: flex-start;
@@ -260,7 +261,6 @@
         &__left {
             flex-direction: row;
             flex-grow: .5;
-            border: 1px solid white;
             width: 100%;
             &--button {
                 width: 70%;
@@ -279,7 +279,6 @@
         }
         &__right {
             position: static;
-            border: 1px solid rgb(182, 1, 1);
             flex-grow: 3;
             width: 100%;
             justify-content: flex-start;
