@@ -27,3 +27,71 @@
         font-size: $h1-size;
     }
 }
+
+//Mobile
+@media screen  and (min-width:0px) and (max-width: 480px) {
+    .round {
+        width: 80px;
+        height: 80px;
+        &__value {
+            font-size: 2.4em;
+        }
+        &__separator {
+            font-size: $h1-size / 4;
+        }
+        &__total {
+            font-size: 2em;
+        }
+    }
+}
+//Tablet
+@media screen  and (min-width:481px) and (max-width: 768px) {
+    .round {
+        width: 60px;
+        height: 60px;
+        &__value {
+            font-size: 2.4em;
+        }
+        &__separator {
+            font-size: $h1-size / 4;
+        }
+        &__total {
+            font-size: 2em;
+        }
+    }
+}
+//Tablet Landscape
+@media screen  and (min-width:769px) and (max-width: 1024px) {
+    .round {
+        width: 80px;
+        height: 80px;
+        &__value {
+            font-size: 2.4em;
+        }
+        &__separator {
+            font-size: $h1-size / 4;
+        }
+        &__total {
+            font-size: 2em;
+        }
+    }
+}
+//Laptop
+@media screen  and (min-width:1025px) and (max-width: 1200px) {
+    .round {
+        width: 80px;
+        height: 80px;
+        &__value {
+            font-size: 2.4em;
+        }
+        &__separator {
+            font-size: $h1-size / 4;
+        }
+        &__total {
+            font-size: 2em;
+        }
+    }
+}
+//Desktop
+@media screen  and (min-width:1601px) {
+}

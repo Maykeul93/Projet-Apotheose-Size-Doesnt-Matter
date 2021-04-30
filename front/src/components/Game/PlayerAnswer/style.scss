@@ -8,7 +8,6 @@
         font-family: $carbon-police;
         padding: $gutter / 2;
         border-radius: $button-radius;
-        text-shadow: 2px 2px 1px black;
         border: none;
         box-shadow: 2px 2px 8px black;
         &::placeholder {
@@ -34,4 +33,25 @@
             transform: scale(1.2);
         }
     }
+}
+
+//Mobile
+@media screen  and (min-width:0px) and (max-width: 480px) {
+}
+//Tablet
+@media screen  and (min-width:481px) and (max-width: 768px) {
+    .answer {
+        &__input {
+            width: 66%;
+        }
+    }
+}
+//Tablet Landscape
+@media screen  and (min-width:769px) and (max-width: 1024px) {
+}
+//Laptop
+@media screen  and (min-width:1025px) and (max-width: 1600px) {
+}
+//Desktop
+@media screen  and (min-width:1601px) {
 }
