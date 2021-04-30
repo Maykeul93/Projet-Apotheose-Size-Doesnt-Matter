@@ -44,12 +44,13 @@ const SignUp = ({
             <h1 className="signup__title">Inscription</h1>
             <form className="signup__form" onSubmit={handleSubmit}>
                 <label className="signup__label">
-                    <p>Choisir votre pseudo:</p>
+                    <p>Choisissez votre pseudo:</p>
                     <Field 
                         className="signup__field"
                         type="text"
                         placeholder="Pseudo"
                         name='pseudo'
+                        required
                     />
                     </label>
                 <label className="signup__label">
@@ -59,15 +60,17 @@ const SignUp = ({
                         type="email"
                         placeholder="Email"
                         name='email'
+                        required
                     />
                 </label>
                 <label className="signup__label">
-                    <p>Choisir un mot de passe:</p>
+                    <p>Choisissez un mot de passe:</p>
                     <Field 
                         className="signup__field"
                         type="password"
                         placeholder="Password"
                         name='password'
+                        required
                     />
                 </label>
                 <label className="signup__label">
@@ -77,6 +80,7 @@ const SignUp = ({
                         type="password"
                         placeholder="Password"
                         name='validPassword'
+                        required
                     />
                 </label>
                 {
