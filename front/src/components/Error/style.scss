@@ -49,3 +49,40 @@ button:active{
     box-shadow: none;
     border-bottom: 1px solid;
 }
+
+
+//Mobile
+@media screen  and (min-width:0px) and (max-width: 390px){
+    .button{
+        padding-right:0 ;
+        padding-left: 0;
+        font-size: 10px;
+    }
+    
+}
+
+@media screen  and (min-width:0px) and (max-width: 700px) {
+    .button {
+        
+        width: 50%;
+        margin-right: 2rem;  
+    }
+    .image {
+        
+        margin-left: 1rem;
+    }
+        
+}
+//Tablet
+@media screen  and (min-width:420px) and (max-width: 900px) {
+    
+}
+//Tablet Landscape
+@media screen  and (min-width:901px) and (max-width: 1024px) {
+    
+}
+//Laptop
+@media screen and  (max-width: 1600px) {
+    
+}
+
