@@ -14,7 +14,7 @@ function Header({ isLogged }) {
                     <img src={logo} alt="logo" />
                 </Link>
             </div>
-            <h1 className="header__title">Size <br />  Doesn't <br /> Matter</h1>
+            <h1 className="header__title">Size Doesn't Matter</h1>
             {
                 isLogged ? <Menu /> :
                 <Connexion />

@@ -124,14 +124,10 @@
     .header{
         &__title{
             font-size: 2em;
-            text-align: center;
-            br{
-                display: block;
-            }
+            margin: auto;
         }
-        &__logo img{
-            width: 60px;
-            padding: 0;
+        &__logo{
+            display: none;
         }
     }
 }
@@ -140,14 +136,10 @@
     .header{
         &__title{
             font-size: 2.5em;
-            text-align: center;
-            br{
-                display: block;
-            }
+            margin: auto;
         }
-        &__logo img{
-            width: 60px;
-            padding: 0;
+        &__logo{
+            display: none;
         }
     }
 }
@@ -157,7 +149,7 @@
         &__title{
             font-size: 3em;
         }
-        &__logo img{
+        &__logo{
             width: 70px;
         }
     }
