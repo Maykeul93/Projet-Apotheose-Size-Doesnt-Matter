@@ -9,11 +9,11 @@ import './style.scss';
 function Header({ isLogged }) {
     return (
         <div className="header">
-            <Link to="/">
-                <div className="header__logo">
+            <div className="header__logo">
+                <Link to="/">
                     <img src={logo} alt="logo" />
-                </div>
-            </Link>
+                </Link>
+            </div>
             <h1 className="header__title">Size Doesn't Matter</h1>
             {
                 isLogged ? <Menu /> :

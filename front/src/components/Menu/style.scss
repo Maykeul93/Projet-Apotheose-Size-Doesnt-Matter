@@ -195,3 +195,20 @@
         right: -200px;
     }
 }
+
+//Mobile
+@media screen  and (min-width:0px) and (max-width: 480px) {
+    .menu{
+        &__icon-menu{
+            right: 0px;
+        }
+    }
+}
+//Tablet
+@media screen  and (min-width:481px) and (max-width: 768px) {
+    .menu{
+        &__icon-menu{
+            right: 10px;
+        }
+    }
+}
