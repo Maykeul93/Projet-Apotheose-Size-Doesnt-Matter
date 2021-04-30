@@ -295,40 +295,88 @@
         }
     }
 }
-// Page Information
-@media screen and (min-width:0px) and (max-width: 368px){
-    .profil{
-        &__information {
-        width: 85%;
-        flex-direction: column;
-        align-items: center;
-        }
 
-        &__form label{
-            font-size: 20px;
-        }
-}
-}
-@media screen and (min-width:368px) and (max-width: 420px){
-    .profil{
-        &__information {
-        width: 90%;
-        flex-direction: column;
-        align-items: center;
-        }
-}
-}
-@media screen and (min-width:420px) and (max-width: 690px){
+@media screen and (min-width:0px) and (max-width: 360px){
     .profil{
         &__information {
         
         flex-direction: column;
         align-items: center;
         }
+
+        &__avatar{
+            width: 80px;
+            margin-top: 1rem;
+            align-self: center;
+            margin-left: 0;
+        }
+        &__form-delete{
+            margin-top: 1rem;
+            margin-left: 1rem;
+            position: relative;
+            top: 17rem;
+            padding: 0.3rem;
+
+        }
+        &__form{
+            position: relative;
+            bottom: 5rem;
+            margin-right: 1rem;
+        }
+        &__form label{
+            font-size: 18px;
+        }
+        &__form-valid{
+            padding: 0.3rem;
+            font-size: 13px;
+            padding-right: 74px;
+            padding-left: 76px;
+            align-self: center;
+        }
+        
     }
-    .page__main{
-        height:85vh;
+    
+}
+@media screen and (min-width:360px) and (max-width: 690px){
+    .profil{
+        &__information {
+        
+        flex-direction: column;
+        align-items: center;
+        }
+
+        &__avatar{
+            width: 80px;
+            margin-top: 1rem;
+            align-self: center;
+            margin-left: 0;
+        }
+        &__form-delete{
+            margin-top: 1rem;
+            margin-left: 2rem;
+            position: relative;
+            top: 17rem;
+            padding: 0.3rem;
+
+        }
+        &__form{
+            position: relative;
+            bottom: 5rem;
+        }
+        &__form label{
+            font-size: 18px;
+        }
+        &__form-valid{
+            padding: 0.3rem;
+            font-size: 13px;
+            padding-right: 74px;
+            padding-left: 76px;
+            align-self: center;
+        }
+        
     }
+    
+    
 
 }
 // Page Historique
