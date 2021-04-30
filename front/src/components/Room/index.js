@@ -9,6 +9,7 @@ import classnames from 'classnames';
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { BsFillChatFill } from 'react-icons/bs';
+import { RiChatDeleteFill } from 'react-icons/ri';
 
 import Header from 'containers/Header';
 import PlayerWithAvatar from 'containers/PlayerWithAvatar';
@@ -31,11 +32,10 @@ function Room({
     isReady,
     sendIsReady,
 }) {
+    const screenSize = useWidthDimension();
     const [playersReady, setPlayersReady] = useState(0);
     const [playersNumber, setPlayersNumber] = useState(0);
-    const [displayChat, setDisplayChat] = useState(false);
-
-    const screenSize = useWidthDimension();
+    const [displayChat, setDisplayChat] = useState(screenSize < 769 ? false : true);
 
     useEffect(() => {
         console.log('je passe dans useEffect')
@@ -43,6 +43,15 @@ function Room({
         setPlayersReady(numberReady + (isReady ? 1 : 0));
         setPlayersNumber(otherPlayers.length + 1);
     }, [otherPlayers, isReady]);
+
+    useEffect(() => {
+        if (screenSize < 769){
+            setDisplayChat(false);
+        }
+        else {
+            setDisplayChat(true);
+        }
+    }, [screenSize]);
 
     if(!room) {
         return <Redirect to="/page/createRoom" />
@@ -175,7 +184,7 @@ function Room({
                     </div>
                     <>
                         {
-                            screenSize < 769 ? (
+                            screenSize < 769 && (
                                 <button
                                     type="button"
                                     className="room__right--chatButton"
@@ -186,17 +195,33 @@ function Room({
                                         color="white"
                                     />
                                 </button>
-                            ) : (
-                                <div className={
-                                    classnames(
-                                        "room__right--chat",
-                                        {"room__right--chatIsClosed": !displayChat}
-                                    )
-                                }>
-                                    <Chat />
-                                </div>
                             )
-                        }
+                        } 
+                        <div className={
+                            classnames(
+                                "room__right--chat",
+                                {
+                                    "room__right--chatIsClosed": !displayChat,
+                                    "room__right--chatIsOpen": displayChat,
+                                }
+                            )
+                        }>
+                            <Chat />
+                            {
+                                screenSize < 769 && (
+                                    <button
+                                        type="button"
+                                        className="room__right--closeChatButton"
+                                        onClick={handleClick}
+                                    >
+                                        <RiChatDeleteFill
+                                            size="35"
+                                            color="white"
+                                        />
+                                    </button>
+                                )
+                            }
+                        </div>   
                     </>
                 </div>
             </main>

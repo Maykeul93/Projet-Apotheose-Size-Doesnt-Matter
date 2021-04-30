@@ -129,8 +129,8 @@
         }
         &--playersList {
             display: flex;
-            align-items: baseline;
-            flex-wrap: wrap;
+            align-items: center;
+            overflow-x: auto;
             min-height: 60%;
             border: 1px solid white;
         }
@@ -139,6 +139,28 @@
             border: 1px solid white;
             position: relative;
             //padding: $gutter;
+        }
+        &--chatIsClosed {
+            left: 102.5%;
+            animation-duration: .3s;
+            animation-name: slideout;
+        }
+        &--chatIsOpen {
+            left: 2.5%;
+            animation-duration: .3s;
+            animation-name: slidein;
+        }
+        &--closeChatButton {
+            border: none;
+            background-color: transparent;
+            position: absolute;
+            top : 0;
+            right: 20px;
+            transition-duration: .2s;
+            &:hover {
+                transition-duration: .2s;
+                transform: scale(1.2);
+            }
         }
         &--chatButton {
             border: none;
@@ -155,6 +177,26 @@
     }
 }
 
+// Animations
+@keyframes slideout {
+    from {
+        left: 2.5%;
+    }
+
+    to {
+        left: 102.5%;
+    }
+}
+
+@keyframes slidein {
+    from {
+        left: 102.5%;
+    }
+
+    to {
+        left: 2.5%;
+    }
+}
 
 // Media Queries
 
@@ -184,7 +226,7 @@
         }
         &__right {
             position: static;
-            border: 1px solid white;
+            border: 1px solid rgb(182, 1, 1);
             flex-grow: 3;
             width: 100%;
             justify-content: flex-start;
@@ -196,8 +238,13 @@
                 min-height: 80%;
             }
             &--chat {
-                min-height: 60%;
+                width: 97%;
+                margin: 0 auto;
+                height: 58%;
+                position: absolute;
+                z-index: 5;
             }
+
         }
     }
 }
@@ -227,7 +274,7 @@
         }
         &__right {
             position: static;
-            border: 1px solid white;
+            border: 1px solid rgb(182, 1, 1);
             flex-grow: 3;
             width: 100%;
             justify-content: flex-start;
@@ -239,8 +286,13 @@
                 min-height: 80%;
             }
             &--chat {
-                min-height: 60%;
+                width: 95%;
+                height: 55%;
+                position: absolute;
+                z-index: 5;
+                
             }
+
         }
     }
 }
