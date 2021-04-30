@@ -85,7 +85,9 @@
     &__newMessage {
         position: absolute;
         bottom: 25px;
-        right: 25px;
+        right: 15px;
+        background-color: transparent;
+        border: none;
     }
     &__closeChatButton {
         position: absolute;
@@ -99,21 +101,21 @@
 // Animations
 @keyframes slideout {
     from {
-        left: 2.5%;
+        right: 1.5%;
     }
 
     to {
-        left: 102.5%;
+        right: 200%;
     }
 }
 
 @keyframes slidein {
     from {
-        left: 102.5%;
+        right: 200%;
     }
 
     to {
-        left: 2.5%;
+        right: 1.5%;
     }
 }
 
@@ -161,7 +163,7 @@
         }
         &__bottom {
             position: absolute;
-            width: 95%;
+            width: 97%;
             right: -100px;
         }
     }
@@ -194,11 +196,11 @@
         &__bottom {
             z-index: 5;
             position: absolute;
-            width: 95%;
+            width: 97%;
             right: 200%;
             bottom: 10px;
             &--isOpen {
-                right: 2.5%;
+                right: 1.5%;
                 animation-duration: .4s;
                 animation-name: slidein;
     

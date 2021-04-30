@@ -98,12 +98,16 @@ function Game({
                     }
                     {
                         screenSize < 769 && newMessage && (
-                            <div className="game__newMessage">
+                            <button
+                                type="button"
+                                className="game__newMessage"
+                                onClick={handleClick}
+                            >
                                 <ImNotification
                                     size="25"
                                     color="#AA0606"
                                 />
-                            </div>
+                            </button>
                         )
                     }
                     <div className={
