@@ -29,8 +29,8 @@ const Admin = ({setAdmin, role}) => {
                 </div>
                 <div className="admin__content-right">
                     <Form />
+                    <Message />
                 </div>
-                <Message />
             </div>
         </main>
     )
