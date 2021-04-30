@@ -10,6 +10,7 @@ import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { BsFillChatFill } from 'react-icons/bs';
 import { RiChatDeleteFill } from 'react-icons/ri';
+import { ImNotification } from 'react-icons/im';
 
 import Header from 'containers/Header';
 import PlayerWithAvatar from 'containers/PlayerWithAvatar';
@@ -31,11 +32,13 @@ function Room({
     isCreator,
     isReady,
     sendIsReady,
+    messages,
 }) {
     const screenSize = useWidthDimension();
     const [playersReady, setPlayersReady] = useState(0);
     const [playersNumber, setPlayersNumber] = useState(0);
     const [displayChat, setDisplayChat] = useState(screenSize < 769 ? false : true);
+    const [newMessage, setNewMessage] = useState(false);
 
     useEffect(() => {
         console.log('je passe dans useEffect')
@@ -52,6 +55,12 @@ function Room({
             setDisplayChat(true);
         }
     }, [screenSize]);
+
+    useEffect(() => {
+        if(!newMessage) {
+            setNewMessage(true);
+        }
+    }, [messages]);
 
     if(!room) {
         return <Redirect to="/page/createRoom" />
@@ -74,6 +83,9 @@ function Room({
 
     const handleClick = () => {
         setDisplayChat(!displayChat);
+        if (newMessage) {
+            setNewMessage(false);
+        }
     };
 
     return (
@@ -196,7 +208,17 @@ function Room({
                                     />
                                 </button>
                             )
-                        } 
+                        }
+                        {
+                            screenSize < 769 && newMessage && (
+                                <div className="room__right--newMessage">
+                                    <ImNotification
+                                        size="25"
+                                        color="#AA0606"
+                                    />
+                                </div>
+                            )
+                        }
                         <div className={
                             classnames(
                                 "room__right--chat",
@@ -237,6 +259,7 @@ Room.propTypes = {
     isCreator: PropTypes.bool.isRequired,
     sendIsReady: PropTypes.func.isRequired,
     isReady: PropTypes.bool.isRequired,
+    messages: PropTypes.array.isRequired,
 };
 
 export default Room;
