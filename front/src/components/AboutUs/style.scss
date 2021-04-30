@@ -35,26 +35,7 @@
     margin-bottom: 1rem;
 }
 
-// .imgright {
-//     margin-right: 0;
-// }
 
-// .right {
-//     text-align: end;
-// }
-// .flex-container{
-//     background-color: rgba(255, 255, 255, 0.241);
-//     display: block;
-//     width: 300px;
-// }
-
-// .right {
-//     display: flex;
-//     flex-direction: column;
-//     flex-wrap: wrap;
-//     justify-content: center;
-//     align-self: center;
-// }
 /* Scrollbar styles */
 
 ::-webkit-scrollbar {
@@ -71,5 +52,39 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #7b0c45;  
 }
-    
+
+@media screen  and (min-width:579px) and (max-width: 745px) {
+    .aboutUs {
+        &__pictures {
+            width: 0%;
+            
+        }
+        &__description {
+            font-size: 1.2rem;
+        }
+    }
+
+}
+@media screen and (max-width: 578px) {
+    .aboutUs {
+        &__pictures {
+            width: 0%;
+            
+        }
+        &__name {
+            font-size: $h2-size ;
+        }
+        &__type {
+            font-size: 1.2rem;
+        }
+        &__description {
+            font-size: 1rem;
+        }
+    }
+    ::-webkit-scrollbar {
+        width: 0.5rem;
+        height: 0.2px; 
+    }
+        
+}
 

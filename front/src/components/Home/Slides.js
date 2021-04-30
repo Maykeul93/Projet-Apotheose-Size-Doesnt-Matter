@@ -19,7 +19,6 @@ const Slides = () => (
                         <img 
                         src={image} 
                         alt="slide1" />
-                        <p className="legend">Legend 1</p>
                     </div>
                 ))
             }

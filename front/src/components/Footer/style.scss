@@ -7,8 +7,6 @@
     background-color: $footer-bg;
     border: 1px solid $border-color;
     border-radius: 30px;
-   
-    
     &__link {
         color: $footer-color;
         text-decoration: none;
@@ -20,4 +18,39 @@
     &__copyright {
         font-size: 0.8em;
     }
+}
+
+@media screen  and (min-width:378px) and (max-width: 412px) {
+    .footer {
+        &__link {
+            color: $footer-color;
+            text-decoration: none;
+            font-size: 0.8rem;
+        }
+
+    }
+
+}
+
+@media screen  and (max-width: 377px) {
+    .footer {
+        flex-wrap: wrap;
+        justify-content:center;
+        height: 0.3rem;
+        &__link {
+            color: $footer-color;
+            text-decoration: none;
+            font-size: 0.8rem;
+            padding-left: 0.2rem;
+            padding-right:0.2rem; 
+            position: relative;
+            bottom: 0.8rem;
+        }
+        &__copyright {
+            font-size: 0.8em;
+            position: relative;
+            bottom: 0.5rem;
+        }
+    }
+
 }
