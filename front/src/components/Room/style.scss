@@ -159,56 +159,23 @@
 // Media Queries
 
 //Mobile
-@media screen  and (min-width:0px) and (max-width: 480px) {
-    .room {
-        &__left {
-            &--button {
-                width: 95%;
-            }
-            &--launch {
-                & .leaveButton__container {
-                    width: 95%;
-                }
-            }
-            & .launchGame {
-                font-size: $h2-size / 1.8;
-            }
-        }
-        &__right {
-            justify-content: flex-start;
-            &--readyCounter {
-                bottom: 0;
-                left: 0;
-            }
-            &--playerList {
-                flex-wrap: nowrap;
-                overflow-y: auto;
-                flex-direction: column;
-                align-items: center;
-                min-height: 80%;
-            }
-            &--chat {
-                min-height: 60%;
-            }
-        }
-    }
-}
-//Tablet
-@media screen  and (min-width:481px) and (max-width: 768px) {
+@media screen  and (min-width:0px) and (max-width: 500px) {
     .room {
         flex-direction: column;
         &__left {
             flex-direction: row;
-            flex-grow: 1;
+            flex-grow: .5;
             border: 1px solid white;
+            width: 100%;
             &--button {
-                width: 95%;
+                width: 70%;
             }
             &--launch {
                 width: 100%;
-
+                height: 100%;
+                margin-top: 0;
                 & .leaveButton__container {
-                    width: 95%;
+                    width: 70%;
                 }
             }
             & .launchGame {
@@ -219,22 +186,60 @@
             position: static;
             border: 1px solid white;
             flex-grow: 3;
-            &--readyCounter {
-                bottom: 0;
-                left: 0;
-            }
-            &--playerList {
+            width: 100%;
+            justify-content: flex-start;
+            &--playersList {
                 flex-wrap: nowrap;
-                overflow-y: auto;
-                flex-direction: column;
+                overflow-x: auto;
+                flex-direction: row;
                 align-items: center;
                 min-height: 80%;
             }
             &--chat {
                 min-height: 60%;
             }
-            & .roomCode {
-                justify-content: flex-end;
+        }
+    }
+}
+//Tablet
+@media screen  and (min-width:501px) and (max-width: 768px) {
+    .room {
+        flex-direction: column;
+        &__left {
+            flex-direction: row;
+            flex-grow: .5;
+            border: 1px solid white;
+            width: 100%;
+            &--button {
+                width: 70%;
+            }
+            &--launch {
+                width: 100%;
+                height: 100%;
+                margin-top: 0;
+                & .leaveButton__container {
+                    width: 70%;
+                }
+            }
+            & .launchGame {
+                font-size: $h2-size / 1.8;
+            }
+        }
+        &__right {
+            position: static;
+            border: 1px solid white;
+            flex-grow: 3;
+            width: 100%;
+            justify-content: flex-start;
+            &--playersList {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                flex-direction: row;
+                align-items: center;
+                min-height: 80%;
+            }
+            &--chat {
+                min-height: 60%;
             }
         }
     }
