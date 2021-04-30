@@ -5,7 +5,7 @@
     &__title {
         text-align: center;
         margin: $gutter;
-        font-size: 3rem; ;
+        font-size: 2.5rem; ;
         font-family: $carbon-police;
         color: white; 
     };
@@ -28,8 +28,8 @@
     &__label{
         margin: $gutter*0.5;
         p{
-            margin-bottom: $gutter*1.5;
-            font-size: $p-size *1.1;
+            margin-bottom: $gutter;
+            font-size: $p-size;
         }
     }
     &__field {
@@ -45,7 +45,6 @@
             }
     }
     &__button {
-        width: 40%;
         margin: auto;
         margin-bottom: .5rem;
         padding-top: 0.8rem;
@@ -66,72 +65,72 @@
 }
 
 //Mobile
-// @media screen  and (min-width:0px) and (max-width: 480px) {
-    
-// }
+@media screen  and (min-width:0px) and (max-width: 480px) {
+    .signup{
+        &__form{
+            width: 50%;
+        }
+        &__label{
+            p{
+                margin-bottom: $gutter*.6;
+                font-size: $p-size*0.6;
+            }
+        }
+        &__field {
+            font-size: $p-size*0.6;
+        }
+        &__button{
+            padding: $gutter*0.3;
+        }
+    }
+}
+
 //Tablet
-// @media screen  and (min-width:481px) and (max-width: 768px) {
-    
-// }
+@media screen  and (min-width:481px) and (max-width: 768px) {
+    .signup{
+        &__form{
+            width: 50%;
+        }
+        &__label{
+            p{
+                margin-bottom: $gutter;
+                font-size: $p-size*0.7;
+            }
+        }
+        &__field {
+            font-size: $p-size*0.7;
+        }
+        &__button{
+            padding: $gutter*0.5;
+        }
+    }
+}
+
 //Tablet Landscape
-@media screen  and (max-width: 920px) {
+@media screen  and (min-width:769px) and (max-width: 1024px) {
     .signup {
         &__label {
             margin-left: $gutter;
-        }
-        &__form {
-            padding-left: 4rem;
-            padding-right: 4rem;
+            font-size: $p-size*0.7;
         }
     }
 }
-@media screen  and (max-width: 1040px) {
-    .signup {
-        &__form {
-            width: 50%;
-        }
-    }
-}
-//Laptop
-@media screen and (max-width: 1560px) {
-    .signup {
-        &__form {
-            width: 45%;
 
-        }
-    }
-}
-@media screen and (max-width: 1330px) {
+//Laptop
+@media screen  and (min-width:1025px) and (max-width: 1600px) {
     .signup {
         &__form {
-            width: 50%;
-            padding-left: 2rem;
-            padding-right: 2rem;
+            width: 40%;
         }
     }
 }
 
 //Desktop
-@media screen and (max-width: 1880px) {
+@media screen and (min-width:1601px) {
     .signup {
-        &__label {
-            p {
-                font-size: $p-size;
-            }
-        }
+        &__form {
+            width: 40%;
 
-        &__button {
-            font-size: 1rem;
-        }
-    }
-}
-
-@media screen and (max-width: 1650px) {
-    .signup {
-        &__label {
-            p {
-                font-size: $p-size * 0.9;
-            }
         }
     }
 }
