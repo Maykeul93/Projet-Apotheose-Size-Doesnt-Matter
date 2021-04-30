@@ -23,10 +23,11 @@
 // Media Queries
 
 //Mobile
-@media screen  and (min-width:0px) and (max-width: 480px) {
+@media screen  and (min-width:0px) and (max-width: 540px) {
     .page {
         &__main {
             width: 98%;
+            overflow-y: auto;
         }
     }
 }

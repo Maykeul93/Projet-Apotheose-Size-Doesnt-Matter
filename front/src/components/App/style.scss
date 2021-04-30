@@ -21,6 +21,9 @@
 
 //Mobile
 @media screen  and (min-width:0px) and (max-width: 480px) {
+    .game__main {
+        width: 95%;
+    }
 }
 //Tablet
 @media screen  and (min-width:481px) and (max-width: 768px) {
@@ -29,7 +32,7 @@
     }
 }
 //Tablet Landscape
-@media screen  and (min-width:769px) and (max-width: 1024px) {
+@media screen  and (min-width:769px) and (max-width: 1200px) {
     .game__main {
         width: 90%;
     }

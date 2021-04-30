@@ -32,6 +32,8 @@
             flex-direction: column;
             justify-content: space-evenly;
             align-items: center;
+            border: 1px solid white;
+            height: 30%;
             & .launchGame {
                 padding: $gutter;  
                 font-size: $h2-size;
@@ -59,9 +61,6 @@
         flex-direction: column;
         justify-content: space-between;
         position: relative;
-        // &--header {
-        //     position: relative;
-        // }
         &--readyCounter {
             position: absolute;
             right: 30px;
@@ -138,7 +137,20 @@
         &--chat {
             min-height: 30%;
             border: 1px solid white;
+            position: relative;
             //padding: $gutter;
+        }
+        &--chatButton {
+            border: none;
+            background-color: transparent;
+            transition-duration: .3s;
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            &:hover {
+                transition-duration: .3s;
+                transform: scale(1.2);
+            }
         }
     }
 }
@@ -150,16 +162,33 @@
 @media screen  and (min-width:0px) and (max-width: 480px) {
     .room {
         &__left {
+            &--button {
+                width: 95%;
+            }
+            &--launch {
+                & .leaveButton__container {
+                    width: 95%;
+                }
+            }
             & .launchGame {
                 font-size: $h2-size / 1.8;
             }
         }
         &__right {
+            justify-content: flex-start;
+            &--readyCounter {
+                bottom: 0;
+                left: 0;
+            }
             &--playerList {
                 flex-wrap: nowrap;
                 overflow-y: auto;
                 flex-direction: column;
                 align-items: center;
+                min-height: 80%;
+            }
+            &--chat {
+                min-height: 60%;
             }
         }
     }
@@ -167,17 +196,45 @@
 //Tablet
 @media screen  and (min-width:481px) and (max-width: 768px) {
     .room {
+        flex-direction: column;
         &__left {
+            flex-direction: row;
+            flex-grow: 1;
+            border: 1px solid white;
+            &--button {
+                width: 95%;
+            }
+            &--launch {
+                width: 100%;
+
+                & .leaveButton__container {
+                    width: 95%;
+                }
+            }
             & .launchGame {
                 font-size: $h2-size / 1.8;
             }
         }
         &__right {
+            position: static;
+            border: 1px solid white;
+            flex-grow: 3;
+            &--readyCounter {
+                bottom: 0;
+                left: 0;
+            }
             &--playerList {
                 flex-wrap: nowrap;
                 overflow-y: auto;
                 flex-direction: column;
                 align-items: center;
+                min-height: 80%;
+            }
+            &--chat {
+                min-height: 60%;
+            }
+            & .roomCode {
+                justify-content: flex-end;
             }
         }
     }
