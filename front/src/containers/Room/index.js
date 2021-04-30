@@ -11,6 +11,7 @@ const mapStateToProps = (state) => ({
     isLaunch: state.room.isLaunch,
     isCreator: state.room.isCreator,
     isReady: state.room.isReady,
+    messages: state.game.chatMessages,
 });
 
 const mapDispatchStateToProps = (dispatch) => ({

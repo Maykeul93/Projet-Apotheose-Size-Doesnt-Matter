@@ -8,12 +8,17 @@ import 'react-toastify/dist/ReactToastify.css';
 import classnames from 'classnames';
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import { BsFillChatFill } from 'react-icons/bs';
+import { RiChatDeleteFill } from 'react-icons/ri';
+import { ImNotification } from 'react-icons/im';
 
 import Header from 'containers/Header';
 import PlayerWithAvatar from 'containers/PlayerWithAvatar';
 import Chat from 'containers/Chat';
 import LeaveGame from 'containers/Game/LeaveGame';
 import PlayerCard from './PlayerCard';
+
+import useWidthDimension from 'customHooks/screenSize';
 
 import './style.scss';
 
@@ -27,9 +32,13 @@ function Room({
     isCreator,
     isReady,
     sendIsReady,
+    messages,
 }) {
+    const screenSize = useWidthDimension();
     const [playersReady, setPlayersReady] = useState(0);
     const [playersNumber, setPlayersNumber] = useState(0);
+    const [displayChat, setDisplayChat] = useState(screenSize < 769 ? false : true);
+    const [newMessage, setNewMessage] = useState(false);
 
     useEffect(() => {
         console.log('je passe dans useEffect')
@@ -37,6 +46,21 @@ function Room({
         setPlayersReady(numberReady + (isReady ? 1 : 0));
         setPlayersNumber(otherPlayers.length + 1);
     }, [otherPlayers, isReady]);
+
+    useEffect(() => {
+        if (screenSize < 769){
+            setDisplayChat(false);
+        }
+        else {
+            setDisplayChat(true);
+        }
+    }, [screenSize]);
+
+    useEffect(() => {
+        if(!newMessage) {
+            setNewMessage(true);
+        }
+    }, [messages]);
 
     if(!room) {
         return <Redirect to="/page/createRoom" />
@@ -55,6 +79,13 @@ function Room({
             draggable: true,
             progress: undefined,
         });
+    };
+
+    const handleClick = () => {
+        setDisplayChat(!displayChat);
+        if (newMessage) {
+            setNewMessage(false);
+        }
     };
 
     return (
@@ -100,26 +131,30 @@ function Room({
                 </div>
                 <div className="room__right">
                     <div className="room__right--header">
-                            <div className={
-                                        classnames("room__right--readyCounter", {"room__right--notreadyCounter": playersReady !== playersNumber})
-                                    }>
-                                <CircularProgressbarWithChildren
-                                    value={timerPercent(playersReady, playersNumber)}
-                                    styles={{
-                                        path: {
-                                            stroke: "rgb(0, 158, 13)",
-                                        },
-                                        trail: {
-                                            // Trail color
-                                            stroke: '#fff',
-                                        },
-                                    }}
-                                >
-                                    <span className="isReady__count">{playersReady}</span>
-                                    <span className="isReady__sep">--</span>
-                                    <span className="isReady__total">{playersNumber}</span>
-                                </CircularProgressbarWithChildren>
-                            </div>
+                        {
+                            screenSize > 768 && (
+                                <div className={
+                                    classnames("room__right--readyCounter", {"room__right--notreadyCounter": playersReady !== playersNumber})
+                                }>
+                                    <CircularProgressbarWithChildren
+                                        value={timerPercent(playersReady, playersNumber)}
+                                        styles={{
+                                            path: {
+                                                stroke: "rgb(0, 158, 13)",
+                                            },
+                                            trail: {
+                                                // Trail color
+                                                stroke: '#fff',
+                                            },
+                                        }}
+                                    >
+                                        <span className="isReady__count">{playersReady}</span>
+                                        <span className="isReady__sep">--</span>
+                                        <span className="isReady__total">{playersNumber}</span>
+                                    </CircularProgressbarWithChildren>
+                                </div>
+                            )
+                        }
                         <div className="roomCode">
                             <h3 className="roomCode__content">
                                 Code de la partie:
@@ -159,9 +194,57 @@ function Room({
                             ))
                         }
                     </div>
-                    <div className="room__right--chat">
-                        <Chat />
-                    </div>
+                    <>
+                        {
+                            screenSize < 769 && (
+                                <button
+                                    type="button"
+                                    className="room__right--chatButton"
+                                    onClick={handleClick}
+                                >
+                                    <BsFillChatFill
+                                        size="45"
+                                        color="white"
+                                    />
+                                </button>
+                            )
+                        }
+                        {
+                            screenSize < 769 && newMessage && (
+                                <div className="room__right--newMessage">
+                                    <ImNotification
+                                        size="25"
+                                        color="#AA0606"
+                                    />
+                                </div>
+                            )
+                        }
+                        <div className={
+                            classnames(
+                                "room__right--chat",
+                                {
+                                    "room__right--chatIsClosed": !displayChat,
+                                    "room__right--chatIsOpen": displayChat,
+                                }
+                            )
+                        }>
+                            <Chat />
+                            {
+                                screenSize < 769 && (
+                                    <button
+                                        type="button"
+                                        className="room__right--closeChatButton"
+                                        onClick={handleClick}
+                                    >
+                                        <RiChatDeleteFill
+                                            size="35"
+                                            color="white"
+                                        />
+                                    </button>
+                                )
+                            }
+                        </div>   
+                    </>
                 </div>
             </main>
         </>
@@ -176,6 +259,7 @@ Room.propTypes = {
     isCreator: PropTypes.bool.isRequired,
     sendIsReady: PropTypes.func.isRequired,
     isReady: PropTypes.bool.isRequired,
+    messages: PropTypes.array.isRequired,
 };
 
 export default Room;
