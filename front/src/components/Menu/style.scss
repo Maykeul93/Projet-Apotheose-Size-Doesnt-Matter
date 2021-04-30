@@ -19,7 +19,7 @@
         padding: $gutter*2;
         margin-right: 10px;
         //border: 1px solid $border-color;
-        animation: slideout .7s ease-out;
+        animation: slideouta .7s ease-out;
         background: #9D1058;
         //background: -webkit-linear-gradient(to right, #753a88, #cc2b5e);  
         //background: linear-gradient(to right, #753a88, #cc2b5e);
@@ -167,7 +167,7 @@
 
 
 .is-active {
-    animation: slidein .7s ease-out;
+    animation: slideina .7s ease-out;
     right: -25px;
 }
 
@@ -177,7 +177,7 @@
     align-items:center;
 }
 
-@keyframes slidein {
+@keyframes slideina {
     from {
         right: -200px;
     }
@@ -187,7 +187,7 @@
     }
 }
 
-@keyframes slideout {
+@keyframes slideouta {
     from {
         right: -25px;
     }
