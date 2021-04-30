@@ -2,9 +2,10 @@
 
 .chatForm{
     display: flex;
-    max-height: 50px;
+    //max-height: 50px;
+    width: 100%;
     &__input {
-        flex: 1;
+        flex-grow: 4;
         border: none;
         padding: $gutter * 0.75;
         border-bottom-left-radius: 8px;
@@ -17,7 +18,7 @@
         border: none;
         border-bottom-right-radius: 8px;
         background-color: $violet-color;
-        min-width: 80px;
+        flex-grow: 1;
         &:hover {
             transition-duration: 0.5s;
             background-color: rgb(157, 88, 163);

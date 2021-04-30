@@ -1,13 +1,15 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 
 import './styles.scss'
 import Messages from './Messages';
 import Form from './Form';
 
-const Chat = ({ messages, chatSendMessage, userId }) => {
+const Chat = ({
+    messages,
+    chatSendMessage,
+    userId,
+}) => {
     return (
-
         <div className="chat">
             <Messages
                 messages={messages}
