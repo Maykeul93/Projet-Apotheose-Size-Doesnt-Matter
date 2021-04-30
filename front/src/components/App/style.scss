@@ -23,18 +23,20 @@
 @media screen  and (min-width:0px) and (max-width: 480px) {
     .game__main {
         width: 95%;
+        height: 85vh;
     }
 }
 //Tablet
 @media screen  and (min-width:481px) and (max-width: 768px) {
     .game__main {
         width: 95%;
+        height: 85vh;
     }
 }
 //Tablet Landscape
 @media screen  and (min-width:769px) and (max-width: 1200px) {
     .game__main {
-        width: 90%;
+        width: 95%;
     }
 }
 //Laptop

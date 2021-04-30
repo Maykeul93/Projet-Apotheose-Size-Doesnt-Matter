@@ -7,7 +7,7 @@
     max-height: 100%;
     width: 80px;
     position: relative;
-    z-index: 5;
+    z-index: 1;
     &__pseudo {
         font-family: $h1-police;
         color: white;
@@ -47,4 +47,35 @@
     &__user {
         width: 100px;
     }
+}
+
+//Mobile
+@media screen  and (min-width:0px) and (max-width: 480px) {
+    .playerDisplay {
+        &__pseudo {
+            font-size: .8em;
+        }
+    }
+}
+//Tablet
+@media screen  and (min-width:481px) and (max-width: 768px) {
+    .playerDisplay {
+        &__pseudo {
+            font-size: .8em;
+        }
+    }
+}
+//Tablet Landscape
+@media screen  and (min-width:769px) and (max-width: 1024px) {
+    .playerDisplay {
+        &__pseudo {
+            font-size: .8em;
+        }
+    }
+}
+//Laptop
+@media screen  and (min-width:1025px) and (max-width: 1600px) {
+}
+//Desktop
+@media screen  and (min-width:1601px) {
 }

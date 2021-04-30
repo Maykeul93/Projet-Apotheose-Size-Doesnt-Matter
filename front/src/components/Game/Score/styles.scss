@@ -3,7 +3,10 @@
 .score {
     min-height: 7vh;
     padding: $gutter / 2;
-    width: 10%;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    border: 1px white solid;
     & span {
         display: inline-block;
     }
@@ -17,6 +20,8 @@
         text-shadow: $shadow-letters;
         font-family: $h1-police;
         margin-top: $gutter / 2;
+        margin-right: auto;
+        margin-left: auto;
     }
     &__points {
         margin-top: $gutter;
@@ -70,4 +75,25 @@
    85% { transform: rotate(5deg); }
    95% { transform: rotate(-5deg); }
   100% { transform: rotate(0deg); }
+}
+
+//Mobile
+@media screen  and (min-width:0px) and (max-width: 480px) {
+}
+//Tablet
+@media screen  and (min-width:481px) and (max-width: 768px) {
+}
+//Tablet Landscape
+@media screen  and (min-width:769px) and (max-width: 1024px) {
+    .score {
+        &__pseudo {
+            font-size: .8em;
+        }
+    }
+}
+//Laptop
+@media screen  and (min-width:1025px) and (max-width: 1600px) {
+}
+//Desktop
+@media screen  and (min-width:1601px) {
 }
