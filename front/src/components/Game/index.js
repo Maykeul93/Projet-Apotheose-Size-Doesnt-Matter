@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import { BsFillChatFill } from 'react-icons/bs';
 import { ImNotification } from 'react-icons/im';
+import { RiChatDeleteFill } from 'react-icons/ri';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -105,8 +106,27 @@ function Game({
                             </div>
                         )
                     }
-                    <div className="game__bottom">
+                    <div className={
+                        classnames("game__bottom", {
+                            "game__bottom--isOpen": displayChat,
+                            "game__bottom--isClosed": !displayChat,
+                        })
+                    }>
                         <div className="game__tchat">
+                            {
+                                screenSize < 769 && (
+                                    <button
+                                        type="button"
+                                        className="game__closeChatButton"
+                                        onClick={handleClick}
+                                    >
+                                        <RiChatDeleteFill
+                                            size="35"
+                                            color="white"
+                                        />
+                                    </button>
+                                )
+                            }
                             <Chat />
                         </div>
                     </div>

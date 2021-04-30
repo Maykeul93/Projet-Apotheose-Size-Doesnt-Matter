@@ -60,6 +60,7 @@
     &__tchat {
         width: 100%;
         height: 100%;
+        position: relative;
         align-self: flex-end;
         &--button {
             position: absolute;
@@ -85,6 +86,34 @@
         position: absolute;
         bottom: 25px;
         right: 25px;
+    }
+    &__closeChatButton {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        border: none;
+        background-color: transparent;
+    }
+}
+
+// Animations
+@keyframes slideout {
+    from {
+        left: 2.5%;
+    }
+
+    to {
+        left: 102.5%;
+    }
+}
+
+@keyframes slidein {
+    from {
+        left: 102.5%;
+    }
+
+    to {
+        left: 2.5%;
     }
 }
 
@@ -132,8 +161,8 @@
         }
         &__bottom {
             position: absolute;
-            width: 90%;
-            right: 200%;
+            width: 95%;
+            right: -100px;
         }
     }
 }
@@ -163,9 +192,22 @@
             }
         }
         &__bottom {
+            z-index: 5;
             position: absolute;
-            width: 90%;
+            width: 95%;
             right: 200%;
+            bottom: 10px;
+            &--isOpen {
+                right: 2.5%;
+                animation-duration: .4s;
+                animation-name: slidein;
+    
+            }
+            &--isClosed {
+                right: 200%;
+                animation-duration: .4s;
+                animation-name: slideout;
+            }
         }
         &__leaveGame {
             width: 60%;
