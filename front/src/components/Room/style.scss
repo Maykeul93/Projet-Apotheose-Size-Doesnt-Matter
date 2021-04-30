@@ -58,9 +58,10 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        &--header {
-            position: relative;
-        }
+        position: relative;
+        // &--header {
+        //     position: relative;
+        // }
         &--readyCounter {
             position: absolute;
             right: 30px;
@@ -132,9 +133,11 @@
             align-items: baseline;
             flex-wrap: wrap;
             min-height: 60%;
+            border: 1px solid white;
         }
         &--chat {
             min-height: 30%;
+            border: 1px solid white;
             //padding: $gutter;
         }
     }
@@ -151,6 +154,14 @@
                 font-size: $h2-size / 1.8;
             }
         }
+        &__right {
+            &--playerList {
+                flex-wrap: nowrap;
+                overflow-y: auto;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
     }
 }
 //Tablet
@@ -161,6 +172,14 @@
                 font-size: $h2-size / 1.8;
             }
         }
+        &__right {
+            &--playerList {
+                flex-wrap: nowrap;
+                overflow-y: auto;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
     }
 }
 //Tablet Landscape
@@ -169,6 +188,12 @@
         &__left {
             & .launchGame {
                 font-size: $h2-size / 1.8;
+            }
+        }
+        &__right {
+            &--playerList {
+                flex-wrap: nowrap;
+                overflow-x: auto;
             }
         }
     }
