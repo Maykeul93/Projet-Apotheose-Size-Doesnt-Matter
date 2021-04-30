@@ -70,7 +70,7 @@
         margin-top: 0.5rem;
         position: relative;
         left: 20px;
-        bottom: 470px;
+        bottom: 452px;
     }
 
     
@@ -296,192 +296,320 @@
     }
 }
 
-
-
-//Mobile
-@media screen  and (min-width:0px) and (max-width: 549px) {
+@media screen and (min-width:0px) and (max-width: 360px){
     .profil{
-
-        &__onglet-content{
-            display: flex;
-            width: 100%;
-        }
-        &__form-delete {
-            background-color: red;
-            border: 1px solid transparent;
-            border-radius: 5px;
-            padding: 0.5rem;
-            font-weight: bold;
-            margin-top: 3rem;
-            margin-left: 1rem;
-            position: absolute;
-            bottom: 225px;
-            left: 54px;
+        &__information {
+        
+        flex-direction: column;
+        align-items: center;
         }
 
         &__avatar{
-            border-radius: 100px;
-            width: 110px;
-            border: 1px solid #f7c324;
-            padding: 1rem;
-            margin-top: 4rem;
-            margin-left: 5rem;
+            width: 80px;
+            margin-top: 1rem;
+            align-self: center;
+            margin-left: 0;
         }
-        
-        &__information{
-            width: 85%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-        }
-    }
-}
-@media screen  and (min-width:0px) and (max-width: 420px) {
-    .profil{
-        
+        &__form-delete{
+            margin-top: 1rem;
+            margin-left: 1rem;
+            position: relative;
+            top: 17rem;
+            padding: 0.3rem;
 
-       
+        }
+        &__form{
+            position: relative;
+            bottom: 5rem;
+            margin-right: 1rem;
+        }
+        &__form label{
+            font-size: 18px;
+        }
+        &__form-valid{
+            padding: 0.3rem;
+            font-size: 13px;
+            padding-right: 74px;
+            padding-left: 76px;
+            align-self: center;
+        }
+        
+    }
+    
+}
+@media screen and (min-width:360px) and (max-width: 690px){
+    .profil{
+        &__information {
+        
+        flex-direction: column;
+        align-items: center;
+        }
+
+        &__avatar{
+            width: 80px;
+            margin-top: 1rem;
+            align-self: center;
+            margin-left: 0;
+        }
+        &__form-delete{
+            margin-top: 1rem;
+            margin-left: 2rem;
+            position: relative;
+            top: 17rem;
+            padding: 0.3rem;
+
+        }
+        &__form{
+            position: relative;
+            bottom: 5rem;
+        }
+        &__form label{
+            font-size: 18px;
+        }
+        &__form-valid{
+            padding: 0.3rem;
+            font-size: 13px;
+            padding-right: 74px;
+            padding-left: 76px;
+            align-self: center;
+        }
+        
+    }
+    
+    
+
+}
+// Page Historique
+@media screen and (min-width:0px) and (max-width: 390px){
+
+    .profil{
 
         &__historique-first{
-            color: black;
-            font-weight: bold;
-            font-size: 20px;
-            margin-top: 0.5rem;
-            position: initial;
+            font-size: 21px; 
+             position: inherit;
+         }
+     
+         &__historique-second{
+             font-size: 20px;
+             position: inherit;
+         }
+     
+         &__historique-third{
+             font-size: 20px;
+             position: inherit;
+         }
+     
+         &__historique-last{
+             font-size: 15px;
+             position: inherit; 
+         }
+     
+         &__historique-exactly{
+ 
+             font-size: 18px;  
+             position: inherit;
+         }
+     
+         &__historique-game{
+           
+             font-size: 18px; 
+             position: inherit;
+         }
+ 
+         &__avatar-history{
+             margin: 0 ;
+         }
+
+        &__onglet-content{
+            margin-right: 1rem;
+
+            .profil__onglet{
+                font-size: 14px;
+            }
+                
+        }        
+    }
+    
+    
+}
+
+
+@media screen  and (min-width:390px) and (max-width: 470px) {
+    .profil{
+
+        &__historique-first{
+           font-size: 23px; 
+            position: inherit;
         }
     
         &__historique-second{
-            color: black;
-            font-weight: bold;
-            font-size: 20px;
-            margin-top: 0.5rem;
-            position: initial;
-            
+            font-size: 22px;
+            position: inherit;
         }
     
         &__historique-third{
-            color: black;
-            font-weight: bold;
-            font-size: 20px;
-            margin-top: 0.5rem;
-            position: initial;
+            font-size: 22px;
+            position: inherit;
         }
     
         &__historique-last{
-            color: black;
-            font-weight: bold;
-            font-size: 20px;
-            margin-top: 0.5rem;
-            position: initial;
+            font-size: 18px;
+            position: inherit; 
         }
     
         &__historique-exactly{
-            color: black;
-            font-weight: bold;
-            font-size: 19px;
-            margin-top: 0.5rem;
-            position: initial;
+
+            font-size: 20px;  
+            position: inherit;
         }
     
         &__historique-game{
-            color: black;
-            font-weight: bold;
-            font-size: 20px;
-            margin-top: 0.5rem;
-            position: initial;
+          
+            font-size: 20px; 
+            position: inherit;
         }
 
         &__avatar-history{
-            margin-top: 1rem;
+            margin: 0 ;
         }
 
         &__onglet-content{
-            display: flex;
-            width: 88%;
             .profil__onglet{
-                cursor: pointer;
-                flex-grow: 1;
-                text-align: center;
-                padding: $gutter;
-                border: 2px solid rgb(133, 130, 130);
                 font-size: 20px;
-                font-weight: bold;
-                color: white;
-                margin-bottom: 2rem; 
             }
+            
         }
-        
-        
-        }
-        
+    }
 }
-//Tablet
-@media screen  and (min-width:420px) and (max-width: 900px) {
+@media screen  and (min-width:470px) and (max-width: 700px) {
     .profil{
-        
 
         &__historique-first{
-            color: black;
-            font-weight: bold;
-            font-size: 25px;
-            margin-top: 0.5rem;
-            position: initial;
+            
+           position:inherit; 
         }
     
         &__historique-second{
-            color: black;
-            font-weight: bold;
-            font-size: 25px;
-            margin-top: 0.5rem;
-            position: initial;
+            
+            position:inherit; 
+        }
+    
+        &__historique-third{
+
+            position:inherit; 
+        }
+    
+        &__historique-last{
+            
+            position:inherit; 
+        }
+    
+        &__historique-exactly{
+
+            position:inherit; 
+            
+        }
+    
+        &__historique-game{
+          
+            position:inherit; 
+        }
+
+        &__avatar-history{
+            margin: 0 ;
+        }
+
+        &__onglet-content{
+            .profil__onglet{
+                font-size: 25px;
+            }
+            
+        }
+    }
+        
+}
+
+@media screen  and (min-width:700px) and (max-width: 900px) {
+    
+    .profil{
+        &__historique-first{
+            
+            font-size: 20px;
+            bottom: 204px;
+        }
+    
+        &__historique-second{
+            
+           font-size: 20px;
+            bottom: 110px;
+        }
+    
+        &__historique-third{
+           font-size: 20px;
+        }
+    
+        &__historique-last{
+            
+            font-size: 15px;
+            right: 214px;
+        }
+    
+        &__historique-exactly{
+            
+            font-size: 17px;
+            right: 221px;
+        }
+    
+        &__historique-game{
+          font-size: 20px;  
+          left: 12px;
+          bottom: 425px;
+           
+        }
+        
+    
+    }
+       
+}
+
+@media screen  and (min-width:900px) and (max-width: 1180px) {
+    .profil{
+        &__historique-first{
+            
+            font-size: 20px;
+        }
+    
+        &__historique-second{
+            
+           font-size: 20px;
             
         }
     
         &__historique-third{
-            color: black;
-            font-weight: bold;
-            font-size: 25px;
-            margin-top: 0.5rem;
-            position: initial;
+           font-size: 20px;
         }
     
         &__historique-last{
-            color: black;
-            font-weight: bold;
-            font-size: 25px;
-            margin-top: 0.5rem;
-            position: initial;
+            
+           font-size: 20px;
         }
     
         &__historique-exactly{
-            color: black;
-            font-weight: bold;
-            font-size: 25px;
-            margin-top: 0.5rem;
-            position: initial;
+            
+            font-size: 20px;
         }
     
         &__historique-game{
-            color: black;
-            font-weight: bold;
-            font-size: 25px;
-            margin-top: 0.5rem;
-            position: initial;
+          font-size: 20px;  
+           
         }
+        &__main{
+            margin-left: 5rem;
+        }
+    
+    }
+}
 
-        &__avatar-history{
-            margin-top: 1rem;
-        }
-        }
-}
-//Tablet Landscape
-@media screen  and (min-width:901px) and (max-width: 1024px) {
-    
-}
-//Laptop
-@media screen and  (max-width: 1600px) {
-    
-}
 
 .deleteModel {
     position: fixed;
