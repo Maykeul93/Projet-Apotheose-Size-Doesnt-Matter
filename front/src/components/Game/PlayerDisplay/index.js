@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import avatars from 'styles/images/avatars';
@@ -16,16 +17,30 @@ function PlayerDisplay({
     exactAnswer,
     userId,
 }) {
+    const answer = transformExactAnswerIntoExploitableAnswer(player.answer);
+    const [percent, setPercent] = useState(getPercentOfProgressBar(answer, exactAnswer))
     const index = findIndexOfUserAvatar(player, avatars);
 
-    const answer = transformExactAnswerIntoExploitableAnswer(player.answer);
-    const styleSpan = getPercentOfProgressBar(answer, exactAnswer);
+    console.log(percent);
+    useEffect(() => {
+        setPercent(getPercentOfProgressBar(answer, exactAnswer))
+    }, [player]);
+    
+    const styleSpan = {height: `${percent}%`};
     styleSpan.backgroundColor = avatars[index].color;
 
     const classNamesItem = classnames('playerDisplay', {'playerDisplay__user': userId === player.id});
  
     return (
         <div className={classNamesItem}>
+            <div className={
+                classnames("playerDisplay__info", {
+                    "playerDisplay__info--isDisplay": percent > 100,
+                    "playerDisplay__info--isHidden": percent < 100,
+                })
+            }>
+                C'est moins!!
+            </div>
             <div className='playerDisplay__progBar'>
                 {/* Need the player answer to adapt progress bar */}
                 <span
