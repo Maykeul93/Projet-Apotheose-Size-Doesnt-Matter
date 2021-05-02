@@ -6,7 +6,6 @@
     width: 100%;
     text-align: center;
     position: relative;
-    border: 1px white solid;
     & span {
         display: inline-block;
     }
@@ -79,9 +78,19 @@
 
 //Mobile
 @media screen  and (min-width:0px) and (max-width: 480px) {
+    .score {
+        &__pseudo {
+            font-size: .6em;
+        }
+    }
 }
 //Tablet
 @media screen  and (min-width:481px) and (max-width: 768px) {
+    .score {
+        &__pseudo {
+            font-size: .7em;
+        }
+    }
 }
 //Tablet Landscape
 @media screen  and (min-width:769px) and (max-width: 1024px) {

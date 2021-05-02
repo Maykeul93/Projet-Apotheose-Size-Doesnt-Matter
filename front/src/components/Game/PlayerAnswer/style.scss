@@ -36,13 +36,38 @@
 }
 
 //Mobile
-@media screen  and (min-width:0px) and (max-width: 480px) {
+@media screen  and (min-width:0px) and (max-width: 280px) {
+    .answer {
+        &__input {
+            font-size: .7em;
+        }
+        &__submit {
+            font-size: .6em;
+            width: 30%;
+        }
+    }
 }
+@media screen  and (min-width:281px) and (max-width: 480px) {
+    .answer {
+        &__input {
+            width: 50%;
+            font-size: .7em;
+        }
+        &__submit {
+            font-size: .6em;
+        }
+    }
+}
+
 //Tablet
 @media screen  and (min-width:481px) and (max-width: 768px) {
     .answer {
         &__input {
             width: 66%;
+            font-size: .9em;
+        }
+        &__submit {
+            font-size: .8em;
         }
     }
 }
