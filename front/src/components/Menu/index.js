@@ -45,7 +45,7 @@ function Menu({role}) {
             <ul
                 className="menu__options"
             >
-                <li className="menu__option" >
+                <li className="menu__option" > 
                     <IconContext.Provider 
                     value={{className:"menu__option--homeIcon"}}
                     >
