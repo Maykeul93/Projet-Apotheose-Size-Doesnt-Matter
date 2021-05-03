@@ -54,7 +54,7 @@ const SignUp = ({
                     />
                     </label>
                 <label className="signup__label">
-                    <p>Entrer une adresse email:</p>
+                    <p>Entrez une adresse email:</p>
                     <Field
                         className="signup__field" 
                         type="email"
@@ -74,7 +74,7 @@ const SignUp = ({
                     />
                 </label>
                 <label className="signup__label">
-                    <p>Confirmer votre mot de passe:</p>
+                    <p>Confirmez votre mot de passe:</p>
                     <Field 
                         className="signup__field"
                         type="password"

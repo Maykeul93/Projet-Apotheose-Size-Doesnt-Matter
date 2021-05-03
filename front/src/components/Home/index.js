@@ -27,12 +27,14 @@ const Home = ({isLogged, onDisplayChange, isRegistered, setRegistered}) => {
                 <p className="home__description">
                     <span>Size Doesn't Matter</span> est un jeu multijoueur en ligne.<br />
                     <br></br>
-                    Il s'agit d'un quizz ou vous et vos amis auront a repondre a differentes question,
-                    plus votre reponse est proche de la reponse exact plus vous gagnez de point.<br />
+                    Il s'agit d'un quizz ou vous et vos amis auront à repondre à differentes questions,
+                    plus votre reponse est proche de la réponse exact plus vous gagnez de points.<br />
                     <br></br>
-                    Vous etes pret? <br /> 
+                    Vous êtes prêt? <br /> 
                     <br></br>
-                    Inscrivez vous, invitez vos amis et <span>Jouez</span> !
+                    Inscrivez vous, invitez vos amis et <span>Jouez</span> ! <br />
+                    <br></br>
+                    <span className="indication"> * Les résultats aux questions ne sont en aucun des résultats affirmatifs et vérifiés scientifiquement</span>
                 </p>
                 <Slides />
                 <ToastContainer position="top-center"/>
