@@ -20,8 +20,8 @@ function Timmer({
     setIsRanked,
     userAvatar,
 }) {
-    const [seconds, setSeconds] = useState(isRound ? 30 : 15);
-    const [secondMax, setSecondMax] = useState(isRound? 30 : 15);
+    const [seconds, setSeconds] = useState(isRound ? 30 : 10);
+    const [secondMax, setSecondMax] = useState(isRound? 30 : 10);
 
     const index = findIndexOfUserAvatar(userAvatar, avatars);
 
@@ -45,8 +45,8 @@ function Timmer({
     }, [seconds]);
 
     useEffect(() => {
-        setSeconds(isRound ? 30 : 15);
-        setSecondMax(isRound ? 30 : 15);
+        setSeconds(isRound ? 30 : 10);
+        setSecondMax(isRound ? 30 : 10);
     }, [isRound]);
 
     return (
