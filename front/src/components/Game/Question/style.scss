@@ -7,6 +7,8 @@
     color: white;
     text-shadow: $shadow-letters;
     text-align: center;
+    margin-top: $gutter;
+    z-index: 5;
     & span {
         display: inline-block;
     }
@@ -15,4 +17,44 @@
         font-size: $h2-size * 1.5;
         text-shadow: 3px 3px 3px black;
     }
+}
+
+//Mobile
+@media screen  and (min-width:0px) and (max-width: 480px) {
+    .question {
+        font-size: 1em;
+        &__answer {
+            font-size: 1em;
+        }
+    }
+}
+//Tablet
+@media screen  and (min-width:481px) and (max-width: 768px) {
+    .question {
+        font-size: 1.2em;
+        &__answer {
+            font-size: 1.2em;
+        }
+    }
+}
+//Tablet Landscape
+@media screen  and (min-width:769px) and (max-width: 1024px) {
+    .question {
+        font-size: $h2-size;
+        &__answer {
+            font-size: $h2-size * 1.1;
+        }
+    }
+}
+//Laptop
+@media screen  and (min-width:1025px) and (max-width: 1200px) {
+    .question {
+        font-size: $h2-size;
+        &__answer {
+            font-size: $h2-size * 1.1;
+        }
+    }
+}
+//Desktop
+@media screen  and (min-width:1601px) {
 }

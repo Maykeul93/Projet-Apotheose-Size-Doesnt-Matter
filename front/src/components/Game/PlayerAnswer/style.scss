@@ -8,7 +8,6 @@
         font-family: $carbon-police;
         padding: $gutter / 2;
         border-radius: $button-radius;
-        text-shadow: 2px 2px 1px black;
         border: none;
         box-shadow: 2px 2px 8px black;
         &::placeholder {
@@ -34,4 +33,50 @@
             transform: scale(1.2);
         }
     }
+}
+
+//Mobile
+@media screen  and (min-width:0px) and (max-width: 280px) {
+    .answer {
+        &__input {
+            font-size: .7em;
+        }
+        &__submit {
+            font-size: .6em;
+            width: 30%;
+        }
+    }
+}
+@media screen  and (min-width:281px) and (max-width: 480px) {
+    .answer {
+        &__input {
+            width: 50%;
+            font-size: .7em;
+        }
+        &__submit {
+            font-size: .6em;
+        }
+    }
+}
+
+//Tablet
+@media screen  and (min-width:481px) and (max-width: 768px) {
+    .answer {
+        &__input {
+            width: 66%;
+            font-size: .9em;
+        }
+        &__submit {
+            font-size: .8em;
+        }
+    }
+}
+//Tablet Landscape
+@media screen  and (min-width:769px) and (max-width: 1024px) {
+}
+//Laptop
+@media screen  and (min-width:1025px) and (max-width: 1600px) {
+}
+//Desktop
+@media screen  and (min-width:1601px) {
 }

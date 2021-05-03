@@ -33,8 +33,6 @@ function PlayerAnswer({
                         value={inputValue}
                         onChange={(e) => changeInputValue(e.target.value)}
                         style={{
-                            color: avatars[index].color,
-                            placeholder: avatars[index].color,
                             borderBottom: avatars[index].color,
                         }}
                     />

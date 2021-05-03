@@ -7,7 +7,28 @@
     max-height: 100%;
     width: 80px;
     position: relative;
-    z-index: 5;
+    z-index: 1;
+    &__info {
+        color: white;
+        font-family: $carbon-police;
+        font-size: $h2-size;
+        text-shadow: 1px 1px 2px black;
+        z-index: 5;
+        position: absolute;
+        top: 30%;
+        left: 15%;
+        transform: rotate(-45deg);
+        &--isDisplay {
+            opacity: 1;
+            animation-duration: .3s;
+            animation-name: appear;
+        }
+        &--isHidden {
+            opacity: 0;
+            animation-duration: .3s;
+            animation-name: disappear;
+        }
+    }
     &__pseudo {
         font-family: $h1-police;
         color: white;
@@ -47,4 +68,84 @@
     &__user {
         width: 100px;
     }
+}
+
+@keyframes disappear {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes appear {
+     from {
+         opacity: 0;
+     }
+
+     to {
+         opacity: 1;
+     }
+}
+
+//Mobile
+@media screen  and (min-width:0px) and (max-width: 280px) {
+    .playerDisplay {
+        width: 40px;
+        &__pseudo {
+            font-size: .6em;
+        }
+        &__user {
+            width: 50px;
+        }
+        &__info {
+            font-size: .8em;
+        }
+    }
+}
+
+@media screen  and (min-width:281px) and (max-width: 480px) {
+    .playerDisplay {
+        width: 50px;
+        &__pseudo {
+            font-size: .6em;
+        }
+        &__user {
+            width: 60px;
+        }
+        &__info {
+            font-size: .8em;
+        }
+    }
+}
+//Tablet
+@media screen  and (min-width:481px) and (max-width: 768px) {
+    .playerDisplay {
+        width: 60px;
+        &__pseudo {
+            font-size: .6em;
+        }
+        &__user {
+            width: 80px;
+        }
+        &__info {
+            font-size: .8em;
+        }
+    }
+}
+//Tablet Landscape
+@media screen  and (min-width:769px) and (max-width: 1024px) {
+    .playerDisplay {
+        &__pseudo {
+            font-size: 1em;
+        }
+    }
+}
+//Laptop
+@media screen  and (min-width:1025px) and (max-width: 1600px) {
+}
+//Desktop
+@media screen  and (min-width:1601px) {
 }

@@ -8,8 +8,10 @@ const Form = ({onSubmit}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onSubmit(inputValue);
-        setInputValue('');
+        if(inputValue.length > 0) {
+            onSubmit(inputValue);
+            setInputValue('');
+        }
     }
     return(
         <form 

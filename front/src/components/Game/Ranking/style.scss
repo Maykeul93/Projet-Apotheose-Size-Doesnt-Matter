@@ -3,11 +3,14 @@
 .ranking {
     flex-grow: 1;
     padding-top: $gutter; 
-    margin: $gutter;
+    margin-top: $gutter;
+    margin-bottom: $gutter;
+    margin-right: $gutter;
     text-align: center;
     border-radius: 15px;
     box-shadow: $shadow-letters;
     z-index: 5;
+
     &__title {
         font-size: $h2-size;
         font-family: $h1-police;
@@ -26,7 +29,36 @@
         max-height: 90%;
         &--isOver {
             display: flex;
+            flex-direction: row;
             justify-content: center;
         }
     }
+}
+
+//Mobile
+@media screen  and (min-width:0px) and (max-width: 480px) {
+    .ranking {
+        width: 100%;
+        &__list {
+            flex-direction: row;
+        }
+    }
+}
+//Tablet
+@media screen  and (min-width:481px) and (max-width: 768px) {
+    .ranking {
+        width: 100%;
+        &__list {
+            flex-direction: row;
+        }
+    }
+}
+//Tablet Landscape
+@media screen  and (min-width:769px) and (max-width: 1024px) {
+}
+//Laptop
+@media screen  and (min-width:1025px) and (max-width: 1600px) {
+}
+//Desktop
+@media screen  and (min-width:1601px) {
 }

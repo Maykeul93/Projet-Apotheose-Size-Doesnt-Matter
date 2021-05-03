@@ -211,12 +211,16 @@ function Room({
                         }
                         {
                             screenSize < 769 && newMessage && (
-                                <div className="room__right--newMessage">
+                                <button
+                                    type="button"
+                                    className="room__right--newMessage"
+                                    onClick={handleClick}
+                                >
                                     <ImNotification
                                         size="25"
                                         color="#AA0606"
                                     />
-                                </div>
+                                </button>
                             )
                         }
                         <div className={

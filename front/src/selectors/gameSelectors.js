@@ -4,15 +4,11 @@ export const getPercentOfProgressBar = (answer, exactAnswer) => {
     if (!isNaN(answer)){
         const percent = (answer * 100) / exactAnswer;
 
-        return {
-            height: percent.toFixed(2) + '%',
-        };
+        return percent.toFixed(2);
 
     }
     else {
-        return {
-            height: '0%',
-        };
+        return 0;
     }
 };
 
