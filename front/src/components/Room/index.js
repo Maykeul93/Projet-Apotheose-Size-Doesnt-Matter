@@ -41,7 +41,6 @@ function Room({
     const [newMessage, setNewMessage] = useState(false);
 
     useEffect(() => {
-        console.log('je passe dans useEffect')
         const numberReady = otherPlayers.filter((player) => player.isReady).length;
         setPlayersReady(numberReady + (isReady ? 1 : 0));
         setPlayersNumber(otherPlayers.length + 1);
@@ -134,13 +133,19 @@ function Room({
                         {
                             screenSize > 768 && (
                                 <div className={
-                                    classnames("room__right--readyCounter", {"room__right--notreadyCounter": playersReady !== playersNumber})
+                                    classnames(
+                                        {
+                                            "room__right--notReadyCounter": playersReady !== playersNumber,
+                                            "room__right--readyCounter": playersReady === playersNumber,
+                                        },
+                                        "room__right--playersCounter"
+                                    )
                                 }>
                                     <CircularProgressbarWithChildren
                                         value={timerPercent(playersReady, playersNumber)}
                                         styles={{
                                             path: {
-                                                stroke: "rgb(0, 158, 13)",
+                                                stroke: `${ playersReady !== playersNumber ? 'rgb(170, 6, 6)' : 'rgb(0, 158, 13)'}`,
                                             },
                                             trail: {
                                                 // Trail color

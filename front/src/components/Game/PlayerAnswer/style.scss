@@ -6,6 +6,7 @@
     &__input {
         width: 30%;
         font-family: $carbon-police;
+        font-size: 1.2em;
         padding: $gutter / 2;
         border-radius: $button-radius;
         border: none;
@@ -21,7 +22,7 @@
     }
     &__submit {
         padding: $gutter / 2;
-        margin-left: $gutter;
+        margin-left: $gutter * 1.5;
         border: none;
         border-radius: $button-radius;
         color: white;
@@ -36,7 +37,7 @@
 }
 
 //Mobile
-@media screen  and (min-width:0px) and (max-width: 280px) {
+@media screen  and (min-width:0px) and (max-width: 290px) {
     .answer {
         &__input {
             font-size: .7em;
@@ -44,10 +45,11 @@
         &__submit {
             font-size: .6em;
             width: 30%;
+            margin-left: $gutter;
         }
     }
 }
-@media screen  and (min-width:281px) and (max-width: 480px) {
+@media screen  and (min-width:291px) and (max-width: 480px) {
     .answer {
         &__input {
             width: 50%;
@@ -55,6 +57,7 @@
         }
         &__submit {
             font-size: .6em;
+            margin-left: $gutter * 1.4;
         }
     }
 }
