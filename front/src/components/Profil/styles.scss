@@ -49,7 +49,7 @@
         font-size: 25px;
         margin-top: 0.5rem;
         position: relative;
-        right: 300px;
+        right: 250px;
         bottom: 165px;
     }
 
@@ -83,7 +83,7 @@
             flex-grow: 1;
             text-align: center;
             padding: $gutter;
-            border: 2px solid rgb(133, 130, 130);
+            border-bottom: 1px solid white;
             font-size: 30px;
             font-weight: bold;
             color: white;
@@ -459,7 +459,54 @@
   }
 
 
-@media screen and (min-width:0px) and (max-width: 360px){
+  @media screen and (min-width:0px) and (max-width: 305px){
+    .profil{
+        &__information {
+        
+        flex-direction: column;
+        align-items: center;
+        }
+
+        &__avatar{
+            width: 80px;
+            margin-top: 1rem;
+            align-self: center;
+            margin-left: 0;
+        }
+        &__form-delete{
+            margin-top: 1rem;
+            margin-left: 1rem;
+            position: relative;
+            top: 17rem;
+            
+            font-size: 10px;
+
+        }
+        &__form{
+            position: relative;
+            bottom: 5rem;
+            margin-right: 1rem;
+        }
+        &__form label{
+            font-size: 14px;
+        }
+        &__form-valid{
+            padding: 0.3rem;
+            font-size: 13px;
+            
+            align-self: center;
+        }
+        &__onglet-content{
+            .profil__onglet{
+                font-size: 10px;
+            }
+            
+        }
+        
+    }
+    
+}
+@media screen and (min-width:305px) and (max-width: 360px){
     .profil{
         &__information {
         
@@ -496,12 +543,14 @@
             padding-left: 76px;
             align-self: center;
         }
+       
         
     }
     
 }
 @media screen and (min-width:360px) and (max-width: 690px){
     .profil{
+        overflow: auto;
         &__information {
         
         flex-direction: column;
@@ -543,7 +592,59 @@
 
 }
 // Page Historique
-@media screen and (min-width:0px) and (max-width: 390px){
+@media screen and (min-width:0px) and (max-width: 323px){
+
+    .profil{
+
+        &__historique-first{
+            font-size: 21px; 
+             position: inherit;
+         }
+     
+         &__historique-second{
+             font-size: 20px;
+             position: inherit;
+         }
+     
+         &__historique-third{
+             font-size: 20px;
+             position: inherit;
+         }
+     
+         &__historique-last{
+             font-size: 15px;
+             position: inherit; 
+         }
+     
+         &__historique-exactly{
+ 
+             font-size: 14px;  
+             position: inherit;
+         }
+     
+         &__historique-game{
+           
+             font-size: 18px; 
+             position: inherit;
+         }
+ 
+         &__avatar-history{
+             margin: 0 ;
+         }
+
+        &__onglet-content{
+            margin-right: 1rem;
+
+            .profil__onglet{
+                font-size: 10px;
+            }
+                
+        }        
+    }
+    
+    
+}
+@media screen and (min-width:323px) and (max-width: 390px){
 
     .profil{
 
@@ -592,25 +693,7 @@
                 
         }        
     }
-    .deleteModel {
-        h1{
-            font-size: $p-size*0.7;
-        }
-        p{
-            font-size: $p-size*0.7;
-            margin-bottom: $gutter*0.7;
-        }
-        .buttons{
-            .validButton{
-                padding: $gutter*0.3;
-                font-size: $p-size*0.5;
-            }
-            .cancelButton{
-                padding: $gutter*0.3;
-                font-size: $p-size*0.5;
-            }
-        }
-      }
+    
     
 }
 
@@ -661,25 +744,6 @@
             
         }
     }
-    .deleteModel {
-        h1{
-            font-size: $p-size;
-        }
-        p{
-            font-size: $p-size;
-            margin-bottom: 1em;
-        }
-        .buttons{
-            .validButton{
-                padding: $gutter*0.5;
-                font-size: $p-size*0.7;
-            }
-            .cancelButton{
-                padding: $gutter*0.5;
-                font-size: $p-size*0.7;
-            }
-        }
-      }
 }
 @media screen  and (min-width:470px) and (max-width: 700px) {
     .profil{
@@ -726,25 +790,7 @@
             
         }
     }
-    .deleteModel {
-        h1{
-            font-size: $p-size;
-        }
-        p{
-            font-size: $p-size;
-            margin-bottom: 1em;
-        }
-        .buttons{
-            .validButton{
-                padding: $gutter*0.5;
-                font-size: $p-size*0.7;
-            }
-            .cancelButton{
-                padding: $gutter*0.5;
-                font-size: $p-size*0.7;
-            }
-        }
-      }
+        
 }
 
 @media screen  and (min-width:700px) and (max-width: 900px) {
@@ -768,8 +814,8 @@
     
         &__historique-last{
             
-            font-size: 15px;
-            right: 214px;
+            font-size: 18px;
+            right: 220px;
         }
     
         &__historique-exactly{
@@ -795,11 +841,13 @@
         &__historique-first{
             
             font-size: 20px;
+            bottom: 197px;
         }
     
         &__historique-second{
             
            font-size: 20px;
+           bottom: 106px;
             
         }
     
