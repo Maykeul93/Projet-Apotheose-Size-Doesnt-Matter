@@ -47,9 +47,21 @@ $h2-size: 1.5em;
     src: url('fonts/Vanilla.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Abscissa';
+    src: url('fonts/Abscissa.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Narrenschiff';
+    src: url('fonts/Narrenschiff.otf') format('embedded-opentype');
+}
+
 $h1-police: 'Airmoleshaded', serif;
 $carbon-police: 'CarbonBlock', serif;
 $vanilla-police: 'Vanilla', serif;
+$abscissa-police: 'Abscissa', serif;
+$narren-police: 'Narrenschiff', serif;
 
 // text shadow
 $shadow-letters: 1.5px 1.5px 5px black;
