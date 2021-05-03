@@ -48,7 +48,7 @@ const AddQuestion = ({tags, tagId, onSelectChange, onSubmit}) => {
         className="form-content__button" 
         type="submit"
         onClick={handleOnSubmit}
-        >Valider</button>
+        >Ajouter</button>
     </React.Fragment>
     )
 };

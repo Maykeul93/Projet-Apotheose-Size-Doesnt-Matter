@@ -51,6 +51,7 @@ const SignUp = ({
                         placeholder="Pseudo"
                         name='pseudo'
                         required
+                        maxlength="10"
                     />
                     </label>
                 <label className="signup__label">

@@ -23,7 +23,7 @@ const Ban = ({users, userId, onSelectChange, onSubmit}) => (
             }
         </select>
         <button 
-            className="form-content__button" 
+            className="form-content__button red" 
             type="button"
             onClick={onSubmit}
             >Bannir
