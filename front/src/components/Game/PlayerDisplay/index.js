@@ -49,7 +49,7 @@ function PlayerDisplay({
                 >
                     <div className="playerDisplay__avatar">
                         {/* player avatar import */}
-                        <img src={avatars[index].path} alt={`user's avatar : ${avatars[index].name}`}/>
+                        <img src={avatars[index].gamePath} alt={`user's avatar : ${avatars[index].name}`}/>
                     </div>
                 </span>
             </div>

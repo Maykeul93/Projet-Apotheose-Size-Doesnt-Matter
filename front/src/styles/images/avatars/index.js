@@ -6,47 +6,63 @@ import maxi from './maxi.png';
 import sebounay from './sebounay.png';
 import toms from './toms.png';
 import baptou from './baptou.png';
+import alexouGame from './alexou__game.png';
+import brianaGame from './briana__game.png';
+import jimmoGame from './jimmo__game.png';
+import luccianoGame from './lucciano__game.png';
+import maxiGame from './maxi__game.png';
+import sebounayGame from './sebounay__game.png';
+import tomsGame from './toms__game.png';
+import baptouGame from './baptou__game.png';
 
 const avatars = [
     {
         name: "Alexou",
         path: alexou,
-        color: "#EB883E",
+        gamePath: alexouGame,
+        color: "#EC893F",
     },
     {
         name: "Briana",
         path: briana,
-        color: "#529B29",
+        gamePath: brianaGame,
+        color: "#66B130",
     },
     {
         name: "Jimmo",
         path: jimmo,
-        color: "#E1262C",
+        gamePath: jimmoGame,
+        color: "#FE3636",
     },
     {
         name: "Lucciano",
         path: lucciano,
-        color: "#4A1879",
+        gamePath: luccianoGame,
+        color: "#612999",
     },
     {
         name: "Maxi",
         path: maxi,
-        color: "#FDEE02",
+        gamePath: maxiGame,
+        color: "#F1E400",
     },
     {
         name: "Sebounay",
         path: sebounay,
-        color: "#E377BB",
+        gamePath: sebounayGame,
+        color: "#F986C7",
     },
     {
         name: "Toms",
         path: toms,
-        color: "#292929",
+        gamePath: tomsGame,
+        color: "#979797",
     },
     {
         name: "Baptou",
         path: baptou,
-        color: "#2851C0",
+        gamePath: baptouGame,
+        color: "#2B61E5",
     }
 ];
 

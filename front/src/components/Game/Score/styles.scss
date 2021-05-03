@@ -79,8 +79,9 @@
 //Mobile
 @media screen  and (min-width:0px) and (max-width: 480px) {
     .score {
-        &__pseudo {
-            font-size: .6em;
+        font-size: .5em;
+        &__desc {
+            font-size: .6rem;
         }
     }
 }
