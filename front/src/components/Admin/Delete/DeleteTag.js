@@ -24,10 +24,10 @@ const DeleteTag = ({tags, tagId, onSelectChange, onSubmit}) => (
                 }
             </select>
         <button 
-            className="form-content__button" 
+            className="form-content__button red" 
             type="submit"
             onClick={onSubmit}
-        >Valider</button>
+        >Supprimer</button>
     </React.Fragment>
 );
 

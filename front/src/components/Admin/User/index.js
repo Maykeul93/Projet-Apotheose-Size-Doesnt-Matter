@@ -27,6 +27,7 @@ const Role = ({setOption}) => {
                 <li className="section__item">
                     <button 
                     type="button"
+                    className="red"
                     onClick={() => setOption('ban-user')}
                     >Bannir</button>
                 </li>

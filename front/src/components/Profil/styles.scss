@@ -318,6 +318,7 @@
     p{
         text-align: center;
         font-size: $h2-size;
+        font-family: $abscissa-police;
         font-weight: bold;
         margin-bottom: 1em;
         color: red;
@@ -328,9 +329,9 @@
         .validButton{
             background-color: $button-red;
             box-shadow: 2px 2px 10px black;
+            font-family: $vanilla-police;
             color: white;
             border: none;
-            font-weight: bold;
             padding: $gutter;
             font-size: $p-size;
             border-radius: 5px;
@@ -339,9 +340,9 @@
         .cancelButton{
             background-color: $button-green;
             box-shadow: 2px 2px 10px black;
+            font-family: $vanilla-police;
             color: white;
             border: none;
-            font-weight: bold;
             font-size: $p-size;
             padding: $gutter;
             border-radius: 5px;
@@ -421,9 +422,9 @@
             background-color: $button-green;
             color: white;
             box-shadow: 2px 2px 10px black;
+            font-family: $vanilla-police;
             border: none;
             font-size: $h2-size;
-            font-weight: bold;
             padding: $gutter*1;
             border-radius: 5px;
             transition: transform 0.2;
@@ -431,10 +432,10 @@
         .cancelButton{
             background-color: $button-red;
             color: white;
+            font-family: $vanilla-police;
             box-shadow: 2px 2px 10px black;
             border: none;
             font-size: $h2-size;
-            font-weight: bold;
             padding: $gutter*.5;
             border-radius: 5px;
             transition: transform 0.2;
