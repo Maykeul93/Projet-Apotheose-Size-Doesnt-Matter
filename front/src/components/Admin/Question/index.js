@@ -32,6 +32,7 @@ const Question = ({setOption}) => {
                 <li className="section__item">
                     <button 
                     type="button"
+                    className="red"
                     onClick={() => setOption('delete-question')}
                     >Supprimer</button>
                 </li>

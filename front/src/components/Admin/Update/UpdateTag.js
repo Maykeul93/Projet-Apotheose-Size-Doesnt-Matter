@@ -36,7 +36,7 @@ const UpdateTag = ({tags, tagId, onSelectTagChange, onSubmit}) => (
         className="form-content__button" 
         type="submit"
         onClick={onSubmit}
-        >Valider</button>
+        >Modifier</button>
     </React.Fragment>
 );
 
