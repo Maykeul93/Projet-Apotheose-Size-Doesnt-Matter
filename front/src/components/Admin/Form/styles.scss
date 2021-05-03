@@ -34,13 +34,16 @@
             font-weight: bold;
             border-radius: 5px;
             border: none;
-            background-color: green;
             color: white;
             cursor: pointer;
+            background-color: $button-green;
+            box-shadow: 2px 2px 10px black;
         }
         &__button:hover{
-            background-color: rgb(36, 185, 43);
-            color: white;
+            transform: scale(1.1);
+        }
+        .red{
+            background-color: $button-red;
         }
     }
 }

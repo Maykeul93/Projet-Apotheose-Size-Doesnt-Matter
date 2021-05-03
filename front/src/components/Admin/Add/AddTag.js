@@ -18,7 +18,7 @@ const TagOption = ({onSubmit}) => {
                 className="form-content__button" 
                 type="submit"
                 onClick={onSubmit}
-            >Valider</button>
+            >Ajouter</button>
         </React.Fragment>
     )
 };
