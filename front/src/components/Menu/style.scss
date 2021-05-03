@@ -24,6 +24,7 @@
         //background: -webkit-linear-gradient(to right, #753a88, #cc2b5e);  
         //background: linear-gradient(to right, #753a88, #cc2b5e);
         border-radius: 5px;
+        box-shadow: 2px 2px 2px black;
         
     }
     &__option {
@@ -52,7 +53,7 @@
         top: 27px;
     }
     &__option-deco:hover{
-        background: #ff00f7;
+        background: $button-red;
         
     }
     &__option-logout{
@@ -197,7 +198,17 @@
 }
 
 //Mobile
-@media screen  and (min-width:0px) and (max-width: 480px) {
+@media screen  and (min-width:0px) and (max-width: 390px) {
+    .menu{
+        &__icon-menu{
+            position: absolute;
+            right: -10px;
+            top: -20px;
+            width: 30px;
+        }
+    }
+}
+@media screen  and (min-width:390px) and (max-width: 480px) {
     .menu{
         &__icon-menu{
             right: 0px;
