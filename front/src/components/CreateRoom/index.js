@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { HiOutlineInformationCircle } from 'react-icons/hi';
 import { IconContext } from 'react-icons';
 import { Redirect } from 'react-router-dom';
@@ -18,6 +18,7 @@ function CreateRoom({
     socket,
 }) {
     const screenWidth = useWidthDimension();
+    const pageRef = useRef();
 
     useEffect(() => {
         if (!socket) {
@@ -28,6 +29,10 @@ function CreateRoom({
     if (room) {
         const path = `/room/${room}`
         return (<Redirect to={path} />)
+    }
+
+    if (screenWidth < 540) {
+        pageRef.current.scrollTop = pageRef.current.scrollHeight;
     }
 
     const handleRules = () => {
@@ -43,7 +48,7 @@ function CreateRoom({
     };
 
     return (
-        <main className="createRoom page__main">
+        <main className="createRoom page__main" ref={pageRef}>
             <div className="createRoom__player">
                 <PlayerWithAvatar />
             </div>

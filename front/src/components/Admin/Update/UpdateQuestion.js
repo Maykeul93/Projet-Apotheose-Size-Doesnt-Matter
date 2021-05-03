@@ -72,7 +72,7 @@ const UpdateQuestion = ({
         className="form-content__button" 
         type="submit"
         onClick={onSubmit}
-        >Modifier</button>
+        >Valider</button>
     </React.Fragment>
 );
 
