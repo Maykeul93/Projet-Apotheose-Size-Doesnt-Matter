@@ -120,7 +120,40 @@
     
 }
 //Mobile
-@media screen  and (min-width:0px) and (max-width: 480px) {
+@media screen  and (min-width:0px) and (max-width: 282px) {
+    .header{
+        &__title{
+            font-size: 1.4em;
+            margin: auto;
+        }
+        &__logo{
+            display: none;
+        }
+    }
+}
+@media screen  and (min-width:282px) and (max-width: 297px) {
+    .header{
+        &__title{
+            font-size: 1.5em;
+            margin: auto;
+        }
+        &__logo{
+            display: none;
+        }
+    }
+}
+@media screen  and (min-width:297px) and (max-width: 356px) {
+    .header{
+        &__title{
+            font-size: 1.6em;
+            margin: auto;
+        }
+        &__logo{
+            display: none;
+        }
+    }
+}
+@media screen  and (min-width:357px) and (max-width: 480px) {
     .header{
         &__title{
             font-size: 2em;

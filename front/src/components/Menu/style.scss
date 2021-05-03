@@ -198,7 +198,17 @@
 }
 
 //Mobile
-@media screen  and (min-width:0px) and (max-width: 480px) {
+@media screen  and (min-width:0px) and (max-width: 390px) {
+    .menu{
+        &__icon-menu{
+            position: absolute;
+            right: -10px;
+            top: -20px;
+            width: 30px;
+        }
+    }
+}
+@media screen  and (min-width:390px) and (max-width: 480px) {
     .menu{
         &__icon-menu{
             right: 0px;
