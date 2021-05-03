@@ -24,6 +24,7 @@
         //background: -webkit-linear-gradient(to right, #753a88, #cc2b5e);  
         //background: linear-gradient(to right, #753a88, #cc2b5e);
         border-radius: 5px;
+        box-shadow: 2px 2px 2px black;
         
     }
     &__option {
@@ -52,7 +53,7 @@
         top: 27px;
     }
     &__option-deco:hover{
-        background: #ff00f7;
+        background: $button-red;
         
     }
     &__option-logout{
