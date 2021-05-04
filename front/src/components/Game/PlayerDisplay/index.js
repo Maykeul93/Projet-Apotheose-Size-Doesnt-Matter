@@ -36,7 +36,7 @@ function PlayerDisplay({
             <div className={
                 classnames("playerDisplay__info", {
                     "playerDisplay__info--isDisplay": percent > 100,
-                    "playerDisplay__info--isHidden": percent < 100,
+                    "playerDisplay__info--isHidden": percent <= 100,
                 })
             }>
                 C'est moins!!

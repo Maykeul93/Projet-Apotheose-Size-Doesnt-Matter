@@ -83,17 +83,6 @@ function UserInteractions({
                     onBlur={(e) => e.target.placeholder = "code de la partie à rejoindre"}
                 />
             </form>
-            <ToastContainer
-                position="bottom-center"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-            />
         </div>
     );
 }

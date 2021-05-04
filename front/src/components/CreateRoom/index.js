@@ -31,9 +31,9 @@ function CreateRoom({
         return (<Redirect to={path} />)
     }
 
-    if (screenWidth < 540) {
-        pageRef.current.scrollTop = pageRef.current.scrollHeight;
-    }
+    // if (screenWidth < 540) {
+    //     pageRef.current.scrollTop = pageRef.current.scrollHeight;
+    // }
 
     const handleRules = () => {
         toast.info(<Rules />, {
@@ -48,49 +48,50 @@ function CreateRoom({
     };
 
     return (
-        <main className="createRoom page__main" ref={pageRef}>
-            <div className="createRoom__player">
-                <PlayerWithAvatar />
-            </div>
-            {
-                screenWidth > 900 ? (
-                    <div className="createRoom__menu">
-                        <Rules />
-                        <UserInteractions />
-                    </div>
-                ) : (
-                    <>
+        <>
+            <main className="createRoom page__main" ref={pageRef}>
+                <div className="createRoom__player">
+                    <PlayerWithAvatar />
+                </div>
+                {
+                    screenWidth > 900 ? (
                         <div className="createRoom__menu">
+                            <Rules />
                             <UserInteractions />
                         </div>
-                        <div className="createRoom__rulesIcon">
-                            <button
-                                className="createRoom__rulesIcon--button"
-                                type="button"
-                                onClick={handleRules}
-                            >
-                                <IconContext.Provider
-                                    value={{className: "createRoom__rulesIcon--icon"}}
+                    ) : (
+                        <>
+                            <div className="createRoom__menu">
+                                <UserInteractions />
+                            </div>
+                            <div className="createRoom__rulesIcon">
+                                <button
+                                    className="createRoom__rulesIcon--button"
+                                    type="button"
+                                    onClick={handleRules}
                                 >
-                                    <HiOutlineInformationCircle size="25" />
-                                </IconContext.Provider>
-                                <h2>Règles du jeu</h2>
-                            </button>
-                        </div>
-                        <ToastContainer
-                            position="top-center"
-                            autoClose={false}
-                            newestOnTop={false}
-                            closeOnClick
-                            rtl={false}
-                            pauseOnFocusLoss
-                            draggable
-                        />
-                    </>
-                )
-            }
-            
-        </main>
+                                    <IconContext.Provider
+                                        value={{className: "createRoom__rulesIcon--icon"}}
+                                    >
+                                        <HiOutlineInformationCircle size="25" />
+                                    </IconContext.Provider>
+                                    <h2>Règles du jeu</h2>
+                                </button>
+                            </div>
+                        </>
+                    )
+                }
+            </main>
+            <ToastContainer
+                position="top-center"
+                autoClose={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss={false}
+                draggable
+            />
+        </>
     );
 }
 
