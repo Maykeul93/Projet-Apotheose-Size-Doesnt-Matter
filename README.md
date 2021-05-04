@@ -1,12 +1,13 @@
 # Projet-Apotheose-Size-Doesnt-Matter
 
-## Techologies principales utiliser:
+lien : https://size-doesnt-matter.games/
+## Technologies principales utiliser:
 
--React
--Redux
--Axios
--Socket.io
--NodeJS
--PostgreSql
--Express
--Squitch
+-React  
+-Redux  
+-Axios  
+-Socket.io  
+-NodeJS  
+-PostgreSql  
+-Express  
+-Squitch  
